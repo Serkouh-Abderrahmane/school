@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paiements — Cultulangues</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user"><div class="avatar">M</div><div class="sidebar-user-info"><div class="sidebar-user-name">Maria S.</div><div class="sidebar-user-role">Étudiante · B2</div></div></div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Navigation</div>
+        <a class="sidebar-item" data-href="dashboard.html"><span class="sidebar-item-icon">📊</span> Tableau de bord</a>
+        <a class="sidebar-item" data-href="my-programs.html"><span class="sidebar-item-icon">📚</span> Mes programmes</a>
+        <a class="sidebar-item" data-href="calendar.html"><span class="sidebar-item-icon">📅</span> Mon calendrier</a>
+        <a class="sidebar-item active" data-href="payments.html"><span class="sidebar-item-icon">💳</span> Paiements & factures</a>
+        <a class="sidebar-item" data-href="level-tests.html"><span class="sidebar-item-icon">📝</span> Tests de niveau</a>
+        <div class="sidebar-section">Paramètres</div>
+        <a class="sidebar-item" data-href="profile.html"><span class="sidebar-item-icon">⚙️</span> Profil</a>
+        <a class="sidebar-item" data-href="support.html"><span class="sidebar-item-icon">💬</span> Support</a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html"><span class="sidebar-item-icon">🚪</span> Déconnexion</a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title">Paiements & factures</h1></div>
+        <div class="topbar-right"><div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" placeholder="Rechercher..."></div><button class="topbar-notification">🔔<span class="notification-dot"></span></button><div class="avatar avatar-sm">M</div></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-card-header"><div class="stat-card-icon green">💳</div></div><div class="stat-card-value">450€</div><div class="stat-card-label">Dernier paiement</div></div>
+          <div class="stat-card"><div class="stat-card-header"><div class="stat-card-icon blue">📄</div></div><div class="stat-card-value">1 350€</div><div class="stat-card-label">Total payé</div></div>
+          <div class="stat-card"><div class="stat-card-header"><div class="stat-card-icon gold">📅</div></div><div class="stat-card-value">5 Sept</div><div class="stat-card-label">Prochain paiement</div></div>
+          <div class="stat-card"><div class="stat-card-header"><div class="stat-card-icon emerald">✅</div></div><div class="stat-card-value">3</div><div class="stat-card-label">Factures payées</div></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3 class="card-title">Historique des factures</h3></div>
+          <div class="table-container">
+            <table class="table">
+              <thead><tr><th>Facture</th><th>Date</th><th>Description</th><th>Montant</th><th>Statut</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>FAC-2026-001</td><td>5 Sept 2026</td><td>TCF Québec · Mois 1</td><td>450€</td><td><span class="badge badge-emerald">Payée</span></td><td><button class="btn btn-ghost btn-sm btn-download-invoice">📄 Télécharger</button></td></tr>
+                <tr><td>FAC-2026-002</td><td>5 Oct 2026</td><td>TCF Québec · Mois 2</td><td>450€</td><td><span class="badge badge-emerald">Payée</span></td><td><button class="btn btn-ghost btn-sm btn-download-invoice">📄 Télécharger</button></td></tr>
+                <tr><td>FAC-2026-003</td><td>5 Nov 2026</td><td>TCF Québec · Mois 3</td><td>450€</td><td><span class="badge badge-emerald">Payée</span></td><td><button class="btn btn-ghost btn-sm btn-download-invoice">📄 Télécharger</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

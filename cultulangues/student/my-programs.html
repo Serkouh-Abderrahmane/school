@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mes Programmes — Cultulangues</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a>
+      </div>
+      <div class="sidebar-user">
+        <div class="avatar">M</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Maria S.</div>
+          <div class="sidebar-user-role">Étudiante · B2</div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Navigation</div>
+        <a class="sidebar-item" data-href="dashboard.html"><span class="sidebar-item-icon">📊</span> Tableau de bord</a>
+        <a class="sidebar-item active" data-href="my-programs.html"><span class="sidebar-item-icon">📚</span> Mes programmes</a>
+        <a class="sidebar-item" data-href="calendar.html"><span class="sidebar-item-icon">📅</span> Mon calendrier</a>
+        <a class="sidebar-item" data-href="payments.html"><span class="sidebar-item-icon">💳</span> Paiements & factures</a>
+        <a class="sidebar-item" data-href="level-tests.html"><span class="sidebar-item-icon">📝</span> Tests de niveau</a>
+        <div class="sidebar-section">Paramètres</div>
+        <a class="sidebar-item" data-href="profile.html"><span class="sidebar-item-icon">⚙️</span> Profil</a>
+        <a class="sidebar-item" data-href="support.html"><span class="sidebar-item-icon">💬</span> Support</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a class="sidebar-item" data-href="../index.html"><span class="sidebar-item-icon">🚪</span> Déconnexion</a>
+      </div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle">☰</button>
+          <h1 class="topbar-title">Mes programmes</h1>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-search">
+            <span class="topbar-search-icon">🔍</span>
+            <input type="text" placeholder="Rechercher...">
+          </div>
+          <button class="topbar-notification">🔔<span class="notification-dot"></span></button>
+          <div class="avatar avatar-sm">M</div>
+        </div>
+      </header>
+      <div class="dashboard-content">
+        <div class="dashboard-content-header">
+          <h2>Mes programmes</h2>
+          <a href="../booking.html" class="btn btn-primary">+ Nouvelle inscription</a>
+        </div>
+
+        <div class="card mb-lg">
+          <div class="card-body">
+            <div class="flex justify-between items-center" style="flex-wrap: wrap; gap: var(--space-md);">
+              <div class="flex items-center" style="gap: var(--space-md);">
+                <div style="width: 48px; height: 48px; background: var(--color-bg-cream); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">📘</div>
+                <div>
+                  <h4 style="margin-bottom: 2px;">Préparation TCF Québec · Intensif</h4>
+                  <p style="font-size: 0.8125rem; color: var(--color-text-tertiary); margin: 0;">Début : 5 Sept 2026 · 12 semaines</p>
+                </div>
+              </div>
+              <div class="flex items-center" style="gap: var(--space-md);">
+                <span class="badge badge-emerald">En cours</span>
+                <span style="font-size: 0.9375rem; font-weight: 700; color: var(--color-emerald);">67%</span>
+                <div class="progress" style="width: 100px;"><div class="progress-bar" style="width: 67%;"></div></div>
+                <button class="btn btn-outline btn-sm" onclick="openModal('program-detail-modal')">Détails</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-lg">
+          <div class="card-body">
+            <div class="flex justify-between items-center" style="flex-wrap: wrap; gap: var(--space-md);">
+              <div class="flex items-center" style="gap: var(--space-md);">
+                <div style="width: 48px; height: 48px; background: var(--color-bg-cream); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">💬</div>
+                <div>
+                  <h4 style="margin-bottom: 2px;">Atelier de Conversation</h4>
+                  <p style="font-size: 0.8125rem; color: var(--color-text-tertiary); margin: 0;">Début : 12 Sept 2026 · 6 séances</p>
+                </div>
+              </div>
+              <div class="flex items-center" style="gap: var(--space-md);">
+                <span class="badge badge-emerald">En cours</span>
+                <span style="font-size: 0.9375rem; font-weight: 700; color: var(--color-emerald);">42%</span>
+                <div class="progress" style="width: 100px;"><div class="progress-bar gold" style="width: 42%;"></div></div>
+                <button class="btn btn-outline btn-sm" onclick="openModal('program-detail-modal')">Détails</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="empty-state">
+          <div class="empty-state-icon">🎓</div>
+          <h3>Vous avez déjà 2 programmes en cours</h3>
+          <p>Continuez comme ça ! Vous pouvez également explorer nos autres formations.</p>
+          <a href="../pages/programs.html" class="btn btn-primary">Découvrir plus de programmes</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="program-detail-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Détails du programme</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="flex items-center gap-md mb-md">
+          <div style="font-size: 2rem;">📘</div>
+          <div>
+            <h4>Préparation TCF Québec · Intensif</h4>
+            <p style="font-size: 0.875rem; color: var(--color-text-secondary);">Enseignante : Sophie Martin</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+          <div class="flex justify-between"><span class="text-muted">Début</span><span>5 Sept 2026</span></div>
+          <div class="flex justify-between"><span class="text-muted">Fin</span><span>28 Nov 2026</span></div>
+          <div class="flex justify-between"><span class="text-muted">Rythme</span><span>Lun, Mer, Ven · 14h-16h</span></div>
+          <div class="flex justify-between"><span class="text-muted">Progression</span><span>67%</span></div>
+          <div class="flex justify-between"><span class="text-muted">Niveau actuel</span><span>B2</span></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeModal('program-detail-modal')">Fermer</button>
+        <button class="btn btn-primary">Voir le calendrier</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

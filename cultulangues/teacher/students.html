@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mes étudiants — Enseignant</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user"><div class="avatar">S</div><div class="sidebar-user-info"><div class="sidebar-user-name">Sophie Martin</div><div class="sidebar-user-role">Enseignante certifiée FLE</div></div></div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Navigation</div>
+        <a class="sidebar-item" data-href="dashboard.html"><span class="sidebar-item-icon">📊</span> Tableau de bord</a>
+        <a class="sidebar-item" data-href="schedule.html"><span class="sidebar-item-icon">📅</span> Mon emploi du temps</a>
+        <a class="sidebar-item active" data-href="students.html"><span class="sidebar-item-icon">👥</span> Mes étudiants</a>
+        <a class="sidebar-item" data-href="session-details.html"><span class="sidebar-item-icon">📋</span> Suivi des séances</a>
+        <div class="sidebar-section">Paramètres</div>
+        <a class="sidebar-item" data-href="profile.html"><span class="sidebar-item-icon">⚙️</span> Profil</a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html"><span class="sidebar-item-icon">🚪</span> Déconnexion</a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title">Mes étudiants</h1></div>
+        <div class="topbar-right"><div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" placeholder="Rechercher..."></div><button class="topbar-notification">🔔<span class="notification-dot"></span></button><div class="avatar avatar-sm">S</div></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="dashboard-content-header">
+          <h2>Mes étudiants</h2>
+          <div class="flex items-center gap-sm">
+            <div class="topbar-search" style="width: 200px;"><span class="topbar-search-icon">🔍</span><input type="text" placeholder="Rechercher un étudiant..."></div>
+            <select class="form-select" style="width: auto; padding: 8px 32px 8px 12px;">
+              <option>Groupe A - TCF Québec</option>
+              <option>Groupe B - TCF Canada</option>
+              <option>Atelier Conversation</option>
+            </select>
+          </div>
+        </div>
+        <div class="card">
+          <div class="table-container">
+            <table class="table">
+              <thead><tr><th>Étudiant</th><th>Niveau</th><th>Groupe</th><th>Progression</th><th>Dernière séance</th><th></th></tr></thead>
+              <tbody>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">M</div><span>Maria S.</span></div></td><td><span class="badge badge-blue">B2</span></td><td>TCF Québec A</td><td><div class="progress" style="width: 80px;"><div class="progress-bar" style="width: 67%;"></div></div></td><td>12 Juin 2026</td><td><button class="btn btn-ghost btn-sm">Voir profil</button></td></tr>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">A</div><span>Ahmed K.</span></div></td><td><span class="badge badge-emerald">C1</span></td><td>Atelier Oral</td><td><div class="progress" style="width: 80px;"><div class="progress-bar gold" style="width: 82%;"></div></div></td><td>11 Juin 2026</td><td><button class="btn btn-ghost btn-sm">Voir profil</button></td></tr>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">L</div><span>Laura P.</span></div></td><td><span class="badge badge-blue">B2</span></td><td>TCF Québec A</td><td><div class="progress" style="width: 80px;"><div class="progress-bar" style="width: 45%;"></div></div></td><td>10 Juin 2026</td><td><button class="btn btn-ghost btn-sm">Voir profil</button></td></tr>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">J</div><span>Jean W.</span></div></td><td><span class="badge badge-gold">A2</span></td><td>TCF Québec A</td><td><div class="progress" style="width: 80px;"><div class="progress-bar blue" style="width: 30%;"></div></div></td><td>8 Juin 2026</td><td><button class="btn btn-ghost btn-sm">Voir profil</button></td></tr>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">Y</div><span>Yuki T.</span></div></td><td><span class="badge badge-blue">B1</span></td><td>Atelier Oral</td><td><div class="progress" style="width: 80px;"><div class="progress-bar gold" style="width: 55%;"></div></div></td><td>7 Juin 2026</td><td><button class="btn btn-ghost btn-sm">Voir profil</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

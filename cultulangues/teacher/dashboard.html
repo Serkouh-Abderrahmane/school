@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de bord — Enseignant</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user"><div class="avatar">S</div><div class="sidebar-user-info"><div class="sidebar-user-name">Sophie Martin</div><div class="sidebar-user-role">Enseignante certifiée FLE</div></div></div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Navigation</div>
+        <a class="sidebar-item active" data-href="dashboard.html"><span class="sidebar-item-icon">📊</span> Tableau de bord</a>
+        <a class="sidebar-item" data-href="schedule.html"><span class="sidebar-item-icon">📅</span> Mon emploi du temps</a>
+        <a class="sidebar-item" data-href="students.html"><span class="sidebar-item-icon">👥</span> Mes étudiants</a>
+        <a class="sidebar-item" data-href="session-details.html"><span class="sidebar-item-icon">📋</span> Suivi des séances</a>
+        <div class="sidebar-section">Paramètres</div>
+        <a class="sidebar-item" data-href="profile.html"><span class="sidebar-item-icon">⚙️</span> Profil</a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html"><span class="sidebar-item-icon">🚪</span> Déconnexion</a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title">Tableau de bord</h1></div>
+        <div class="topbar-right"><div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" placeholder="Rechercher..."></div><button class="topbar-notification">🔔<span class="notification-dot"></span></button><div class="avatar avatar-sm">S</div></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="stats-grid stagger-children">
+          <div class="stat-card"><div class="stat-card-header"><div class="stat-card-icon green">👥</div></div><div class="stat-card-value">18</div><div class="stat-card-label">Étudiants actifs</div></div>
+          <div class="stat-card"><div class="stat-card-header"><div class="stat-card-icon blue">📅</div></div><div class="stat-card-value">12</div><div class="stat-card-label">Séances ce mois</div></div>
+          <div class="stat-card"><div class="stat-card-header"><div class="stat-card-icon gold">📚</div></div><div class="stat-card-value">3</div><div class="stat-card-label">Groupes</div></div>
+          <div class="stat-card"><div class="stat-card-header"><div class="stat-card-icon emerald">⭐</div></div><div class="stat-card-value">4.9</div><div class="stat-card-label">Évaluation moyenne</div></div>
+        </div>
+
+        <div class="dashboard-grid-2 stagger-children">
+          <div class="card">
+            <div class="card-header"><h3 class="card-title">Prochaines séances</h3><a href="schedule.html" class="btn btn-link btn-sm">Voir tout</a></div>
+            <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+              <div class="flex items-center" style="gap: var(--space-md); padding: var(--space-sm) 0; border-bottom: 1px solid var(--color-border-light);">
+                <div style="width: 40px; text-align: center;"><small class="text-muted">Auj.</small><br><strong>14h</strong></div>
+                <div style="flex:1;"><strong>TCF Québec · Groupe A</strong><br><small class="text-muted">Salle A · 8 étudiants</small></div>
+                <span class="badge badge-emerald">Dans 2h</span>
+              </div>
+              <div class="flex items-center" style="gap: var(--space-md); padding: var(--space-sm) 0; border-bottom: 1px solid var(--color-border-light);">
+                <div style="width: 40px; text-align: center;"><small class="text-muted">Demain</small><br><strong>10h</strong></div>
+                <div style="flex:1;"><strong>Atelier Conversation</strong><br><small class="text-muted">Salle C · 6 participants</small></div>
+                <span class="badge badge-blue">Préparer</span>
+              </div>
+              <div class="flex items-center" style="gap: var(--space-md); padding: var(--space-sm) 0;">
+                <div style="width: 40px; text-align: center;"><small class="text-muted">Ven.</small><br><strong>14h</strong></div>
+                <div style="flex:1;"><strong>TCF Québec · Groupe A</strong><br><small class="text-muted">Salle A · 8 étudiants</small></div>
+                <span class="badge badge-gray">À venir</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3 class="card-title">Notifications</h3></div>
+            <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+              <div class="flex" style="gap: var(--space-sm);"><span>📝</span><div><p style="font-size: 0.875rem; margin: 0; font-weight: 600;">Sophie, un étudiant a posé une question</p><p style="font-size: 0.8125rem; color: var(--color-text-tertiary); margin: 0;">Maria S. · À propos du cours de demain</p></div></div>
+              <div class="flex" style="gap: var(--space-sm);"><span>✅</span><div><p style="font-size: 0.875rem; margin: 0; font-weight: 600;">Correction en attente</p><p style="font-size: 0.8125rem; color: var(--color-text-tertiary); margin: 0;">3 simulations d'examen à corriger</p></div></div>
+              <div class="flex" style="gap: var(--space-sm);"><span>📊</span><div><p style="font-size: 0.875rem; margin: 0; font-weight: 600;">Évaluation hebdomadaire</p><p style="font-size: 0.8125rem; color: var(--color-text-tertiary); margin: 0;">N'oubliez pas de remplir vos fiches de suivi</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

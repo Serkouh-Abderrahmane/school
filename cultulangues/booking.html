@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription — Cultulangues</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --pink:#FF6B9D;--orange:#FF8E53;--yellow:#FFD93D;--blue:#4A90D9;--green:#2ECC71;--amber:#FFB347;--red:#E74C3C;
+      --purple:#9B59B6;--teal:#1ABC9C;
+      --bg:#F4F6FA;--bg-card:#FFFFFF;--text:#2C3E50;--text-secondary:#7F8C8D;--text-tertiary:#BDC3C7;--border:#E8ECF1;
+      --shadow-sm:0 2px 8px rgba(0,0,0,0.04);--shadow-md:0 4px 20px rgba(0,0,0,0.08);--shadow-lg:0 12px 40px rgba(0,0,0,0.1);
+      --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:20px;--radius-full:9999px;
+      --transition:300ms cubic-bezier(0.4,0,0.2,1);--font:'Inter',sans-serif;
+      --gradient-main:linear-gradient(135deg,var(--pink),var(--orange),var(--yellow));
+    }
+    html{font-size:15px;scroll-behavior:smooth}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh}
+    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar-thumb{background:var(--border);border-radius:var(--radius-full)}
+
+    .booking-wrap{max-width:820px;margin:0 auto;padding:24px 20px 48px}
+    .booking-header{text-align:center;margin-bottom:28px}
+    .booking-header .brand-icon{width:48px;height:48px;border-radius:var(--radius-md);background:var(--gradient-main);display:flex;align-items:center;justify-content:center;color:white;font-size:1.2rem;font-weight:800;margin:0 auto 12px}
+    .booking-header h1{font-size:1.4rem;font-weight:800;background:var(--gradient-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .booking-header p{font-size:0.85rem;color:var(--text-secondary);margin-top:4px}
+
+    /* ── STEP PROGRESS ── */
+    .steps{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:32px;padding:0 8px}
+    .step-item{display:flex;align-items:center;gap:0;flex:1;max-width:160px}
+    .step-circle{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;border:2px solid var(--border);background:var(--bg-card);color:var(--text-tertiary);transition:all var(--transition);flex-shrink:0;position:relative;z-index:1}
+    .step-circle.active{border-color:var(--pink);background:var(--pink);color:white}
+    .step-circle.done{border-color:var(--green);background:var(--green);color:white}
+    .step-label{font-size:0.62rem;font-weight:600;color:var(--text-tertiary);margin-left:6px;white-space:nowrap;transition:color var(--transition)}
+    .step-item.active .step-label{color:var(--text);font-weight:700}
+    .step-item.done .step-label{color:var(--green)}
+    .step-line{flex:1;height:2px;background:var(--border);margin:0 8px;transition:background var(--transition);min-width:16px}
+    .step-line.done{background:var(--green)}
+
+    /* ── STEP CONTAINER ── */
+    .step-container{background:var(--bg-card);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);border:1px solid var(--border);padding:32px;animation:fadeInUp 0.35s ease}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .step-title{font-size:1.2rem;font-weight:800;margin-bottom:4px}
+    .step-subtitle{font-size:0.82rem;color:var(--text-secondary);margin-bottom:24px}
+    .step-footer{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)}
+    .step-footer .info{font-size:0.72rem;color:var(--text-tertiary)}
+    .step-footer .actions{display:flex;gap:10px}
+    .btn{padding:12px 28px;border-radius:var(--radius-md);font-size:0.85rem;font-weight:700;border:none;cursor:pointer;transition:all var(--transition);font-family:var(--font);display:inline-flex;align-items:center;gap:8px}
+    .btn:disabled{opacity:0.4;cursor:not-allowed;transform:none!important}
+    .btn-primary{background:var(--gradient-main);color:white}
+    .btn-primary:not(:disabled):hover{box-shadow:0 6px 20px rgba(255,107,157,0.3);transform:translateY(-1px)}
+    .btn-ghost{background:transparent;color:var(--text-secondary);border:1px solid var(--border)}
+    .btn-ghost:hover{background:var(--bg);color:var(--text)}
+    .btn-success{background:var(--green);color:white}
+    .btn-success:hover{box-shadow:0 6px 20px rgba(46,204,113,0.3);transform:translateY(-1px)}
+    .hidden{display:none!important}
+
+    /* ── COURSE SUMMARY ── */
+    .course-summary{background:linear-gradient(135deg,rgba(255,107,157,0.04),rgba(255,142,83,0.04));border:2px solid rgba(255,107,157,0.15);border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:24px;display:flex;align-items:flex-start;gap:16px}
+    .course-summary-icon{width:48px;height:48px;border-radius:var(--radius-md);background:var(--gradient-main);display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;flex-shrink:0}
+    .course-summary-info{flex:1}
+    .course-summary-info h3{font-size:1.05rem;font-weight:700;margin-bottom:2px}
+    .course-summary-info .desc{font-size:0.78rem;color:var(--text-secondary);margin-bottom:6px}
+    .course-summary-info .badge-selected{display:inline-flex;align-items:center;gap:5px;padding:3px 12px;border-radius:var(--radius-full);background:rgba(46,204,113,0.1);color:var(--green);font-size:0.68rem;font-weight:700}
+    .course-summary-info .badge-selected i{font-size:0.6rem}
+    .course-summary-price{text-align:right;font-size:1.2rem;font-weight:800;color:var(--pink);flex-shrink:0}
+
+    /* ── GROUP SCHEDULES ── */
+    .group-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    @media(max-width:600px){.group-grid{grid-template-columns:1fr}}
+    .group-card{padding:18px 20px;border:2px solid var(--border);border-radius:var(--radius-lg);cursor:pointer;transition:all var(--transition);position:relative}
+    .group-card:hover{border-color:var(--blue);box-shadow:0 4px 16px rgba(74,144,217,0.08)}
+    .group-card.selected{border-color:var(--blue);background:rgba(74,144,217,0.04);box-shadow:0 0 0 4px rgba(74,144,217,0.1)}
+    .group-card .group-name{font-weight:700;font-size:0.9rem;margin-bottom:6px}
+    .group-card .group-days{font-size:0.78rem;color:var(--text-secondary);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+    .group-card .group-days i{color:var(--blue);width:16px}
+    .group-card .group-time{font-size:0.78rem;color:var(--text-secondary);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+    .group-card .group-time i{color:var(--orange);width:16px}
+    .group-card .group-meta{display:flex;justify-content:space-between;margin-top:8px;font-size:0.7rem;color:var(--text-tertiary)}
+    .group-card .group-seats{font-weight:700;color:var(--green)}
+    .group-card .group-seats.low{color:var(--red)}
+    .group-card .check{position:absolute;top:14px;right:14px;width:22px;height:22px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all var(--transition);font-size:0.6rem;color:transparent}
+    .group-card.selected .check{border-color:var(--blue);background:var(--blue);color:white}
+
+    /* ── INDIVIDUAL TIME PREFERENCE ── */
+    .time-pref{padding:8px 0}
+    .pref-section{margin-bottom:24px}
+    .pref-section label{display:block;font-size:0.82rem;font-weight:700;color:var(--text);margin-bottom:10px}
+    .pref-section .helper{font-size:0.72rem;color:var(--text-secondary);margin-bottom:10px}
+    .day-chips{display:flex;gap:8px;flex-wrap:wrap}
+    .day-chip{padding:10px 18px;border:2px solid var(--border);border-radius:var(--radius-full);font-size:0.82rem;font-weight:600;background:var(--bg-card);cursor:pointer;transition:all var(--transition);color:var(--text-secondary);user-select:none}
+    .day-chip:hover{border-color:var(--pink);color:var(--pink)}
+    .day-chip.selected{background:var(--pink);color:white;border-color:var(--pink)}
+    .time-range{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .time-range select{padding:10px 16px;border:2px solid var(--border);border-radius:var(--radius-md);font-size:0.85rem;font-weight:600;background:var(--bg-card);color:var(--text);outline:none;cursor:pointer;font-family:var(--font);transition:all var(--transition)}
+    .time-range select:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,107,157,0.08)}
+    .time-range .to{font-size:0.9rem;font-weight:700;color:var(--text-secondary);padding:0 4px}
+
+    /* ── INFO FORM ── */
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:600px){.form-grid{grid-template-columns:1fr}}
+    .form-group{display:flex;flex-direction:column;gap:5px}
+    .form-group.full{grid-column:1/-1}
+    .form-group label{font-size:0.78rem;font-weight:600;color:var(--text)}
+    .form-group label .req{color:var(--red)}
+    .form-group input,.form-group textarea{padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:0.85rem;outline:none;transition:all var(--transition);font-family:var(--font);background:var(--bg);color:var(--text)}
+    .form-group input:focus,.form-group textarea:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,107,157,0.06);background:white}
+    .form-group textarea{resize:vertical;min-height:70px}
+
+    /* ── PLACEMENT TEST ── */
+    .test-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:16px}
+    .test-progress-wrap{flex:1;display:flex;align-items:center;gap:12px}
+    .test-progress-bar{flex:1;height:8px;background:var(--border);border-radius:var(--radius-full);overflow:hidden}
+    .test-progress-fill{height:100%;border-radius:var(--radius-full);background:var(--gradient-main);transition:width 0.5s ease;min-width:2%}
+    .test-progress-text{font-size:0.78rem;font-weight:700;color:var(--text-secondary);white-space:nowrap}
+    .test-timer{display:flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:700;color:var(--pink);padding:6px 14px;border-radius:var(--radius-full);background:rgba(255,107,157,0.06);border:1px solid rgba(255,107,157,0.12)}
+    .test-timer i{font-size:0.8rem}
+    .test-question{margin-bottom:24px}
+    .test-question .q-num{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-tertiary);margin-bottom:6px}
+    .test-question .q-text{font-size:1.05rem;font-weight:600;line-height:1.5;margin-bottom:16px}
+    .test-options{display:flex;flex-direction:column;gap:10px}
+    .test-option{padding:14px 18px;border:2px solid var(--border);border-radius:var(--radius-md);cursor:pointer;transition:all var(--transition);font-size:0.88rem;display:flex;align-items:center;gap:12px}
+    .test-option:hover{border-color:var(--pink);background:rgba(255,107,157,0.02)}
+    .test-option.selected{border-color:var(--pink);background:rgba(255,107,157,0.05);font-weight:600}
+    .test-option .letter{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;background:var(--bg);color:var(--text-secondary);flex-shrink:0;transition:all var(--transition)}
+    .test-option.selected .letter{background:var(--pink);color:white}
+    .test-nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
+    .test-nav .info{font-size:0.72rem;color:var(--text-tertiary)}
+
+    /* ── RESULTS ── */
+    .results-overview{text-align:center;padding:24px 0}
+    .results-score{font-size:3rem;font-weight:900;background:var(--gradient-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+    .results-score-label{font-size:0.85rem;color:var(--text-secondary);margin-bottom:8px}
+    .results-level{display:inline-flex;align-items:center;gap:8px;padding:8px 24px;border-radius:var(--radius-full);font-size:1.1rem;font-weight:800;margin-bottom:16px}
+    .results-level.A1{background:rgba(231,76,60,0.08);color:var(--red)}
+    .results-level.A2{background:rgba(255,179,71,0.12);color:var(--amber)}
+    .results-level.B1{background:rgba(255,217,61,0.15);color:#D4A017}
+    .results-level.B2{background:rgba(46,204,113,0.1);color:var(--green)}
+    .results-level.C1{background:rgba(74,144,217,0.1);color:var(--blue)}
+    .results-level.C2{background:rgba(155,89,182,0.1);color:var(--purple)}
+    .results-chart-wrap{background:var(--bg);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px}
+    .results-chart{display:flex;align-items:flex-end;gap:8px;height:120px;justify-content:center;padding:0 16px}
+    .results-chart .bar{width:32px;border-radius:6px 6px 2px 2px;transition:height 1s cubic-bezier(0.34,1.56,0.64,1);min-height:4px}
+    .results-chart .bar.correct{background:var(--gradient-main)}
+    .results-chart .bar.incorrect{background:var(--border)}
+    .results-chart-label{display:flex;justify-content:center;gap:24px;font-size:0.72rem;color:var(--text-secondary);margin-top:8px}
+    .results-chart-label span{display:flex;align-items:center;gap:6px}
+    .results-chart-label .dot{width:10px;height:10px;border-radius:50%}
+    .results-chart-label .dot.correct{background:var(--pink)}
+    .results-chart-label .dot.incorrect{background:var(--border)}
+    .results-explanation{background:rgba(74,144,217,0.06);border:1px solid rgba(74,144,217,0.12);border-radius:var(--radius-md);padding:16px 20px;margin-bottom:16px;display:flex;align-items:flex-start;gap:10px;font-size:0.85rem;color:var(--text)}
+    .results-explanation i{color:var(--blue);font-size:1.1rem;margin-top:2px;flex-shrink:0}
+    .results-breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+    @media(max-width:600px){.results-breakdown{grid-template-columns:1fr}}
+    .results-category{padding:14px;border:1px solid var(--border);border-radius:var(--radius-md);text-align:center}
+    .results-category .cat-label{font-size:0.7rem;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px}
+    .results-category .cat-score{font-size:1.2rem;font-weight:800}
+    .results-category .cat-score.high{color:var(--green)}
+    .results-category .cat-score.med{color:var(--amber)}
+    .results-category .cat-score.low{color:var(--red)}
+
+    /* ── ORAL CALL CALENDAR ── */
+    .oral-layout{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    @media(max-width:640px){.oral-layout{grid-template-columns:1fr}}
+    .calendar-wrap{background:var(--bg);border-radius:var(--radius-lg);padding:16px;border:1px solid var(--border)}
+    .calendar-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+    .calendar-header h3{font-size:0.95rem;font-weight:700}
+    .calendar-nav{display:flex;gap:6px}
+    .calendar-nav button{width:32px;height:32px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg-card);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all var(--transition)}
+    .calendar-nav button:hover{background:var(--gradient-main);color:white;border-color:transparent}
+    .calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+    .calendar-grid .day-name{padding:6px 0;font-size:0.65rem;font-weight:700;color:var(--text-tertiary);text-align:center;text-transform:uppercase}
+    .calendar-grid .day-num{padding:8px 0;border-radius:var(--radius-sm);text-align:center;font-size:0.82rem;font-weight:600;color:var(--text-secondary);cursor:default}
+    .calendar-grid .day-num.available{cursor:pointer;color:var(--text);background:var(--bg-card);border:1px solid var(--border);transition:all var(--transition)}
+    .calendar-grid .day-num.available:hover{border-color:var(--pink);background:rgba(255,107,157,0.04)}
+    .calendar-grid .day-num.selected{background:var(--pink);color:white;border-color:var(--pink)}
+    .calendar-grid .day-num.today{font-weight:800;box-shadow:inset 0 0 0 2px var(--blue)}
+    .calendar-grid .day-num.past{opacity:0.35;cursor:default!important}
+    .slot-picker h3{font-size:0.9rem;font-weight:700;margin-bottom:4px}
+    .slot-picker .selected-date{font-size:0.75rem;color:var(--text-secondary);margin-bottom:12px}
+    .slot-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .slot-btn{padding:12px;border:2px solid var(--border);border-radius:var(--radius-md);font-size:0.82rem;font-weight:600;background:var(--bg-card);cursor:pointer;transition:all var(--transition);color:var(--text);text-align:center;font-family:var(--font)}
+    .slot-btn:hover{border-color:var(--pink);color:var(--pink)}
+    .slot-btn.selected{background:var(--pink);color:white;border-color:var(--pink)}
+    .slot-btn:disabled{opacity:0.3;cursor:not-allowed;text-decoration:line-through}
+    .timezone-info{font-size:0.65rem;color:var(--text-tertiary);margin-top:8px;display:flex;align-items:center;gap:4px}
+
+    /* ── SUMMARY ── */
+    .summary-card{border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:16px}
+    .summary-row{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--border);font-size:0.85rem}
+    .summary-row:last-child{border-bottom:none}
+    .summary-row .lbl{color:var(--text-secondary);font-weight:500}
+    .summary-row .val{font-weight:700;text-align:right}
+    .confirm-info{background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.15);border-radius:var(--radius-md);padding:14px 18px;margin-bottom:16px;display:flex;align-items:flex-start;gap:10px;font-size:0.78rem;color:var(--text-secondary)}
+    .confirm-info i{color:var(--green);font-size:1rem;margin-top:1px}
+    .success-page{text-align:center;padding:40px 20px}
+    .success-icon{width:72px;height:72px;border-radius:50%;background:var(--gradient-main);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.8rem;color:white}
+    .success-page h2{font-size:1.3rem;font-weight:800;margin-bottom:6px}
+    .success-page p{font-size:0.85rem;color:var(--text-secondary);margin-bottom:24px}
+    .success-details{text-align:left;background:var(--bg);border-radius:var(--radius-lg);padding:20px;margin-bottom:24px}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .booking-wrap{padding:16px 12px 32px}
+      .step-container{padding:24px 18px}
+      .step-item .step-label{display:none}
+      .step-item.active .step-label,.step-item.done .step-label{display:inline}
+      .steps{gap:4px}
+      .step-line{margin:0 4px;min-width:10px}
+      .course-summary{flex-direction:column;padding:16px}
+      .course-summary-price{text-align:left}
+    }
+    @media(max-width:480px){
+      .step-footer{flex-direction:column;gap:12px}
+      .step-footer .actions{width:100%}
+      .step-footer .actions .btn{flex:1;justify-content:center}
+      .time-range select{flex:1}
+      .day-chip{padding:8px 14px;font-size:0.78rem}
+      .test-header{flex-direction:column;gap:10px}
+      .test-progress-wrap{width:100%}
+      .test-timer{align-self:flex-end}
+      .oral-layout{grid-template-columns:1fr}
+      .results-breakdown{grid-template-columns:1fr}
+      .slot-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<div class="booking-wrap">
+
+  <!-- HEADER -->
+  <div class="booking-header">
+    <div class="brand-icon">C</div>
+    <h1>Inscription</h1>
+    <p>Complétez votre inscription en 4 étapes</p>
+  </div>
+
+  <!-- STEP PROGRESS -->
+  <div class="steps" id="stepIndicator">
+    <div class="step-item active" data-step="1">
+      <div class="step-circle" id="sc1">1</div>
+      <div class="step-label">Inscription</div>
+    </div>
+    <div class="step-line" id="sl1"></div>
+    <div class="step-item" data-step="2">
+      <div class="step-circle" id="sc2">2</div>
+      <div class="step-label">Test écrit</div>
+    </div>
+    <div class="step-line" id="sl2"></div>
+    <div class="step-item" data-step="3">
+      <div class="step-circle" id="sc3">3</div>
+      <div class="step-label">Résultats</div>
+    </div>
+    <div class="step-line" id="sl3"></div>
+    <div class="step-item" data-step="4">
+      <div class="step-circle" id="sc4">4</div>
+      <div class="step-label">Test oral</div>
+    </div>
+  </div>
+
+  <!-- ══════ STEP 1: BOOKING ══════ -->
+  <div class="step-container" id="step1">
+    <div class="step-title">Votre inscription</div>
+    <div class="step-subtitle">Confirmez votre cours et vos disponibilités</div>
+
+    <!-- Course summary (read-only) -->
+    <div class="course-summary" id="courseSummary">
+      <div class="course-summary-icon"><i class="fas fa-graduation-cap"></i></div>
+      <div class="course-summary-info">
+        <h3 id="csName">—</h3>
+        <div class="desc" id="csDesc">—</div>
+        <span class="badge-selected"><i class="fas fa-check-circle"></i> Déjà sélectionné</span>
+      </div>
+      <div class="course-summary-price" id="csPrice">—</div>
+    </div>
+
+    <!-- Schedule selection -->
+    <div id="scheduleSection">
+      <div style="font-size:0.9rem;font-weight:700;margin-bottom:12px">Choisissez votre horaire</div>
+      <!-- Group -->
+      <div id="groupSchedule">
+        <div class="group-grid" id="groupGrid"></div>
+      </div>
+      <!-- Individual -->
+      <div id="individualSchedule" class="hidden">
+        <div class="time-pref">
+          <div class="pref-section">
+            <label>Jours préférés <span style="color:var(--red)">*</span></label>
+            <div class="helper">Sélectionnez un ou plusieurs jours disponibles</div>
+            <div class="day-chips" id="dayChips">
+              <span class="day-chip" data-day="Lundi">Lundi</span>
+              <span class="day-chip" data-day="Mardi">Mardi</span>
+              <span class="day-chip" data-day="Mercredi">Mercredi</span>
+              <span class="day-chip" data-day="Jeudi">Jeudi</span>
+              <span class="day-chip" data-day="Vendredi">Vendredi</span>
+              <span class="day-chip" data-day="Samedi">Samedi</span>
+            </div>
+          </div>
+          <div class="pref-section">
+            <label>Plage horaire préférée <span style="color:var(--red)">*</span></label>
+            <div class="helper">À quel moment de la journée préférez-vous vos cours ?</div>
+            <div class="time-range">
+              <select id="timeFrom">
+                <option value="">De</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option>
+                <option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option>
+                <option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option>
+              </select>
+              <span class="to">à</span>
+              <select id="timeTo">
+                <option value="">À</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
+                <option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option>
+                <option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Personal info -->
+    <div style="margin-top:24px">
+      <div style="font-size:0.9rem;font-weight:700;margin-bottom:12px">Vos informations</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nom complet <span class="req">*</span></label>
+          <input type="text" id="infoName" placeholder="Maria Santos" oninput="checkStep1()">
+        </div>
+        <div class="form-group">
+          <label>Courriel <span class="req">*</span></label>
+          <input type="email" id="infoEmail" placeholder="maria@email.com" oninput="checkStep1()">
+        </div>
+        <div class="form-group">
+          <label>Téléphone <span class="req">*</span></label>
+          <input type="tel" id="infoPhone" placeholder="+1 (555) 123-4567" oninput="checkStep1()">
+        </div>
+        <div class="form-group">
+          <label>Méthode de contact préférée</label>
+          <input type="text" id="infoContact" placeholder="Courriel / Téléphone / WhatsApp">
+        </div>
+        <div class="form-group full">
+          <label>Notes <span style="color:var(--text-tertiary);font-weight:400">(optionnel)</span></label>
+          <textarea id="infoNotes" placeholder="Questions ou commentaires particuliers..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-footer">
+      <div class="info" id="step1Info"><i class="fas fa-info-circle"></i> Choisissez votre horaire et remplissez vos informations</div>
+      <div class="actions">
+        <a href="index.html" class="btn btn-ghost"><i class="fas fa-times"></i> Annuler</a>
+        <button class="btn btn-primary" id="toStep2" disabled>Confirmer l'inscription et commencer le test <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ STEP 2: PLACEMENT TEST ══════ -->
+  <div class="step-container hidden" id="step2">
+    <div class="step-title">Test de placement</div>
+    <div class="step-subtitle">Évaluez votre niveau en français</div>
+
+    <div class="test-header">
+      <div class="test-progress-wrap">
+        <div class="test-progress-bar">
+          <div class="test-progress-fill" id="testProgressFill" style="width:5%"></div>
+        </div>
+        <span class="test-progress-text" id="testProgressText">1 / 20</span>
+      </div>
+      <div class="test-timer" id="testTimer"><i class="far fa-clock"></i> <span id="timerDisplay">20:00</span></div>
+    </div>
+
+    <div id="testQuestionArea">
+      <div class="test-question">
+        <div class="q-num" id="qNum">QUESTION 1 / 20</div>
+        <div class="q-text" id="qText">—</div>
+      </div>
+      <div class="test-options" id="qOptions"></div>
+    </div>
+
+    <div class="test-nav">
+      <div class="info" id="testInfo"><i class="fas fa-info-circle"></i> Choisissez une réponse pour continuer</div>
+      <div class="actions" style="display:flex;gap:10px">
+        <button class="btn btn-ghost" id="testBackBtn" onclick="prevQuestion()" disabled><i class="fas fa-arrow-left"></i> Précédent</button>
+        <button class="btn btn-primary" id="testNextBtn" disabled>Suivante <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ STEP 3: RESULTS ══════ -->
+  <div class="step-container hidden" id="step3">
+    <div class="step-title">Vos résultats</div>
+    <div class="step-subtitle">Voici votre niveau estimé</div>
+
+    <div class="results-overview">
+      <div class="results-score-label">Score global</div>
+      <div class="results-score" id="resultsScore">—</div>
+      <div class="results-level" id="resultsLevel">—</div>
+    </div>
+
+    <div class="results-chart-wrap">
+      <div class="results-chart" id="resultsChart">
+        <div class="bar correct" style="height:0" id="correctBar"></div>
+        <div class="bar incorrect" style="height:100%" id="incorrectBar"></div>
+      </div>
+      <div class="results-chart-label">
+        <span><span class="dot correct"></span> Bonnes réponses: <strong id="correctCount">0</strong></span>
+        <span><span class="dot incorrect"></span> Mauvaises réponses: <strong id="incorrectCount">0</strong></span>
+      </div>
+    </div>
+
+    <div class="results-breakdown" id="resultsBreakdown"></div>
+
+    <div class="results-explanation" id="resultsExplanation">
+      <i class="fas fa-info-circle"></i>
+      <div id="resultsExplanationText">Selon votre résultat, un test oral est requis pour finaliser votre niveau.</div>
+    </div>
+
+    <div class="step-footer">
+      <div class="info"><i class="fas fa-check-circle" style="color:var(--green)"></i> Test terminé</div>
+      <div class="actions">
+        <button class="btn btn-primary" id="toStep4">Réserver un appel pour le test oral <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ STEP 4: ORAL CALL BOOKING ══════ -->
+  <div class="step-container hidden" id="step4">
+    <div class="step-title">Réserver un appel pour le test oral</div>
+    <div class="step-subtitle">Choisissez une date et un créneau pour votre entretien oral</div>
+
+    <div class="oral-layout">
+      <div class="calendar-wrap">
+        <div class="calendar-header">
+          <h3 id="calendarTitle">Juillet 2026</h3>
+          <div class="calendar-nav">
+            <button onclick="changeMonth(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button onclick="changeMonth(1)"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <div class="calendar-grid" id="calendarGrid"></div>
+      </div>
+
+      <div class="slot-picker" id="slotPicker">
+        <h3>Creneaux disponibles</h3>
+        <div class="selected-date" id="selectedDateDisplay">Sélectionnez une date</div>
+        <div class="slot-grid" id="slotGrid">
+          <div style="grid-column:1/-1;text-align:center;padding:32px 0;color:var(--text-tertiary);font-size:0.85rem">
+            <i class="far fa-calendar-alt" style="display:block;font-size:1.8rem;margin-bottom:8px"></i>
+            Choisissez une date dans le calendrier
+          </div>
+        </div>
+        <div class="timezone-info"><i class="fas fa-globe"></i> Fuseau horaire : UTC<span id="tzOffset">-4</span> (heure de Montréal)</div>
+      </div>
+    </div>
+
+    <div class="step-footer">
+      <div class="info" id="step4Info"><i class="fas fa-info-circle"></i> Choisissez une date et un créneau</div>
+      <div class="actions">
+        <button class="btn btn-ghost" onclick="goToStep(3)"><i class="fas fa-arrow-left"></i> Retour</button>
+        <button class="btn btn-success" id="oralConfirmBtn" disabled onclick="confirmOralTest()"><i class="fas fa-check"></i> Confirmer le test oral</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ SUCCESS OVERLAY ══════ -->
+  <div class="step-container hidden" id="stepSuccess">
+    <div class="success-page">
+      <div class="success-icon"><i class="fas fa-check"></i></div>
+      <h2>Test oral planifié avec succès !</h2>
+      <p>Votre test oral est planifié avec succès. Vous allez être redirigé vers votre tableau de bord...</p>
+      <div class="success-details" id="successDetails"></div>
+      <div class="progress-bar" style="max-width:300px;margin:0 auto"><div class="progress-fill" id="redirectProgress" style="background:var(--gradient-main);width:0%;height:6px;border-radius:var(--radius-full);transition:width 3s linear"></div></div>
+      <p style="font-size:0.72rem;color:var(--text-tertiary);margin-top:12px">Redirection automatique dans <span id="redirectCountdown">3</span> secondes</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ════════════════════════════════════════════════════════════
+  //  STATE
+  // ════════════════════════════════════════════════════════════
+  var state = {
+    courseId: null,
+    program: null,
+    courseData: null,
+
+    // Step 1: Booking
+    group: null,
+    days: [],
+    timeFrom: '',
+    timeTo: '',
+    name: '',
+    email: '',
+    phone: '',
+    contact: '',
+    notes: '',
+
+    // Step 2: Test
+    testAnswers: [],
+    currentQuestion: 0,
+
+    // Step 4: Oral
+    selectedDate: null,
+    selectedSlot: null,
+    calMonth: null,
+    calYear: null
+  };
+
+  // ════════════════════════════════════════════════════════════
+  //  COURSE DATA
+  // ════════════════════════════════════════════════════════════
+  var courseDB = {
+    'private': {
+      name:'Cours particuliers',
+      type:'individual',
+      desc:'Cours 1-on-1 avec un enseignant certifié. Programme personnalisé selon vos objectifs.',
+      price:'1 200 $'
+    },
+    'tcf-quebec': {
+      name:'TCF Québec',
+      type:'group',
+      desc:'Préparation complète au TCF Québec. Cours en groupe avec horaire fixe.',
+      price:'800 $'
+    },
+    'tcf-canada': {
+      name:'TCF Canada',
+      type:'group',
+      desc:'Préparation complète au TCF Canada. Cours en groupe avec horaire fixe.',
+      price:'800 $'
+    },
+    'oral-bc': {
+      name:'Préparation orale — British Columbia',
+      type:'group',
+      desc:'Préparation en petit groupe à l\'examen oral de la Colombie-Britannique. Maximum 4 élèves.',
+      price:'600 $'
+    },
+    'intensif': {
+      name:'Programme intensif',
+      type:'group',
+      desc:'Cours intensif en groupe. 4 séances par semaine pour des progrès rapides.',
+      price:'900 $'
+    },
+    'groupe': {
+      name:'Cours en groupe',
+      type:'group',
+      desc:'Apprenez en groupe avec d\'autres apprenants. Ambiance conviviale et motivante.',
+      price:'500 $'
+    },
+    'samedi': {
+      name:'Programme du samedi',
+      type:'group',
+      desc:'Cours en groupe chaque samedi matin. Parfait pour les professionnels occupés.',
+      price:'400 $'
+    },
+    'workshop-conversation': {
+      name:'Atelier de conversation',
+      type:'group',
+      desc:'Atelier hebdomadaire de conversation. Thèmes variés pour pratiquer l\'oral.',
+      price:'300 $'
+    },
+    'workshop-culture': {
+      name:'Atelier culturel',
+      type:'group',
+      desc:'Atelier hebdomadaire sur la culture francophone. Cinéma, littérature, actualité.',
+      price:'300 $'
+    },
+    'workshop-maintenance': {
+      name:'Atelier de maintien',
+      type:'group',
+      desc:'Atelier hebdomadaire pour maintenir et pratiquer votre français.',
+      price:'250 $'
+    }
+  };
+
+  var programData = {
+    'complete-french': 'Français complet',
+    'oral-communication': 'Communication orale',
+    'tcf-preparation': 'Préparation au TCF',
+    'french-refresher': 'Remise à niveau',
+    'public-service': 'Fonction publique',
+    'exam-simulations': 'Simulations d\'examen',
+    'french-maintenance': 'Maintien du français',
+    'intensif': 'Intensif',
+    'regulier': 'Régulier'
+  };
+
+  var descriptionOverrides = {
+    'private-complete-french': 'Programme complet de français en cours particuliers. Idéal pour une immersion totale.',
+    'private-oral-communication': 'Cours particuliers axés sur la communication orale. Améliorez votre expression et votre compréhension.',
+    'private-tcf-preparation': 'Préparation individuelle au TCF avec un enseignant dédié.',
+    'private-french-refresher': 'Remise à niveau en français. Parfait pour réactiver vos connaissances.',
+    'private-public-service': 'Français pour la fonction publique. Vocabulaire et situations administratives.',
+    'private-exam-simulations': 'Simulations d\'examen en conditions réelles. Préparez-vous en toute confiance.',
+    'private-french-maintenance': 'Cours de maintien pour garder votre niveau de français.'
+  };
+
+  var groupData = {
+    'tcf-quebec': [
+      { id:'A', label:'Groupe A', days:'Lun · Mer · Ven', time:'18:00 – 20:00', date:'7 juil 2026', seats:4, total:12 },
+      { id:'B', label:'Groupe B', days:'Mar · Jeu', time:'09:00 – 11:00', date:'8 juil 2026', seats:2, total:12 },
+      { id:'C', label:'Groupe C', days:'Samedi', time:'09:00 – 12:00', date:'12 juil 2026', seats:7, total:12 }
+    ],
+    'tcf-canada': [
+      { id:'A', label:'Groupe A', days:'Lun · Mer · Ven', time:'18:00 – 20:00', date:'7 juil 2026', seats:3, total:12 },
+      { id:'B', label:'Groupe B', days:'Mar · Jeu', time:'10:00 – 12:00', date:'8 juil 2026', seats:5, total:12 }
+    ],
+    'intensif': [
+      { id:'A', label:'Groupe A', days:'Lun · Mar · Mer · Jeu', time:'09:00 – 12:00', date:'7 juil 2026', seats:6, total:15 },
+      { id:'B', label:'Groupe B', days:'Lun · Mar · Mer · Jeu', time:'18:00 – 21:00', date:'7 juil 2026', seats:8, total:15 }
+    ],
+    'groupe': [
+      { id:'A', label:'Groupe A', days:'Mar · Jeu', time:'18:00 – 20:00', date:'8 juil 2026', seats:5, total:12 },
+      { id:'B', label:'Groupe B', days:'Mercredi', time:'10:00 – 12:00', date:'9 juil 2026', seats:3, total:12 }
+    ],
+    'samedi': [
+      { id:'A', label:'Groupe A', days:'Samedi', time:'09:00 – 12:00', date:'12 juil 2026', seats:8, total:15 },
+      { id:'B', label:'Groupe B', days:'Samedi', time:'13:00 – 16:00', date:'12 juil 2026', seats:5, total:15 }
+    ],
+    'oral-bc': [
+      { id:'A', label:'Groupe A', days:'Lun · Mer', time:'10:00 – 11:30', date:'7 juil 2026', seats:2, total:4 },
+      { id:'B', label:'Groupe B', days:'Mar · Jeu', time:'18:00 – 19:30', date:'8 juil 2026', seats:1, total:4 },
+      { id:'C', label:'Groupe C', days:'Mer · Ven', time:'14:00 – 15:30', date:'9 juil 2026', seats:3, total:4 }
+    ],
+    'workshop-conversation': [
+      { id:'A', label:'Groupe A', days:'Mercredi', time:'18:00 – 19:30', date:'9 juil 2026', seats:6, total:10 },
+      { id:'B', label:'Groupe B', days:'Vendredi', time:'10:00 – 11:30', date:'11 juil 2026', seats:9, total:10 }
+    ],
+    'workshop-culture': [
+      { id:'A', label:'Groupe A', days:'Jeudi', time:'18:00 – 19:30', date:'10 juil 2026', seats:7, total:10 },
+      { id:'B', label:'Groupe B', days:'Samedi', time:'11:00 – 12:30', date:'12 juil 2026', seats:4, total:10 }
+    ],
+    'workshop-maintenance': [
+      { id:'A', label:'Groupe A', days:'Mardi', time:'10:00 – 11:30', date:'8 juil 2026', seats:5, total:10 },
+      { id:'B', label:'Groupe B', days:'Jeudi', time:'18:00 – 19:30', date:'10 juil 2026', seats:8, total:10 }
+    ]
+  };
+
+  // ════════════════════════════════════════════════════════════
+  //  TEST DATA — 20 questions
+  // ════════════════════════════════════════════════════════════
+  var testQuestions = [
+    // 1–4: Grammar
+    { q:'Elle ___ une pomme.', opts:['mange','manges','mangent','mangeons'], correct:0, cat:'Grammaire' },
+    { q:'Nous ___ à la plage demain.', opts:['allons','allez','vont','allions'], correct:0, cat:'Grammaire' },
+    { q:'Il ___ déjà fini ses devoirs.', opts:['a','as','ont','avons'], correct:0, cat:'Grammaire' },
+    { q:'Les enfants ___ jouer dans le jardin.', opts:['aiment','aimes','aimez','aime'], correct:0, cat:'Grammaire' },
+    // 5–8: Vocabulary
+    { q:'Quel est le synonyme de "content" ?', opts:['Triste','Heureux','Fâché','Fatigué'], correct:1, cat:'Vocabulaire' },
+    { q:'Que signifie "néanmoins" ?', opts:['Donc','Pourtant','Ensuite','Parce que'], correct:1, cat:'Vocabulaire' },
+    { q:'Choisissez le mot correct : Elle porte une ___ élégante.', opts:['chemise','chaussette','ceinture','chaise'], correct:0, cat:'Vocabulaire' },
+    { q:'Quel mot est un antonyme de "facile" ?', opts:['Simple','Difficile','Rapide','Lent'], correct:1, cat:'Vocabulaire' },
+    // 9–12: Reading comprehension
+    { q:'"Marie a visité le musée hier. Elle a adoré les peintures impressionnistes." Quand Marie a-t-elle visité le musée ?', opts:['Aujourd\'hui','Hier','Demain','La semaine prochaine'], correct:1, cat:'Compréhension' },
+    { q:'"Il pleuvait donc nous sommes restés à la maison." Pourquoi sont-ils restés à la maison ?', opts:['Parce qu\'il faisait beau','Parce qu\'il pleuvait','Parce qu\'ils étaient fatigués','Parce qu\'ils avaient peur'], correct:1, cat:'Compréhension' },
+    { q:'"Pierre a acheté du pain, du fromage et des fruits au marché." Qu\'a acheté Pierre ?', opts:['Des vêtements','De la nourriture','Des livres','Des meubles'], correct:1, cat:'Compréhension' },
+    { q:'"Le TGV part à 14h30 de la gare de Lyon." Quelle est l\'heure de départ ?', opts:['4h30','2h30 du matin','14h30','Minuit et demi'], correct:2, cat:'Compréhension' },
+    // 13–16: Verbs and conjugation
+    { q:'Conjuguez : Je ___ (vouloir) un café.', opts:['veut','veux','voulez','voudrais'], correct:1, cat:'Conjugaison' },
+    { q:'Ils ___ (pouvoir) venir demain.', opts:['peut','pouvons','peuvent','pouvez'], correct:2, cat:'Conjugaison' },
+    { q:'Si j\'___ (avoir) du temps, je voyagerais.', opts:['ai','avais','aurai','avais'], correct:1, cat:'Conjugaison' },
+    { q:'Il faut que tu ___ (faire) tes devoirs.', opts:['fais','fasses','fait','ferez'], correct:1, cat:'Conjugaison' },
+    // 17–20: Mixed
+    { q:'"Dont" dans une phrase indique :', opts:['La possession','La négation','La cause','Le lieu'], correct:0, cat:'Grammaire' },
+    { q:'Quelle est la forme correcte ?', opts:['Je me suis levé','Je me suis levé(e)','Je suis levé','Je me suis levée'], correct:1, cat:'Grammaire' },
+    { q:'Choisissez la préposition correcte : Il habite ___ Québec.', opts:['à','en','au','dans'], correct:0, cat:'Grammaire' },
+    { q:'Complétez : C\'est le livre ___ j\'ai parlé.', opts:['que','dont','qui','où'], correct:1, cat:'Grammaire' }
+  ];
+
+  // ════════════════════════════════════════════════════════════
+  //  STEP INDICATOR
+  // ════════════════════════════════════════════════════════════
+  function updateSteps(step) {
+    for (var i = 1; i <= 4; i++) {
+      var circle = document.getElementById('sc' + i);
+      if (!circle) continue;
+      var item = circle.closest('.step-item');
+      var line = document.getElementById('sl' + i);
+      circle.classList.remove('active', 'done');
+      item.classList.remove('active', 'done');
+      if (line) line.classList.remove('done');
+      if (i < step) {
+        circle.classList.add('done'); circle.textContent = '✓';
+        item.classList.add('done');
+        if (line) line.classList.add('done');
+      } else if (i === step) {
+        circle.classList.add('active'); circle.textContent = i;
+        item.classList.add('active');
+      } else {
+        circle.textContent = i;
+      }
+    }
+  }
+
+  function goToStep(n) {
+    state.currentStep = n;
+    for (var i = 1; i <= 4; i++) {
+      var el = document.getElementById('step' + i);
+      if (el) el.classList.add('hidden');
+    }
+    var success = document.getElementById('stepSuccess');
+    if (success) success.classList.add('hidden');
+    var target = document.getElementById('step' + n);
+    if (target) target.classList.remove('hidden');
+    updateSteps(n);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ════════════════════════════════════════════════════════════
+  //  INIT — Parse URL params
+  // ════════════════════════════════════════════════════════════
+  function getParam(name) {
+    var match = location.search.match(new RegExp('[?&]' + name + '=([^&]*)'));
+    return match ? decodeURIComponent(match[1]) : null;
+  }
+
+  function init() {
+    state.courseId = getParam('course') || 'private';
+    state.program = getParam('program') || null;
+    state.courseData = courseDB[state.courseId];
+
+    if (!state.courseData) {
+      state.courseId = 'private';
+      state.courseData = courseDB['private'];
+    }
+
+    // Display course summary
+    var prog = state.program && programData[state.program] ? ' · ' + programData[state.program] : '';
+    var overrideKey = state.courseId + '-' + state.program;
+    var desc = descriptionOverrides[overrideKey] || state.courseData.desc;
+
+    document.getElementById('csName').textContent = state.courseData.name + prog;
+    document.getElementById('csDesc').textContent = desc;
+    document.getElementById('csPrice').textContent = state.courseData.price;
+
+    // Show/hide schedule section based on type
+    if (state.courseData.type === 'group') {
+      document.getElementById('groupSchedule').classList.remove('hidden');
+      document.getElementById('individualSchedule').classList.add('hidden');
+      renderGroups();
+    } else {
+      document.getElementById('groupSchedule').classList.add('hidden');
+      document.getElementById('individualSchedule').classList.remove('hidden');
+    }
+
+    updateSteps(1);
+  }
+
+  // ════════════════════════════════════════════════════════════
+  //  STEP 1: Group selection
+  // ════════════════════════════════════════════════════════════
+  function renderGroups() {
+    var grid = document.getElementById('groupGrid');
+    var data = groupData[state.courseId] || [];
+    if (data.length === 0) {
+      grid.innerHTML = '<div style="text-align:center;padding:32px;color:var(--text-secondary);grid-column:1/-1">Aucun groupe disponible pour ce cours.</div>';
+      return;
+    }
+    var html = '';
+    data.forEach(function(g) {
+      var seatClass = g.seats <= 2 ? 'group-seats low' : 'group-seats';
+      html += '<div class="group-card" data-group-id="' + g.id + '">' +
+        '<div class="group-name">' + g.label + '</div>' +
+        '<div class="group-days"><i class="fas fa-calendar-alt"></i> ' + g.days + '</div>' +
+        '<div class="group-time"><i class="fas fa-clock"></i> ' + g.time + '</div>' +
+        '<div class="group-meta"><span>Début : ' + g.date + '</span><span class="' + seatClass + '">' + g.seats + '/' + g.total + ' places</span></div>' +
+        '<div class="check"><i class="fas fa-check"></i></div>' +
+        '</div>';
+    });
+    grid.innerHTML = html;
+
+    grid.querySelectorAll('.group-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        grid.querySelectorAll('.group-card').forEach(function(c) { c.classList.remove('selected'); });
+        this.classList.add('selected');
+        var id = this.getAttribute('data-group-id');
+        var d = data.find(function(g) { return g.id === id; });
+        if (d) {
+          state.group = d;
+          checkStep1();
+        }
+      });
+    });
+  }
+
+  // ── Individual day chips ──
+  document.querySelectorAll('.day-chip').forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      this.classList.toggle('selected');
+      checkStep1();
+    });
+  });
+  document.getElementById('timeFrom').addEventListener('change', checkStep1);
+  document.getElementById('timeTo').addEventListener('change', checkStep1);
+
+  function checkStep1() {
+    state.name = document.getElementById('infoName').value.trim();
+    state.email = document.getElementById('infoEmail').value.trim();
+    state.phone = document.getElementById('infoPhone').value.trim();
+    state.contact = document.getElementById('infoContact').value.trim();
+    state.notes = document.getElementById('infoNotes').value.trim();
+
+    var infoValid = state.name && state.email && state.phone;
+
+    var scheduleValid = false;
+    var infoMsg = '';
+
+    if (state.courseData.type === 'group') {
+      scheduleValid = state.group !== null;
+      infoMsg = scheduleValid
+        ? '<i class="fas fa-check-circle" style="color:var(--green)"></i> Groupe sélectionné : ' + state.group.label
+        : '<i class="fas fa-info-circle"></i> Choisissez un groupe';
+    } else {
+      var days = [];
+      document.querySelectorAll('.day-chip.selected').forEach(function(c) { days.push(c.getAttribute('data-day')); });
+      state.days = days;
+      state.timeFrom = document.getElementById('timeFrom').value;
+      state.timeTo = document.getElementById('timeTo').value;
+
+      var valid = days.length > 0 && state.timeFrom && state.timeTo;
+      var timeValid = true;
+      if (state.timeFrom && state.timeTo) {
+        timeValid = state.timeFrom < state.timeTo;
+      }
+      scheduleValid = valid && timeValid;
+
+      if (valid && timeValid) {
+        infoMsg = '<i class="fas fa-check-circle" style="color:var(--green)"></i> ' + days.join(', ') + ' · ' + state.timeFrom + ' – ' + state.timeTo;
+      } else if (!timeValid && state.timeFrom && state.timeTo) {
+        infoMsg = '<i class="fas fa-exclamation-circle" style="color:var(--amber)"></i> L\'heure de fin doit être après l\'heure de début';
+      } else {
+        infoMsg = '<i class="fas fa-info-circle"></i> Sélectionnez des jours et une plage horaire';
+      }
+    }
+
+    var allValid = infoValid && scheduleValid;
+    document.getElementById('toStep2').disabled = !allValid;
+    if (allValid) {
+      document.getElementById('step1Info').innerHTML = '<i class="fas fa-check-circle" style="color:var(--green)"></i> Tout est complet';
+    } else {
+      document.getElementById('step1Info').innerHTML = infoMsg + ' · ' + (infoValid ? '' : 'Remplissez tous les champs');
+    }
+  }
+
+  document.getElementById('toStep2').addEventListener('click', function() {
+    if (this.disabled) return;
+    goToStep(2);
+    startTest();
+  });
+
+  // ════════════════════════════════════════════════════════════
+  //  STEP 2: Placement Test
+  // ════════════════════════════════════════════════════════════
+  var timerInterval = null;
+  var timerSeconds = 1200; // 20 minutes
+
+  function startTest() {
+    state.testAnswers = new Array(testQuestions.length).fill(null);
+    state.currentQuestion = 0;
+    renderQuestion();
+    startTimer();
+  }
+
+  function renderQuestion() {
+    var idx = state.currentQuestion;
+    var q = testQuestions[idx];
+
+    document.getElementById('qNum').textContent = 'QUESTION ' + (idx + 1) + ' / ' + testQuestions.length;
+    document.getElementById('qText').textContent = q.q;
+    document.getElementById('testProgressFill').style.width = ((idx + 1) / testQuestions.length * 100) + '%';
+    document.getElementById('testProgressText').textContent = (idx + 1) + ' / ' + testQuestions.length;
+
+    var optHtml = '';
+    var letters = ['A','B','C','D'];
+    q.opts.forEach(function(opt, oi) {
+      var sel = state.testAnswers[idx] === oi ? ' selected' : '';
+      optHtml += '<div class="test-option' + sel + '" data-opt="' + oi + '">' +
+        '<span class="letter">' + letters[oi] + '</span>' +
+        '<span>' + opt + '</span></div>';
+    });
+    document.getElementById('qOptions').innerHTML = optHtml;
+
+    document.querySelectorAll('.test-option').forEach(function(el) {
+      el.addEventListener('click', function() {
+        selectAnswer(parseInt(this.getAttribute('data-opt')));
+      });
+    });
+
+    document.getElementById('testBackBtn').disabled = idx === 0;
+
+    var answered = state.testAnswers[idx] !== null;
+    document.getElementById('testNextBtn').disabled = !answered;
+    if (answered) {
+      document.getElementById('testInfo').innerHTML = '<i class="fas fa-check-circle" style="color:var(--green)"></i> Réponse enregistrée';
+    } else {
+      document.getElementById('testInfo').innerHTML = '<i class="fas fa-info-circle"></i> Choisissez une réponse pour continuer';
+    }
+
+    var isLast = idx === testQuestions.length - 1;
+    document.getElementById('testNextBtn').innerHTML = isLast
+      ? 'Voir mes résultats <i class="fas fa-arrow-right"></i>'
+      : 'Suivante <i class="fas fa-arrow-right"></i>';
+  }
+
+  function selectAnswer(optIdx) {
+    var idx = state.currentQuestion;
+    state.testAnswers[idx] = optIdx;
+
+    document.querySelectorAll('.test-option').forEach(function(el) {
+      el.classList.remove('selected');
+      if (parseInt(el.getAttribute('data-opt')) === optIdx) {
+        el.classList.add('selected');
+      }
+    });
+
+    document.getElementById('testNextBtn').disabled = false;
+    document.getElementById('testInfo').innerHTML = '<i class="fas fa-check-circle" style="color:var(--green)"></i> Réponse enregistrée';
+  }
+
+  document.getElementById('testNextBtn').addEventListener('click', function() {
+    if (this.disabled) return;
+    var isLast = state.currentQuestion === testQuestions.length - 1;
+    if (isLast) {
+      finishTest();
+    } else {
+      state.currentQuestion++;
+      renderQuestion();
+    }
+  });
+
+  function prevQuestion() {
+    if (state.currentQuestion > 0) {
+      state.currentQuestion--;
+      renderQuestion();
+    }
+  }
+
+  function startTimer() {
+    if (timerInterval) clearInterval(timerInterval);
+    timerSeconds = 1200;
+    updateTimerDisplay();
+    timerInterval = setInterval(function() {
+      timerSeconds--;
+      updateTimerDisplay();
+      if (timerSeconds <= 0) {
+        clearInterval(timerInterval);
+        finishTest();
+      }
+    }, 1000);
+  }
+
+  function updateTimerDisplay() {
+    var min = Math.floor(timerSeconds / 60);
+    var sec = timerSeconds % 60;
+    document.getElementById('timerDisplay').textContent =
+      (min < 10 ? '0' : '') + min + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+
+  function finishTest() {
+    clearInterval(timerInterval);
+    var correct = 0;
+    state.testAnswers.forEach(function(ans, i) {
+      if (ans === testQuestions[i].correct) correct++;
+    });
+
+    var total = testQuestions.length;
+    var pct = Math.round(correct / total * 100);
+    var level = getLevel(pct);
+
+    // Populate results
+    document.getElementById('resultsScore').textContent = correct + ' / ' + total;
+    document.getElementById('resultsLevel').textContent = 'Niveau ' + level;
+    document.getElementById('resultsLevel').className = 'results-level ' + level;
+
+    // Chart bars
+    var incorrect = total - correct;
+    var correctH = Math.max(4, correct / total * 100);
+    var incorrectH = Math.max(4, incorrect / total * 100);
+    document.getElementById('correctBar').style.height = correctH + '%';
+    document.getElementById('incorrectBar').style.height = incorrectH + '%';
+    document.getElementById('correctCount').textContent = correct;
+    document.getElementById('incorrectCount').textContent = incorrect;
+
+    // Breakdown by category
+    var cats = {};
+    testQuestions.forEach(function(q, i) {
+      if (!cats[q.cat]) cats[q.cat] = { total: 0, correct: 0 };
+      cats[q.cat].total++;
+      if (state.testAnswers[i] === q.correct) cats[q.cat].correct++;
+    });
+
+    var bdHtml = '';
+    for (var cat in cats) {
+      var c = cats[cat];
+      var cpct = Math.round(c.correct / c.total * 100);
+      var cls = cpct >= 70 ? 'high' : (cpct >= 40 ? 'med' : 'low');
+      bdHtml += '<div class="results-category">' +
+        '<div class="cat-label">' + cat + '</div>' +
+        '<div class="cat-score ' + cls + '">' + c.correct + '/' + c.total + '</div>' +
+        '</div>';
+    }
+    document.getElementById('resultsBreakdown').innerHTML = bdHtml;
+
+    // Explanation
+    var levels = {
+      C2: { min: 95, label: 'C2 — Maîtrise', msg: 'Félicitations ! Vous avez un niveau de maîtrise avancé. Un test oral confirmera votre classement.' },
+      C1: { min: 80, label: 'C1 — Autonome', msg: 'Excellent niveau ! Vous êtes à l\'aise dans la plupart des situations. Un test oral est requis pour valider votre niveau.' },
+      B2: { min: 60, label: 'B2 — Intermédiaire avancé', msg: 'Bon niveau ! Vous pouvez communiquer avec une certaine aisance. Le test oral permettra d\'affiner votre classement.' },
+      B1: { min: 40, label: 'B1 — Intermédiaire', msg: 'Vous avez des bases solides. Un test oral est nécessaire pour évaluer votre expression et compréhension orales.' },
+      A2: { min: 20, label: 'A2 — Élémentaire', msg: 'Vous commencez à construire des phrases simples. Le test oral nous aidera à mieux cibler vos besoins.' },
+      A1: { min: 0, label: 'A1 — Débutant', msg: 'Vous faites vos premiers pas en français. Ne vous inquiétez pas, nos cours sont adaptés à tous les niveaux !' }
+    };
+    var levelInfo = levels[level] || levels.A1;
+    document.getElementById('resultsExplanationText').innerHTML =
+      'Votre score indique un niveau <strong>' + levelInfo.label + '</strong>. ' + levelInfo.msg +
+      '<br><br>Selon votre résultat, un test oral est requis pour finaliser votre niveau. Réservez votre appel ci-dessous.';
+
+    goToStep(3);
+  }
+
+  function getLevel(pct) {
+    if (pct >= 95) return 'C2';
+    if (pct >= 80) return 'C1';
+    if (pct >= 60) return 'B2';
+    if (pct >= 40) return 'B1';
+    if (pct >= 20) return 'A2';
+    return 'A1';
+  }
+
+  // ════════════════════════════════════════════════════════════
+  //  STEP 4: Oral Call Booking — Calendar
+  // ════════════════════════════════════════════════════════════
+  var today = new Date();
+
+  function initCalendar() {
+    state.calMonth = today.getMonth();
+    state.calYear = today.getFullYear();
+    renderCalendar();
+  }
+
+  function renderCalendar() {
+    var grid = document.getElementById('calendarGrid');
+    var monthNames = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+    document.getElementById('calendarTitle').textContent = monthNames[state.calMonth] + ' ' + state.calYear;
+
+    var firstDay = new Date(state.calYear, state.calMonth, 1).getDay();
+    firstDay = firstDay === 0 ? 6 : firstDay - 1; // Convert Sunday=0 to Monday=0
+    var daysInMonth = new Date(state.calYear, state.calMonth + 1, 0).getDate();
+
+    var html = '<div class="day-name">Lun</div><div class="day-name">Mar</div><div class="day-name">Mer</div><div class="day-name">Jeu</div><div class="day-name">Ven</div><div class="day-name">Sam</div><div class="day-name">Dim</div>';
+
+    // Empty cells
+    for (var e = 0; e < firstDay; e++) {
+      html += '<div></div>';
+    }
+
+    for (var d = 1; d <= daysInMonth; d++) {
+      var date = new Date(state.calYear, state.calMonth, d);
+      var isToday = date.toDateString() === today.toDateString();
+      var isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+      var isWeekend = date.getDay() === 0 || date.getDay() === 6;
+      var isAvailable = !isPast && !isWeekend;
+      var isSelected = state.selectedDate && date.toDateString() === state.selectedDate.toDateString();
+      var classes = 'day-num';
+      if (isAvailable) classes += ' available';
+      if (isSelected) classes += ' selected';
+      if (isToday) classes += ' today';
+      if (isPast) classes += ' past';
+
+      html += '<div class="' + classes + '" data-day="' + d + '">' + d + '</div>';
+    }
+
+    grid.innerHTML = html;
+
+    grid.querySelectorAll('.day-num.available').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var day = parseInt(this.getAttribute('data-day'));
+        selectDate(day);
+      });
+    });
+  }
+
+  function changeMonth(delta) {
+    state.calMonth += delta;
+    if (state.calMonth < 0) { state.calMonth = 11; state.calYear--; }
+    if (state.calMonth > 11) { state.calMonth = 0; state.calYear++; }
+    renderCalendar();
+  }
+
+  function selectDate(day) {
+    var d = new Date(state.calYear, state.calMonth, day);
+    state.selectedDate = d;
+
+    document.querySelectorAll('.day-num').forEach(function(el) { el.classList.remove('selected'); });
+    var calGrid = document.getElementById('calendarGrid');
+    calGrid.querySelectorAll('.day-num[data-day="' + day + '"]').forEach(function(el) { el.classList.add('selected'); });
+
+    renderTimeSlots(d);
+  }
+
+  function renderTimeSlots(date) {
+    var slotGrid = document.getElementById('slotGrid');
+    var dayNames = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+    document.getElementById('selectedDateDisplay').textContent =
+      dayNames[date.getDay()] + ' ' + date.getDate() + ' ' +
+      ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'][date.getMonth()];
+
+    // Generate time slots
+    var slots = ['09:00','09:30','10:00','10:30','11:00','11:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30'];
+    var html = '';
+    slots.forEach(function(s) {
+      var isTaken = Math.random() < 0.2; // Simulate some slots already booked
+      var dis = isTaken ? ' disabled' : '';
+      var sel = state.selectedSlot === s ? ' selected' : '';
+      html += '<button class="slot-btn' + sel + dis + '" data-slot="' + s + '">' + s + '</button>';
+    });
+    slotGrid.innerHTML = html;
+
+    slotGrid.querySelectorAll('.slot-btn:not(:disabled)').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        slotGrid.querySelectorAll('.slot-btn').forEach(function(b) { b.classList.remove('selected'); });
+        this.classList.add('selected');
+        state.selectedSlot = this.getAttribute('data-slot');
+        document.getElementById('oralConfirmBtn').disabled = false;
+        document.getElementById('step4Info').innerHTML = '<i class="fas fa-check-circle" style="color:var(--green)"></i> ' +
+          document.getElementById('selectedDateDisplay').textContent + ' à ' + state.selectedSlot;
+      });
+    });
+  }
+
+  document.getElementById('toStep4').addEventListener('click', function() {
+    initCalendar();
+    goToStep(4);
+  });
+
+  // ════════════════════════════════════════════════════════════
+  //  FINAL CONFIRMATION — Oral test is last step
+  // ════════════════════════════════════════════════════════════
+  function confirmOralTest() {
+    if (document.getElementById('oralConfirmBtn').disabled) return;
+    document.getElementById('oralConfirmBtn').disabled = true;
+    document.getElementById('oralConfirmBtn').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Confirmation...';
+
+    // Save to localStorage for dashboard
+    var dayNames = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+    var monthNames = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+    var oralDate = state.selectedDate
+      ? dayNames[state.selectedDate.getDay()] + ' ' + state.selectedDate.getDate() + ' ' + monthNames[state.selectedDate.getMonth()] + ' ' + state.selectedDate.getFullYear()
+      : '—';
+    var scheduleStr = '';
+    if (state.courseData.type === 'group' && state.group) {
+      scheduleStr = state.group.label + ' — ' + state.group.days + ' à ' + state.group.time;
+    } else {
+      scheduleStr = (state.days.length ? state.days.join(', ') : 'À déterminer') + ' à ' + (state.timeFrom || '—') + ' – ' + (state.timeTo || '—');
+    }
+    var correct = state.testAnswers.filter(function(a, i) { return a === testQuestions[i].correct; }).length;
+    var level = getLevel(Math.round(correct / testQuestions.length * 100));
+
+    var oralData = {
+      courseName: state.courseData.name,
+      date: oralDate,
+      time: state.selectedSlot,
+      status: 'Planifié',
+      note: 'Lien envoyé par email',
+      bookingRef: 'BK-' + Date.now().toString().slice(-6)
+    };
+    try { localStorage.setItem('cultulangues_oral_test', JSON.stringify(oralData)); } catch(e) {}
+
+    setTimeout(function() {
+      document.getElementById('successDetails').innerHTML =
+        '<div style="display:grid;gap:8px">' +
+        '<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-secondary)">Cours</span><span style="font-weight:600">' + state.courseData.name + '</span></div>' +
+        '<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-secondary)">Horaire cours</span><span style="font-weight:600">' + scheduleStr + '</span></div>' +
+        '<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-secondary)">Résultat test</span><span style="font-weight:600">' + correct + '/' + testQuestions.length + ' · Niveau ' + level + '</span></div>' +
+        '<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border)"><span style="color:var(--text-secondary)">Test oral</span><span style="font-weight:600">' + oralDate + ' à ' + state.selectedSlot + '</span></div>' +
+        '</div>';
+
+      for (var i = 1; i <= 4; i++) {
+        var el = document.getElementById('step' + i);
+        if (el) el.classList.add('hidden');
+      }
+      document.getElementById('stepSuccess').classList.remove('hidden');
+      updateSteps(5);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Auto-redirect to student dashboard
+      var seconds = 3;
+      var progress = document.getElementById('redirectProgress');
+      var countdown = document.getElementById('redirectCountdown');
+      progress.style.width = '100%';
+      var iv = setInterval(function() {
+        seconds--;
+        if (countdown) countdown.textContent = seconds;
+        if (seconds <= 0) {
+          clearInterval(iv);
+          window.location.href = 'student/index.html';
+        }
+      }, 1000);
+    }, 800);
+  }
+
+  // ════════════════════════════════════════════════════════════
+  //  TIMEZONE
+  // ════════════════════════════════════════════════════════════
+  var tz = new Date().getTimezoneOffset();
+  var tzHours = -Math.round(tz / 60);
+  document.getElementById('tzOffset').textContent = (tzHours >= 0 ? '+' : '') + tzHours;
+
+  // ════════════════════════════════════════════════════════════
+  //  BOOT
+  // ════════════════════════════════════════════════════════════
+  init();
+</script>
+
+</body>
+</html>

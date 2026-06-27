@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Programmes — Cultulangues</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="public-header" id="header">
+    <div class="container">
+      <a href="../index.html" class="logo">
+        <img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img">
+      </a>
+      <nav class="nav">
+        <a href="../index.html">Accueil</a>
+        <a href="programs.html" class="active">Programmes</a>
+        <a href="workshops.html">Ateliers</a>
+        <a href="about.html">À propos</a>
+        <a href="contact.html">Contact</a>
+        <div class="nav-cta">
+          <a href="login.html" class="btn btn-ghost btn-sm">Connexion</a>
+          <a href="register.html" class="btn btn-primary btn-sm">S'inscrire</a>
+        </div>
+      </nav>
+      <div class="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ PAGE HEADER ═══ -->
+  <section class="page-header">
+    <div class="page-header-bg"><img src="../img/hero-parcours-linguistiques.png" alt="" loading="lazy"></div>
+    <div class="container">
+      <h1>Nos Programmes</h1>
+      <p>Des formations adaptées à chaque objectif, du niveau débutant à l'expertise. Trouvez le programme qui vous correspond.</p>
+    </div>
+  </section>
+
+  <!-- ═══ FILTERS & PROGRAMS ═══ -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="filters-bar">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="tcf-canada">TCF Canada</button>
+        <button class="filter-btn" data-filter="tcf-quebec">TCF Québec</button>
+        <button class="filter-btn" data-filter="oral">Oral</button>
+        <button class="filter-btn" data-filter="particuliers">Particuliers</button>
+        <button class="filter-btn" data-filter="groupe">Groupe</button>
+        <button class="filter-btn" data-filter="intensif">Intensif</button>
+        <button class="filter-btn" data-filter="evaluations">Évaluations</button>
+      </div>
+
+      <div class="grid-3 stagger-children">
+
+        <!-- 1 — TCF Canada · Intensif -->
+        <div class="program-card" data-category="tcf-canada intensif">
+          <div class="program-card-image"><img class="card-img" src="../img/banner-tcf-canada-intensif.png" alt="" loading="lazy"></div>
+          <div class="program-card-body">
+            <div class="program-card-badges">
+              <span class="badge badge-emerald">TCF Canada</span>
+              <span class="badge badge-gold">Intensif</span>
+            </div>
+            <h3>TCF Canada · Intensif</h3>
+            <p>Programme intensif dédié au TCF Canada avec un focus sur l'expression écrite et orale. Simulations d'examen hebdomadaires et corrections personnalisées pour maximiser votre score.</p>
+            <div class="program-card-meta">
+              <span>📅 16 sem</span>
+              <span>⏱ 2h30 — 3x/sem</span>
+              <span>👤 6 élèves max</span>
+            </div>
+            <div class="program-card-footer">
+              <div class="program-card-price">520€ <small>/ mois</small></div>
+              <div class="flex gap-xs">
+                <a href="program-detail.html?id=1" class="btn btn-outline btn-sm">Détails</a>
+                <a href="../booking.html?course=tcf-canada" class="btn btn-primary btn-sm">Réserver</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 — TCF Canada · Régulier -->
+        <div class="program-card" data-category="tcf-canada">
+          <div class="program-card-image"><img class="card-img" src="../img/banner-tcf-canada-partiel.png" alt="" loading="lazy"></div>
+          <div class="program-card-body">
+            <div class="program-card-badges">
+              <span class="badge badge-emerald">TCF Canada</span>
+              <span class="badge badge-gray">Régulier</span>
+            </div>
+            <h3>TCF Canada · Régulier</h3>
+            <p>Préparation progressive au TCF Canada en petits groupes. Idéal pour les apprenants qui souhaitent concilier apprentissage et emploi du temps chargé tout en restant encadrés.</p>
+            <div class="program-card-meta">
+              <span>📅 24 sem</span>
+              <span>⏱ 1h30 — 2x/sem</span>
+              <span>👤 10 élèves max</span>
+            </div>
+            <div class="program-card-footer">
+              <div class="program-card-price">310€ <small>/ mois</small></div>
+              <div class="flex gap-xs">
+                <a href="program-detail.html?id=2" class="btn btn-outline btn-sm">Détails</a>
+                <a href="../booking.html?course=tcf-canada" class="btn btn-primary btn-sm">Réserver</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 — TCF Québec · Intensif -->
+        <div class="program-card" data-category="tcf-quebec intensif">
+          <div class="program-card-image"><img class="card-img" src="../img/banner-tcf-quebec-intensif.png" alt="" loading="lazy"></div>
+          <div class="program-card-body">
+            <div class="program-card-badges">
+              <span class="badge badge-blue">TCF Québec</span>
+              <span class="badge badge-gold">Intensif</span>
+            </div>
+            <h3>TCF Québec · Intensif</h3>
+            <p>Formation intensive ciblant toutes les épreuves du TCF Québec. Accompagnement renforcé avec coaching individuel et examens blancs réguliers pour une préparation optimale.</p>
+            <div class="program-card-meta">
+              <span>📅 12 sem</span>
+              <span>⏱ 2h — 3x/sem</span>
+              <span>👤 8 élèves max</span>
+            </div>
+            <div class="program-card-footer">
+              <div class="program-card-price">450€ <small>/ mois</small></div>
+              <div class="flex gap-xs">
+                <a href="program-detail.html?id=3" class="btn btn-outline btn-sm">Détails</a>
+                <a href="../booking.html?course=tcf-quebec" class="btn btn-primary btn-sm">Réserver</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 — TCF Québec · Régulier -->
+        <div class="program-card" data-category="tcf-quebec">
+          <div class="program-card-image"><img class="card-img" src="../img/banner-tcf-quebec-partiel.png" alt="" loading="lazy"></div>
+          <div class="program-card-body">
+            <div class="program-card-badges">
+              <span class="badge badge-blue">TCF Québec</span>
+              <span class="badge badge-gray">Régulier</span>
+            </div>
+            <h3>TCF Québec · Régulier</h3>
+            <p>Préparation équilibrée au TCF Québec avec un rythme adapté. Parfait pour une progression durable et maîtrisée, avec un accompagnement constant tout au long du programme.</p>
+            <div class="program-card-meta">
+              <span>📅 16 sem</span>
+              <span>⏱ 1h30 — 2x/sem</span>
+              <span>👤 10 élèves max</span>
+            </div>
+            <div class="program-card-footer">
+              <div class="program-card-price">290€ <small>/ mois</small></div>
+              <div class="flex gap-xs">
+                <a href="program-detail.html?id=4" class="btn btn-outline btn-sm">Détails</a>
+                <a href="../booking.html?course=tcf-quebec" class="btn btn-primary btn-sm">Réserver</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 — Oral B/C · Intensif -->
+        <div class="program-card" data-category="oral intensif">
+          <div class="program-card-image"><img class="card-img" src="../img/banner-oral-b-intensif.png" alt="" loading="lazy"></div>
+          <div class="program-card-body">
+            <div class="program-card-badges">
+              <span class="badge badge-red">Oral B/C</span>
+              <span class="badge badge-gold">Intensif</span>
+            </div>
+            <h3>Oral B/C · Intensif</h3>
+            <p>Ateliers intensifs dédiés à l'expression orale niveaux B et C. Coaching personnalisé, mises en situation réalistes et feedback détaillé pour chaque apprenant.</p>
+            <div class="program-card-meta">
+              <span>📅 8 sem</span>
+              <span>⏱ 1h30 — 2x/sem</span>
+              <span>👤 4 élèves max</span>
+            </div>
+            <div class="program-card-footer">
+              <div class="program-card-price">320€ <small>/ mois</small></div>
+              <div class="flex gap-xs">
+                <a href="program-detail.html?id=5" class="btn btn-outline btn-sm">Détails</a>
+                <a href="../booking.html?course=oral-bc" class="btn btn-primary btn-sm">Réserver</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 — Cours Particuliers 1-to-1 -->
+        <div class="program-card" data-category="particuliers">
+          <div class="program-card-image"><img class="card-img" src="../img/package-solo-a1.png" alt="" loading="lazy"></div>
+          <div class="program-card-body">
+            <div class="program-card-badges">
+              <span class="badge badge-green">Particuliers</span>
+              <span class="badge badge-gray">Flexible</span>
+            </div>
+            <h3>Cours Particuliers 1-to-1</h3>
+            <p>Accompagnement sur-mesure avec un enseignant dédié. Programme 100% adapté à vos objectifs, votre niveau et votre rythme d'apprentissage.</p>
+            <div class="program-card-meta">
+              <span>📅 Flexible</span>
+              <span>⏱ 1h/séance</span>
+              <span>👤 1 élève</span>
+            </div>
+            <div class="program-card-footer">
+              <div class="program-card-price">45€ <small>/ séance</small></div>
+              <div class="flex gap-xs">
+                <a href="program-detail.html?id=6" class="btn btn-outline btn-sm">Détails</a>
+                <a href="../booking.html?course=private" class="btn btn-primary btn-sm">Réserver</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 — Cours en Groupe -->
+        <div class="program-card" data-category="groupe">
+          <div class="program-card-image"><img class="card-img" src="../img/banner-evening-lingo.png" alt="" loading="lazy"></div>
+          <div class="program-card-body">
+            <div class="program-card-badges">
+              <span class="badge badge-gray">Groupe</span>
+            </div>
+            <h3>Cours en Groupe</h3>
+            <p>Apprenez en groupe dans une ambiance dynamique et collaborative. Idéal pour pratiquer l'oral et progresser grâce à l'interaction entre pairs.</p>
+            <div class="program-card-meta">
+              <span>📅 12 sem</span>
+              <span>⏱ 1h30 — 1x/sem</span>
+              <span>👤 15 élèves max</span>
+            </div>
+            <div class="program-card-footer">
+              <div class="program-card-price">120€ <small>/ mois</small></div>
+              <div class="flex gap-xs">
+                <a href="program-detail.html?id=7" class="btn btn-outline btn-sm">Détails</a>
+                <a href="../booking.html?course=groupe" class="btn btn-primary btn-sm">Réserver</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 — Programme du Samedi -->
+        <div class="program-card" data-category="groupe intensif">
+          <div class="program-card-image"><img class="card-img" src="../img/banner-samedi-francais.png" alt="" loading="lazy"></div>
+          <div class="program-card-body">
+            <div class="program-card-badges">
+              <span class="badge badge-gold">Samedi</span>
+              <span class="badge badge-gray">Groupe</span>
+            </div>
+            <h3>Programme du Samedi</h3>
+            <p>Cours intensifs chaque samedi pour maximiser votre progression sans empiéter sur votre semaine. Parfait pour les professionnels et étudiants.</p>
+            <div class="program-card-meta">
+              <span>📅 10 samedis</span>
+              <span>⏱ 3h/session</span>
+              <span>👤 12 élèves max</span>
+            </div>
+            <div class="program-card-footer">
+              <div class="program-card-price">180€ <small>/ mois</small></div>
+              <div class="flex gap-xs">
+                <a href="program-detail.html?id=8" class="btn btn-outline btn-sm">Détails</a>
+                <a href="../booking.html?course=samedi" class="btn btn-primary btn-sm">Réserver</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9 — Programme Intensif Général -->
+        <div class="program-card" data-category="intensif">
+          <div class="program-card-image"><img class="card-img" src="../img/banner-oral-intensif.png" alt="" loading="lazy"></div>
+          <div class="program-card-body">
+            <div class="program-card-badges">
+              <span class="badge badge-gold">Intensif</span>
+              <span class="badge badge-gray">Général</span>
+            </div>
+            <h3>Programme Intensif Général</h3>
+            <p>Immersion totale avec 8h de cours par semaine. Progression rapide garantie grâce à une approche complète couvrant toutes les compétences linguistiques.</p>
+            <div class="program-card-meta">
+              <span>📅 8 sem</span>
+              <span>⏱ 2h — 4x/sem</span>
+              <span>👤 10 élèves max</span>
+            </div>
+            <div class="program-card-footer">
+              <div class="program-card-price">380€ <small>/ mois</small></div>
+              <div class="flex gap-xs">
+                <a href="program-detail.html?id=9" class="btn btn-outline btn-sm">Détails</a>
+                <a href="../booking.html?course=intensif" class="btn btn-primary btn-sm">Réserver</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 — Test de Placement -->
+        <div class="program-card" data-category="evaluations">
+          <div class="program-card-image"><img class="card-img" src="../img/banner-linguotest.png" alt="" loading="lazy"></div>
+          <div class="program-card-body">
+            <div class="program-card-badges">
+              <span class="badge badge-gray">Évaluation</span>
+            </div>
+            <h3>Test de Placement</h3>
+            <p>Évaluation complète de votre niveau en français (compréhension et expression écrite). Résultats détaillés avec recommandations personnalisées.</p>
+            <div class="program-card-meta">
+              <span>📅 1 séance</span>
+              <span>⏱ 2h</span>
+              <span>👤 Individuel</span>
+            </div>
+            <div class="program-card-footer">
+              <div class="program-card-price">60€</div>
+              <a href="program-detail.html?id=10" class="btn btn-outline btn-sm">Voir détails</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 — Évaluation Orale -->
+        <div class="program-card" data-category="evaluations">
+          <div class="program-card-image"><img class="card-img" src="../img/banner-linguotest-online.png" alt="" loading="lazy"></div>
+          <div class="program-card-body">
+            <div class="program-card-badges">
+              <span class="badge badge-gray">Évaluation</span>
+            </div>
+            <h3>Évaluation Orale</h3>
+            <p>Test oral individuel de 45 minutes pour évaluer votre expression et compréhension orales. Idéal avant de choisir votre programme.</p>
+            <div class="program-card-meta">
+              <span>📅 1 séance</span>
+              <span>⏱ 45 min</span>
+              <span>👤 Individuel</span>
+            </div>
+            <div class="program-card-footer">
+              <div class="program-card-price">40€</div>
+              <a href="program-detail.html?id=11" class="btn btn-outline btn-sm">Voir détails</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA BANNER ═══ -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Prêt à commencer votre parcours ?</h2>
+        <p>Contactez-nous pour un test de placement gratuit et trouvez le programme qui correspond à vos objectifs.</p>
+        <a href="contact.html" class="btn btn-secondary btn-lg">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="public-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">
+            <img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img">
+          </a>
+          <p>Formation linguistique & Préparation aux examens. Une approche humaine et bienveillante.</p>
+          <div class="footer-social" style="margin-top: var(--space-lg);">
+            <a href="#" title="Facebook">f</a>
+            <a href="#" title="Instagram">◻</a>
+            <a href="#" title="LinkedIn">in</a>
+            <a href="#" title="YouTube">▶</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Programmes</h4>
+          <a href="programs.html">TCF Canada</a>
+          <a href="programs.html">TCF Québec</a>
+          <a href="programs.html">Oral B & C</a>
+          <a href="workshops.html">Ateliers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Liens utiles</h4>
+          <a href="about.html">À propos</a>
+          <a href="contact.html">Contact</a>
+          <a href="#">FAQ</a>
+          <a href="#">Mentions légales</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="#">contact@cultulangues.fr</a>
+          <a href="#">+33 1 23 45 67 89</a>
+          <a href="#">Paris, France</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Cultulangues. Tous droits réservés.</span>
+        <span>🌿 Fait avec bienveillance</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-nav-overlay"></div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

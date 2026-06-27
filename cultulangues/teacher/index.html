@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Portal — School Management</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --pink:#FF6B9D;--orange:#FF8E53;--amber:#FFB347;--yellow:#FFD93D;
+      --blue:#4A90D9;--blue-light:#7BB3E8;--green:#2ECC71;--green-light:#5EE09A;--red:#E74C3C;
+      --bg:#F4F6FA;--bg-card:#FFFFFF;--bg-sidebar:#1A1A2E;
+      --text:#2C3E50;--text-secondary:#7F8C8D;--text-tertiary:#BDC3C7;--border:#E8ECF1;
+      --shadow-sm:0 2px 8px rgba(0,0,0,0.04);--shadow-md:0 4px 20px rgba(0,0,0,0.06);--shadow-lg:0 12px 40px rgba(0,0,0,0.1);
+      --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-full:9999px;
+      --sidebar-w:250px;--header-h:64px;--transition:300ms cubic-bezier(0.4,0,0.2,1);--font:'Inter',sans-serif;
+      --gradient-main:linear-gradient(135deg,var(--pink),var(--orange),var(--yellow));
+    }
+    html{font-size:14.5px}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);overflow:hidden;height:100vh}
+    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar-track{background:transparent}
+    ::-webkit-scrollbar-thumb{background:var(--border);border-radius:var(--radius-full)}
+
+    .sidebar{position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;background:var(--bg-sidebar);z-index:100;transition:width var(--transition);display:flex;flex-direction:column;overflow:hidden}
+    .sidebar.collapsed{width:68px}
+    .sidebar-brand{display:flex;align-items:center;gap:12px;padding:16px 20px;height:var(--header-h);border-bottom:1px solid rgba(255,255,255,0.06);flex-shrink:0}
+    .sidebar-brand-icon{width:34px;height:34px;border-radius:var(--radius-md);background:var(--gradient-main);display:flex;align-items:center;justify-content:center;color:white;font-size:0.9rem;flex-shrink:0;font-weight:800}
+    .sidebar-brand span{font-weight:800;font-size:1rem;background:var(--gradient-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap}
+    .sidebar.collapsed .sidebar-brand span{opacity:0;width:0;overflow:hidden}
+    .sidebar-nav{padding:12px 10px;flex:1;overflow-y:auto}
+    .sidebar-nav::-webkit-scrollbar{width:3px}
+    .sidebar-nav::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:var(--radius-full)}
+    .sidebar-section-label{padding:10px 14px 4px;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);white-space:nowrap}
+    .sidebar.collapsed .sidebar-section-label{opacity:0;height:0;padding:0;overflow:hidden}
+    .nav-item{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:var(--radius-md);color:rgba(255,255,255,0.55);font-size:0.85rem;font-weight:500;cursor:pointer;transition:all var(--transition);white-space:nowrap;position:relative;margin-bottom:2px}
+    .nav-item i{width:20px;text-align:center;font-size:1rem;flex-shrink:0}
+    .nav-item:hover{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.85)}
+    .nav-item.active{background:linear-gradient(135deg,rgba(255,107,157,0.15),rgba(255,142,83,0.08));color:white}
+    .nav-item.active::before{content:'';position:absolute;left:-10px;top:50%;transform:translateY(-50%);width:3px;height:18px;border-radius:var(--radius-full);background:var(--gradient-main)}
+    .sidebar.collapsed .nav-item{justify-content:center;padding:10px 0;margin:0 6px}
+    .sidebar.collapsed .nav-item span{display:none}
+    .sidebar-footer{padding:12px;border-top:1px solid rgba(255,255,255,0.06);flex-shrink:0}
+    .sidebar.collapsed .sidebar-footer .nav-item span{display:none}
+    .sidebar-toggle{position:fixed;bottom:20px;left:calc(var(--sidebar-w) - 15px);z-index:101;width:30px;height:30px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--transition);color:var(--text-secondary);font-size:0.65rem;box-shadow:var(--shadow-md)}
+    .sidebar-toggle:hover{background:var(--gradient-main);color:white;border-color:transparent}
+    .sidebar.collapsed ~ .sidebar-toggle{left:calc(68px - 15px)}
+
+    .main{margin-left:var(--sidebar-w);height:100vh;display:flex;flex-direction:column;transition:margin var(--transition)}
+    .sidebar.collapsed ~ .main{margin-left:68px}
+
+    .header{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;padding:0 28px;border-bottom:1px solid var(--border);background:var(--bg-card);flex-shrink:0}
+    .header-left{display:flex;align-items:center;gap:14px}
+    .header-title h1{font-size:1.1rem;font-weight:700;background:var(--gradient-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .header-title p{font-size:0.72rem;color:var(--text-secondary);margin-top:1px}
+    .header-actions{display:flex;align-items:center;gap:14px}
+    .header-search{position:relative;width:260px}
+    .header-search input{width:100%;padding:8px 14px 8px 36px;border:1px solid var(--border);border-radius:var(--radius-full);background:var(--bg);font-size:0.8rem;outline:none;transition:all var(--transition);font-family:var(--font)}
+    .header-search input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(74,144,217,0.1)}
+    .header-search i{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-tertiary)}
+    .header-icon{position:relative;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);cursor:pointer;transition:all var(--transition);font-size:1.05rem}
+    .header-icon:hover{background:rgba(255,107,157,0.06);color:var(--pink)}
+    .header-icon .dot{position:absolute;top:6px;right:6px;width:7px;height:7px;border-radius:50%;background:var(--red);border:2px solid var(--bg-card)}
+    .user-profile{display:flex;align-items:center;gap:10px;cursor:pointer;padding:4px 12px 4px 4px;border-radius:var(--radius-full);transition:all var(--transition);position:relative}
+    .user-profile:hover{background:rgba(255,107,157,0.04)}
+    .user-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:0.75rem;flex-shrink:0;background:var(--gradient-main)}
+    .user-profile .name{font-size:0.78rem;font-weight:600;color:var(--text)}
+    .user-profile .role{font-size:0.62rem;color:var(--text-secondary)}
+    .header-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-lg);padding:6px;min-width:180px;display:none;z-index:200}
+    .header-dropdown.open{display:block;animation:fadeInUp 0.2s ease}
+    .header-dropdown-item{display:flex;align-items:center;gap:10px;padding:9px 14px;border-radius:var(--radius-sm);font-size:0.78rem;color:var(--text-secondary);cursor:pointer;transition:all var(--transition)}
+    .header-dropdown-item:hover{background:rgba(255,107,157,0.05);color:var(--pink)}
+    .header-dropdown-item i{width:16px;text-align:center}
+    .header-dropdown-divider{height:1px;background:var(--border);margin:4px 0}
+
+    .content{flex:1;overflow-y:auto;padding:20px 28px}
+    .page{display:none}
+    .page.active{display:block;animation:fadeInUp 0.35s ease}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+    .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:20px}
+    @media(max-width:900px){.kpi-grid{grid-template-columns:1fr}}
+    .kpi-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:18px 22px;box-shadow:var(--shadow-sm);border:1px solid var(--border);display:flex;align-items:center;gap:14px;transition:all var(--transition);overflow:hidden}
+    .kpi-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+    .kpi-icon{width:44px;height:44px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .kpi-icon.pink{background:rgba(255,107,157,0.1);color:var(--pink)}
+    .kpi-icon.blue{background:rgba(74,144,217,0.1);color:var(--blue)}
+    .kpi-icon.green{background:rgba(46,204,113,0.1);color:var(--green)}
+    .kpi-icon.orange{background:rgba(255,142,83,0.1);color:var(--orange)}
+    .kpi-info{flex:1}
+    .kpi-info .kpi-label{font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-tertiary);margin-bottom:3px}
+    .kpi-info .kpi-value{font-size:1.4rem;font-weight:800;line-height:1.2;color:var(--text)}
+
+    .section-title{font-size:1.05rem;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+    .chart-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:18px 22px;box-shadow:var(--shadow-sm);border:1px solid var(--border)}
+    .chart-card h3{font-size:0.9rem;font-weight:700;margin-bottom:2px}
+    .chart-card .chart-sub{font-size:0.7rem;color:var(--text-secondary);margin-bottom:14px}
+    .chart-bars{display:flex;align-items:flex-end;gap:6px;height:140px;padding-top:8px}
+    .chart-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end}
+    .chart-bar{width:100%;max-width:28px;border-radius:5px 5px 2px 2px;transition:height 0.8s ease;min-height:3px}
+    .chart-bar.pink{background:linear-gradient(180deg,var(--pink),var(--orange))}
+    .chart-bar.blue{background:linear-gradient(180deg,var(--blue),var(--blue-light))}
+    .chart-bar.green{background:linear-gradient(180deg,var(--green),var(--green-light))}
+    .chart-bar-label{font-size:0.58rem;color:var(--text-tertiary);margin-top:5px;font-weight:500}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+    .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+    @media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+    .quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+    @media(max-width:900px){.quick-actions{grid-template-columns:1fr}}
+    .quick-action{background:var(--bg-card);border-radius:var(--radius-md);padding:16px 18px;box-shadow:var(--shadow-sm);border:1px solid var(--border);display:flex;align-items:center;gap:12px;cursor:pointer;transition:all var(--transition)}
+    .quick-action:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+    .quick-action-icon{width:38px;height:38px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0}
+    .quick-action-icon.pink{background:rgba(255,107,157,0.1);color:var(--pink)}
+    .quick-action-icon.blue{background:rgba(74,144,217,0.1);color:var(--blue)}
+    .quick-action-icon.green{background:rgba(46,204,113,0.1);color:var(--green)}
+    .quick-action span{font-size:0.8rem;font-weight:600;color:var(--text)}
+
+    .courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media(max-width:1100px){.courses-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){.courses-grid{grid-template-columns:1fr}}
+    .course-card{background:var(--bg-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:1px solid var(--border);overflow:hidden;transition:all var(--transition);cursor:pointer}
+    .course-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
+    .course-card-top{height:70px;position:relative;overflow:hidden}
+    .course-card-top.pink{background:linear-gradient(135deg,var(--pink),var(--orange))}
+    .course-card-top.blue{background:linear-gradient(135deg,var(--blue),var(--blue-light))}
+    .course-card-top.green{background:linear-gradient(135deg,var(--green),var(--green-light))}
+    .course-card-top.orange{background:linear-gradient(135deg,var(--orange),var(--amber))}
+    .course-card-body{padding:14px 18px}
+    .course-card-body h4{font-size:0.9rem;font-weight:700;margin-bottom:4px}
+    .course-card-body .meta{font-size:0.7rem;color:var(--text-secondary);margin-bottom:8px}
+    .course-card-body .meta span{display:flex;align-items:center;gap:4px;margin-bottom:2px}
+
+    .tt-wrap{background:var(--bg-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:1px solid var(--border);overflow:hidden}
+    .tt-header{display:grid;grid-template-columns:70px repeat(5,1fr);background:var(--bg);border-bottom:2px solid var(--border)}
+    .tt-header div{padding:10px 6px;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-tertiary);text-align:center}
+    .tt-row{display:grid;grid-template-columns:70px repeat(5,1fr);border-bottom:1px solid var(--border)}
+    .tt-row:last-child{border-bottom:none}
+    .tt-time{display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:600;color:var(--text-tertiary);padding:6px}
+    .tt-slot{padding:4px;min-height:48px;cursor:pointer}
+    .tt-lesson{border-radius:var(--radius-sm);padding:6px 7px;height:100%;font-size:0.62rem;transition:all var(--transition)}
+    .tt-lesson:hover{transform:scale(1.04);z-index:2;box-shadow:var(--shadow-md)}
+    .tt-lesson.pink{background:rgba(255,107,157,0.08);border-left:3px solid var(--pink);color:var(--pink)}
+    .tt-lesson.blue{background:rgba(74,144,217,0.06);border-left:3px solid var(--blue);color:var(--blue)}
+    .tt-lesson.green{background:rgba(46,204,113,0.08);border-left:3px solid var(--green);color:var(--green)}
+    .tt-lesson.orange{background:rgba(255,142,83,0.08);border-left:3px solid var(--orange);color:var(--orange)}
+    .tt-lesson strong{display:block;font-weight:700}
+    .tt-lesson span{opacity:0.7;font-size:0.6rem}
+
+    .table-card{background:var(--bg-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:1px solid var(--border);overflow:hidden}
+    .table-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border)}
+    .table-header h3{font-size:0.85rem;font-weight:700}
+    .table-wrap{overflow-x:auto}
+    table{width:100%;border-collapse:collapse}
+    th{text-align:left;padding:10px 18px;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-tertiary);background:var(--bg);border-bottom:1px solid var(--border)}
+    td{padding:10px 18px;font-size:0.8rem;border-bottom:1px solid var(--border);color:var(--text)}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:rgba(255,107,157,0.015)}
+    .status-badge{display:inline-flex;padding:2px 10px;border-radius:var(--radius-full);font-size:0.65rem;font-weight:600}
+    .status-badge.active{background:rgba(46,204,113,0.1);color:var(--green)}
+    .status-badge.pending{background:rgba(255,179,71,0.12);color:var(--amber)}
+    .status-badge.completed{background:rgba(74,144,217,0.1);color:var(--blue)}
+    .badge{display:inline-flex;padding:2px 8px;border-radius:var(--radius-full);font-size:0.65rem;font-weight:600}
+    .badge-blue{background:rgba(74,144,217,0.1);color:var(--blue)}
+    .badge-green{background:rgba(46,204,113,0.1);color:var(--green)}
+    .badge-pink{background:rgba(255,107,157,0.1);color:var(--pink)}
+
+    .tabs{display:flex;gap:4px;margin-bottom:16px;background:var(--bg-card);padding:4px;border-radius:var(--radius-md);border:1px solid var(--border);overflow-x:auto}
+    .tab-btn{padding:7px 16px;border-radius:var(--radius-sm);font-size:0.78rem;font-weight:500;color:var(--text-secondary);cursor:pointer;transition:all var(--transition);white-space:nowrap;border:none;background:none;font-family:var(--font)}
+    .tab-btn:hover{color:var(--pink)}
+    .tab-btn.active{background:var(--gradient-main);color:white}
+    .tab-content{display:none;padding:4px 0}
+    .tab-content.active{display:block;animation:fadeInUp 0.25s ease}
+
+    .back-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:var(--radius-md);border:1px solid var(--border);background:var(--bg-card);color:var(--text-secondary);cursor:pointer;font-size:0.75rem;font-family:var(--font);transition:all var(--transition);margin-bottom:14px}
+    .back-btn:hover{background:var(--bg)}
+    .btn-primary{padding:8px 18px;border-radius:var(--radius-md);font-size:0.75rem;font-weight:600;border:none;background:var(--gradient-main);color:white;cursor:pointer;transition:all var(--transition);font-family:var(--font)}
+    .btn-primary:hover{box-shadow:0 4px 16px rgba(255,107,157,0.3)}
+    .btn-outline{padding:6px 14px;border-radius:var(--radius-sm);font-size:0.72rem;font-weight:500;border:1px solid var(--border);background:transparent;color:var(--text-secondary);cursor:pointer;transition:all var(--transition);font-family:var(--font)}
+    .btn-outline:hover{background:var(--bg)}
+
+    .profile-header-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:22px 24px;box-shadow:var(--shadow-sm);border:1px solid var(--border);display:flex;align-items:center;gap:18px;margin-bottom:16px}
+    .profile-avatar-lg{width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;color:white;flex-shrink:0}
+    .profile-info h2{font-size:1.15rem;font-weight:700}
+    .profile-info p{font-size:0.78rem;color:var(--text-secondary);margin:2px 0 6px}
+    .profile-stats{display:flex;gap:20px;font-size:0.75rem}
+    .profile-stats strong{display:block;font-size:0.95rem;font-weight:700}
+
+    .form-group{margin-bottom:14px}
+    .form-group label{display:block;font-size:0.72rem;font-weight:600;color:var(--text);margin-bottom:5px}
+    .form-control{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:0.82rem;outline:none;transition:all var(--transition);font-family:var(--font);background:var(--bg);color:var(--text)}
+    .form-control:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,107,157,0.08);background:white}
+    .form-control:disabled{opacity:0.6;cursor:not-allowed}
+
+    .filters-row{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+    .filter-select{padding:7px 12px;border:1px solid var(--border);border-radius:var(--radius-md);font-size:0.78rem;background:var(--bg-card);color:var(--text);outline:none;cursor:pointer;font-family:var(--font)}
+
+    .mb-16{margin-bottom:16px}
+    .mb-20{margin-bottom:20px}
+    .flex-between{display:flex;justify-content:space-between;align-items:center}
+    .text-center{text-align:center}
+    .text-secondary{color:var(--text-secondary)}
+    .hidden{display:none!important}
+
+    .progress-bar{height:5px;background:var(--border);border-radius:var(--radius-full);overflow:hidden}
+    .progress-fill{height:100%;border-radius:var(--radius-full);transition:width 1s ease}
+    .progress-fill.pink{background:linear-gradient(90deg,var(--pink),var(--orange))}
+    .progress-fill.blue{background:linear-gradient(90deg,var(--blue),var(--blue-light))}
+    .progress-fill.green{background:linear-gradient(90deg,var(--green),var(--green-light))}
+
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);backdrop-filter:blur(4px);z-index:500;display:none;align-items:center;justify-content:center}
+    .modal-overlay.open{display:flex}
+    .modal{background:var(--bg-card);border-radius:var(--radius-xl);padding:0;max-width:500px;width:90%;max-height:70vh;overflow:hidden;box-shadow:var(--shadow-lg);animation:fadeInUp 0.25s ease}
+    .modal-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--border)}
+    .modal-header h2{font-size:1rem;font-weight:700}
+    .modal-close{width:30px;height:30px;border-radius:50%;border:none;background:var(--bg);cursor:pointer;color:var(--text-secondary);transition:all var(--transition);font-size:0.85rem}
+    .modal-close:hover{background:rgba(231,76,60,0.08);color:var(--red)}
+    .modal-body{padding:20px 22px;overflow-y:auto;max-height:calc(70vh - 130px)}
+
+    input[type="text"].grade-input{width:60px;padding:4px 8px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.78rem;text-align:center;font-family:var(--font);outline:none;background:var(--bg)}
+    input[type="text"].grade-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(74,144,217,0.1)}
+
+    @media(max-width:768px){
+      .sidebar{transform:translateX(-100%);z-index:1000}
+      .sidebar.open{transform:translateX(0)}
+      .sidebar.collapsed,.sidebar.collapsed.open{width:var(--sidebar-w);transform:translateX(-100%)}
+      .sidebar.collapsed.open{transform:translateX(0)}
+      .main,.sidebar.collapsed ~ .main{margin-left:0}
+      .sidebar-toggle{display:none}
+      .mobile-menu-btn{display:flex!important}
+      .header-search{width:150px}
+    }
+    @media(max-width:480px){
+      html{font-size:13px}
+      .content{padding:14px}
+      .header{padding:0 14px}
+      .header-search{display:none}
+      .header-actions{gap:6px}
+      .user-profile .name,.user-profile .role{display:none}
+      .kpi-card{padding:14px 16px}
+      .course-card-body{padding:12px 14px}
+      .tt-header{grid-template-columns:50px repeat(5,1fr)}
+      .tt-row{grid-template-columns:50px repeat(5,1fr)}
+      .tt-header div{padding:6px 4px;font-size:0.55rem}
+      .tt-time{font-size:0.58rem;padding:4px}
+      .tt-lesson{padding:4px 5px;font-size:0.55rem}
+      .tt-lesson span{font-size:0.5rem}
+      .tt-slot{min-height:36px;padding:3px}
+      .table-header{padding:12px 14px;flex-direction:column;gap:8px;align-items:stretch}
+      th,td{padding:8px 12px}
+      .tabs .tab-btn{padding:6px 12px;font-size:0.72rem}
+      .profile-header-card{flex-direction:column;text-align:center;padding:16px}
+      .profile-stats{justify-content:center}
+      .quick-actions{grid-template-columns:1fr}
+    }
+    .mobile-menu-btn{display:none;width:34px;height:34px;border-radius:var(--radius-sm);align-items:center;justify-content:center;font-size:1.1rem;color:var(--text);cursor:pointer;background:none;border:none}
+
+    .toast{position:fixed;bottom:24px;right:24px;padding:10px 22px;border-radius:var(--radius-md);font-size:0.82rem;font-weight:600;z-index:9999;box-shadow:var(--shadow-lg);transform:translateY(20px);opacity:0;transition:all 300ms ease;background:var(--gradient-main);color:white}
+    .toast.show{transform:translateY(0);opacity:1}
+  </style>
+</head>
+<body>
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">T</div>
+      <span>Teacher Portal</span>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Main</div>
+      <div class="nav-item active" data-page="dashboard"><i class="fas fa-th-large"></i><span>Dashboard</span></div>
+      <div class="nav-item" data-page="courses"><i class="fas fa-book-open"></i><span>My Courses</span></div>
+      <div class="nav-item" data-page="lessons"><i class="fas fa-video"></i><span>Lessons</span></div>
+      <div class="nav-item" data-page="schedule"><i class="fas fa-calendar-alt"></i><span>Schedule</span></div>
+      <div class="nav-item" data-page="students"><i class="fas fa-user-graduate"></i><span>Students</span></div>
+      <div class="nav-item" data-page="tests"><i class="fas fa-clipboard-check"></i><span>Tests & Grades</span></div>
+      <div class="nav-item" data-page="attendance"><i class="fas fa-user-check"></i><span>Attendance</span></div>
+      <div class="nav-item" data-page="hours"><i class="fas fa-clock"></i><span>Work Hours</span></div>
+      <div class="sidebar-section-label">Account</div>
+      <div class="nav-item" data-page="profile"><i class="fas fa-user"></i><span>Profile</span></div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="nav-item" data-page="logout"><i class="fas fa-sign-out-alt"></i><span>Log Out</span></div>
+    </div>
+  </aside>
+
+  <div class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-chevron-left"></i></div>
+
+  <div class="main" id="main">
+    <header class="header">
+      <div class="header-left">
+        <button class="mobile-menu-btn" id="mobileBtn"><i class="fas fa-bars"></i></button>
+        <div class="header-title">
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="pageSubtitle">Your teaching overview</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="header-search"><i class="fas fa-search"></i><input type="text" placeholder="Search students, courses..."></div>
+        <div class="header-icon"><i class="fas fa-bell"></i><span class="dot"></span></div>
+        <div class="user-profile" id="userProfile">
+          <div class="user-avatar">ML</div>
+          <div><div class="name">Marie Laurent</div><div class="role">French Teacher</div></div>
+          <div class="header-dropdown" id="userDropdown">
+            <div class="header-dropdown-item" data-page="profile"><i class="fas fa-user"></i> Profile</div>
+            <div class="header-dropdown-divider"></div>
+            <div class="header-dropdown-item" data-page="logout"><i class="fas fa-sign-out-alt"></i> Log Out</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content" id="contentArea">
+
+      <!-- ═══ DASHBOARD ═══ -->
+      <div class="page active" id="page-dashboard">
+        <div class="kpi-grid" id="teacherKpis"></div>
+        <div class="grid-2">
+          <div class="chart-card">
+            <h3>Student Performance</h3>
+            <div class="chart-sub">Average scores by course</div>
+            <div class="chart-bars" id="teacherPerfChart"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Weekly Workload</h3>
+            <div class="chart-sub">Hours per day this week</div>
+            <div class="chart-bars" id="teacherWorkloadChart"></div>
+          </div>
+        </div>
+        <div class="quick-actions">
+          <div class="quick-action" onclick="showToast('Lesson form opened')"><div class="quick-action-icon pink"><i class="fas fa-plus"></i></div><span>Add Lesson</span></div>
+          <div class="quick-action" onclick="nav('attendance')"><div class="quick-action-icon blue"><i class="fas fa-user-check"></i></div><span>Mark Attendance</span></div>
+          <div class="quick-action" onclick="nav('tests')"><div class="quick-action-icon green"><i class="fas fa-clipboard-check"></i></div><span>Create Test</span></div>
+        </div>
+      </div>
+
+      <!-- ═══ MY COURSES ═══ -->
+      <div class="page" id="page-courses">
+        <div id="teacherCourseList">
+          <h2 class="section-title"><i class="fas fa-book-open" style="color:var(--pink)"></i> My Courses</h2>
+          <div class="courses-grid" id="teacherCoursesGrid"></div>
+        </div>
+        <div id="teacherCourseDetail" class="hidden">
+          <button class="back-btn" id="tCourseBack"><i class="fas fa-arrow-left"></i> Back</button>
+          <div class="profile-header-card" id="tCourseHeader"></div>
+          <div class="tabs">
+            <button class="tab-btn active" data-t-tab="lessons">Lessons</button>
+            <button class="tab-btn" data-t-tab="students">Students</button>
+            <button class="tab-btn" data-t-tab="attendance">Attendance</button>
+            <button class="tab-btn" data-t-tab="tests">Tests</button>
+          </div>
+          <div class="tab-content active" id="t-tab-lessons"><div id="tCourseLessons"></div></div>
+          <div class="tab-content" id="t-tab-students"><div id="tCourseStudents"></div></div>
+          <div class="tab-content" id="t-tab-attendance"><div class="chart-card"><h3>Course Attendance</h3><div id="tCourseAttContent"></div></div></div>
+          <div class="tab-content" id="t-tab-tests"><div id="tCourseTests"></div></div>
+        </div>
+      </div>
+
+      <!-- ═══ LESSONS ═══ -->
+      <div class="page" id="page-lessons">
+        <div class="flex-between mb-16">
+          <h2 class="section-title" style="margin-bottom:0"><i class="fas fa-video" style="color:var(--pink)"></i> Lessons</h2>
+          <button class="btn-primary" onclick="showToast('Lesson form')"><i class="fas fa-plus"></i> Add</button>
+        </div>
+        <div class="table-card">
+          <div class="table-header"><h3>All Lessons</h3></div>
+          <div class="table-wrap"><table><thead><tr><th>Lesson</th><th>Course</th><th>Date</th><th>Time</th><th>Status</th><th></th></tr></thead><tbody id="teacherLessonsBody"></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- ═══ SCHEDULE ═══ -->
+      <div class="page" id="page-schedule">
+        <h2 class="section-title"><i class="fas fa-calendar-alt" style="color:var(--pink)"></i> Weekly Schedule</h2>
+        <div class="tt-wrap"><div class="tt-header"><div></div><div>Monday</div><div>Tuesday</div><div>Wednesday</div><div>Thursday</div><div>Friday</div></div><div id="teacherScheduleGrid"></div></div>
+      </div>
+
+      <!-- ═══ STUDENTS ═══ -->
+      <div class="page" id="page-students">
+        <h2 class="section-title"><i class="fas fa-user-graduate" style="color:var(--pink)"></i> My Students</h2>
+        <div class="filters-row">
+          <select class="filter-select"><option>All Courses</option><option>French Intensive</option><option>Saturday Program</option></select>
+          <div style="position:relative;flex:1;min-width:200px"><i class="fas fa-search" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-tertiary);font-size:0.75rem"></i><input class="filter-select" style="padding-left:34px;width:100%" placeholder="Search student..."></div>
+        </div>
+        <div class="table-card">
+          <div class="table-header"><h3>Student Directory</h3></div>
+          <div class="table-wrap"><table><thead><tr><th>Name</th><th>Course</th><th>Attendance</th><th>Avg Score</th><th>Status</th><th></th></tr></thead><tbody id="teacherStudentsBody"></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- ═══ TESTS & GRADES ═══ -->
+      <div class="page" id="page-tests">
+        <h2 class="section-title"><i class="fas fa-clipboard-check" style="color:var(--pink)"></i> Tests & Grades</h2>
+        <div class="grid-2 mb-20">
+          <div class="chart-card"><h3>Test Results</h3><div class="chart-sub">Class average per test</div><div class="chart-bars" id="teacherTestChart" style="height:120px"></div></div>
+          <div class="chart-card"><h3>Pass Rate</h3><div class="donut-wrap" style="padding:8px 0"><div style="position:relative;display:inline-block"><svg class="donut-svg" viewBox="0 0 130 130" style="width:100px;height:100px"><circle class="donut-bg" cx="65" cy="65" r="60"/><circle class="donut-fill" cx="65" cy="65" r="60" stroke-dashoffset="90" style="stroke:var(--green)"/></svg><div class="donut-center"><span class="big" style="font-size:1.2rem">82%</span></div></div><div class="donut-legend" style="margin-top:8px"><span class="donut-legend-item" style="display:flex;align-items:center;gap:6px;font-size:0.7rem;color:var(--text-secondary)"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block"></span> Pass Rate</span></div></div></div>
+        </div>
+        <div class="table-card">
+          <div class="table-header"><h3>Grade Table</h3><button class="btn-primary" onclick="showToast('Grades saved!')">Save All</button></div>
+          <div class="table-wrap"><table><thead><tr><th>Student</th><th>Test</th><th>Score</th><th>Grade</th><th>Pass/Fail</th></tr></thead><tbody id="teacherGradesBody"></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- ═══ ATTENDANCE ═══ -->
+      <div class="page" id="page-attendance">
+        <h2 class="section-title"><i class="fas fa-user-check" style="color:var(--pink)"></i> Attendance</h2>
+        <div class="grid-2 mb-20">
+          <div class="chart-card"><h3>Class Summary</h3><div id="teacherAttSummary"></div></div>
+          <div class="chart-card"><h3>Today's Attendance</h3><div id="teacherAttToday"></div></div>
+        </div>
+        <div class="table-card">
+          <div class="table-header"><h3>Attendance Records</h3></div>
+          <div class="table-wrap"><table><thead><tr><th>Student</th><th>Date</th><th>Course</th><th>Status</th><th></th></tr></thead><tbody id="teacherAttBody"></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- ═══ WORK HOURS ═══ -->
+      <div class="page" id="page-hours">
+        <div class="kpi-grid" id="hoursKpi" style="grid-template-columns:repeat(3,1fr)"></div>
+        <div class="grid-2">
+          <div class="chart-card"><h3>Hours per Day</h3><div class="chart-sub">This week</div><div class="chart-bars" id="hoursDayChart" style="height:120px"></div></div>
+          <div class="chart-card"><h3>Monthly Overview</h3><div class="chart-sub">Total hours this month</div><div style="padding:24px;text-align:center"><div style="font-size:2.5rem;font-weight:800;background:var(--gradient-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">96h</div><div style="font-size:0.78rem;color:var(--text-secondary);margin-top:4px">of 80 contracted hours</div><div style="margin-top:16px"><div class="progress-bar" style="max-width:300px;margin:0 auto"><div class="progress-fill pink" style="width:120%"></div></div></div><div style="margin-top:8px;color:var(--green);font-weight:600;font-size:0.8rem"><i class="fas fa-arrow-up"></i> +16h overtime</div></div></div>
+        </div>
+      </div>
+
+      <!-- ═══ PROFILE ═══ -->
+      <div class="page" id="page-profile">
+        <h2 class="section-title"><i class="fas fa-user" style="color:var(--pink)"></i> My Profile</h2>
+        <div class="grid-2">
+          <div>
+            <div class="profile-header-card" id="teacherProfileCard"></div>
+            <div class="chart-card">
+              <h3>Edit Info</h3>
+              <div class="form-group"><label>Full Name</label><input class="form-control" value="Marie Laurent"></div>
+              <div class="form-group"><label>Email</label><input class="form-control" value="marie.laurent@school.com"></div>
+              <div class="form-group"><label>Phone</label><input class="form-control" value="+1 (555) 234-5678"></div>
+              <div class="form-group"><label>Subjects</label><input class="form-control" value="French, Advanced French"></div>
+              <div class="form-group"><label>Contract Hours</label><input class="form-control" value="80h/month"></div>
+              <button class="btn-primary" onclick="showToast('Profile updated!')">Save</button>
+            </div>
+          </div>
+          <div>
+            <div class="chart-card mb-16">
+              <h3>Stats</h3>
+              <div style="padding:8px 0"><div style="margin-bottom:12px"><div class="flex-between mb-8"><span style="font-size:0.72rem;font-weight:500">Total Hours</span><span style="font-size:0.7rem;font-weight:600">96h</span></div><div class="progress-bar"><div class="progress-fill pink" style="width:96%"></div></div></div>
+              <div style="margin-bottom:12px"><div class="flex-between mb-8"><span style="font-size:0.72rem;font-weight:500">Students</span><span style="font-size:0.7rem;font-weight:600">34</span></div><div class="progress-bar"><div class="progress-fill blue" style="width:68%"></div></div></div>
+              <div><div class="flex-between mb-8"><span style="font-size:0.72rem;font-weight:500">Courses</span><span style="font-size:0.7rem;font-weight:600">2/5</span></div><div class="progress-bar"><div class="progress-fill green" style="width:40%"></div></div></div></div>
+            </div>
+            <div class="chart-card">
+              <h3>Account Info</h3>
+              <div style="padding:8px 0"><div class="flex-between" style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:0.75rem;color:var(--text-secondary)">Employee ID</span><span style="font-size:0.8rem;font-weight:600">TCH-2021-0156</span></div>
+              <div class="flex-between" style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:0.75rem;color:var(--text-secondary)">Department</span><span style="font-size:0.8rem;font-weight:600">Languages</span></div>
+              <div class="flex-between" style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:0.75rem;color:var(--text-secondary)">Joined</span><span style="font-size:0.8rem;font-weight:600">September 2021</span></div>
+              <div class="flex-between" style="padding:8px 0"><span style="font-size:0.75rem;color:var(--text-secondary)">Rating</span><span style="font-size:0.8rem;font-weight:600;color:var(--amber)">4.8 ★</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ MODAL ═══ -->
+  <div class="modal-overlay" id="studentModal">
+    <div class="modal">
+      <div class="modal-header"><h2 id="modalTitle">Student</h2><button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button></div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show')},2500)}window.showToast=showToast;
+
+    // ── NAV ──
+    var meta={dashboard:{title:'Dashboard',sub:'Your teaching overview'},courses:{title:'My Courses',sub:'Manage your courses'},lessons:{title:'Lessons',sub:'Lesson management'},schedule:{title:'Schedule',sub:'Weekly timetable'},students:{title:'Students',sub:'Student directory'},tests:{title:'Tests & Grades',sub:'Assessments and grading'},attendance:{title:'Attendance',sub:'Attendance tracking'},hours:{title:'Work Hours',sub:'Hours and workload'},profile:{title:'Profile',sub:'Manage your account'}};
+    var items=document.querySelectorAll('.nav-item[data-page]'),pages=document.querySelectorAll('.page');
+    function nav(p){if(p==='logout'){showToast('Logged out');setTimeout(function(){window.location.href='../pages/login.html'},800);return}
+      items.forEach(function(n){n.classList.remove('active')});var el=document.querySelector('.nav-item[data-page="'+p+'"]');if(el)el.classList.add('active');
+      pages.forEach(function(pg){pg.classList.remove('active')});var pg=document.getElementById('page-'+p);if(pg)pg.classList.add('active');
+      var m=meta[p];if(m){document.getElementById('pageTitle').textContent=m.title;document.getElementById('pageSubtitle').textContent=m.sub}
+      if(window.innerWidth<=768)document.getElementById('sidebar').classList.remove('open')}
+    window.nav=nav;
+    items.forEach(function(it){it.addEventListener('click',function(){nav(it.getAttribute('data-page'))})});
+    document.getElementById('sidebarToggle').addEventListener('click',function(){document.getElementById('sidebar').classList.toggle('collapsed');var ic=this.querySelector('i');ic.className=document.getElementById('sidebar').classList.contains('collapsed')?'fas fa-chevron-right':'fas fa-chevron-left'});
+    document.getElementById('mobileBtn').addEventListener('click',function(){document.getElementById('sidebar').classList.toggle('open')});
+    document.getElementById('userProfile').addEventListener('click',function(e){e.stopPropagation();document.getElementById('userDropdown').classList.toggle('open')});
+    document.addEventListener('click',function(){document.getElementById('userDropdown').classList.remove('open')});
+
+    // ── KPI RENDERER ──
+    function kpis(id,data){var c=document.getElementById(id);if(!c)return;var h='';data.forEach(function(k){h+='<div class="kpi-card"><div class="kpi-icon '+k.c+'"><i class="fas '+k.i+'"></i></div><div class="kpi-info"><div class="kpi-label">'+k.l+'</div><div class="kpi-value">'+k.v+'</div></div></div>'},this);c.innerHTML=h}
+    function bars(id,data,cls){var c=document.getElementById(id);if(!c)return;var max=Math.max.apply(null,data.map(function(d){return d.v}));var h='';data.forEach(function(d){h+='<div class="chart-bar-wrap"><div class="chart-bar '+cls+'" style="height:'+((d.v/max)*100)+'%"></div><div class="chart-bar-label">'+d.l+'</div></div>'},this);c.innerHTML=h}
+
+    // ── DATA ──
+    var tCourses=[
+      {id:1,name:'French Intensive',teacher:'Marie Laurent',students:18,color:'pink',schedule:'Mon/Wed 9-11am',perf:85},
+      {id:2,name:'Saturday Program',teacher:'Marie Laurent',students:14,color:'blue',schedule:'Sat 10am-2pm',perf:78}
+    ];
+    var tLessons=[
+      {title:'Advanced Grammar',course:'French Intensive',date:'2026-07-01',time:'09:00-11:00',status:'upcoming'},
+      {title:'Verb Conjugation',course:'French Intensive',date:'2026-07-03',time:'09:00-11:00',status:'upcoming'},
+      {title:'Weekend Review',course:'Saturday Program',date:'2026-07-05',time:'10:00-14:00',status:'upcoming'},
+      {title:'Past Tense',course:'French Intensive',date:'2026-06-26',time:'09:00-11:00',status:'completed'},
+      {title:'Group Conversation',course:'Saturday Program',date:'2026-06-28',time:'10:00-14:00',status:'completed'}
+    ];
+    var tStudents=[
+      {name:'Emma Dubois',course:'French Intensive',attendance:92,avg:78,status:'active'},
+      {name:'Lea Richard',course:'French Intensive',attendance:100,avg:91,status:'active'},
+      {name:'Lucas Bernard',course:'French Intensive',attendance:85,avg:62,status:'active'},
+      {name:'Sarah Lefevre',course:'Saturday Program',attendance:79,avg:58,status:'active'},
+      {name:'Thomas Girard',course:'Saturday Program',attendance:65,avg:72,status:'suspended'},
+      {name:'Camille Petit',course:'French Intensive',attendance:96,avg:88,status:'active'}
+    ];
+    var tGrades=[
+      {student:'Emma Dubois',test:'B1 Level Test',score:82,grade:'B',pass:true},
+      {student:'Lea Richard',test:'B1 Level Test',score:91,grade:'A-',pass:true},
+      {student:'Lucas Bernard',test:'B1 Level Test',score:62,grade:'D+',pass:false},
+      {student:'Camille Petit',test:'B1 Level Test',score:88,grade:'B+',pass:true},
+      {student:'Sarah Lefevre',test:'Placement Test',score:58,grade:'F',pass:false},
+      {student:'Thomas Girard',test:'Placement Test',score:72,grade:'C',pass:true}
+    ];
+
+    // ── DASHBOARD ──
+    kpis('teacherKpis',[
+      {l:'Assigned Courses',v:'2',i:'fa-book-open',c:'pink'},{l:'Total Students',v:'32',i:'fa-user-graduate',c:'blue'},
+      {l:'Lessons This Week',v:'5',i:'fa-video',c:'green'},{l:'Teaching Hours',v:'22h',i:'fa-clock',c:'orange'}
+    ]);
+    bars('teacherPerfChart',[{l:'Intensive',v:85},{l:'Saturday',v:78},{l:'Conversation',v:92},{l:'Oral',v:88}],'pink');
+    bars('teacherWorkloadChart',[{l:'Mon',v:4},{l:'Tue',v:2},{l:'Wed',v:4},{l:'Thu',v:0},{l:'Fri',v:2},{l:'Sat',v:4}],'blue');
+
+    // ── COURSES ──
+    var cg=document.getElementById('teacherCoursesGrid');
+    if(cg){var h='';tCourses.forEach(function(c){h+='<div class="course-card" onclick="showTCourse('+c.id+')"><div class="course-card-top '+c.color+'"></div><div class="course-card-body"><h4>'+c.name+'</h4><div class="meta"><span><i class="fas fa-user-graduate" style="width:14px"></i> '+c.students+' students</span><br><span><i class="fas fa-clock" style="width:14px"></i> '+c.schedule+'</span></div></div></div>'},this);cg.innerHTML=h}
+
+    function showTCourse(id){
+      var c=tCourses.find(function(c){return c.id===id});if(!c)return;
+      document.getElementById('teacherCourseList').classList.add('hidden');document.getElementById('teacherCourseDetail').classList.remove('hidden');
+      var h=document.getElementById('tCourseHeader');
+      h.innerHTML='<div class="profile-avatar-lg" style="background:linear-gradient(135deg,var(--'+c.color+'),var(--orange))">'+c.name.charAt(0)+'</div><div class="profile-info"><h2>'+c.name+'</h2><p>'+c.students+' students · '+c.schedule+'</p></div>';
+
+      document.getElementById('tCourseLessons').innerHTML='<div class="chart-card"><h3>Lessons</h3>'+
+        tLessons.filter(function(l){return l.course===c.name}).map(function(l){return '<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><div style="flex:1"><div style="font-weight:600;font-size:0.78rem">'+l.title+'</div><div style="font-size:0.68rem;color:var(--text-secondary)">'+l.date+' '+l.time+'</div></div><span class="status-badge '+(l.status==='upcoming'?'pending':'completed')+'" style="font-size:0.6rem">'+(l.status==='upcoming'?'Upcoming':'Completed')+'</span><button class="btn-outline" style="padding:4px 10px;font-size:0.65rem" onclick="showToast(\'Editing...\')">Edit</button></div>'}).join('')||'<div class="text-center text-secondary" style="padding:16px">No lessons</div>'+
+        '</div>';
+
+      var ts=tStudents.filter(function(s){return s.course===c.name});
+      document.getElementById('tCourseStudents').innerHTML='<div class="chart-card"><h3>Students</h3>'+
+        ts.map(function(s){return '<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><div style="width:30px;height:30px;border-radius:50%;background:var(--gradient-main);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:0.6rem;flex-shrink:0">'+s.name.split(' ').map(function(n){return n[0]}).join('').substring(0,2).toUpperCase()+'</div><div style="flex:1"><div style="font-weight:500;font-size:0.78rem">'+s.name+'</div></div><span style="font-size:0.7rem;color:var(--text-secondary)">'+s.attendance+'%</span><span style="font-size:0.7rem;font-weight:600;color:'+(s.avg>=70?'var(--green)':'var(--amber)')+'">'+s.avg+'%</span><span class="status-badge '+(s.status==='active'?'active':'suspended')+'" style="font-size:0.6rem">'+(s.status==='active'?'Active':'Suspended')+'</span></div>'}).join('')||'<div class="text-center text-secondary">No students</div></div>'});
+
+      document.getElementById('tCourseAttContent').innerHTML='<div style="padding:12px 0">'+
+        ts.map(function(s){return '<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><div style="flex:1;font-size:0.8rem;font-weight:500">'+s.name+'</div><div style="width:100px"><div class="progress-bar"><div class="progress-fill green" style="width:'+s.attendance+'%"></div></div></div><span style="font-size:0.7rem;font-weight:600;color:'+(s.attendance>=80?'var(--green)':'var(--red)')+'">'+s.attendance+'%</span></div>'}).join('')+'</div>';
+
+      document.getElementById('tCourseTests').innerHTML='<div class="chart-card"><h3>Tests</h3>'+
+        tGrades.filter(function(g){return ts.some(function(s){return s.name===g.student})}).map(function(g){return '<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)"><div style="flex:1"><div style="font-weight:500;font-size:0.78rem">'+g.student+'</div><div style="font-size:0.68rem;color:var(--text-secondary)">'+g.test+'</div></div><span style="font-weight:700">'+g.score+'%</span><span class="badge badge-blue">'+g.grade+'</span><span class="status-badge '+(g.pass?'active':'suspended')+'" style="font-size:0.6rem">'+(g.pass?'Pass':'Fail')+'</span></div>'}).join('')||'<div class="text-center text-secondary" style="padding:16px">No tests</div></div>'});
+    }
+    document.getElementById('tCourseBack').addEventListener('click',function(){document.getElementById('teacherCourseDetail').classList.add('hidden');document.getElementById('teacherCourseList').classList.remove('hidden')});
+
+    // ── Course Tabs ──
+    document.querySelectorAll('[data-t-tab]').forEach(function(btn){btn.addEventListener('click',function(){
+      document.querySelectorAll('[data-t-tab]').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');
+      var t=btn.getAttribute('data-t-tab');document.querySelectorAll('.tab-content[id^="t-tab-"]').forEach(function(tc){tc.classList.remove('active')});
+      var el=document.getElementById('t-tab-'+t);if(el)el.classList.add('active')})});
+
+    // ── LESSONS ──
+    var ltb=document.getElementById('teacherLessonsBody');
+    if(ltb){var h='';tLessons.forEach(function(l){h+='<tr><td style="font-weight:600">'+l.title+'</td><td>'+l.course+'</td><td>'+l.date+'</td><td>'+l.time+'</td><td><span class="status-badge '+(l.status==='upcoming'?'pending':'completed')+'">'+(l.status==='upcoming'?'Upcoming':'Completed')+'</span></td><td><div style="display:flex;gap:4px"><button class="btn-outline" style="padding:4px 10px;font-size:0.65rem" onclick="showToast(\'Editing...\')">Edit</button><button class="btn-outline" style="padding:4px 10px;font-size:0.65rem;color:var(--green)" onclick="showToast(\'Marked completed\')">✓</button></div></td></tr>'},this);ltb.innerHTML=h}
+
+    // ── SCHEDULE ──
+    (function(){var c=document.getElementById('teacherScheduleGrid');if(!c)return;var ts=['09:00','10:00','11:00','14:00','15:00','16:00'];var ds=['Monday','Tuesday','Wednesday','Thursday','Friday'];
+      var data=[{d:0,t:0,l:'French Intensive',te:'Room A',cl:'pink'},{d:2,t:0,l:'French Intensive',te:'Room A',cl:'pink'},{d:4,t:2,l:'Saturday Prep',te:'Room B',cl:'blue'}];
+      var h='';ts.forEach(function(t,ti){h+='<div class="tt-row"><div class="tt-time">'+t+'</div>';ds.forEach(function(d,di){var s=data.filter(function(x){return x.d===di&&x.t===ti})[0];h+='<div class="tt-slot" onclick="showToast(\''+(s?s.l+' - '+s.te:'Free slot')+'\')">';if(s)h+='<div class="tt-lesson '+s.cl+'"><strong>'+s.l+'</strong><span>'+s.te+'</span></div>';h+='</div>'});h+='</div>'});c.innerHTML=h})();
+
+    // ── STUDENTS TABLE ──
+    var stb=document.getElementById('teacherStudentsBody');
+    if(stb){var h='';tStudents.forEach(function(s){h+='<tr><td><div style="display:flex;align-items:center;gap:10px"><div style="width:30px;height:30px;border-radius:50%;background:var(--gradient-main);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:0.6rem">'+s.name.split(' ').map(function(n){return n[0]}).join('').substring(0,2).toUpperCase()+'</div><strong style="font-size:0.8rem">'+s.name+'</strong></div></td><td>'+s.course+'</td><td style="font-weight:600;color:'+(s.attendance>=80?'var(--green)':'var(--red)')+'">'+s.attendance+'%</td><td style="font-weight:600;color:'+(s.avg>=70?'var(--green)':'var(--amber)')+'">'+s.avg+'%</td><td><span class="status-badge '+(s.status==='active'?'active':'suspended')+'">'+(s.status==='active'?'Active':'Suspended')+'</span></td><td><button class="btn-outline" style="padding:4px 10px;font-size:0.65rem" onclick="showStudentModal(\''+s.name+'\')">View</button></td></tr>'},this);stb.innerHTML=h}
+
+    function showStudentModal(name){var s=tStudents.find(function(s){return s.name===name});if(!s)return;
+      document.getElementById('modalTitle').textContent=s.name;
+      document.getElementById('modalBody').innerHTML='<div class="flex items-center" style="gap:12px;margin-bottom:16px"><div style="width:48px;height:48px;border-radius:50%;background:var(--gradient-main);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1rem;flex-shrink:0">'+s.name.split(' ').map(function(n){return n[0]}).join('').substring(0,2).toUpperCase()+'</div><div><div style="font-weight:700;font-size:0.9rem">'+s.name+'</div><div style="font-size:0.75rem;color:var(--text-secondary)">'+s.course+'</div></div></div>'+
+        '<div class="grid-2" style="margin-bottom:16px"><div class="chart-card" style="padding:12px;text-align:center"><div style="font-size:1.2rem;font-weight:800;color:var(--green)">'+s.attendance+'%</div><div style="font-size:0.65rem;color:var(--text-secondary)">Attendance</div></div><div class="chart-card" style="padding:12px;text-align:center"><div style="font-size:1.2rem;font-weight:800;color:'+(s.avg>=70?'var(--green)':'var(--amber)')+'">'+s.avg+'%</div><div style="font-size:0.65rem;color:var(--text-secondary)">Avg Score</div></div></div>'+
+        '<div style="margin-bottom:12px"><div class="flex-between mb-8"><span style="font-size:0.75rem">Attendance</span><span style="font-size:0.7rem;font-weight:600">'+s.attendance+'%</span></div><div class="progress-bar"><div class="progress-fill green" style="width:'+s.attendance+'%"></div></div></div>'+
+        '<div><div class="flex-between mb-8"><span style="font-size:0.75rem">Academic Performance</span><span style="font-size:0.7rem;font-weight:600">'+s.avg+'%</span></div><div class="progress-bar"><div class="progress-fill blue" style="width:'+s.avg+'%"></div></div></div>';
+      document.getElementById('studentModal').classList.add('open')}
+    function closeModal(){document.getElementById('studentModal').classList.remove('open')}
+    window.showStudentModal=showStudentModal;window.closeModal=closeModal;
+
+    // ── TESTS & GRADES ──
+    bars('teacherTestChart',[{l:'B1 Test',v:82},{l:'Placement',v:65},{l:'Oral',v:88},{l:'Grammar',v:76},{l:'Final',v:79}],'pink');
+    var gtb=document.getElementById('teacherGradesBody');
+    if(gtb){var h='';tGrades.forEach(function(g){h+='<tr><td><strong>'+g.student+'</strong></td><td>'+g.test+'</td><td style="font-weight:600">'+g.score+'%</td><td><input class="grade-input" type="text" value="'+g.grade+'" onchange="showToast(\'Grade updated\')"></td><td><span class="status-badge '+(g.pass?'active':'suspended')+'">'+(g.pass?'Pass':'Fail')+'</span></td></tr>'},this);gtb.innerHTML=h}
+
+    // ── ATTENDANCE ──
+    var ats=document.getElementById('teacherAttSummary');
+    if(ats)ats.innerHTML='<div style="padding:8px 0"><div class="flex-between" style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:0.78rem">French Intensive</span><span style="font-size:0.78rem;font-weight:600;color:var(--green)">93%</span></div><div class="flex-between" style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:0.78rem">Saturday Program</span><span style="font-size:0.78rem;font-weight:600;color:var(--green)">72%</span></div><div class="flex-between" style="padding:8px 0"><span style="font-size:0.78rem">Overall</span><span style="font-size:0.78rem;font-weight:600;color:var(--green)">86%</span></div></div>';
+    var att=document.getElementById('teacherAttToday');
+    if(att)att.innerHTML='<div style="padding:8px 0;text-align:center"><div style="font-size:2rem;font-weight:800;color:var(--green)">12/14</div><div style="font-size:0.78rem;color:var(--text-secondary);margin-bottom:4px">Present today</div><div style="font-size:0.7rem;color:var(--text-secondary)">2 absent · 12 present</div></div>';
+    var atb=document.getElementById('teacherAttBody');
+    if(atb){var h='';var names=['Emma Dubois','Lea Richard','Lucas Bernard','Camille Petit','Sarah Lefevre','Thomas Girard'];
+      names.forEach(function(n,i){h+='<tr><td><strong>'+n+'</strong></td><td>2026-07-01</td><td>'+(i<4?'French Intensive':'Saturday Program')+'</td><td><span class="status-badge '+(i%3===0?'active':i%3===1?'pending':'suspended')+'">'+(i%3===0?'Present':i%3===1?'Late':'Absent')+'</span></td><td><select class="filter-select" style="padding:3px 8px;font-size:0.65rem" onchange="showToast(\'Status updated\')"><option>Present</option><option>Late</option><option>Absent</option></select></td></tr>'},this);atb.innerHTML=h}
+
+    // ── HOURS ──
+    kpis('hoursKpi',[{l:'Weekly Hours',v:'16h',i:'fa-clock',c:'pink'},{l:'Monthly Hours',v:'96h',i:'fa-chart-line',c:'blue'},{l:'Overtime',v:'+16h',i:'fa-exclamation-circle',c:'green'}]);
+    bars('hoursDayChart',[{l:'Mon',v:4},{l:'Tue',v:2},{l:'Wed',v:4},{l:'Thu',v:0},{l:'Fri',v:2},{l:'Sat',v:4}],'pink');
+
+    // ── PROFILE ──
+    var tpc=document.getElementById('teacherProfileCard');
+    if(tpc)tpc.innerHTML='<div class="profile-avatar-lg" style="background:var(--gradient-main)">ML</div><div class="profile-info"><h2>Marie Laurent</h2><p>marie.laurent@school.com</p><div class="profile-stats"><div><strong>34</strong><div style="font-size:0.6rem;color:var(--text-tertiary)">Students</div></div><div><strong>2</strong><div style="font-size:0.6rem;color:var(--text-tertiary)">Courses</div></div><div><strong>96h</strong><div style="font-size:0.6rem;color:var(--text-tertiary)">This Month</div></div></div></div>';
+  </script>
+
+</body>
+</html>

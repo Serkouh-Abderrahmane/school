@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion des programmes — Admin</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user"><div class="avatar">A</div><div class="sidebar-user-info"><div class="sidebar-user-name">Admin</div><div class="sidebar-user-role">Administrateur</div></div></div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section">Gestion</div>
+        <a class="sidebar-item" data-href="dashboard.html"><span class="sidebar-item-icon">📊</span> Vue d'ensemble</a>
+        <a class="sidebar-item active" data-href="programs.html"><span class="sidebar-item-icon">📚</span> Programmes</a>
+        <a class="sidebar-item" data-href="teachers.html"><span class="sidebar-item-icon">👩‍🏫</span> Enseignants</a>
+        <a class="sidebar-item" data-href="students.html"><span class="sidebar-item-icon">👥</span> Étudiants</a>
+        <a class="sidebar-item" data-href="bookings.html"><span class="sidebar-item-icon">📋</span> Réservations</a>
+        <a class="sidebar-item" data-href="payments.html"><span class="sidebar-item-icon">💳</span> Paiements</a>
+        <a class="sidebar-item" data-href="calendar.html"><span class="sidebar-item-icon">📅</span> Calendrier</a>
+        <a class="sidebar-item" data-href="analytics.html"><span class="sidebar-item-icon">📈</span> Analytiques</a>
+        <div class="sidebar-section">Système</div>
+        <a class="sidebar-item" data-href="settings.html"><span class="sidebar-item-icon">⚙️</span> Paramètres</a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html"><span class="sidebar-item-icon">🚪</span> Déconnexion</a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title">Programmes</h1></div>
+        <div class="topbar-right"><div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" placeholder="Rechercher..."></div><button class="topbar-notification">🔔<span class="notification-dot"></span></button><div class="avatar avatar-sm">A</div></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="dashboard-content-header">
+          <h2>Gestion des programmes</h2>
+          <button class="btn btn-primary" onclick="openModal('add-program-modal')">+ Nouveau programme</button>
+        </div>
+        <div class="card">
+          <div class="table-container">
+            <table class="table">
+              <thead><tr><th>Programme</th><th>Type</th><th>Durée</th><th>Prix</th><th>Étudiants</th><th>Statut</th><th></th></tr></thead>
+              <tbody>
+                <tr><td><strong>TCF Québec Intensif</strong></td><td><span class="badge badge-emerald">TCF Québec</span></td><td>12 sem</td><td>450€/mois</td><td>24</td><td><span class="badge badge-emerald">Actif</span></td><td class="table-actions"><button class="btn-edit">✎</button><button class="btn-delete">✕</button></td></tr>
+                <tr><td><strong>TCF Canada Intensif</strong></td><td><span class="badge badge-emerald">TCF Canada</span></td><td>16 sem</td><td>520€/mois</td><td>18</td><td><span class="badge badge-emerald">Actif</span></td><td class="table-actions"><button class="btn-edit">✎</button><button class="btn-delete">✕</button></td></tr>
+                <tr><td><strong>Oral B & C Intensif</strong></td><td><span class="badge badge-blue">Oral</span></td><td>8 sem</td><td>320€/mois</td><td>12</td><td><span class="badge badge-emerald">Actif</span></td><td class="table-actions"><button class="btn-edit">✎</button><button class="btn-delete">✕</button></td></tr>
+                <tr><td><strong>TCF Québec Régulier</strong></td><td><span class="badge badge-emerald">TCF Québec</span></td><td>16 sem</td><td>290€/mois</td><td>30</td><td><span class="badge badge-emerald">Actif</span></td><td class="table-actions"><button class="btn-edit">✎</button><button class="btn-delete">✕</button></td></tr>
+                <tr><td><strong>Cours Particuliers</strong></td><td><span class="badge badge-gold">Solo</span></td><td>Flexible</td><td>55€/séance</td><td>8</td><td><span class="badge badge-emerald">Actif</span></td><td class="table-actions"><button class="btn-edit">✎</button><button class="btn-delete">✕</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="add-program-modal">
+    <div class="modal">
+      <div class="modal-header"><h3>Nouveau programme</h3><button class="modal-close">&times;</button></div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group"><label class="form-label">Nom du programme</label><input type="text" class="form-input" placeholder="Ex: TCF Québec Intensif"></div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Type</label><select class="form-select"><option>TCF Québec</option><option>TCF Canada</option><option>Oral</option><option>Solo</option></select></div>
+            <div class="form-group"><label class="form-label">Niveau</label><select class="form-select"><option>A1-C2</option><option>B1-C2</option><option>C1-C2</option></select></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Durée (semaines)</label><input type="number" class="form-input" value="12"></div>
+            <div class="form-group"><label class="form-label">Prix mensuel (€)</label><input type="number" class="form-input" value="450"></div>
+          </div>
+          <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" placeholder="Description du programme..."></textarea></div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('add-program-modal')">Annuler</button><button class="btn btn-primary">Créer le programme</button></div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
