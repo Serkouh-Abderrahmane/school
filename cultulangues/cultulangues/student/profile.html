@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="student.profile.page_title">Profil — Cultulangues</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user"><div class="avatar">M</div><div class="sidebar-user-info"><div class="sidebar-user-name">Maria S.</div><div class="sidebar-user-role">Étudiante · B2</div></div></div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section" data-i18n="student.sidebar.navigation">Navigation</div>
+        <a class="sidebar-item" data-href="dashboard.html"><span class="sidebar-item-icon">📊</span> <span data-i18n="student.sidebar.dashboard">Tableau de bord</span></a>
+        <a class="sidebar-item" data-href="my-programs.html"><span class="sidebar-item-icon">📚</span> <span data-i18n="student.sidebar.my_programs">Mes programmes</span></a>
+        <a class="sidebar-item" data-href="calendar.html"><span class="sidebar-item-icon">📅</span> <span data-i18n="student.sidebar.calendar">Mon calendrier</span></a>
+        <a class="sidebar-item" data-href="payments.html"><span class="sidebar-item-icon">💳</span> <span data-i18n="student.sidebar.payments">Paiements & factures</span></a>
+        <a class="sidebar-item" data-href="level-tests.html"><span class="sidebar-item-icon">📝</span> <span data-i18n="student.sidebar.level_tests">Tests de niveau</span></a>
+        <div class="sidebar-section" data-i18n="student.sidebar.settings">Paramètres</div>
+        <a class="sidebar-item active" data-href="profile.html"><span class="sidebar-item-icon">⚙️</span> <span data-i18n="student.sidebar.profile">Profil</span></a>
+        <a class="sidebar-item" data-href="support.html"><span class="sidebar-item-icon">💬</span> <span data-i18n="student.sidebar.support">Support</span></a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html"><span class="sidebar-item-icon">🚪</span> <span data-i18n="student.sidebar.logout">Déconnexion</span></a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title" data-i18n="student.profile.title">Profil</h1></div>
+        <div class="topbar-right"><div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" placeholder="Rechercher..." data-i18n-placeholder="student.common.search"></div><button class="topbar-notification">🔔<span class="notification-dot"></span></button><div class="avatar avatar-sm">M</div></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="card mb-lg">
+          <div class="flex items-center" style="gap: var(--space-lg);">
+            <div class="avatar avatar-xl">M</div>
+            <div>
+              <h2>Maria Silva</h2>
+              <p style="color: var(--color-text-secondary);">maria.silva@email.com</p>
+              <span class="badge badge-blue">Niveau B2</span>
+            </div>
+            <button class="btn btn-outline btn-sm" style="margin-left: auto;" data-i18n="student.profile.change_photo">Modifier la photo</button>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header"><h3 class="card-title" data-i18n="student.profile.personal_info">Informations personnelles</h3></div>
+            <div class="card-body">
+              <form>
+                <div class="form-row">
+                  <div class="form-group"><label class="form-label" data-i18n="student.profile.first_name">Prénom</label><input type="text" class="form-input" value="Maria"></div>
+                  <div class="form-group"><label class="form-label" data-i18n="student.profile.last_name">Nom</label><input type="text" class="form-input" value="Silva"></div>
+                </div>
+                <div class="form-group"><label class="form-label" data-i18n="student.profile.email">Email</label><input type="email" class="form-input" value="maria.silva@email.com"></div>
+                <div class="form-group"><label class="form-label" data-i18n="student.profile.phone">Téléphone</label><input type="tel" class="form-input" value="+33 6 12 34 56 78"></div>
+                <button class="btn btn-primary" data-i18n="student.profile.save">Enregistrer</button>
+              </form>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3 class="card-title" data-i18n="student.profile.language_prefs">Préférences linguistiques</h3></div>
+            <div class="card-body">
+              <form>
+                <div class="form-group"><label class="form-label" data-i18n="student.profile.current_level">Niveau actuel</label><input type="text" class="form-input" value="Intermédiaire+ (B2)" readonly></div>
+                <div class="form-group"><label class="form-label" data-i18n="student.profile.objective">Objectif</label><select class="form-select"><option data-i18n="student.profile.opt_tcf_qc">TCF Québec</option><option data-i18n="student.profile.opt_tcf_canada">TCF Canada</option><option data-i18n="student.profile.opt_oral">Oral B ou C</option></select></div>
+                <div class="form-group"><label class="form-label" data-i18n="student.profile.native_language">Langue maternelle</label><input type="text" class="form-input" value="Portugais"></div>
+                <button class="btn btn-primary" data-i18n="student.profile.update">Mettre à jour</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

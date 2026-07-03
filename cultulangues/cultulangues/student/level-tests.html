@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="student.tests.page_title">Tests de niveau — Cultulangues</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user"><div class="avatar">M</div><div class="sidebar-user-info"><div class="sidebar-user-name">Maria S.</div><div class="sidebar-user-role">Étudiante · B2</div></div></div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section" data-i18n="student.sidebar.navigation">Navigation</div>
+        <a class="sidebar-item" data-href="dashboard.html"><span class="sidebar-item-icon">📊</span> <span data-i18n="student.sidebar.dashboard">Tableau de bord</span></a>
+        <a class="sidebar-item" data-href="my-programs.html"><span class="sidebar-item-icon">📚</span> <span data-i18n="student.sidebar.my_programs">Mes programmes</span></a>
+        <a class="sidebar-item" data-href="calendar.html"><span class="sidebar-item-icon">📅</span> <span data-i18n="student.sidebar.calendar">Mon calendrier</span></a>
+        <a class="sidebar-item" data-href="payments.html"><span class="sidebar-item-icon">💳</span> <span data-i18n="student.sidebar.payments">Paiements & factures</span></a>
+        <a class="sidebar-item active" data-href="level-tests.html"><span class="sidebar-item-icon">📝</span> <span data-i18n="student.sidebar.level_tests">Tests de niveau</span></a>
+        <div class="sidebar-section" data-i18n="student.sidebar.settings">Paramètres</div>
+        <a class="sidebar-item" data-href="profile.html"><span class="sidebar-item-icon">⚙️</span> <span data-i18n="student.sidebar.profile">Profil</span></a>
+        <a class="sidebar-item" data-href="support.html"><span class="sidebar-item-icon">💬</span> <span data-i18n="student.sidebar.support">Support</span></a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html"><span class="sidebar-item-icon">🚪</span> <span data-i18n="student.sidebar.logout">Déconnexion</span></a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title" data-i18n="student.tests.title">Tests de niveau</h1></div>
+        <div class="topbar-right"><div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" placeholder="Rechercher..." data-i18n-placeholder="student.common.search"></div><button class="topbar-notification">🔔<span class="notification-dot"></span></button><div class="avatar avatar-sm">M</div></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="dashboard-content-header"><h2 data-i18n="student.tests.evaluate_level">Évaluez votre niveau</h2></div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header"><h3 class="card-title" data-i18n="student.tests.listening_test">Test de compréhension orale</h3></div>
+            <div class="card-body">
+              <p style="font-size: 0.875rem;">10 questions · 15 minutes</p>
+              <div class="test-question">
+                <h4>1. Quel est le sujet principal de l'extrait ?</h4>
+                <div class="test-options">
+                   <label class="test-option"><input type="radio" name="q1"> La société canadienne</label>
+                  <label class="test-option"><input type="radio" name="q1"> Les politiques environnementales</label>
+                  <label class="test-option selected"><input type="radio" name="q1" checked> L'éducation en France</label>
+                  <label class="test-option"><input type="radio" name="q1"> Le marché du travail</label>
+                </div>
+              </div>
+              <div class="test-question">
+                <h4>2. Que signifie l'expression « remettre en question » ?</h4>
+                <div class="test-options">
+                  <label class="test-option"><input type="radio" name="q2"> Poser une question à nouveau</label>
+                  <label class="test-option selected"><input type="radio" name="q2" checked> Contester ou examiner de façon critique</label>
+                  <label class="test-option"><input type="radio" name="q2"> Demander une réponse</label>
+                  <label class="test-option"><input type="radio" name="q2"> Abandonner une idée</label>
+                </div>
+              </div>
+              <button class="btn btn-primary mt-md" data-i18n="student.tests.view_results">Voir les résultats</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3 class="card-title" data-i18n="student.tests.grammar_test">Test de grammaire</h3></div>
+            <div class="card-body">
+              <p style="font-size: 0.875rem;">15 questions · 20 minutes</p>
+              <div class="test-question">
+                <h4>1. « Si j'avais su, je ___ venu plus tôt. »</h4>
+                <div class="test-options">
+                  <label class="test-option"><input type="radio" name="g1"> serais</label>
+                  <label class="test-option selected"><input type="radio" name="g1" checked> serais</label>
+                  <label class="test-option"><input type="radio" name="g1"> aurais</label>
+                  <label class="test-option"><input type="radio" name="g1"> étais</label>
+                </div>
+              </div>
+              <div class="test-question">
+                <h4>2. « Il faut que nous ___ une décision rapidement. »</h4>
+                <div class="test-options">
+                  <label class="test-option"><input type="radio" name="g2"> prenons</label>
+                  <label class="test-option selected"><input type="radio" name="g2" checked> prenions</label>
+                  <label class="test-option"><input type="radio" name="g2"> prendrons</label>
+                  <label class="test-option"><input type="radio" name="g2"> avons pris</label>
+                </div>
+              </div>
+              <button class="btn btn-primary mt-md" data-i18n="student.tests.view_results">Voir les résultats</button>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-lg">
+          <div class="card-header"><h3 class="card-title" data-i18n="student.tests.test_history">Historique des tests</h3></div>
+          <div class="table-container">
+            <table class="table">
+              <thead><tr><th data-i18n="student.tests.th_date">Date</th><th data-i18n="student.tests.th_test">Test</th><th data-i18n="student.tests.th_score">Score</th><th data-i18n="student.tests.th_level">Niveau</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>1 Sept 2026</td><td>Test de placement initial</td><td>76%</td><td><span class="badge badge-blue">B2</span></td><td><button class="btn btn-ghost btn-sm" data-i18n="student.tests.view">Voir</button></td></tr>
+                <tr><td>15 Oct 2026</td><td>Compréhension orale</td><td>82%</td><td><span class="badge badge-blue">B2+</span></td><td><button class="btn btn-ghost btn-sm" data-i18n="student.tests.view">Voir</button></td></tr>
+                <tr><td>1 Déc 2026</td><td>Expression écrite</td><td>71%</td><td><span class="badge badge-blue">B2</span></td><td><button class="btn btn-ghost btn-sm" data-i18n="student.tests.view">Voir</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

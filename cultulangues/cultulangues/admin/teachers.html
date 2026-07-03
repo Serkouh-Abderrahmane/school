@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enseignants — Admin</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user"><div class="avatar">A</div><div class="sidebar-user-info"><div class="sidebar-user-name">Admin</div><div class="sidebar-user-role">Administrateur</div></div></div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section" data-i18n="admin.sidebar.section.gestion">Gestion</div>
+        <a class="sidebar-item" data-href="dashboard.html"><span class="sidebar-item-icon">📊</span><span data-i18n="admin.sidebar.overview"> Vue d'ensemble</span></a>
+        <a class="sidebar-item" data-href="programs.html"><span class="sidebar-item-icon">📚</span><span data-i18n="admin.sidebar.programs"> Programmes</span></a>
+        <a class="sidebar-item active" data-href="teachers.html"><span class="sidebar-item-icon">👩‍🏫</span><span data-i18n="admin.sidebar.teachers"> Enseignants</span></a>
+        <a class="sidebar-item" data-href="students.html"><span class="sidebar-item-icon">👥</span><span data-i18n="admin.sidebar.students"> Étudiants</span></a>
+        <a class="sidebar-item" data-href="bookings.html"><span class="sidebar-item-icon">📋</span><span data-i18n="admin.sidebar.bookings"> Réservations</span></a>
+        <a class="sidebar-item" data-href="payments.html"><span class="sidebar-item-icon">💳</span><span data-i18n="admin.sidebar.payments"> Paiements</span></a>
+        <a class="sidebar-item" data-href="calendar.html"><span class="sidebar-item-icon">📅</span><span data-i18n="admin.sidebar.calendar"> Calendrier</span></a>
+        <a class="sidebar-item" data-href="analytics.html"><span class="sidebar-item-icon">📈</span><span data-i18n="admin.sidebar.analytics"> Analytiques</span></a>
+        <div class="sidebar-section" data-i18n="admin.sidebar.section.system">Système</div>
+        <a class="sidebar-item" data-href="settings.html"><span class="sidebar-item-icon">⚙️</span><span data-i18n="admin.sidebar.settings"> Paramètres</span></a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html"><span class="sidebar-item-icon">🚪</span><span data-i18n="admin.sidebar.logout"> Déconnexion</span></a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title" data-i18n="admin.teachers.title">Enseignants</h1></div>
+        <div class="topbar-right"><div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" data-i18n-placeholder="admin.common.search" placeholder="Rechercher..."></div><button class="topbar-notification">🔔<span class="notification-dot"></span></button><div class="avatar avatar-sm">A</div></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="dashboard-content-header"><h2 data-i18n="admin.teachers.management">Gestion des enseignants</h2><button class="btn btn-primary" onclick="openModal('add-teacher-modal')" data-i18n="admin.teachers.addTeacher">+ Ajouter un enseignant</button></div>
+        <div class="card">
+          <div class="table-container">
+            <table class="table">
+              <thead><tr><th data-i18n="admin.table.teacher">Enseignant</th><th data-i18n="admin.table.email">Email</th><th data-i18n="admin.table.specialties">Spécialités</th><th data-i18n="admin.table.students">Étudiants</th><th data-i18n="admin.table.evaluation">Évaluation</th><th></th></tr></thead>
+              <tbody>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">S</div><span>Sophie Martin</span></div></td><td>sophie@cultulangues.fr</td><td><span class="badge badge-emerald">TCF Québec</span> <span class="badge badge-blue">Oral</span> <span class="badge badge-blue">Français Express</span></td><td>18</td><td>⭐ 4.9</td><td class="table-actions"><button class="btn-view">👁</button><button class="btn-edit">✎</button></td></tr>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">T</div><span>Thomas Bernard</span></div></td><td>thomas@cultulangues.fr</td><td><span class="badge badge-gold">Ateliers</span> <span class="badge badge-blue">Oral</span> <span class="badge badge-emerald">TCF Canada</span></td><td>12</td><td>⭐ 4.8</td><td class="table-actions"><button class="btn-view">👁</button><button class="btn-edit">✎</button></td></tr>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">J</div><span>Julie Lefèvre</span></div></td><td>julie@cultulangues.fr</td><td><span class="badge badge-emerald">TCF Canada</span> <span class="badge badge-emerald">TCF Québec</span> <span class="badge badge-blue">Soirée Linguo</span></td><td>15</td><td>⭐ 4.7</td><td class="table-actions"><button class="btn-view">👁</button><button class="btn-edit">✎</button></td></tr>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">M</div><span>Marc Laurent</span></div></td><td>marc@cultulangues.fr</td><td><span class="badge badge-blue">Oral</span> <span class="badge badge-emerald">TCF Québec</span> <span class="badge badge-gold">Solo</span></td><td>10</td><td>⭐ 4.6</td><td class="table-actions"><button class="btn-view">👁</button><button class="btn-edit">✎</button></td></tr>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">J</div><span>Jean Moreau</span></div></td><td>jean@cultulangues.fr</td><td><span class="badge badge-emerald">TCF Canada</span> <span class="badge badge-blue">Samedis en français</span></td><td>14</td><td>⭐ 4.5</td><td class="table-actions"><button class="btn-view">👁</button><button class="btn-edit">✎</button></td></tr>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">C</div><span>Claire Fontaine</span></div></td><td>claire@cultulangues.fr</td><td><span class="badge badge-gold">Solo</span> <span class="badge badge-blue">Ateliers</span></td><td>8</td><td>⭐ 4.9</td><td class="table-actions"><button class="btn-view">👁</button><button class="btn-edit">✎</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="add-teacher-modal">
+    <div class="modal">
+      <div class="modal-header"><h3 data-i18n="admin.modal.addTeacher">Ajouter un enseignant</h3><button class="modal-close">&times;</button></div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row"><div class="form-group"><label class="form-label" data-i18n="admin.form.firstName">Prénom</label><input type="text" class="form-input"></div><div class="form-group"><label class="form-label" data-i18n="admin.form.lastName">Nom</label><input type="text" class="form-input"></div></div>
+          <div class="form-group"><label class="form-label" data-i18n="admin.form.email">Email</label><input type="email" class="form-input"></div>
+          <div class="form-group"><label class="form-label" data-i18n="admin.form.specialties">Spécialités</label><select class="form-select"><option data-i18n="admin.form.option.tcfQuebec">TCF Québec</option><option data-i18n="admin.form.option.tcfCanada">TCF Canada</option><option data-i18n="admin.form.option.oralBC">Oral B/C</option><option data-i18n="admin.form.option.workshops">Ateliers</option></select></div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('add-teacher-modal')" data-i18n="admin.common.cancel">Annuler</button><button class="btn btn-primary" data-i18n="admin.common.add">Ajouter</button></div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

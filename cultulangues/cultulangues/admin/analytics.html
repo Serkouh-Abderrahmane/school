@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytiques — Admin</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user"><div class="avatar">A</div><div class="sidebar-user-info"><div class="sidebar-user-name">Admin</div><div class="sidebar-user-role">Administrateur</div></div></div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section" data-i18n="admin.sidebar.section.gestion">Gestion</div>
+        <a class="sidebar-item" data-href="dashboard.html"><span class="sidebar-item-icon">📊</span><span data-i18n="admin.sidebar.overview"> Vue d'ensemble</span></a>
+        <a class="sidebar-item" data-href="programs.html"><span class="sidebar-item-icon">📚</span><span data-i18n="admin.sidebar.programs"> Programmes</span></a>
+        <a class="sidebar-item" data-href="teachers.html"><span class="sidebar-item-icon">👩‍🏫</span><span data-i18n="admin.sidebar.teachers"> Enseignants</span></a>
+        <a class="sidebar-item" data-href="students.html"><span class="sidebar-item-icon">👥</span><span data-i18n="admin.sidebar.students"> Étudiants</span></a>
+        <a class="sidebar-item" data-href="bookings.html"><span class="sidebar-item-icon">📋</span><span data-i18n="admin.sidebar.bookings"> Réservations</span></a>
+        <a class="sidebar-item" data-href="payments.html"><span class="sidebar-item-icon">💳</span><span data-i18n="admin.sidebar.payments"> Paiements</span></a>
+        <a class="sidebar-item" data-href="calendar.html"><span class="sidebar-item-icon">📅</span><span data-i18n="admin.sidebar.calendar"> Calendrier</span></a>
+        <a class="sidebar-item active" data-href="analytics.html"><span class="sidebar-item-icon">📈</span><span data-i18n="admin.sidebar.analytics"> Analytiques</span></a>
+        <div class="sidebar-section" data-i18n="admin.sidebar.section.system">Système</div>
+        <a class="sidebar-item" data-href="settings.html"><span class="sidebar-item-icon">⚙️</span><span data-i18n="admin.sidebar.settings"> Paramètres</span></a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html"><span class="sidebar-item-icon">🚪</span><span data-i18n="admin.sidebar.logout"> Déconnexion</span></a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title" data-i18n="admin.analytics.title">Analytiques & rapports</h1></div>
+        <div class="topbar-right"><div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" data-i18n-placeholder="admin.common.search" placeholder="Rechercher..."></div><button class="topbar-notification">🔔<span class="notification-dot"></span></button><div class="avatar avatar-sm">A</div></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="dashboard-content-header">
+          <h2 data-i18n="admin.analytics.pageTitle">Analytiques</h2>
+          <select class="form-select" style="width: auto; padding: 8px 32px 8px 12px;">
+            <option data-i18n="admin.analytics.filter.thisYear">Cette année</option><option data-i18n="admin.analytics.filter.thisMonth">Ce mois</option><option data-i18n="admin.analytics.filter.thisWeek">Cette semaine</option>
+          </select>
+        </div>
+
+        <div class="dashboard-grid-2">
+          <div class="card">
+            <div class="card-header"><h3 class="card-title" data-i18n="admin.analytics.enrollmentGrowth">Évolution des inscriptions</h3></div>
+            <div class="chart-placeholder" style="height: 200px;">
+              <div class="chart-bar" style="height: 30%;"></div>
+              <div class="chart-bar" style="height: 45%;"></div>
+              <div class="chart-bar" style="height: 38%;"></div>
+              <div class="chart-bar" style="height: 52%;"></div>
+              <div class="chart-bar" style="height: 48%;"></div>
+              <div class="chart-bar" style="height: 55%;"></div>
+              <div class="chart-bar" style="height: 62%;"></div>
+              <div class="chart-bar" style="height: 58%;"></div>
+              <div class="chart-bar" style="height: 70%;"></div>
+              <div class="chart-bar" style="height: 75%;"></div>
+              <div class="chart-bar" style="height: 82%;"></div>
+              <div class="chart-bar" style="height: 90%;"></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3 class="card-title" data-i18n="admin.analytics.programDistribution">Répartition par programme</h3></div>
+            <div style="display: flex; flex-direction: column; gap: var(--space-md); padding: var(--space-sm) 0;">
+              <div><div class="flex justify-between mb-sm"><span data-i18n="admin.analytics.program.tcfQuebec">TCF Québec</span><span style="font-weight: 600;">42%</span></div><div class="progress"><div class="progress-bar" style="width:42%;"></div></div></div>
+              <div><div class="flex justify-between mb-sm"><span data-i18n="admin.analytics.program.tcfCanada">TCF Canada</span><span style="font-weight: 600;">28%</span></div><div class="progress"><div class="progress-bar gold" style="width:28%;"></div></div></div>
+              <div><div class="flex justify-between mb-sm"><span data-i18n="admin.analytics.program.oralBC">Oral B & C</span><span style="font-weight: 600;">18%</span></div><div class="progress"><div class="progress-bar blue" style="width:18%;"></div></div></div>
+              <div><div class="flex justify-between mb-sm"><span data-i18n="admin.analytics.program.workshops">Ateliers</span><span style="font-weight: 600;">12%</span></div><div class="progress"><div class="progress-bar" style="width:12%;"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid-3">
+          <div class="card">
+            <div class="card-header"><h3 class="card-title" data-i18n="admin.analytics.successRate">Taux de réussite</h3></div>
+            <div style="text-align: center; padding: var(--space-md) 0;">
+              <div style="font-family: var(--font); font-size: 2.5rem; font-weight: 700; color: var(--color-emerald);">98%</div>
+              <small class="text-muted" data-i18n="admin.analytics.globalAverage">Moyenne globale</small>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3 class="card-title" data-i18n="admin.analytics.retention">Rétention</h3></div>
+            <div style="text-align: center; padding: var(--space-md) 0;">
+              <div style="font-family: var(--font); font-size: 2.5rem; font-weight: 700; color: #2563EB;">94%</div>
+              <small class="text-muted" data-i18n="admin.analytics.retentionRate">Taux de rétention à 3 mois</small>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3 class="card-title" data-i18n="admin.analytics.satisfaction">Satisfaction</h3></div>
+            <div style="text-align: center; padding: var(--space-md) 0;">
+              <div style="font-family: var(--font); font-size: 2.5rem; font-weight: 700; color: var(--color-gold-dark);">4.9/5</div>
+              <small class="text-muted" data-i18n="admin.analytics.studentRating">Note moyenne des étudiants</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

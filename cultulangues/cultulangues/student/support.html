@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="student.support.page_title">Support — Cultulangues</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user"><div class="avatar">M</div><div class="sidebar-user-info"><div class="sidebar-user-name">Maria S.</div><div class="sidebar-user-role">Étudiante · B2</div></div></div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section" data-i18n="student.sidebar.navigation">Navigation</div>
+        <a class="sidebar-item" data-href="dashboard.html"><span class="sidebar-item-icon">📊</span> <span data-i18n="student.sidebar.dashboard">Tableau de bord</span></a>
+        <a class="sidebar-item" data-href="my-programs.html"><span class="sidebar-item-icon">📚</span> <span data-i18n="student.sidebar.my_programs">Mes programmes</span></a>
+        <a class="sidebar-item" data-href="calendar.html"><span class="sidebar-item-icon">📅</span> <span data-i18n="student.sidebar.calendar">Mon calendrier</span></a>
+        <a class="sidebar-item" data-href="payments.html"><span class="sidebar-item-icon">💳</span> <span data-i18n="student.sidebar.payments">Paiements & factures</span></a>
+        <a class="sidebar-item" data-href="level-tests.html"><span class="sidebar-item-icon">📝</span> <span data-i18n="student.sidebar.level_tests">Tests de niveau</span></a>
+        <div class="sidebar-section" data-i18n="student.sidebar.settings">Paramètres</div>
+        <a class="sidebar-item" data-href="profile.html"><span class="sidebar-item-icon">⚙️</span> <span data-i18n="student.sidebar.profile">Profil</span></a>
+        <a class="sidebar-item active" data-href="support.html"><span class="sidebar-item-icon">💬</span> <span data-i18n="student.sidebar.support">Support</span></a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html"><span class="sidebar-item-icon">🚪</span> <span data-i18n="student.sidebar.logout">Déconnexion</span></a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title" data-i18n="student.support.title">Support</h1></div>
+        <div class="topbar-right"><div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" placeholder="Rechercher..." data-i18n-placeholder="student.common.search"></div><button class="topbar-notification">🔔<span class="notification-dot"></span></button><div class="avatar avatar-sm">M</div></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="dashboard-grid-sidebar">
+          <div>
+            <div class="card mb-lg">
+              <div class="card-header"><h3 class="card-title" data-i18n="student.support.send_message">Envoyer un message</h3></div>
+              <div class="card-body">
+                <form class="needs-validation">
+                  <div class="form-group"><label class="form-label" data-i18n="student.support.subject">Sujet</label><select class="form-select"><option data-i18n="student.support.subject_admin">Question administrative</option><option data-i18n="student.support.subject_tech">Problème technique</option><option data-i18n="student.support.subject_program">Programme & cours</option><option data-i18n="student.support.subject_payment">Paiement & facturation</option><option data-i18n="student.support.subject_other">Autre</option></select></div>
+                  <div class="form-group"><label class="form-label" data-i18n="student.support.message">Message</label><textarea class="form-textarea" required placeholder="Décrivez votre demande..." data-i18n-placeholder="student.support.message_placeholder"></textarea></div>
+                  <button type="submit" class="btn btn-primary" data-i18n="student.support.send">Envoyer</button>
+                </form>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header"><h3 class="card-title" data-i18n="student.support.recent_messages">Messages récents</h3></div>
+              <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                <div style="padding: var(--space-md); background: var(--color-bg-alt); border-radius: var(--radius-md);">
+                  <div class="flex justify-between mb-sm"><strong data-i18n="student.support.support_label">Support</strong><small class="text-muted">2 jours</small></div>
+                  <p style="font-size: 0.875rem; margin: 0;" data-i18n="student.support.msg_support">Bonjour Maria, votre facture est disponible dans votre espace. Bonne journée !</p>
+                </div>
+                <div style="padding: var(--space-md); background: var(--color-bg-alt); border-radius: var(--radius-md);">
+                  <div class="flex justify-between mb-sm"><strong data-i18n="student.support.you_label">Vous</strong><small class="text-muted">3 jours</small></div>
+                  <p style="font-size: 0.875rem; margin: 0;" data-i18n="student.support.msg_you">Bonjour, je souhaiterais obtenir une copie de ma facture du mois dernier.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-title mb-md" data-i18n="student.support.faq_title">FAQ rapide</h3>
+            <details style="margin-bottom: var(--space-md);">
+              <summary style="font-weight: 600; cursor: pointer;" data-i18n="student.support.faq1_q">Comment modifier mon mot de passe ?</summary>
+              <p style="font-size: 0.875rem; margin-top: var(--space-sm);" data-i18n="student.support.faq1_a">Rendez-vous dans votre Profil, puis dans la section Sécurité.</p>
+            </details>
+            <details style="margin-bottom: var(--space-md);">
+              <summary style="font-weight: 600; cursor: pointer;" data-i18n="student.support.faq2_q">Quand reçois-je mes factures ?</summary>
+              <p style="font-size: 0.875rem; margin-top: var(--space-sm);" data-i18n="student.support.faq2_a">Les factures sont générées le 1er de chaque mois.</p>
+            </details>
+            <details style="margin-bottom: var(--space-md);">
+              <summary style="font-weight: 600; cursor: pointer;" data-i18n="student.support.faq3_q">Puis-je annuler un programme ?</summary>
+              <p style="font-size: 0.875rem; margin-top: var(--space-sm);" data-i18n="student.support.faq3_a">Oui, sous 14 jours après le début du programme.</p>
+            </details>
+            <details>
+              <summary style="font-weight: 600; cursor: pointer;" data-i18n="student.support.faq4_q">Comment contacter mon professeur ?</summary>
+              <p style="font-size: 0.875rem; margin-top: var(--space-sm);" data-i18n="student.support.faq4_a">Vous pouvez lui envoyer un message depuis la messagerie intégrée.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

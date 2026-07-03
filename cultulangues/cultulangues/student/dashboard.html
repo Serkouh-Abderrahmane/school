@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="student.dashboard.page_title">Tableau de bord — Cultulangues</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-layout">
+
+    <!-- ═══ SIDEBAR ═══ -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a>
+      </div>
+      <div class="sidebar-user">
+        <div class="avatar">M</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Maria S.</div>
+          <div class="sidebar-user-role">Étudiante · B2</div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section" data-i18n="student.sidebar.navigation">Navigation</div>
+        <a class="sidebar-item active" data-href="dashboard.html"><span class="sidebar-item-icon">📊</span> <span data-i18n="student.sidebar.dashboard">Tableau de bord</span></a>
+        <a class="sidebar-item" data-href="my-programs.html"><span class="sidebar-item-icon">📚</span> <span data-i18n="student.sidebar.my_programs">Mes programmes</span></a>
+        <a class="sidebar-item" data-href="calendar.html"><span class="sidebar-item-icon">📅</span> <span data-i18n="student.sidebar.calendar">Mon calendrier</span></a>
+        <a class="sidebar-item" data-href="payments.html"><span class="sidebar-item-icon">💳</span> <span data-i18n="student.sidebar.payments">Paiements & factures</span></a>
+        <a class="sidebar-item" data-href="level-tests.html"><span class="sidebar-item-icon">📝</span> <span data-i18n="student.sidebar.level_tests">Tests de niveau</span></a>
+        <div class="sidebar-section" data-i18n="student.sidebar.settings">Paramètres</div>
+        <a class="sidebar-item" data-href="profile.html"><span class="sidebar-item-icon">⚙️</span> <span data-i18n="student.sidebar.profile">Profil</span></a>
+        <a class="sidebar-item" data-href="support.html"><span class="sidebar-item-icon">💬</span> <span data-i18n="student.sidebar.support">Support</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <a class="sidebar-item" data-href="../index.html"><span class="sidebar-item-icon">🚪</span> <span data-i18n="student.sidebar.logout">Déconnexion</span></a>
+      </div>
+    </aside>
+
+    <!-- Sidebar overlay for mobile -->
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+
+    <!-- ═══ MAIN ═══ -->
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle">☰</button>
+          <h1 class="topbar-title" data-i18n="student.dashboard.title">Tableau de bord</h1>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-search">
+            <span class="topbar-search-icon">🔍</span>
+            <input type="text" placeholder="Rechercher..." data-i18n-placeholder="student.common.search">
+          </div>
+          <button class="topbar-notification">
+            🔔
+            <span class="notification-dot"></span>
+          </button>
+          <div class="avatar avatar-sm">M</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <!-- Stats -->
+        <div class="stats-grid stagger-children">
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-card-icon green">📚</div>
+              <span class="badge badge-green">Actif</span>
+            </div>
+            <div class="stat-card-value">2</div>
+            <div class="stat-card-label" data-i18n="student.dashboard.active_programs">Programmes en cours</div>
+            <div class="stat-card-change up" data-i18n="student.dashboard.change_this_month">+1 ce mois</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-card-icon blue">📅</div>
+            </div>
+            <div class="stat-card-value">5</div>
+            <div class="stat-card-label" data-i18n="student.dashboard.upcoming_sessions">Séances à venir</div>
+            <div class="stat-card-change up" data-i18n="student.dashboard.next_session_label">Prochaine : demain</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-card-icon gold">🎯</div>
+            </div>
+            <div class="stat-card-value">76%</div>
+            <div class="stat-card-label" data-i18n="student.dashboard.global_progress">Progression globale</div>
+            <div class="stat-card-change up" data-i18n="student.dashboard.progress_this_week">+12% cette semaine</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-card-icon emerald">🏆</div>
+            </div>
+            <div class="stat-card-value">B2</div>
+            <div class="stat-card-label" data-i18n="student.dashboard.current_level">Niveau actuel</div>
+            <div class="stat-card-change up" data-i18n="student.dashboard.objective_label">Objectif : C1</div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid-sidebar">
+          <!-- Next Session -->
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" data-i18n="student.dashboard.next_session">Prochaine séance</h3>
+                <a href="calendar.html" class="btn btn-link btn-sm" data-i18n="student.dashboard.view_calendar">Voir calendrier</a>
+              </div>
+              <div class="flex items-center gap-lg" style="padding: var(--space-sm) 0;">
+                <div style="width: 56px; height: 56px; background: var(--color-bg-cream); border-radius: var(--radius-md); display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: var(--color-emerald); text-transform: uppercase;">LUN</span>
+                  <span style="font-family: var(--font); font-size: 1.25rem; font-weight: 700; color: var(--color-emerald);">26</span>
+                </div>
+                <div style="flex: 1;">
+                  <h4 style="font-size: 1rem; margin-bottom: 4px;">Préparation TCF Québec</h4>
+                  <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin: 0;">14h00 - 16h00 · Salle A</p>
+                  <p style="font-size: 0.875rem; color: var(--color-text-tertiary); margin: 0;">Prof. Sophie Martin</p>
+                </div>
+                <button class="btn btn-outline btn-sm" data-i18n="student.dashboard.join">Rejoindre</button>
+              </div>
+            </div>
+
+            <!-- Progress -->
+            <div class="card mt-md">
+              <div class="card-header">
+                <h3 class="card-title" data-i18n="student.dashboard.my_progress">Ma progression</h3>
+              </div>
+              <div style="padding: var(--space-sm) 0;">
+                <div style="margin-bottom: var(--space-md);">
+                  <div class="flex justify-between mb-sm">
+                    <span style="font-size: 0.875rem; font-weight: 600;" data-i18n="student.dashboard.listening">Compréhension orale</span>
+                    <span style="font-size: 0.8125rem; color: var(--color-text-secondary);">82%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" style="width: 82%;"></div>
+                  </div>
+                </div>
+                <div style="margin-bottom: var(--space-md);">
+                  <div class="flex justify-between mb-sm">
+                    <span style="font-size: 0.875rem; font-weight: 600;" data-i18n="student.dashboard.reading">Compréhension écrite</span>
+                    <span style="font-size: 0.8125rem; color: var(--color-text-secondary);">75%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar gold" style="width: 75%;"></div>
+                  </div>
+                </div>
+                <div style="margin-bottom: var(--space-md);">
+                  <div class="flex justify-between mb-sm">
+                    <span style="font-size: 0.875rem; font-weight: 600;" data-i18n="student.dashboard.speaking">Expression orale</span>
+                    <span style="font-size: 0.8125rem; color: var(--color-text-secondary);">68%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar blue" style="width: 68%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-sm">
+                    <span style="font-size: 0.875rem; font-weight: 600;" data-i18n="student.dashboard.writing">Expression écrite</span>
+                    <span style="font-size: 0.8125rem; color: var(--color-text-secondary);">71%</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" style="width: 71%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notifications -->
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title" data-i18n="student.dashboard.notifications">Notifications</h3>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                <div class="flex" style="gap: var(--space-sm);">
+                  <span style="font-size: 1.25rem;">📌</span>
+                  <div>
+                    <p style="font-size: 0.875rem; margin: 0; font-weight: 600;" data-i18n="student.dashboard.notif_reminder_title">Rappel : test de compréhension</p>
+                    <p style="font-size: 0.8125rem; color: var(--color-text-tertiary); margin: 0;" data-i18n="student.dashboard.notif_reminder_desc">Votre test est prévu dans 2 jours</p>
+                  </div>
+                </div>
+                <div class="flex" style="gap: var(--space-sm);">
+                  <span style="font-size: 1.25rem;">✅</span>
+                  <div>
+                    <p style="font-size: 0.875rem; margin: 0; font-weight: 600;" data-i18n="student.dashboard.notif_correction_title">Correction disponible</p>
+                    <p style="font-size: 0.8125rem; color: var(--color-text-tertiary); margin: 0;" data-i18n="student.dashboard.notif_correction_desc">Votre simulation a été corrigée</p>
+                  </div>
+                </div>
+                <div class="flex" style="gap: var(--space-sm);">
+                  <span style="font-size: 1.25rem;">💡</span>
+                  <div>
+                    <p style="font-size: 0.875rem; margin: 0; font-weight: 600;" data-i18n="student.dashboard.notif_workshop_title">Atelier de conversation</p>
+                    <p style="font-size: 0.8125rem; color: var(--color-text-tertiary); margin: 0;" data-i18n="student.dashboard.notif_workshop_desc">Nouvel atelier disponible à la réservation</p>
+                  </div>
+                </div>
+                <div class="flex" style="gap: var(--space-sm);">
+                  <span style="font-size: 1.25rem;">📊</span>
+                  <div>
+                    <p style="font-size: 0.875rem; margin: 0; font-weight: 600;" data-i18n="student.dashboard.notif_progress_title">Progression mise à jour</p>
+                    <p style="font-size: 0.8125rem; color: var(--color-text-tertiary); margin: 0;" data-i18n="student.dashboard.notif_progress_desc">+5% cette semaine, bravo !</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick actions -->
+            <div class="card mt-md">
+              <div class="card-header">
+                <h3 class="card-title" data-i18n="student.dashboard.quick_actions">Actions rapides</h3>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+                <a href="level-tests.html" class="btn btn-outline w-full" style="justify-content: flex-start;">📝 <span data-i18n="student.dashboard.take_level_test">Passer un test de niveau</span></a>
+                <a href="../booking.html" class="btn btn-outline w-full" style="justify-content: flex-start;">📚 <span data-i18n="student.dashboard.book_program">Réserver un programme</span></a>
+                <a href="payments.html" class="btn btn-outline w-full" style="justify-content: flex-start;">💳 <span data-i18n="student.dashboard.view_invoices">Voir mes factures</span></a>
+                <a href="support.html" class="btn btn-outline w-full" style="justify-content: flex-start;">💬 <span data-i18n="student.dashboard.contact_support">Contacter le support</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

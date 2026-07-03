@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="teacher.profile.title">Profil — Enseignant</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user"><div class="avatar">S</div><div class="sidebar-user-info"><div class="sidebar-user-name">Sophie Martin</div><div class="sidebar-user-role" data-i18n="teacher.sidebar.role">Enseignante certifiée FLE</div></div></div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section" data-i18n="teacher.sidebar.navigation">Navigation</div>
+        <a class="sidebar-item" data-href="dashboard.html" data-i18n="teacher.sidebar.dashboard"><span class="sidebar-item-icon">📊</span> Tableau de bord</a>
+        <a class="sidebar-item" data-href="schedule.html" data-i18n="teacher.sidebar.schedule"><span class="sidebar-item-icon">📅</span> Mon emploi du temps</a>
+        <a class="sidebar-item" data-href="students.html" data-i18n="teacher.sidebar.students"><span class="sidebar-item-icon">👥</span> Mes étudiants</a>
+        <a class="sidebar-item" data-href="session-details.html" data-i18n="teacher.sidebar.sessions"><span class="sidebar-item-icon">📋</span> Suivi des séances</a>
+        <div class="sidebar-section" data-i18n="teacher.sidebar.settings">Paramètres</div>
+        <a class="sidebar-item active" data-href="profile.html" data-i18n="teacher.sidebar.profile"><span class="sidebar-item-icon">⚙️</span> Profil</a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html" data-i18n="teacher.sidebar.logout"><span class="sidebar-item-icon">🚪</span> Déconnexion</a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title" data-i18n="teacher.profile.page_title">Profil</h1></div>
+        <div class="topbar-right"><div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" placeholder="Rechercher..." data-i18n-placeholder="teacher.common.search"></div><button class="topbar-notification">🔔<span class="notification-dot"></span></button><div class="avatar avatar-sm">S</div></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="card mb-lg">
+          <div class="flex items-center" style="gap: var(--space-lg);">
+            <div class="avatar avatar-xl">S</div>
+            <div>
+              <h2>Sophie Martin</h2>
+              <p style="color: var(--color-text-secondary);">sophie.martin@cultulangues.fr</p>
+              <div class="flex items-center gap-sm mt-sm">
+                <span class="badge badge-emerald">Enseignante FLE</span>
+                <span class="badge badge-blue">8 ans d'expérience</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header"><h3 class="card-title" data-i18n="teacher.profile.information">Informations</h3></div>
+            <div class="card-body">
+              <form>
+                <div class="form-row">
+                  <div class="form-group"><label class="form-label" data-i18n="teacher.profile.first_name">Prénom</label><input type="text" class="form-input" value="Sophie"></div>
+                  <div class="form-group"><label class="form-label" data-i18n="teacher.profile.last_name">Nom</label><input type="text" class="form-input" value="Martin"></div>
+                </div>
+                <div class="form-group"><label class="form-label" data-i18n="teacher.profile.email">Email</label><input type="email" class="form-input" value="sophie.martin@cultulangues.fr"></div>
+                <div class="form-group"><label class="form-label" data-i18n="teacher.profile.phone">Téléphone</label><input type="tel" class="form-input" value="+33 6 98 76 54 32"></div>
+                <button class="btn btn-primary" data-i18n="teacher.profile.save">Enregistrer</button>
+              </form>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3 class="card-title" data-i18n="teacher.profile.skills_availability">Compétences & disponibilités</h3></div>
+            <div class="card-body">
+              <div class="form-group"><label class="form-label" data-i18n="teacher.profile.specialties">Spécialités</label>
+                <div style="display: flex; flex-wrap: wrap; gap: var(--space-xs);">
+                  <span class="badge badge-emerald">TCF Québec</span>
+                  <span class="badge badge-emerald">TCF Canada</span>
+                  <span class="badge badge-blue">Oral B/C</span>
+                  <span class="badge badge-gold">Ateliers</span>
+                </div>
+              </div>
+              <div class="form-group"><label class="form-label" data-i18n="teacher.profile.availability">Disponibilités</label>
+                <div><small class="text-muted">Lun · Mer · Ven : 10h - 18h</small></div>
+                <div><small class="text-muted">Mar · Jeu : 14h - 20h</small></div>
+              </div>
+              <button class="btn btn-primary mt-md" data-i18n="teacher.profile.update">Mettre à jour</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="teacher.sessions.title">Suivi des séances — Enseignant</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user"><div class="avatar">S</div><div class="sidebar-user-info"><div class="sidebar-user-name">Sophie Martin</div><div class="sidebar-user-role" data-i18n="teacher.sidebar.role">Enseignante certifiée FLE</div></div></div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section" data-i18n="teacher.sidebar.navigation">Navigation</div>
+        <a class="sidebar-item" data-href="dashboard.html" data-i18n="teacher.sidebar.dashboard"><span class="sidebar-item-icon">📊</span> Tableau de bord</a>
+        <a class="sidebar-item" data-href="schedule.html" data-i18n="teacher.sidebar.schedule"><span class="sidebar-item-icon">📅</span> Mon emploi du temps</a>
+        <a class="sidebar-item" data-href="students.html" data-i18n="teacher.sidebar.students"><span class="sidebar-item-icon">👥</span> Mes étudiants</a>
+        <a class="sidebar-item active" data-href="session-details.html" data-i18n="teacher.sidebar.sessions"><span class="sidebar-item-icon">📋</span> Suivi des séances</a>
+        <div class="sidebar-section" data-i18n="teacher.sidebar.settings">Paramètres</div>
+        <a class="sidebar-item" data-href="profile.html" data-i18n="teacher.sidebar.profile"><span class="sidebar-item-icon">⚙️</span> Profil</a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html" data-i18n="teacher.sidebar.logout"><span class="sidebar-item-icon">🚪</span> Déconnexion</a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title" data-i18n="teacher.sessions.page_title">Suivi des séances</h1></div>
+        <div class="topbar-right"><div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" placeholder="Rechercher..." data-i18n-placeholder="teacher.common.search"></div><button class="topbar-notification">🔔<span class="notification-dot"></span></button><div class="avatar avatar-sm">S</div></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="dashboard-content-header">
+          <h2>Séance du 15 Juin 2026</h2>
+          <div class="flex items-center gap-sm">
+            <select class="form-select" style="width: auto; padding: 8px 32px 8px 12px;">
+              <option>15 Juin 2026 - Simulation</option>
+              <option>12 Juin 2026 - TCF Québec</option>
+              <option>10 Juin 2026 - TCF Québec</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="dashboard-grid-sidebar">
+          <div>
+            <div class="card mb-lg">
+              <div class="card-header"><h3 class="card-title" data-i18n="teacher.sessions.session_info">Informations de la séance</h3></div>
+              <div class="grid-2" style="gap: var(--space-md);">
+                <div><small class="text-muted" data-i18n="teacher.sessions.date">Date</small><p style="font-weight: 600;">15 Juin 2026</p></div>
+                <div><small class="text-muted" data-i18n="teacher.sessions.time">Horaire</small><p style="font-weight: 600;">10h00 - 12h00</p></div>
+                <div><small class="text-muted" data-i18n="teacher.sessions.group">Groupe</small><p style="font-weight: 600;">TCF Québec · Groupe A</p></div>
+                <div><small class="text-muted" data-i18n="teacher.sessions.room">Salle</small><p style="font-weight: 600;">Salle B</p></div>
+                <div><small class="text-muted" data-i18n="teacher.sessions.type">Type</small><p style="font-weight: 600;">Simulation d'examen</p></div>
+                <div><small class="text-muted" data-i18n="teacher.sessions.attendance">Présents</small><p style="font-weight: 600;"><span class="text-success">7</span> / <span>8</span></p></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header"><h3 class="card-title" data-i18n="teacher.sessions.session_notes">Notes de séance</h3><button class="btn btn-primary btn-sm" onclick="showToast('Notes enregistrées ✓','success')" data-i18n="teacher.sessions.save">Enregistrer</button></div>
+              <div class="form-group">
+                <textarea class="form-textarea" placeholder="Résumé de la séance, points clés abordés, observations..." data-i18n-placeholder="teacher.sessions.notes_placeholder">Séance consacrée à la simulation d'examen de compréhension orale. Les étudiants ont réalisé l'épreuve dans les conditions réelles. Résultats globaux satisfaisants (moyenne 74%). Points à renforcer : la compréhension des accents variés et le vocabulaire académique.</textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label" data-i18n="teacher.sessions.attendance_list">Présences</label>
+                <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+                  <label class="form-checkbox"><input type="checkbox" checked> Maria S.</label>
+                  <label class="form-checkbox"><input type="checkbox" checked> Laura P.</label>
+                  <label class="form-checkbox"><input type="checkbox" checked> Jean W.</label>
+                  <label class="form-checkbox"><input type="checkbox"> Camille R.</label>
+                  <label class="form-checkbox"><input type="checkbox" checked> Thomas M.</label>
+                  <label class="form-checkbox"><input type="checkbox" checked> Fatima Z.</label>
+                  <label class="form-checkbox"><input type="checkbox" checked> Alex C.</label>
+                  <label class="form-checkbox"><input type="checkbox" checked> Elena V.</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="card mb-lg">
+              <div class="card-header"><h3 class="card-title" data-i18n="teacher.sessions.present_students">Étudiants présents</h3></div>
+              <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+                <div class="flex items-center gap-sm"><div class="avatar avatar-sm">M</div><div><strong>Maria S.</strong><br><small class="text-muted">B2 · 82% progression</small></div></div>
+                <div class="flex items-center gap-sm"><div class="avatar avatar-sm">L</div><div><strong>Laura P.</strong><br><small class="text-muted">B2 · 45% progression</small></div></div>
+                <div class="flex items-center gap-sm"><div class="avatar avatar-sm">J</div><div><strong>Jean W.</strong><br><small class="text-muted">A2 · 30% progression</small></div></div>
+                <div class="flex items-center gap-sm"><div class="avatar avatar-sm">T</div><div><strong>Thomas M.</strong><br><small class="text-muted">B1 · 60% progression</small></div></div>
+                <div class="flex items-center gap-sm"><div class="avatar avatar-sm">F</div><div><strong>Fatima Z.</strong><br><small class="text-muted">B2 · 70% progression</small></div></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header"><h3 class="card-title" data-i18n="teacher.sessions.next_session">Prochaine séance</h3></div>
+              <p style="font-size: 0.9375rem;"><strong>📘 TCF Québec · Groupe A</strong></p>
+              <p style="font-size: 0.875rem; color: var(--color-text-secondary);">17 Juin 2026 · 14h - 16h · Salle A</p>
+              <button class="btn btn-outline w-full mt-sm" data-i18n="teacher.sessions.prepare_session">Préparer la séance</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos — Cultulangues</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="public-header" id="header">
+    <div class="container">
+      <a href="../index.html" class="logo">
+        <img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img">
+      </a>
+      <nav class="nav">
+        <a href="../index.html" data-i18n="nav.home">Accueil</a>
+        <div class="dropdown">
+          <button class="dropdown-trigger" data-i18n="nav.programs">Programmes</button>
+          <div class="dropdown-menu">
+            <a href="parcours-linguistique.html" class="dropdown-item">
+              <span class="dropdown-item-title" data-i18n="nav.parcours">Parcours linguistique</span>
+              <span class="dropdown-item-desc" data-i18n="nav.parcours_desc">Apprendre et progresser en petit groupe</span>
+            </a>
+            <a href="cap-sur-l-oral.html" class="dropdown-item">
+              <span class="dropdown-item-title" data-i18n="nav.oral">Cap sur l'oral</span>
+              <span class="dropdown-item-desc" data-i18n="nav.oral_desc">Développer une expression orale fluide et stratégique</span>
+            </a>
+            <a href="tcf-preparation.html" class="dropdown-item">
+              <span class="dropdown-item-title" data-i18n="nav.tcf">Préparation TCF Québec</span>
+              <span class="dropdown-item-desc" data-i18n="nav.tcf_desc">Se préparer sereinement au test officiel</span>
+            </a>
+            <a href="formation-en-solo.html" class="dropdown-item">
+              <span class="dropdown-item-title" data-i18n="nav.solo">Formation en solo</span>
+              <span class="dropdown-item-desc" data-i18n="nav.solo_desc">Un accompagnement 100 % personnalisé</span>
+            </a>
+          </div>
+        </div>
+        <a href="about.html" class="active" data-i18n="nav.about">À propos</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <div class="nav-cta">
+          <a href="login.html" class="nav-login" data-i18n="nav.login">Connexion</a>
+          <a href="register.html" class="btn btn-primary btn-sm" data-i18n="nav.register">S'inscrire</a>
+          <div class="nav-lang">
+            <button class="lang-opt" data-lang="fr" onclick="window.switchLanguage('fr')">FR</button>
+            <span class="lang-sep">|</span>
+            <button class="lang-opt" data-lang="en" onclick="window.switchLanguage('en')">EN</button>
+          </div>
+        </div>
+      </nav>
+      <div class="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ MISSION ═══ -->
+  <section class="about-mission">
+    <div class="about-mission-bg"><img src="../img/hero-maitrisez-langues.png" alt="" loading="lazy"></div>
+    <div class="container container-sm">
+      <h2 data-i18n="about.mission.title">Notre mission</h2>
+      <p style="font-size: 1.125rem; line-height: 1.8; margin-top: var(--space-md);" data-i18n="about.mission.text">Chez Cultulangues, nous croyons que la maîtrise du français est la clé de la réussite linguistique et professionnelle. Notre mission est d'accompagner chaque apprenant avec bienveillance, professionnalisme et exigence vers la réussite de ses projets.</p>
+    </div>
+  </section>
+
+  <!-- ═══ VALUES ═══ -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="about.pedagogy.title">Notre approche pédagogique</h2>
+        <p data-i18n="about.pedagogy.subtitle">Une méthode qui place l'humain au centre de l'apprentissage.</p>
+      </div>
+      <div class="about-values stagger-children">
+        <div class="card about-value-card">
+          <div class="value-icon">❤️</div>
+          <h3 data-i18n="about.value1.title">Bienveillance</h3>
+          <p data-i18n="about.value1.desc">Nous créons un environnement sécurisant où chaque apprenant peut progresser à son rythme, sans jugement.</p>
+        </div>
+        <div class="card about-value-card">
+          <div class="value-icon">🎯</div>
+          <h3 data-i18n="about.value2.title">Exigence</h3>
+          <p data-i18n="about.value2.desc">Nous fixons des objectifs clairs et accompagnons chaque élève avec rigueur pour les atteindre.</p>
+        </div>
+        <div class="card about-value-card">
+          <div class="value-icon">🤝</div>
+          <h3 data-i18n="about.value3.title">Proximité</h3>
+          <p data-i18n="about.value3.desc">Un suivi personnalisé et une écoute attentive pour répondre aux besoins spécifiques de chacun.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TRUST ═══ -->
+  <section class="section section-cream reveal">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="about.trust.title">Pourquoi nous faire confiance ?</h2>
+      </div>
+      <div class="grid-3 stagger-children">
+        <div class="card card-flat" style="text-align: center; padding: var(--space-xl);">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-sm);">🏆</div>
+          <h4 data-i18n="about.trust1.title">Enseignants certifiés</h4>
+          <p style="font-size: 0.875rem;" data-i18n="about.trust1.desc">Tous nos enseignants sont diplômés FLE et justifient d'une expérience significative dans la préparation aux examens TCF.</p>
+        </div>
+        <div class="card card-flat" style="text-align: center; padding: var(--space-xl);">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-sm);">📈</div>
+          <h4 data-i18n="about.trust2.title">98% de réussite</h4>
+          <p style="font-size: 0.875rem;" data-i18n="about.trust2.desc">Nos résultats parlent d'eux-mêmes. 98% de nos étudiants obtiennent le niveau visé dès leur première tentative.</p>
+        </div>
+        <div class="card card-flat" style="text-align: center; padding: var(--space-xl);">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-sm);">🌍</div>
+          <h4 data-i18n="about.trust3.title">Communauté internationale</h4>
+          <p style="font-size: 0.875rem;" data-i18n="about.trust3.desc">Plus de 950 étudiants de 40 nationalités différentes nous ont déjà rejoints.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="public-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">
+            <img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img">
+          </a>
+          <p class="brand-desc" data-i18n="footer.brand">Formation linguistique & Préparation aux examens.</p>
+        </div>
+        <div>
+          <h4 class="footer-heading" data-i18n="footer.courses">Cours</h4>
+          <div class="footer-links">
+            <a href="parcours-linguistique.html" data-i18n="nav.parcours">Parcours linguistique</a>
+            <a href="cap-sur-l-oral.html" data-i18n="nav.oral">Cap sur l'oral</a>
+            <a href="tcf-preparation.html" data-i18n="nav.tcf">Préparation TCF Québec</a>
+            <a href="formation-en-solo.html" data-i18n="nav.solo">Formation en solo</a>
+            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading" data-i18n="footer.info">Informations</h4>
+          <div class="footer-links">
+            <a href="about.html" data-i18n="footer.info.about">À propos</a>
+            <a href="contact.html" data-i18n="footer.info.contact">Contact</a>
+            <a href="#" data-i18n="footer.info.terms">Mentions légales</a>
+            <a href="#" data-i18n="footer.info.privacy">Politique de confidentialité</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading" data-i18n="footer.contact.title">Contact</h4>
+          <div class="footer-contact-item">
+            <span class="fci-icon">✉</span>
+            <span class="fci-text" data-i18n="footer.contact.email">contact@cultulangues.fr</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="fci-icon">📞</span>
+            <span class="fci-text" data-i18n="footer.contact.phone">+33 1 23 45 67 89</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="fci-icon">📍</span>
+            <span class="fci-text" data-i18n="footer.contact.location">Paris, France</span>
+          </div>
+          <div class="footer-social-row">
+            <a href="#" title="Facebook">f</a>
+            <a href="#" title="Instagram">◻</a>
+            <a href="#" title="LinkedIn">in</a>
+            <a href="#" title="YouTube">▶</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          <span>© 2026 <span data-i18n="footer.copyright">Cultulangues. Tous droits réservés.</span></span>
+          <span data-i18n="footer.made">🌿 Fait avec bienveillance</span>
+        </div>
+        <div class="lang-switcher">
+          <button class="lang-opt" data-lang="fr" onclick="window.switchLanguage('fr')" data-i18n="lang.fr">FR</button>
+          <button class="lang-opt" data-lang="en" onclick="window.switchLanguage('en')" data-i18n="lang.en">EN</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-nav-overlay"></div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

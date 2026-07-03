@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paramètres — Admin</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user"><div class="avatar">A</div><div class="sidebar-user-info"><div class="sidebar-user-name">Admin</div><div class="sidebar-user-role">Administrateur</div></div></div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section" data-i18n="admin.sidebar.section.gestion">Gestion</div>
+        <a class="sidebar-item" data-href="dashboard.html"><span class="sidebar-item-icon">📊</span><span data-i18n="admin.sidebar.overview"> Vue d'ensemble</span></a>
+        <a class="sidebar-item" data-href="programs.html"><span class="sidebar-item-icon">📚</span><span data-i18n="admin.sidebar.programs"> Programmes</span></a>
+        <a class="sidebar-item" data-href="teachers.html"><span class="sidebar-item-icon">👩‍🏫</span><span data-i18n="admin.sidebar.teachers"> Enseignants</span></a>
+        <a class="sidebar-item" data-href="students.html"><span class="sidebar-item-icon">👥</span><span data-i18n="admin.sidebar.students"> Étudiants</span></a>
+        <a class="sidebar-item" data-href="bookings.html"><span class="sidebar-item-icon">📋</span><span data-i18n="admin.sidebar.bookings"> Réservations</span></a>
+        <a class="sidebar-item" data-href="payments.html"><span class="sidebar-item-icon">💳</span><span data-i18n="admin.sidebar.payments"> Paiements</span></a>
+        <a class="sidebar-item" data-href="calendar.html"><span class="sidebar-item-icon">📅</span><span data-i18n="admin.sidebar.calendar"> Calendrier</span></a>
+        <a class="sidebar-item" data-href="analytics.html"><span class="sidebar-item-icon">📈</span><span data-i18n="admin.sidebar.analytics"> Analytiques</span></a>
+        <div class="sidebar-section" data-i18n="admin.sidebar.section.system">Système</div>
+        <a class="sidebar-item active" data-href="settings.html"><span class="sidebar-item-icon">⚙️</span><span data-i18n="admin.sidebar.settings"> Paramètres</span></a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html"><span class="sidebar-item-icon">🚪</span><span data-i18n="admin.sidebar.logout"> Déconnexion</span></a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title" data-i18n="admin.settings.title">Paramètres</h1></div>
+        <div class="topbar-right"><div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" data-i18n-placeholder="admin.common.search" placeholder="Rechercher..."></div><button class="topbar-notification">🔔<span class="notification-dot"></span></button><div class="avatar avatar-sm">A</div></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="tabs-container">
+          <div class="tabs" data-target="settings-tabs">
+            <button class="tab active" data-tab="general" data-i18n="admin.settings.tab.general">Général</button>
+            <button class="tab" data-tab="payment" data-i18n="admin.settings.tab.payment">Paiement</button>
+            <button class="tab" data-tab="email" data-i18n="admin.settings.tab.email">Email</button>
+            <button class="tab" data-tab="security" data-i18n="admin.settings.tab.security">Sécurité</button>
+          </div>
+
+          <div class="tab-content active" data-tab-content="general">
+            <div class="card">
+              <h3 class="card-title mb-md" data-i18n="admin.settings.generalInfo">Informations générales</h3>
+              <form>
+                <div class="form-group"><label class="form-label" data-i18n="admin.form.platformName">Nom de la plateforme</label><input type="text" class="form-input" value="Cultulangues"></div>
+                <div class="form-group"><label class="form-label" data-i18n="admin.form.contactEmail">Email de contact</label><input type="email" class="form-input" value="contact@cultulangues.fr"></div>
+                <div class="form-group"><label class="form-label" data-i18n="admin.form.currency">Devise</label><select class="form-select"><option data-i18n="admin.form.option.eur">EUR (€)</option><option data-i18n="admin.form.option.cad">CAD ($)</option></select></div>
+                <div class="form-group"><label class="form-label" data-i18n="admin.form.timezone">Fuseau horaire</label><select class="form-select"><option>Europe/Paris (UTC+1)</option></select></div>
+                <button class="btn btn-primary" data-i18n="admin.common.save">Enregistrer</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="tab-content" data-tab-content="payment">
+            <div class="card">
+              <h3 class="card-title mb-md" data-i18n="admin.settings.paymentConfig">Configuration des paiements</h3>
+              <form>
+                <div class="form-group"><label class="form-label" data-i18n="admin.form.paymentMethods">Moyens de paiement acceptés</label>
+                  <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+                    <label class="form-checkbox"><input type="checkbox" checked> <span data-i18n="admin.settings.payment.card">Carte bancaire (Visa, Mastercard)</span></label>
+                    <label class="form-checkbox"><input type="checkbox" checked> <span data-i18n="admin.settings.payment.paypal">PayPal</span></label>
+                    <label class="form-checkbox"><input type="checkbox"> <span data-i18n="admin.settings.payment.bankTransfer">Virement bancaire</span></label>
+                  </div>
+                </div>
+                <div class="form-group"><label class="form-label" data-i18n="admin.form.serviceFee">Frais de service (%)</label><input type="number" class="form-input" value="2.5" step="0.1"></div>
+                <button class="btn btn-primary" data-i18n="admin.common.save">Enregistrer</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="tab-content" data-tab-content="email">
+            <div class="card">
+              <h3 class="card-title mb-md" data-i18n="admin.settings.emailNotifications">Notifications email</h3>
+              <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
+                <label class="form-checkbox"><input type="checkbox" checked> <span data-i18n="admin.settings.notif.registration">Confirmation d'inscription</span></label>
+                <label class="form-checkbox"><input type="checkbox" checked> <span data-i18n="admin.settings.notif.sessionReminder">Rappel de séance (24h avant)</span></label>
+                <label class="form-checkbox"><input type="checkbox" checked> <span data-i18n="admin.settings.notif.invoice">Facture disponible</span></label>
+                <label class="form-checkbox"><input type="checkbox" checked> <span data-i18n="admin.settings.notif.testResult">Résultat de test</span></label>
+                <label class="form-checkbox"><input type="checkbox"> <span data-i18n="admin.settings.notif.newsletter">Newsletter</span></label>
+              </div>
+              <button class="btn btn-primary mt-md" data-i18n="admin.common.save">Enregistrer</button>
+            </div>
+          </div>
+
+          <div class="tab-content" data-tab-content="security">
+            <div class="card">
+              <h3 class="card-title mb-md" data-i18n="admin.settings.security">Sécurité</h3>
+              <form>
+                <div class="form-group"><label class="form-label" data-i18n="admin.form.adminEmail">Email administrateur</label><input type="email" class="form-input" value="admin@cultulangues.fr"></div>
+                <div class="form-group"><label class="form-label" data-i18n="admin.form.currentPassword">Mot de passe actuel</label><input type="password" class="form-input" value="••••••••"></div>
+                <div class="form-group"><label class="form-label" data-i18n="admin.form.newPassword">Nouveau mot de passe</label><input type="password" class="form-input" data-i18n-placeholder="admin.form.passwordPlaceholder" placeholder="Minimum 8 caractères"></div>
+                <button class="btn btn-primary" data-i18n="admin.common.update">Mettre à jour</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

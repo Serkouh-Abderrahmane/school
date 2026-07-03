@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="student.portal.page.title">Student Portal — School Management</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --pink:#FF6B9D;--pink-dark:#E55A8A;--orange:#FF8E53;--amber:#FFB347;--yellow:#FFD93D;
+      --blue:#4A90D9;--blue-dark:#357ABD;--blue-light:#7BB3E8;
+      --green:#2ECC71;--green-dark:#27AE60;--green-light:#5EE09A;
+      --red:#E74C3C;
+      --bg:#F4F6FA;--bg-card:#FFFFFF;--bg-sidebar:#1A1A2E;
+      --text:#2C3E50;--text-secondary:#7F8C8D;--text-tertiary:#BDC3C7;
+      --border:#E8ECF1;
+      --shadow-sm:0 2px 8px rgba(0,0,0,0.04);--shadow-md:0 4px 20px rgba(0,0,0,0.06);--shadow-lg:0 12px 40px rgba(0,0,0,0.1);
+      --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-full:9999px;
+      --sidebar-w:250px;--header-h:64px;
+      --transition:300ms cubic-bezier(0.4,0,0.2,1);--font:'Inter',sans-serif;
+      --gradient-main:linear-gradient(135deg,var(--pink),var(--orange),var(--yellow));
+      --gradient-blue:linear-gradient(135deg,var(--blue),var(--blue-light));
+      --gradient-green:linear-gradient(135deg,var(--green),var(--green-light));
+    }
+    html{font-size:14.5px;scroll-behavior:smooth}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);overflow:hidden;height:100vh}
+    ::-webkit-scrollbar{width:5px}
+    ::-webkit-scrollbar-track{background:transparent}
+    ::-webkit-scrollbar-thumb{background:var(--border);border-radius:var(--radius-full)}
+
+    .sidebar{position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;background:var(--bg-sidebar);z-index:100;transition:width var(--transition);display:flex;flex-direction:column;overflow:hidden}
+    .sidebar.collapsed{width:68px}
+    .sidebar-brand{display:flex;align-items:center;gap:12px;padding:16px 20px;height:var(--header-h);border-bottom:1px solid rgba(255,255,255,0.06);flex-shrink:0}
+    .sidebar-brand-icon{width:34px;height:34px;border-radius:var(--radius-md);background:var(--gradient-main);display:flex;align-items:center;justify-content:center;color:white;font-size:0.9rem;flex-shrink:0;font-weight:800}
+    .sidebar-brand span{font-weight:800;font-size:1rem;background:var(--gradient-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap;transition:opacity var(--transition)}
+    .sidebar.collapsed .sidebar-brand span{opacity:0;width:0;overflow:hidden}
+    .sidebar-nav{padding:12px 10px;flex:1;overflow-y:auto}
+    .sidebar-nav::-webkit-scrollbar{width:3px}
+    .sidebar-nav::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:var(--radius-full)}
+    .sidebar-section-label{padding:10px 14px 4px;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);white-space:nowrap}
+    .sidebar.collapsed .sidebar-section-label{opacity:0;height:0;padding:0;overflow:hidden}
+    .nav-item{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:var(--radius-md);color:rgba(255,255,255,0.55);font-size:0.85rem;font-weight:500;cursor:pointer;transition:all var(--transition);white-space:nowrap;position:relative;margin-bottom:2px}
+    .nav-item i{width:20px;text-align:center;font-size:1rem;flex-shrink:0}
+    .nav-item:hover{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.85)}
+    .nav-item.active{background:linear-gradient(135deg,rgba(255,107,157,0.15),rgba(255,142,83,0.08));color:white}
+    .nav-item.active::before{content:'';position:absolute;left:-10px;top:50%;transform:translateY(-50%);width:3px;height:18px;border-radius:var(--radius-full);background:var(--gradient-main)}
+    .sidebar.collapsed .nav-item{justify-content:center;padding:10px 0;margin:0 6px}
+    .sidebar.collapsed .nav-item span{display:none}
+    .sidebar-footer{padding:12px;border-top:1px solid rgba(255,255,255,0.06);flex-shrink:0}
+    .sidebar.collapsed .sidebar-footer .nav-item span{display:none}
+    .sidebar-toggle{position:fixed;bottom:20px;left:calc(var(--sidebar-w) - 15px);z-index:101;width:30px;height:30px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--transition);color:var(--text-secondary);font-size:0.65rem;box-shadow:var(--shadow-md)}
+    .sidebar-toggle:hover{background:var(--gradient-main);color:white;border-color:transparent}
+    .sidebar.collapsed ~ .sidebar-toggle{left:calc(68px - 15px)}
+
+    .main{margin-left:var(--sidebar-w);height:100vh;display:flex;flex-direction:column;transition:margin var(--transition)}
+    .sidebar.collapsed ~ .main{margin-left:68px}
+
+    .header{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;padding:0 28px;border-bottom:1px solid var(--border);background:var(--bg-card);flex-shrink:0}
+    .header-left{display:flex;align-items:center;gap:14px}
+    .header-title h1{font-size:1.1rem;font-weight:700;background:var(--gradient-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .header-title p{font-size:0.72rem;color:var(--text-secondary);margin-top:1px}
+    .header-actions{display:flex;align-items:center;gap:14px}
+    .header-search{position:relative;width:260px}
+    .header-search input{width:100%;padding:8px 14px 8px 36px;border:1px solid var(--border);border-radius:var(--radius-full);background:var(--bg);font-size:0.8rem;outline:none;transition:all var(--transition);font-family:var(--font)}
+    .header-search input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(74,144,217,0.1)}
+    .header-search i{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-tertiary)}
+    .header-icon{position:relative;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);cursor:pointer;transition:all var(--transition);font-size:1.05rem}
+    .header-icon:hover{background:rgba(255,107,157,0.06);color:var(--pink)}
+    .header-icon .dot{position:absolute;top:6px;right:6px;width:7px;height:7px;border-radius:50%;background:var(--red);border:2px solid var(--bg-card)}
+    .user-profile{display:flex;align-items:center;gap:10px;cursor:pointer;padding:4px 12px 4px 4px;border-radius:var(--radius-full);transition:all var(--transition);position:relative}
+    .user-profile:hover{background:rgba(255,107,157,0.04)}
+    .user-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:0.75rem;flex-shrink:0;background:var(--gradient-main)}
+    .user-profile .name{font-size:0.78rem;font-weight:600;color:var(--text)}
+    .user-profile .role{font-size:0.62rem;color:var(--text-secondary)}
+    .header-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-lg);padding:6px;min-width:180px;display:none;z-index:200}
+    .header-dropdown.open{display:block;animation:fadeInUp 0.2s ease}
+    .header-dropdown-item{display:flex;align-items:center;gap:10px;padding:9px 14px;border-radius:var(--radius-sm);font-size:0.78rem;color:var(--text-secondary);cursor:pointer;transition:all var(--transition)}
+    .header-dropdown-item:hover{background:rgba(255,107,157,0.05);color:var(--pink)}
+    .header-dropdown-item i{width:16px;text-align:center}
+    .header-dropdown-divider{height:1px;background:var(--border);margin:4px 0}
+
+    .content{flex:1;overflow-y:auto;padding:20px 28px}
+    .page{display:none}
+    .page.active{display:block;animation:fadeInUp 0.35s ease}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+    .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:20px}
+    @media(max-width:900px){.kpi-grid{grid-template-columns:1fr}}
+    .kpi-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:18px 22px;box-shadow:var(--shadow-sm);border:1px solid var(--border);display:flex;align-items:center;gap:14px;transition:all var(--transition);position:relative;overflow:hidden}
+    .kpi-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+    .kpi-icon{width:44px;height:44px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .kpi-icon.pink{background:rgba(255,107,157,0.1);color:var(--pink)}
+    .kpi-icon.blue{background:rgba(74,144,217,0.1);color:var(--blue)}
+    .kpi-icon.green{background:rgba(46,204,113,0.1);color:var(--green)}
+    .kpi-icon.orange{background:rgba(255,142,83,0.1);color:var(--orange)}
+    .kpi-info{flex:1}
+    .kpi-info .kpi-label{font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-tertiary);margin-bottom:3px}
+    .kpi-info .kpi-value{font-size:1.4rem;font-weight:800;line-height:1.2;color:var(--text)}
+
+    .section-title{font-size:1.05rem;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+    .chart-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:18px 22px;box-shadow:var(--shadow-sm);border:1px solid var(--border)}
+    .chart-card h3{font-size:0.9rem;font-weight:700;margin-bottom:2px}
+    .chart-card .chart-sub{font-size:0.7rem;color:var(--text-secondary);margin-bottom:14px}
+    .chart-bars{display:flex;align-items:flex-end;gap:6px;height:140px;padding-top:8px}
+    .chart-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end}
+    .chart-bar{width:100%;max-width:28px;border-radius:5px 5px 2px 2px;transition:height 0.8s cubic-bezier(0.34,1.56,0.64,1);min-height:3px}
+    .chart-bar.pink{background:linear-gradient(180deg,var(--pink),var(--orange))}
+    .chart-bar.blue{background:linear-gradient(180deg,var(--blue),var(--blue-light))}
+    .chart-bar.green{background:linear-gradient(180deg,var(--green),var(--green-light))}
+    .chart-bar-label{font-size:0.58rem;color:var(--text-tertiary);margin-top:5px;font-weight:500}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+    @media(max-width:900px){.grid-2{grid-template-columns:1fr}}
+
+    .quick-info{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+    @media(max-width:900px){.quick-info{grid-template-columns:1fr}}
+    .quick-card{background:var(--bg-card);border-radius:var(--radius-md);padding:16px 18px;box-shadow:var(--shadow-sm);border:1px solid var(--border);display:flex;align-items:flex-start;gap:12px;transition:all var(--transition)}
+    .quick-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+    .quick-card-icon{width:36px;height:36px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0}
+    .quick-card-icon.pink{background:rgba(255,107,157,0.1);color:var(--pink)}
+    .quick-card-icon.blue{background:rgba(74,144,217,0.1);color:var(--blue)}
+    .quick-card-icon.green{background:rgba(46,204,113,0.1);color:var(--green)}
+    .quick-card-info{flex:1}
+    .quick-card-info h4{font-size:0.78rem;font-weight:600;margin-bottom:2px}
+    .quick-card-info p{font-size:0.7rem;color:var(--text-secondary);line-height:1.4}
+
+    .courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media(max-width:1100px){.courses-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){.courses-grid{grid-template-columns:1fr}}
+    .course-card{background:var(--bg-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:1px solid var(--border);overflow:hidden;transition:all var(--transition);cursor:pointer}
+    .course-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
+    .course-card-top{height:70px;position:relative;overflow:hidden}
+    .course-card-top.pink{background:linear-gradient(135deg,var(--pink),var(--orange))}
+    .course-card-top.blue{background:linear-gradient(135deg,var(--blue),var(--blue-light))}
+    .course-card-top.green{background:linear-gradient(135deg,var(--green),var(--green-light))}
+    .course-card-top.orange{background:linear-gradient(135deg,var(--orange),var(--amber))}
+    .course-card-body{padding:14px 18px}
+    .course-card-body h4{font-size:0.9rem;font-weight:700;margin-bottom:4px}
+    .course-card-body .meta{font-size:0.7rem;color:var(--text-secondary);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+    .course-card-body .meta i{width:14px}
+    .course-progress{margin-bottom:8px}
+    .course-progress .bar{height:5px;background:var(--border);border-radius:var(--radius-full);overflow:hidden;margin-bottom:4px}
+    .course-progress .bar .fill{height:100%;border-radius:var(--radius-full);transition:width 1s ease}
+    .course-progress .bar .fill.pink{background:linear-gradient(90deg,var(--pink),var(--orange))}
+    .course-progress .bar .fill.blue{background:linear-gradient(90deg,var(--blue),var(--blue-light))}
+    .course-progress .bar .fill.green{background:linear-gradient(90deg,var(--green),var(--green-light))}
+    .course-progress .pct{font-size:0.65rem;font-weight:600;color:var(--text-secondary)}
+
+    .table-card{background:var(--bg-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:1px solid var(--border);overflow:hidden}
+    .table-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border)}
+    .table-header h3{font-size:0.85rem;font-weight:700}
+    .table-wrap{overflow-x:auto}
+    table{width:100%;border-collapse:collapse}
+    th{text-align:left;padding:10px 18px;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-tertiary);background:var(--bg);border-bottom:1px solid var(--border)}
+    td{padding:10px 18px;font-size:0.8rem;border-bottom:1px solid var(--border);color:var(--text)}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:rgba(255,107,157,0.015)}
+
+    .status-badge{display:inline-flex;padding:2px 10px;border-radius:var(--radius-full);font-size:0.65rem;font-weight:600}
+    .status-badge.active{background:rgba(46,204,113,0.1);color:var(--green)}
+    .status-badge.pending{background:rgba(255,179,71,0.12);color:var(--amber)}
+    .status-badge.completed{background:rgba(74,144,217,0.1);color:var(--blue)}
+    .status-badge.suspended{background:rgba(231,76,60,0.08);color:var(--red)}
+    .badge{display:inline-flex;padding:2px 8px;border-radius:var(--radius-full);font-size:0.65rem;font-weight:600}
+    .badge-blue{background:rgba(74,144,217,0.1);color:var(--blue)}
+    .badge-green{background:rgba(46,204,113,0.1);color:var(--green)}
+    .badge-pink{background:rgba(255,107,157,0.1);color:var(--pink)}
+
+    .filters-row{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+    .filter-select{padding:7px 12px;border:1px solid var(--border);border-radius:var(--radius-md);font-size:0.78rem;background:var(--bg-card);color:var(--text);outline:none;cursor:pointer;font-family:var(--font)}
+
+    .tabs{display:flex;gap:4px;margin-bottom:16px;background:var(--bg-card);padding:4px;border-radius:var(--radius-md);border:1px solid var(--border);overflow-x:auto}
+    .tab-btn{padding:7px 16px;border-radius:var(--radius-sm);font-size:0.78rem;font-weight:500;color:var(--text-secondary);cursor:pointer;transition:all var(--transition);white-space:nowrap;border:none;background:none;font-family:var(--font)}
+    .tab-btn:hover{color:var(--pink)}
+    .tab-btn.active{background:var(--gradient-main);color:white}
+    .tab-content{display:none;padding:4px 0}
+    .tab-content.active{display:block;animation:fadeInUp 0.25s ease}
+
+    .back-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:var(--radius-md);border:1px solid var(--border);background:var(--bg-card);color:var(--text-secondary);cursor:pointer;font-size:0.75rem;font-family:var(--font);transition:all var(--transition);margin-bottom:14px}
+    .back-btn:hover{background:var(--bg)}
+
+    .tt-wrap{background:var(--bg-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:1px solid var(--border);overflow:hidden}
+    .tt-header{display:grid;grid-template-columns:70px repeat(5,1fr);background:var(--bg);border-bottom:2px solid var(--border)}
+    .tt-header div{padding:10px 6px;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-tertiary);text-align:center}
+    .tt-row{display:grid;grid-template-columns:70px repeat(5,1fr);border-bottom:1px solid var(--border)}
+    .tt-row:last-child{border-bottom:none}
+    .tt-time{display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:600;color:var(--text-tertiary);padding:6px}
+    .tt-slot{padding:4px;min-height:48px}
+    .tt-lesson{border-radius:var(--radius-sm);padding:6px 7px;height:100%;font-size:0.62rem;cursor:pointer;transition:all var(--transition)}
+    .tt-lesson:hover{transform:scale(1.04);z-index:2;box-shadow:var(--shadow-md)}
+    .tt-lesson.pink{background:rgba(255,107,157,0.08);border-left:3px solid var(--pink);color:var(--pink)}
+    .tt-lesson.blue{background:rgba(74,144,217,0.06);border-left:3px solid var(--blue);color:var(--blue)}
+    .tt-lesson.green{background:rgba(46,204,113,0.08);border-left:3px solid var(--green);color:var(--green)}
+    .tt-lesson.orange{background:rgba(255,142,83,0.08);border-left:3px solid var(--orange);color:var(--orange)}
+    .tt-lesson strong{display:block;font-weight:700}
+    .tt-lesson span{opacity:0.7;font-size:0.6rem}
+
+    .heatmap{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;padding:6px 0}
+    .heatmap-day{aspect-ratio:1;border-radius:4px;font-size:0.55rem;display:flex;align-items:center;justify-content:center;font-weight:600;cursor:pointer;transition:all var(--transition)}
+    .heatmap-day:hover{transform:scale(1.2)}
+    .heatmap-day.high{background:var(--green);color:white}
+    .heatmap-day.med{background:var(--yellow);color:var(--text)}
+    .heatmap-day.low{background:rgba(231,76,60,0.15);color:var(--red)}
+    .heatmap-day.none{background:#F0F0F0;color:var(--text-tertiary)}
+    .heatmap-labels{display:flex;justify-content:space-between;font-size:0.55rem;color:var(--text-tertiary);margin-bottom:4px;padding:0 2px}
+
+    .profile-header-card{background:var(--bg-card);border-radius:var(--radius-lg);padding:22px 24px;box-shadow:var(--shadow-sm);border:1px solid var(--border);display:flex;align-items:center;gap:18px;margin-bottom:16px}
+    .profile-avatar-lg{width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;color:white;flex-shrink:0}
+    .profile-info h2{font-size:1.15rem;font-weight:700}
+    .profile-info p{font-size:0.78rem;color:var(--text-secondary);margin:2px 0 6px}
+    .profile-stats{display:flex;gap:20px;font-size:0.75rem}
+    .profile-stats strong{display:block;font-size:0.95rem;font-weight:700}
+
+    .summary-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:16px}
+    .summary-card{background:var(--bg-card);border-radius:var(--radius-md);padding:16px 18px;box-shadow:var(--shadow-sm);border:1px solid var(--border);text-align:center}
+    .summary-card .num{font-size:1.5rem;font-weight:800;background:var(--gradient-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .summary-card .lbl{font-size:0.7rem;color:var(--text-secondary);margin-top:2px}
+
+    .donut-wrap{display:flex;flex-direction:column;align-items:center;padding:4px 0}
+    .donut-svg{width:100px;height:100px;transform:rotate(-90deg)}
+    .donut-bg{fill:none;stroke:var(--border);stroke-width:8}
+    .donut-fill{fill:none;stroke:var(--pink);stroke-width:8;stroke-linecap:round;stroke-dasharray:283;transition:stroke-dashoffset 1.5s ease}
+    .donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .donut-center .big{font-size:1.2rem;font-weight:800;color:var(--text)}
+
+    .progress-bar{height:5px;background:var(--border);border-radius:var(--radius-full);overflow:hidden}
+    .progress-fill{height:100%;border-radius:var(--radius-full);transition:width 1s ease}
+    .progress-fill.pink{background:linear-gradient(90deg,var(--pink),var(--orange))}
+    .progress-fill.blue{background:linear-gradient(90deg,var(--blue),var(--blue-light))}
+    .progress-fill.green{background:linear-gradient(90deg,var(--green),var(--green-light))}
+
+    .mb-16{margin-bottom:16px}
+    .mb-20{margin-bottom:20px}
+    .flex-between{display:flex;justify-content:space-between;align-items:center}
+    .text-center{text-align:center}
+    .text-secondary{color:var(--text-secondary)}
+    .hidden{display:none!important}
+
+    .form-group{margin-bottom:14px}
+    .form-group label{display:block;font-size:0.72rem;font-weight:600;color:var(--text);margin-bottom:5px}
+    .form-control{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:0.82rem;outline:none;transition:all var(--transition);font-family:var(--font);background:var(--bg);color:var(--text)}
+    .form-control:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,107,157,0.08);background:white}
+    .form-control:disabled{opacity:0.6;cursor:not-allowed}
+
+    .btn-primary{padding:8px 18px;border-radius:var(--radius-md);font-size:0.75rem;font-weight:600;border:none;background:var(--gradient-main);color:white;cursor:pointer;transition:all var(--transition);font-family:var(--font)}
+    .btn-primary:hover{box-shadow:0 4px 16px rgba(255,107,157,0.3)}
+    .btn-outline{padding:8px 18px;border-radius:var(--radius-md);font-size:0.75rem;font-weight:600;border:1px solid var(--border);background:transparent;color:var(--text-secondary);cursor:pointer;transition:all var(--transition);font-family:var(--font)}
+    .btn-outline:hover{background:var(--bg)}
+
+    .test-card{background:var(--bg-card);border-radius:var(--radius-md);padding:14px 18px;box-shadow:var(--shadow-sm);border:1px solid var(--border);display:flex;align-items:center;gap:14px;margin-bottom:10px;transition:all var(--transition)}
+    .test-card:hover{box-shadow:var(--shadow-md)}
+    .test-card .test-icon{width:40px;height:40px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .test-card .test-info{flex:1}
+    .test-card .test-info h4{font-size:0.82rem;font-weight:600}
+    .test-card .test-info p{font-size:0.7rem;color:var(--text-secondary)}
+
+    @media(max-width:768px){
+      .sidebar{transform:translateX(-100%);z-index:1000}
+      .sidebar.open{transform:translateX(0)}
+      .sidebar.collapsed{width:var(--sidebar-w);transform:translateX(-100%)}
+      .sidebar.collapsed.open{transform:translateX(0)}
+      .main,.sidebar.collapsed ~ .main{margin-left:0}
+      .sidebar-toggle{display:none}
+      .mobile-menu-btn{display:flex!important}
+      .header-search{width:150px}
+    }
+    @media(max-width:480px){
+      html{font-size:13px}
+      .content{padding:14px}
+      .header{padding:0 14px}
+      .header-search{display:none}
+      .header-actions{gap:6px}
+      .user-profile .name,.user-profile .role{display:none}
+      .kpi-card{padding:14px 16px}
+      .course-card-body{padding:12px 14px}
+      .tt-header{grid-template-columns:50px repeat(5,1fr)}
+      .tt-row{grid-template-columns:50px repeat(5,1fr)}
+      .tt-header div{padding:6px 4px;font-size:0.55rem}
+      .tt-time{font-size:0.58rem;padding:4px}
+      .tt-lesson{padding:4px 5px;font-size:0.55rem}
+      .tt-lesson span{font-size:0.5rem}
+      .tt-slot{min-height:36px;padding:3px}
+      .summary-cards{grid-template-columns:1fr}
+      .profile-header-card{flex-direction:column;text-align:center;padding:16px}
+      .profile-stats{justify-content:center}
+      .table-header{padding:12px 14px;flex-direction:column;gap:8px;align-items:stretch}
+      th,td{padding:8px 12px}
+      .tabs .tab-btn{padding:6px 12px;font-size:0.72rem}
+    }
+    .mobile-menu-btn{display:none;width:34px;height:34px;border-radius:var(--radius-sm);align-items:center;justify-content:center;font-size:1.1rem;color:var(--text);cursor:pointer;background:none;border:none}
+    .mobile-menu-btn:hover{background:rgba(255,107,157,0.05)}
+
+    .toast{position:fixed;bottom:24px;right:24px;padding:10px 22px;border-radius:var(--radius-md);font-size:0.82rem;font-weight:600;z-index:9999;box-shadow:var(--shadow-lg);transform:translateY(20px);opacity:0;transition:all 300ms ease;background:var(--gradient-main);color:white}
+    .toast.show{transform:translateY(0);opacity:1}
+  </style>
+</head>
+<body>
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">S</div>
+      <span data-i18n="student.portal.brand">Student Portal</span>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label" data-i18n="student.portal.section.main">Main</div>
+      <div class="nav-item active" data-page="dashboard"><i class="fas fa-th-large"></i><span data-i18n="student.portal.nav.dashboard">Dashboard</span></div>
+      <div class="nav-item" data-page="courses"><i class="fas fa-book-open"></i><span data-i18n="student.portal.nav.courses">My Courses</span></div>
+      <div class="nav-item" data-page="lessons"><i class="fas fa-video"></i><span data-i18n="student.portal.nav.lessons">Lessons</span></div>
+      <div class="nav-item" data-page="schedule"><i class="fas fa-calendar-alt"></i><span data-i18n="student.portal.nav.schedule">Schedule</span></div>
+      <div class="nav-item" data-page="tests"><i class="fas fa-clipboard-check"></i><span data-i18n="student.portal.nav.tests">Tests & Results</span></div>
+      <div class="nav-item" data-page="attendance"><i class="fas fa-user-check"></i><span data-i18n="student.portal.nav.attendance">Attendance</span></div>
+      <div class="nav-item" data-page="payments"><i class="fas fa-credit-card"></i><span data-i18n="student.portal.nav.payments">Payments</span></div>
+      <div class="sidebar-section-label" data-i18n="student.portal.section.account">Account</div>
+      <div class="nav-item" data-page="profile"><i class="fas fa-user"></i><span data-i18n="student.portal.nav.profile">Profile</span></div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="nav-item" data-page="logout"><i class="fas fa-sign-out-alt"></i><span data-i18n="student.portal.nav.logout">Log Out</span></div>
+    </div>
+  </aside>
+
+  <div class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-chevron-left"></i></div>
+
+  <!-- ═══ MAIN ═══ -->
+  <div class="main" id="main">
+    <header class="header">
+      <div class="header-left">
+        <button class="mobile-menu-btn" id="mobileBtn"><i class="fas fa-bars"></i></button>
+        <div class="header-title">
+          <h1 id="pageTitle" data-i18n="student.portal.page.dashboard.title">Dashboard</h1>
+          <p id="pageSubtitle" data-i18n="student.portal.page.dashboard.subtitle">Your learning overview</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="header-search">
+          <i class="fas fa-search"></i>
+          <input type="text" data-i18n-placeholder="student.portal.search.placeholder" placeholder="Search courses, lessons...">
+        </div>
+        <div class="header-icon"><i class="fas fa-bell"></i><span class="dot"></span></div>
+        <div class="user-profile" id="userProfile">
+          <div class="user-avatar">MS</div>
+          <div>
+            <div class="name" data-i18n="student.portal.user.name">Maria Santos</div>
+            <div class="role" data-i18n="student.portal.user.role">Student · B2</div>
+          </div>
+          <div class="header-dropdown" id="userDropdown">
+            <div class="header-dropdown-item" data-page="profile" data-i18n="student.portal.dropdown.profile"><i class="fas fa-user"></i> Profile</div>
+            <div class="header-dropdown-divider"></div>
+            <div class="header-dropdown-item" data-page="logout" data-i18n="student.portal.dropdown.logout"><i class="fas fa-sign-out-alt"></i> Log Out</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content" id="contentArea">
+
+      <!-- ═══ DASHBOARD ═══ -->
+      <div class="page active" id="page-dashboard">
+        <div class="kpi-grid" id="studentKpis"></div>
+        <div class="grid-2">
+          <div class="chart-card">
+            <h3 data-i18n="student.portal.dashboard.chart.scores.title">Test Score Progress</h3>
+            <div class="chart-sub" data-i18n="student.portal.dashboard.chart.scores.subtitle">Your scores over the last 6 tests</div>
+            <div class="chart-bars" id="studentScoreChart"></div>
+          </div>
+          <div class="chart-card">
+            <h3 data-i18n="student.portal.dashboard.chart.attendance.title">Attendance Trend</h3>
+            <div class="chart-sub" data-i18n="student.portal.dashboard.chart.attendance.subtitle">Monthly attendance rate</div>
+            <div class="chart-bars" id="studentAttChart"></div>
+          </div>
+        </div>
+        <div class="quick-info" id="studentQuickInfo"></div>
+        <div id="scheduledTestsSection" class="hidden" style="margin-top:16px">
+          <h2 class="section-title" data-i18n="student.portal.dashboard.upcoming_tests"><i class="fas fa-calendar-check" style="color:var(--blue)"></i> Prochains tests</h2>
+          <div id="scheduledTestsContainer"></div>
+        </div>
+      </div>
+
+      <!-- ═══ MY COURSES ═══ -->
+      <div class="page" id="page-courses">
+        <div id="courseList">
+          <div class="flex-between mb-16">
+            <h2 class="section-title" style="margin-bottom:0" data-i18n="student.portal.courses.title"><i class="fas fa-book-open" style="color:var(--pink)"></i> My Courses</h2>
+            <select class="filter-select"><option data-i18n="student.portal.courses.filter.all">All Courses</option><option data-i18n="student.portal.courses.filter.in_progress">In Progress</option><option data-i18n="student.portal.courses.filter.completed">Completed</option></select>
+          </div>
+          <div class="courses-grid" id="studentCoursesGrid"></div>
+        </div>
+        <div id="courseDetail" class="hidden">
+          <button class="back-btn" id="courseBack" data-i18n="student.portal.courses.back"><i class="fas fa-arrow-left"></i> Back to Courses</button>
+          <div class="profile-header-card" id="courseDetailHeader"></div>
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="overview" data-i18n="student.portal.courses.tab.overview">Overview</button>
+            <button class="tab-btn" data-tab="lessons" data-i18n="student.portal.courses.tab.lessons">Lessons</button>
+            <button class="tab-btn" data-tab="tests" data-i18n="student.portal.courses.tab.tests">Tests</button>
+            <button class="tab-btn" data-tab="resources" data-i18n="student.portal.courses.tab.resources">Resources</button>
+          </div>
+          <div class="tab-content active" id="tab-overview"><div class="grid-2" id="courseOverviewContent"></div></div>
+          <div class="tab-content" id="tab-lessons"><div id="courseLessonsList"></div></div>
+          <div class="tab-content" id="tab-tests"><div id="courseTestsList"></div></div>
+          <div class="tab-content" id="tab-resources"><div class="chart-card text-center" style="padding:32px"><i class="fas fa-folder-open" style="font-size:2rem;color:var(--text-tertiary);margin-bottom:8px;display:block"></i><p class="text-secondary" data-i18n="student.portal.resources.empty">Resources will be available soon</p></div></div>
+        </div>
+      </div>
+
+      <!-- ═══ LESSONS ═══ -->
+      <div class="page" id="page-lessons">
+        <div class="flex-between mb-16">
+          <h2 class="section-title" style="margin-bottom:0" data-i18n="student.portal.lessons.title"><i class="fas fa-video" style="color:var(--pink)"></i> Lessons</h2>
+          <div style="display:flex;gap:8px">
+            <button class="tab-btn active" data-lesson-view="list" style="padding:6px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.75rem"><i class="fas fa-list"></i></button>
+            <button class="tab-btn" data-lesson-view="cal" style="padding:6px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.75rem"><i class="fas fa-calendar"></i></button>
+          </div>
+        </div>
+        <div id="lessonsList">
+          <div class="table-card">
+            <div class="table-header"><h3 data-i18n="student.portal.lessons.upcoming">Upcoming Lessons</h3></div>
+            <div class="table-wrap"><table><thead><tr><th data-i18n="student.portal.lessons.col.lesson">Lesson</th><th data-i18n="student.portal.lessons.col.course">Course</th><th data-i18n="student.portal.lessons.col.date">Date</th><th data-i18n="student.portal.lessons.col.time">Time</th><th data-i18n="student.portal.lessons.col.teacher">Teacher</th><th data-i18n="student.portal.lessons.col.status">Status</th><th></th></tr></thead><tbody id="studentLessonsBody"></tbody></table></div>
+          </div>
+        </div>
+        <div id="lessonsCal" class="hidden">
+          <div class="tt-wrap"><div class="tt-header"><div></div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div></div><div id="studentTimetable"></div></div>
+        </div>
+      </div>
+
+      <!-- ═══ SCHEDULE ═══ -->
+      <div class="page" id="page-schedule">
+        <h2 class="section-title" data-i18n="student.portal.schedule.title"><i class="fas fa-calendar-alt" style="color:var(--pink)"></i> Weekly Schedule</h2>
+        <div class="tt-wrap"><div class="tt-header"><div></div><div data-i18n="student.portal.schedule.mon">Monday</div><div data-i18n="student.portal.schedule.tue">Tuesday</div><div data-i18n="student.portal.schedule.wed">Wednesday</div><div data-i18n="student.portal.schedule.thu">Thursday</div><div data-i18n="student.portal.schedule.fri">Friday</div></div><div id="studentScheduleGrid"></div></div>
+      </div>
+
+      <!-- ═══ TESTS & RESULTS ═══ -->
+      <div class="page" id="page-tests">
+        <h2 class="section-title" data-i18n="student.portal.tests.title"><i class="fas fa-clipboard-check" style="color:var(--pink)"></i> Tests & Results</h2>
+        <div class="grid-2">
+          <div class="chart-card">
+            <h3 data-i18n="student.portal.tests.chart.history.title">Score History</h3>
+            <div class="chart-sub" data-i18n="student.portal.tests.chart.history.subtitle">Your test performance over time</div>
+            <div class="chart-bars" id="studentTestHistory" style="height:120px"></div>
+          </div>
+          <div class="chart-card">
+            <h3 data-i18n="student.portal.tests.chart.comparison.title">Class Comparison</h3>
+            <div class="chart-sub" data-i18n="student.portal.tests.chart.comparison.subtitle">Your average vs class average</div>
+            <div class="chart-bars" id="studentVsClass" style="height:120px"></div>
+          </div>
+        </div>
+        <h3 style="font-size:0.85rem;font-weight:700;margin-bottom:10px;margin-top:4px" data-i18n="student.portal.tests.results.title">Test Results</h3>
+        <div id="studentTestCards"></div>
+      </div>
+
+      <!-- ═══ ATTENDANCE ═══ -->
+      <div class="page" id="page-attendance">
+        <div class="kpi-grid" id="attKpi" style="grid-template-columns:repeat(2,1fr)"></div>
+        <div class="grid-2">
+          <div class="chart-card">
+            <h3 data-i18n="student.portal.attendance.chart.trend.title">Monthly Trend</h3>
+            <div class="chart-sub" data-i18n="student.portal.attendance.chart.trend.subtitle">Last 6 months</div>
+            <div class="chart-bars" id="attTrendStudent" style="height:120px"></div>
+          </div>
+          <div class="chart-card">
+            <h3 data-i18n="student.portal.attendance.chart.calendar.title">Calendar</h3>
+            <div class="chart-sub" data-i18n="student.portal.attendance.chart.calendar.subtitle">This month</div>
+            <div class="heatmap-labels"><span data-i18n="student.portal.attendance.day.mon">Mon</span><span data-i18n="student.portal.attendance.day.tue">Tue</span><span data-i18n="student.portal.attendance.day.wed">Wed</span><span data-i18n="student.portal.attendance.day.thu">Thu</span><span data-i18n="student.portal.attendance.day.fri">Fri</span><span data-i18n="student.portal.attendance.day.sat">Sat</span><span data-i18n="student.portal.attendance.day.sun">Sun</span></div>
+            <div class="heatmap" id="studentHeatmap"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ PAYMENTS ═══ -->
+      <div class="page" id="page-payments">
+        <div class="summary-cards" id="paymentSummary"></div>
+        <div class="table-card">
+          <div class="table-header"><h3 data-i18n="student.portal.payments.title">Payment History</h3></div>
+          <div class="table-wrap"><table><thead><tr><th data-i18n="student.portal.payments.col.course">Course</th><th data-i18n="student.portal.payments.col.amount">Amount</th><th data-i18n="student.portal.payments.col.date">Due Date</th><th data-i18n="student.portal.payments.col.method">Method</th><th data-i18n="student.portal.payments.col.status">Status</th></tr></thead><tbody id="studentPaymentsBody"></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- ═══ PROFILE ═══ -->
+      <div class="page" id="page-profile">
+        <h2 class="section-title" data-i18n="student.portal.profile.title"><i class="fas fa-user" style="color:var(--pink)"></i> My Profile</h2>
+        <div class="grid-2">
+          <div>
+            <div class="profile-header-card" id="studentProfileCard"></div>
+            <div class="chart-card">
+              <h3 data-i18n="student.portal.profile.edit.title">Edit Profile</h3>
+              <div class="form-group"><label data-i18n="student.portal.profile.edit.fullname">Full Name</label><input class="form-control" value="Maria Santos"></div>
+              <div class="form-group"><label data-i18n="student.portal.profile.edit.email">Email</label><input class="form-control" value="maria.santos@email.com"></div>
+              <div class="form-group"><label data-i18n="student.portal.profile.edit.phone">Phone</label><input class="form-control" value="+1 (555) 123-4567"></div>
+              <div class="form-group"><label data-i18n="student.portal.profile.edit.avatar">Avatar URL</label><input class="form-control" data-i18n-placeholder="student.portal.profile.edit.avatar.placeholder" placeholder="Paste image URL"></div>
+              <button class="btn-primary" onclick="showToast('Profile updated!')" data-i18n="student.portal.profile.edit.save">Save Changes</button>
+            </div>
+          </div>
+          <div>
+            <div class="chart-card mb-16">
+              <h3 data-i18n="student.portal.profile.account.title">Account Info</h3>
+              <div style="padding:8px 0"><div class="flex-between" style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:0.78rem;color:var(--text-secondary)" data-i18n="student.portal.profile.account.student_id">Student ID</span><span style="font-size:0.82rem;font-weight:600">STU-2024-0842</span></div>
+              <div class="flex-between" style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:0.78rem;color:var(--text-secondary)" data-i18n="student.portal.profile.account.enrollment">Enrollment Date</span><span style="font-size:0.82rem;font-weight:600">September 1, 2025</span></div>
+              <div class="flex-between" style="padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:0.78rem;color:var(--text-secondary)" data-i18n="student.portal.profile.account.level">Current Level</span><span class="badge badge-blue">B2</span></div>
+              <div class="flex-between" style="padding:8px 0"><span style="font-size:0.78rem;color:var(--text-secondary)" data-i18n="student.portal.profile.account.courses">Courses Enrolled</span><span style="font-size:0.82rem;font-weight:600">3</span></div></div>
+            </div>
+            <div class="chart-card">
+              <h3 data-i18n="student.portal.profile.stats.title">Stats</h3>
+              <div style="padding:8px 0"><div style="margin-bottom:12px"><div class="flex-between mb-8"><span style="font-size:0.75rem;font-weight:500" data-i18n="student.portal.profile.stats.attendance">Overall Attendance</span><span style="font-size:0.7rem;font-weight:600">92%</span></div><div class="progress-bar"><div class="progress-fill pink" style="width:92%"></div></div></div>
+              <div style="margin-bottom:12px"><div class="flex-between mb-8"><span style="font-size:0.75rem;font-weight:500" data-i18n="student.portal.profile.stats.score">Average Score</span><span style="font-size:0.7rem;font-weight:600">86%</span></div><div class="progress-bar"><div class="progress-fill blue" style="width:86%"></div></div></div>
+              <div><div class="flex-between mb-8"><span style="font-size:0.75rem;font-weight:500" data-i18n="student.portal.profile.stats.completed">Courses Completed</span><span style="font-size:0.7rem;font-weight:600">2/5</span></div><div class="progress-bar"><div class="progress-fill green" style="width:40%"></div></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show')},2500)}window.showToast=showToast;
+
+    // ── NAV ──
+    var meta={dashboard:{title:'Dashboard',sub:'Your learning overview'},courses:{title:'My Courses',sub:'Enrolled courses and progress'},lessons:{title:'Lessons',sub:'Upcoming and past lessons'},schedule:{title:'Schedule',sub:'Weekly class timetable'},tests:{title:'Tests & Results',sub:'Assessment performance'},attendance:{title:'Attendance',sub:'Attendance tracking'},payments:{title:'Payments',sub:'Payment history and invoices'},profile:{title:'Profile',sub:'Manage your account'}};
+    var items=document.querySelectorAll('.nav-item[data-page]'),pages=document.querySelectorAll('.page');
+    function nav(p){if(p==='logout'){showToast('Logged out');setTimeout(function(){window.location.href='../pages/login.html'},800);return}
+      items.forEach(function(n){n.classList.remove('active')});var el=document.querySelector('.nav-item[data-page="'+p+'"]');if(el)el.classList.add('active');
+      pages.forEach(function(pg){pg.classList.remove('active')});var pg=document.getElementById('page-'+p);if(pg)pg.classList.add('active');
+      var m=meta[p];if(m){document.getElementById('pageTitle').textContent=m.title;document.getElementById('pageSubtitle').textContent=m.sub}
+      if(window.innerWidth<=768)document.getElementById('sidebar').classList.remove('open')}
+    items.forEach(function(it){it.addEventListener('click',function(){nav(it.getAttribute('data-page'))})});
+    document.getElementById('sidebarToggle').addEventListener('click',function(){document.getElementById('sidebar').classList.toggle('collapsed');var ic=this.querySelector('i');ic.className=document.getElementById('sidebar').classList.contains('collapsed')?'fas fa-chevron-right':'fas fa-chevron-left'});
+    document.getElementById('mobileBtn').addEventListener('click',function(){document.getElementById('sidebar').classList.toggle('open')});
+    document.getElementById('userProfile').addEventListener('click',function(e){e.stopPropagation();document.getElementById('userDropdown').classList.toggle('open')});
+    document.addEventListener('click',function(){document.getElementById('userDropdown').classList.remove('open')});
+
+    // ── DATA ──
+    var myCourses=[
+      {id:1,name:'French Intensive',teacher:'Marie Laurent',progress:72,status:'active',color:'pink',students:18},
+      {id:2,name:'Conversation Workshop',teacher:'Sophie Caron',progress:45,status:'active',color:'green',students:22},
+      {id:3,name:'Advanced Oral',teacher:'Pierre Lefebvre',progress:90,status:'active',color:'orange',students:12}
+    ];
+    var myLessons=[
+      {title:'Advanced Grammar',course:'French Intensive',date:'2026-07-01',time:'09:00-11:00',teacher:'Marie Laurent',status:'upcoming'},
+      {title:'Free Expression',course:'Conversation Workshop',date:'2026-07-02',time:'10:00-12:00',teacher:'Sophie Caron',status:'upcoming'},
+      {title:'Oral Practice',course:'Advanced Oral',date:'2026-07-03',time:'14:00-15:30',teacher:'Pierre Lefebvre',status:'upcoming'},
+      {title:'Listening Comp',course:'French Intensive',date:'2026-06-28',time:'09:00-11:00',teacher:'Marie Laurent',status:'completed'},
+      {title:'Debate Session',course:'Conversation Workshop',date:'2026-06-25',time:'10:00-12:00',teacher:'Sophie Caron',status:'completed'}
+    ];
+    var myTests=[
+      {name:'B1 Level Test',score:82,course:'French Intensive',status:'passed',rank:'3rd'},
+      {name:'Oral Assessment',score:91,course:'Advanced Oral',status:'passed',rank:'1st'},
+      {name:'B1 Grammar Quiz',score:76,course:'French Intensive',status:'passed',rank:'5th'},
+      {name:'Conversation Eval',score:88,course:'Conversation Workshop',status:'passed',rank:'2nd'}
+    ];
+    var myPayments=[
+      {course:'French Intensive',amount:1200,date:'2026-06-15',method:'Credit Card',status:'paid'},
+      {course:'Conversation Workshop',amount:500,date:'2026-06-10',method:'Bank Transfer',status:'paid'},
+      {course:'Advanced Oral',amount:700,date:'2026-05-28',method:'Cash',status:'paid'}
+    ];
+
+    // ── Dashboard ──
+    function renderKpis(id,data){var c=document.getElementById(id);if(!c)return;var h='';data.forEach(function(k){h+='<div class="kpi-card"><div class="kpi-icon '+k.cls+'"><i class="fas '+k.ic+'"></i></div><div class="kpi-info"><div class="kpi-label">'+k.lb+'</div><div class="kpi-value">'+k.v+'</div></div></div>'},this);c.innerHTML=h}
+    renderKpis('studentKpis',[
+      {lb:'Enrolled Courses',v:'3',ic:'fa-book-open',cls:'pink'},{lb:'Upcoming Lessons',v:'3',ic:'fa-video',cls:'blue'},
+      {lb:'Average Test Score',v:'84%',ic:'fa-clipboard-check',cls:'green'},{lb:'Attendance Rate',v:'92%',ic:'fa-user-check',cls:'orange'}
+    ]);
+
+    function bars(id,data,cls){var c=document.getElementById(id);if(!c)return;var max=Math.max.apply(null,data.map(function(d){return d.v}));var h='';data.forEach(function(d){h+='<div class="chart-bar-wrap"><div class="chart-bar '+cls+'" style="height:'+((d.v/max)*100)+'%"></div><div class="chart-bar-label">'+d.l+'</div></div>'},this);c.innerHTML=h}
+    bars('studentScoreChart',[{l:'Test 1',v:65},{l:'Test 2',v:72},{l:'Test 3',v:78},{l:'Test 4',v:82},{l:'Test 5',v:84},{l:'Test 6',v:91}],'pink');
+    bars('studentAttChart',[{l:'Jan',v:88},{l:'Feb',v:92},{l:'Mar',v:85},{l:'Apr',v:94},{l:'May',v:90},{l:'Jun',v:92}],'blue');
+
+    var qc=document.getElementById('studentQuickInfo');
+    if(qc)qc.innerHTML='<div class="quick-card"><div class="quick-card-icon pink"><i class="fas fa-video"></i></div><div class="quick-card-info"><h4>Next Lesson</h4><p>Advanced Grammar · Jul 1, 09:00<br>Marie Laurent</p></div></div><div class="quick-card"><div class="quick-card-icon blue"><i class="fas fa-clipboard-check"></i></div><div class="quick-card-info"><h4>Latest Test</h4><p>Oral Assessment · 91%<br>Ranked 1st</p></div></div><div class="quick-card"><div class="quick-card-icon green"><i class="fas fa-credit-card"></i></div><div class="quick-card-info"><h4>Payment Status</h4><p>All payments up to date<br>Next due: Jul 15</p></div></div>';
+
+    // ── Courses ──
+    var cg=document.getElementById('studentCoursesGrid');
+    if(cg){var h='';myCourses.forEach(function(c){h+='<div class="course-card" onclick="showCourse('+c.id+')"><div class="course-card-top '+c.color+'"></div><div class="course-card-body"><h4>'+c.name+'</h4><div class="meta"><i class="fas fa-chalkboard-teacher"></i> '+c.teacher+'</div><div class="course-progress"><div class="bar"><div class="fill '+c.color+'" style="width:'+c.progress+'%"></div></div><div class="flex-between"><span class="pct">'+c.progress+'% complete</span><span class="status-badge active" style="font-size:0.6rem">Active</span></div></div></div></div>'},this);cg.innerHTML=h}
+
+    function showCourse(id){
+      var c=myCourses.find(function(c){return c.id===id});if(!c)return;
+      document.getElementById('courseList').classList.add('hidden');document.getElementById('courseDetail').classList.remove('hidden');
+      var h=document.getElementById('courseDetailHeader');
+      h.innerHTML='<div class="profile-avatar-lg" style="background:linear-gradient(135deg,var(--'+c.color+'),var(--orange))">'+c.name.charAt(0)+'</div><div class="profile-info"><h2>'+c.name+'</h2><p>'+c.teacher+'</p><div class="profile-stats"><div class="stat-item"><strong>'+c.students+'</strong><div style="font-size:0.6rem;color:var(--text-tertiary)">Students</div></div><div class="stat-item"><strong>'+c.progress+'%</strong><div style="font-size:0.6rem;color:var(--text-tertiary)">Progress</div></div></div></div>';
+      document.getElementById('courseOverviewContent').innerHTML=
+        '<div class="chart-card"><h3>Progress</h3><div style="padding:12px 0"><div style="margin-bottom:14px"><div class="flex-between mb-8"><span style="font-size:0.78rem;font-weight:500">Course Completion</span><span style="font-size:0.72rem;font-weight:600">'+c.progress+'%</span></div><div class="progress-bar"><div class="progress-fill '+c.color+'" style="width:'+c.progress+'%"></div></div></div><div><div class="flex-between mb-8"><span style="font-size:0.78rem;font-weight:500">Lessons Completed</span><span style="font-size:0.72rem;font-weight:600">'+Math.floor(c.progress/10)+'/10</span></div><div class="progress-bar"><div class="progress-fill blue" style="width:'+c.progress+'%"></div></div></div></div></div>'+
+        '<div class="chart-card"><h3>Course Info</h3><div style="padding:8px 0"><div class="flex-between" style="padding:8px 0;border-bottom:1px solid var(--border)"><span class="text-secondary" style="font-size:0.72rem">Teacher</span><span style="font-size:0.78rem;font-weight:600">'+c.teacher+'</span></div><div class="flex-between" style="padding:8px 0;border-bottom:1px solid var(--border)"><span class="text-secondary" style="font-size:0.72rem">Students</span><span style="font-size:0.78rem;font-weight:600">'+c.students+'</span></div><div class="flex-between" style="padding:8px 0"><span class="text-secondary" style="font-size:0.72rem">Status</span><span class="status-badge active">Active</span></div></div></div>';
+      var cl=document.getElementById('courseLessonsList');
+      var ls=myLessons.filter(function(l){return l.course===c.name});
+      var h2='';ls.forEach(function(l){h2+='<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--border)"><div style="width:34px;height:34px;border-radius:var(--radius-sm);background:rgba(255,107,157,0.1);display:flex;align-items:center;justify-content:center;color:var(--pink);font-size:0.8rem"><i class="fas fa-video"></i></div><div style="flex:1"><div style="font-weight:600;font-size:0.78rem">'+l.title+'</div><div style="font-size:0.68rem;color:var(--text-secondary)">'+l.date+' · '+l.time+'</div></div><span class="status-badge '+(l.status==='upcoming'?'pending':'completed')+'" style="font-size:0.6rem">'+(l.status==='upcoming'?'Upcoming':'Completed')+'</span></div>'},this);
+      cl.innerHTML='<div class="chart-card"><h3>Lessons</h3>'+(h2||'<div class="text-center text-secondary" style="padding:20px">No lessons</div>')+'</div>';
+      var ct=document.getElementById('courseTestsList');
+      var ts=myTests.filter(function(t){return t.course===c.name});
+      var h3='';ts.forEach(function(t){h3+='<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--border)"><div style="width:34px;height:34px;border-radius:var(--radius-sm);background:rgba(46,204,113,0.1);display:flex;align-items:center;justify-content:center;color:var(--green);font-size:0.8rem"><i class="fas fa-clipboard-check"></i></div><div style="flex:1"><div style="font-weight:600;font-size:0.78rem">'+t.name+'</div><div style="font-size:0.68rem;color:var(--text-secondary)">Score: '+t.score+'% · Rank: '+t.rank+'</div></div><span class="status-badge active" style="font-size:0.6rem">Passed</span></div>'},this);
+      ct.innerHTML='<div class="chart-card"><h3>Tests</h3>'+(h3||'<div class="text-center text-secondary" style="padding:20px">No tests yet</div>')+'</div>';
+    }
+    document.getElementById('courseBack').addEventListener('click',function(){document.getElementById('courseDetail').classList.add('hidden');document.getElementById('courseList').classList.remove('hidden')});
+
+    // ── Course Tabs ──
+    document.querySelectorAll('[data-tab]').forEach(function(btn){btn.addEventListener('click',function(){
+      document.querySelectorAll('[data-tab]').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');
+      var t=btn.getAttribute('data-tab');document.querySelectorAll('.tab-content').forEach(function(tc){tc.classList.remove('active')});
+      var el=document.getElementById('tab-'+t);if(el)el.classList.add('active')})});
+
+    // ── Lessons ──
+    var ltb=document.getElementById('studentLessonsBody');
+    if(ltb){var h='';myLessons.forEach(function(l){h+='<tr><td style="font-weight:600">'+l.title+'</td><td>'+l.course+'</td><td>'+l.date+'</td><td>'+l.time+'</td><td>'+l.teacher+'</td><td><span class="status-badge '+(l.status==='upcoming'?'pending':'completed')+'">'+(l.status==='upcoming'?'Upcoming':'Completed')+'</span></td><td><button class="btn-outline" style="padding:4px 12px;font-size:0.68rem" onclick="showToast(\'Joining...\')">Join</button></td></tr>'},this);ltb.innerHTML=h}
+
+    document.querySelectorAll('[data-lesson-view]').forEach(function(btn){btn.addEventListener('click',function(){
+      document.querySelectorAll('[data-lesson-view]').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');
+      var v=btn.getAttribute('data-lesson-view');
+      document.getElementById('lessonsList').style.display=v==='list'?'':'none';
+      document.getElementById('lessonsCal').style.display=v==='cal'?'':'none'})});
+
+    // ── Timetable ──
+    function tt(id){var c=document.getElementById(id);if(!c)return;var ts=['09:00','10:00','11:00','14:00','15:00','16:00'];var ds=['Mon','Tue','Wed','Thu','Fri'];
+      var data=[{d:0,t:0,l:'French Intensive',te:'Marie L.',cl:'pink'},{d:1,t:2,l:'Conversation Workshop',te:'Sophie C.',cl:'green'},{d:2,t:4,l:'Advanced Oral',te:'Pierre L.',cl:'orange'},{d:3,t:0,l:'French Intensive',te:'Marie L.',cl:'pink'}];
+      var h='';ts.forEach(function(t,ti){h+='<div class="tt-row"><div class="tt-time">'+t+'</div>';ds.forEach(function(d,di){var s=data.filter(function(x){return x.d===di&&x.t===ti})[0];h+='<div class="tt-slot">';if(s)h+='<div class="tt-lesson '+s.cl+'"><strong>'+s.l+'</strong><span>'+s.te+'</span></div>';h+='</div>'});h+='</div>'});c.innerHTML=h}
+    tt('studentTimetable');tt('studentScheduleGrid');
+
+    // ── Tests ──
+    bars('studentTestHistory',[{l:'Test 1',v:65},{l:'Test 2',v:72},{l:'Test 3',v:78},{l:'Test 4',v:82},{l:'Test 5',v:84},{l:'Test 6',v:91}],'pink');
+    bars('studentVsClass',[{l:'You',v:91},{l:'Class',v:74},{l:'You',v:82},{l:'Class',v:70},{l:'You',v:88},{l:'Class',v:72}],'blue');
+    var tc=document.getElementById('studentTestCards');
+    if(tc){var h='';myTests.forEach(function(t){h+='<div class="test-card"><div class="test-icon" style="background:'+(t.status==='passed'?'rgba(46,204,113,0.1)':'rgba(255,179,71,0.1)')+';color:'+(t.status==='passed'?'var(--green)':'var(--amber)')+'"><i class="fas '+(t.status==='passed'?'fa-check-circle':'fa-clock')+'"></i></div><div class="test-info"><h4>'+t.name+'</h4><p>'+t.course+' · Score: '+t.score+'% · Rank: '+t.rank+'</p></div><span class="status-badge '+(t.status==='passed'?'active':'pending')+'">'+(t.status==='passed'?'Passed':'Pending')+'</span></div>'},this);tc.innerHTML=h}
+
+    // ── Attendance ──
+    renderKpis('attKpi',[{lb:'Attendance Rate',v:'92%',ic:'fa-percentage',cls:'green'},{lb:'This Month',v:'90%',ic:'fa-calendar-check',cls:'blue'}]);
+    bars('attTrendStudent',[{l:'Jan',v:88},{l:'Feb',v:92},{l:'Mar',v:85},{l:'Apr',v:94},{l:'May',v:90},{l:'Jun',v:92}],'green');
+    var hm=document.getElementById('studentHeatmap');if(hm){var s=['high','high','high','med','high','high','med','high','high','high','med','high','high','low','high','high','high','med','high','none','high','med','high','high','high','med','high','high','low','high'];var h='';for(var i=0;i<30;i++){var st=s[i%s.length];h+='<div class="heatmap-day '+st+'" title="Day '+(i+1)+'">'+(i+1)+'</div>'}hm.innerHTML=h}
+
+    // ── Payments ──
+    var ps=document.getElementById('paymentSummary');
+    if(ps)ps.innerHTML='<div class="summary-card"><div class="num">$2,400</div><div class="lbl">Total Paid</div></div><div class="summary-card"><div class="num">$0</div><div class="lbl">Outstanding</div></div>';
+    var ptb=document.getElementById('studentPaymentsBody');
+    if(ptb){var h='';myPayments.forEach(function(p){h+='<tr><td>'+p.course+'</td><td style="font-weight:700">$'+p.amount+'</td><td>'+p.date+'</td><td>'+p.method+'</td><td><span class="status-badge '+(p.status==='paid'?'active':'pending')+'">'+(p.status==='paid'?'Paid':'Pending')+'</span></td></tr>'},this);ptb.innerHTML=h}
+
+    // ── Profile ──
+    var spc=document.getElementById('studentProfileCard');
+    if(spc)spc.innerHTML='<div class="profile-avatar-lg" style="background:var(--gradient-main)">MS</div><div class="profile-info"><h2>Maria Santos</h2><p>maria.santos@email.com</p><div class="profile-stats"><div><strong>B2</strong><div style="font-size:0.6rem;color:var(--text-tertiary)">Level</div></div><div><strong>3</strong><div style="font-size:0.6rem;color:var(--text-tertiary)">Courses</div></div><div><strong>92%</strong><div style="font-size:0.6rem;color:var(--text-tertiary)">Attendance</div></div></div></div>';
+
+    // ── Scheduled Tests (from localStorage) ──
+    (function(){
+      try {
+        var data = localStorage.getItem('cultulangues_oral_test');
+        if (!data) return;
+        var t = JSON.parse(data);
+        var section = document.getElementById('scheduledTestsSection');
+        var container = document.getElementById('scheduledTestsContainer');
+        if (!section || !container) return;
+        section.classList.remove('hidden');
+        container.innerHTML =
+          '<div style="background:var(--bg-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:1px solid var(--border);padding:18px 20px;display:flex;align-items:flex-start;gap:14px">' +
+          '<div style="width:44px;height:44px;border-radius:var(--radius-md);background:rgba(74,144,217,0.1);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0"><i class="fas fa-phone-alt"></i></div>' +
+          '<div style="flex:1"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">' +
+          '<div><h4 style="font-size:0.9rem;font-weight:700;margin-bottom:4px">Test oral — ' + (t.courseName||'') + '</h4>' +
+          '<p style="font-size:0.78rem;color:var(--text-secondary);margin-bottom:2px"><i class="fas fa-calendar-alt" style="width:16px"></i> ' + (t.date||'') + '</p>' +
+          '<p style="font-size:0.78rem;color:var(--text-secondary);margin-bottom:2px"><i class="fas fa-clock" style="width:16px"></i> ' + (t.time||'') + '</p>' +
+          '<p style="font-size:0.72rem;color:var(--text-tertiary);margin-top:4px"><i class="fas fa-info-circle"></i> ' + (t.note||'') + '</p></div>' +
+          '<span class="status-badge active" style="font-size:0.68rem;white-space:nowrap">' + (t.status||'Planifié') + '</span></div></div></div>';
+      } catch(e) {}
+    })();
+  </script>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

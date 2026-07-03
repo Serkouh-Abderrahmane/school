@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendrier — Admin</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user"><div class="avatar">A</div><div class="sidebar-user-info"><div class="sidebar-user-name">Admin</div><div class="sidebar-user-role">Administrateur</div></div></div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section" data-i18n="admin.sidebar.section.gestion">Gestion</div>
+        <a class="sidebar-item" data-href="dashboard.html"><span class="sidebar-item-icon">📊</span><span data-i18n="admin.sidebar.overview"> Vue d'ensemble</span></a>
+        <a class="sidebar-item" data-href="programs.html"><span class="sidebar-item-icon">📚</span><span data-i18n="admin.sidebar.programs"> Programmes</span></a>
+        <a class="sidebar-item" data-href="teachers.html"><span class="sidebar-item-icon">👩‍🏫</span><span data-i18n="admin.sidebar.teachers"> Enseignants</span></a>
+        <a class="sidebar-item" data-href="students.html"><span class="sidebar-item-icon">👥</span><span data-i18n="admin.sidebar.students"> Étudiants</span></a>
+        <a class="sidebar-item" data-href="bookings.html"><span class="sidebar-item-icon">📋</span><span data-i18n="admin.sidebar.bookings"> Réservations</span></a>
+        <a class="sidebar-item" data-href="payments.html"><span class="sidebar-item-icon">💳</span><span data-i18n="admin.sidebar.payments"> Paiements</span></a>
+        <a class="sidebar-item active" data-href="calendar.html"><span class="sidebar-item-icon">📅</span><span data-i18n="admin.sidebar.calendar"> Calendrier</span></a>
+        <a class="sidebar-item" data-href="analytics.html"><span class="sidebar-item-icon">📈</span><span data-i18n="admin.sidebar.analytics"> Analytiques</span></a>
+        <div class="sidebar-section" data-i18n="admin.sidebar.section.system">Système</div>
+        <a class="sidebar-item" data-href="settings.html"><span class="sidebar-item-icon">⚙️</span><span data-i18n="admin.sidebar.settings"> Paramètres</span></a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html"><span class="sidebar-item-icon">🚪</span><span data-i18n="admin.sidebar.logout"> Déconnexion</span></a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title" data-i18n="admin.calendar.title">Calendrier</h1></div>
+        <div class="topbar-right"><div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" data-i18n-placeholder="admin.common.search" placeholder="Rechercher..."></div><button class="topbar-notification">🔔<span class="notification-dot"></span></button><div class="avatar avatar-sm">A</div></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="dashboard-content-header">
+          <h2 data-i18n="admin.calendar.general">Calendrier général</h2>
+          <button class="btn btn-primary" onclick="openModal('add-event-modal')" data-i18n="admin.calendar.addEvent">+ Ajouter un événement</button>
+        </div>
+
+        <div class="card">
+          <div class="calendar-header">
+            <div class="calendar-nav">
+              <button class="btn btn-ghost btn-sm calendar-prev">←</button>
+              <h3 data-i18n="admin.calendar.monthYear">Juin 2026</h3>
+              <button class="btn btn-ghost btn-sm calendar-next">→</button>
+            </div>
+            <div class="flex items-center gap-sm">
+              <span class="badge badge-emerald" data-i18n="admin.calendar.class">Cours</span>
+              <span class="badge badge-gold" data-i18n="admin.calendar.workshop">Atelier</span>
+              <span class="badge badge-blue" data-i18n="admin.calendar.evaluation">Évaluation</span>
+            </div>
+          </div>
+          <div class="calendar-grid">
+            <div class="calendar-day-header" data-i18n="common.day.mon">Lun</div><div class="calendar-day-header" data-i18n="common.day.tue">Mar</div><div class="calendar-day-header" data-i18n="common.day.wed">Mer</div><div class="calendar-day-header" data-i18n="common.day.thu">Jeu</div><div class="calendar-day-header" data-i18n="common.day.fri">Ven</div><div class="calendar-day-header" data-i18n="common.day.sat">Sam</div><div class="calendar-day-header" data-i18n="common.day.sun">Dim</div>
+            <div class="calendar-day other-month"><div class="day-number">26</div></div>
+            <div class="calendar-day other-month"><div class="day-number">27</div></div>
+            <div class="calendar-day other-month"><div class="day-number">28</div></div>
+            <div class="calendar-day other-month"><div class="day-number">29</div></div>
+            <div class="calendar-day other-month"><div class="day-number">30</div></div>
+            <div class="calendar-day other-month"><div class="day-number">31</div></div>
+            <div class="calendar-day"><div class="day-number">1</div></div>
+            <div class="calendar-day"><div class="day-number">2</div></div>
+            <div class="calendar-day"><div class="day-number">3</div><div class="calendar-event class">📘 Groupe A · S. Martin</div></div>
+            <div class="calendar-day"><div class="day-number">4</div></div>
+            <div class="calendar-day"><div class="day-number">5</div><div class="calendar-event class">📘 Groupe A · 14h</div><div class="calendar-event workshop">💬 Atelier · T. Dubois</div></div>
+            <div class="calendar-day"><div class="day-number">6</div></div>
+            <div class="calendar-day"><div class="day-number">7</div></div>
+            <div class="calendar-day"><div class="day-number">8</div></div>
+            <div class="calendar-day"><div class="day-number">9</div></div>
+            <div class="calendar-day"><div class="day-number">10</div><div class="calendar-event class">📘 Groupe A · 14h</div></div>
+            <div class="calendar-day"><div class="day-number">11</div></div>
+            <div class="calendar-day"><div class="day-number">12</div><div class="calendar-event class">📘 Groupe A · 14h</div></div>
+            <div class="calendar-day"><div class="day-number">13</div></div>
+            <div class="calendar-day"><div class="day-number">14</div></div>
+            <div class="calendar-day today"><div class="day-number">15</div><div class="calendar-event evaluation">📝 Simulation · S. Martin</div></div>
+            <div class="calendar-day"><div class="day-number">16</div></div>
+            <div class="calendar-day"><div class="day-number">17</div><div class="calendar-event class">📘 Groupe A · 14h</div></div>
+            <div class="calendar-day"><div class="day-number">18</div></div>
+            <div class="calendar-day"><div class="day-number">19</div><div class="calendar-event class">📘 Groupe A · 14h</div><div class="calendar-event workshop">💬 Atelier · 16h</div></div>
+            <div class="calendar-day"><div class="day-number">20</div></div>
+            <div class="calendar-day"><div class="day-number">21</div></div>
+            <div class="calendar-day"><div class="day-number">22</div></div>
+            <div class="calendar-day"><div class="day-number">23</div></div>
+            <div class="calendar-day"><div class="day-number">24</div><div class="calendar-event class">📘 Groupe A · 14h</div></div>
+            <div class="calendar-day"><div class="day-number">25</div></div>
+            <div class="calendar-day"><div class="day-number">26</div><div class="calendar-event class">📘 Groupe A · 14h</div></div>
+            <div class="calendar-day"><div class="day-number">27</div></div>
+            <div class="calendar-day"><div class="day-number">28</div></div>
+            <div class="calendar-day"><div class="day-number">29</div></div>
+            <div class="calendar-day"><div class="day-number">30</div></div>
+            <div class="calendar-day other-month"><div class="day-number">1</div></div>
+            <div class="calendar-day other-month"><div class="day-number">2</div></div>
+            <div class="calendar-day other-month"><div class="day-number">3</div></div>
+            <div class="calendar-day other-month"><div class="day-number">4</div></div>
+            <div class="calendar-day other-month"><div class="day-number">5</div></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="add-event-modal">
+    <div class="modal">
+      <div class="modal-header"><h3 data-i18n="admin.modal.newEvent">Nouvel événement</h3><button class="modal-close">&times;</button></div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group"><label class="form-label" data-i18n="admin.form.title">Titre</label><input type="text" class="form-input" data-i18n-placeholder="admin.form.titlePlaceholder" placeholder="Ex: TCF Québec - Groupe A"></div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label" data-i18n="admin.form.date">Date</label><input type="date" class="form-input"></div>
+            <div class="form-group"><label class="form-label" data-i18n="admin.form.type">Type</label><select class="form-select"><option data-i18n="admin.form.option.class">Cours</option><option data-i18n="admin.form.option.workshop">Atelier</option><option data-i18n="admin.form.option.evaluation">Évaluation</option></select></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label" data-i18n="admin.form.startTime">Début</label><input type="time" class="form-input" value="14:00"></div>
+            <div class="form-group"><label class="form-label" data-i18n="admin.form.endTime">Fin</label><input type="time" class="form-input" value="16:00"></div>
+          </div>
+          <div class="form-group"><label class="form-label" data-i18n="admin.form.professor">Professeur</label><select class="form-select"><option>Sophie Martin</option><option>Thomas Dubois</option><option>Julie Lefèvre</option></select></div>
+        </form>
+      </div>
+      <div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('add-event-modal')" data-i18n="admin.common.cancel">Annuler</button><button class="btn btn-primary" data-i18n="admin.common.create">Créer</button></div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

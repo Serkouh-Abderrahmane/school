@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="teacher.students.title">Mes étudiants — Enseignant</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user"><div class="avatar">S</div><div class="sidebar-user-info"><div class="sidebar-user-name">Sophie Martin</div><div class="sidebar-user-role" data-i18n="teacher.sidebar.role">Enseignante certifiée FLE</div></div></div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section" data-i18n="teacher.sidebar.navigation">Navigation</div>
+        <a class="sidebar-item" data-href="dashboard.html" data-i18n="teacher.sidebar.dashboard"><span class="sidebar-item-icon">📊</span> Tableau de bord</a>
+        <a class="sidebar-item" data-href="schedule.html" data-i18n="teacher.sidebar.schedule"><span class="sidebar-item-icon">📅</span> Mon emploi du temps</a>
+        <a class="sidebar-item active" data-href="students.html" data-i18n="teacher.sidebar.students"><span class="sidebar-item-icon">👥</span> Mes étudiants</a>
+        <a class="sidebar-item" data-href="session-details.html" data-i18n="teacher.sidebar.sessions"><span class="sidebar-item-icon">📋</span> Suivi des séances</a>
+        <div class="sidebar-section" data-i18n="teacher.sidebar.settings">Paramètres</div>
+        <a class="sidebar-item" data-href="profile.html" data-i18n="teacher.sidebar.profile"><span class="sidebar-item-icon">⚙️</span> Profil</a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html" data-i18n="teacher.sidebar.logout"><span class="sidebar-item-icon">🚪</span> Déconnexion</a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title" data-i18n="teacher.students.page_title">Mes étudiants</h1></div>
+        <div class="topbar-right"><div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" placeholder="Rechercher..." data-i18n-placeholder="teacher.common.search"></div><button class="topbar-notification">🔔<span class="notification-dot"></span></button><div class="avatar avatar-sm">S</div></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="dashboard-content-header">
+          <h2 data-i18n="teacher.students.heading">Mes étudiants</h2>
+          <div class="flex items-center gap-sm">
+            <div class="topbar-search" style="width: 200px;"><span class="topbar-search-icon">🔍</span><input type="text" placeholder="Rechercher un étudiant..." data-i18n-placeholder="teacher.students.search_student"></div>
+            <select class="form-select" style="width: auto; padding: 8px 32px 8px 12px;">
+              <option>Groupe A - TCF Québec</option>
+              <option>Groupe B - TCF Canada</option>
+              <option>Atelier Conversation</option>
+            </select>
+          </div>
+        </div>
+        <div class="card">
+          <div class="table-container">
+            <table class="table">
+              <thead><tr><th data-i18n="teacher.students.th_student">Étudiant</th><th data-i18n="teacher.students.th_level">Niveau</th><th data-i18n="teacher.students.th_group">Groupe</th><th data-i18n="teacher.students.th_progress">Progression</th><th data-i18n="teacher.students.th_last_session">Dernière séance</th><th></th></tr></thead>
+              <tbody>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">M</div><span>Maria S.</span></div></td><td><span class="badge badge-blue">B2</span></td><td>TCF Québec A</td><td><div class="progress" style="width: 80px;"><div class="progress-bar" style="width: 67%;"></div></div></td><td>12 Juin 2026</td><td><button class="btn btn-ghost btn-sm" data-i18n="teacher.students.view_profile">Voir profil</button></td></tr>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">A</div><span>Ahmed K.</span></div></td><td><span class="badge badge-emerald">C1</span></td><td>Atelier Oral</td><td><div class="progress" style="width: 80px;"><div class="progress-bar gold" style="width: 82%;"></div></div></td><td>11 Juin 2026</td><td><button class="btn btn-ghost btn-sm" data-i18n="teacher.students.view_profile">Voir profil</button></td></tr>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">L</div><span>Laura P.</span></div></td><td><span class="badge badge-blue">B2</span></td><td>TCF Québec A</td><td><div class="progress" style="width: 80px;"><div class="progress-bar" style="width: 45%;"></div></div></td><td>10 Juin 2026</td><td><button class="btn btn-ghost btn-sm" data-i18n="teacher.students.view_profile">Voir profil</button></td></tr>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">J</div><span>Jean W.</span></div></td><td><span class="badge badge-gold">A2</span></td><td>TCF Québec A</td><td><div class="progress" style="width: 80px;"><div class="progress-bar blue" style="width: 30%;"></div></div></td><td>8 Juin 2026</td><td><button class="btn btn-ghost btn-sm" data-i18n="teacher.students.view_profile">Voir profil</button></td></tr>
+                <tr><td><div class="flex items-center gap-sm"><div class="avatar avatar-sm">Y</div><span>Yuki T.</span></div></td><td><span class="badge badge-blue">B1</span></td><td>Atelier Oral</td><td><div class="progress" style="width: 80px;"><div class="progress-bar gold" style="width: 55%;"></div></div></td><td>7 Juin 2026</td><td><button class="btn btn-ghost btn-sm" data-i18n="teacher.students.view_profile">Voir profil</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

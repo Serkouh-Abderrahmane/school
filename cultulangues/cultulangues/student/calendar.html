@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="student.calendar.page_title">Mon Calendrier — Cultulangues</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-layout">
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header"><a href="../index.html" class="logo"><img src="../img/image-Photoroom.png" alt="Cultulangues" class="logo-img"></a></div>
+      <div class="sidebar-user">
+        <div class="avatar">M</div>
+        <div class="sidebar-user-info"><div class="sidebar-user-name">Maria S.</div><div class="sidebar-user-role">Étudiante · B2</div></div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section" data-i18n="student.sidebar.navigation">Navigation</div>
+        <a class="sidebar-item" data-href="dashboard.html"><span class="sidebar-item-icon">📊</span> <span data-i18n="student.sidebar.dashboard">Tableau de bord</span></a>
+        <a class="sidebar-item" data-href="my-programs.html"><span class="sidebar-item-icon">📚</span> <span data-i18n="student.sidebar.my_programs">Mes programmes</span></a>
+        <a class="sidebar-item active" data-href="calendar.html"><span class="sidebar-item-icon">📅</span> <span data-i18n="student.sidebar.calendar">Mon calendrier</span></a>
+        <a class="sidebar-item" data-href="payments.html"><span class="sidebar-item-icon">💳</span> <span data-i18n="student.sidebar.payments">Paiements & factures</span></a>
+        <a class="sidebar-item" data-href="level-tests.html"><span class="sidebar-item-icon">📝</span> <span data-i18n="student.sidebar.level_tests">Tests de niveau</span></a>
+        <div class="sidebar-section" data-i18n="student.sidebar.settings">Paramètres</div>
+        <a class="sidebar-item" data-href="profile.html"><span class="sidebar-item-icon">⚙️</span> <span data-i18n="student.sidebar.profile">Profil</span></a>
+        <a class="sidebar-item" data-href="support.html"><span class="sidebar-item-icon">💬</span> <span data-i18n="student.sidebar.support">Support</span></a>
+      </nav>
+      <div class="sidebar-footer"><a class="sidebar-item" data-href="../index.html"><span class="sidebar-item-icon">🚪</span> <span data-i18n="student.sidebar.logout">Déconnexion</span></a></div>
+    </aside>
+    <div class="mobile-nav-overlay sidebar-overlay"></div>
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left"><button class="sidebar-toggle">☰</button><h1 class="topbar-title" data-i18n="student.calendar.title">Mon calendrier</h1></div>
+        <div class="topbar-right">
+          <div class="topbar-search"><span class="topbar-search-icon">🔍</span><input type="text" placeholder="Rechercher..." data-i18n-placeholder="student.common.search"></div>
+          <button class="topbar-notification">🔔<span class="notification-dot"></span></button>
+          <div class="avatar avatar-sm">M</div>
+        </div>
+      </header>
+      <div class="dashboard-content">
+        <div class="dashboard-content-header">
+          <h2 data-i18n="student.calendar.heading">Calendrier</h2>
+          <div class="flex items-center gap-sm">
+            <button class="btn btn-outline btn-sm" data-i18n="student.calendar.month_view">Vue mois</button>
+            <button class="btn btn-primary btn-sm" data-i18n="student.calendar.week_view">Vue semaine</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="calendar-header">
+            <div class="calendar-nav">
+              <button class="btn btn-ghost btn-sm calendar-prev">←</button>
+              <h3>Juin 2026</h3>
+              <button class="btn btn-ghost btn-sm calendar-next">→</button>
+            </div>
+            <button class="btn btn-primary btn-sm" data-i18n="student.calendar.add_event">+ Ajouter un événement</button>
+          </div>
+          <div class="calendar-grid">
+            <div class="calendar-day-header" data-i18n="student.calendar.day_mon">Lun</div>
+            <div class="calendar-day-header" data-i18n="student.calendar.day_tue">Mar</div>
+            <div class="calendar-day-header" data-i18n="student.calendar.day_wed">Mer</div>
+            <div class="calendar-day-header" data-i18n="student.calendar.day_thu">Jeu</div>
+            <div class="calendar-day-header" data-i18n="student.calendar.day_fri">Ven</div>
+            <div class="calendar-day-header" data-i18n="student.calendar.day_sat">Sam</div>
+            <div class="calendar-day-header" data-i18n="student.calendar.day_sun">Dim</div>
+            <div class="calendar-day other-month"><div class="day-number">26</div></div>
+            <div class="calendar-day other-month"><div class="day-number">27</div></div>
+            <div class="calendar-day other-month"><div class="day-number">28</div></div>
+            <div class="calendar-day other-month"><div class="day-number">29</div></div>
+            <div class="calendar-day other-month"><div class="day-number">30</div></div>
+            <div class="calendar-day other-month"><div class="day-number">31</div></div>
+            <div class="calendar-day"><div class="day-number">1</div></div>
+            <div class="calendar-day"><div class="day-number">2</div></div>
+            <div class="calendar-day"><div class="day-number">3</div>
+              <div class="calendar-event class">📘 TCF Québec · 14h</div>
+            </div>
+            <div class="calendar-day"><div class="day-number">4</div></div>
+            <div class="calendar-day"><div class="day-number">5</div>
+              <div class="calendar-event class">📘 TCF Québec · 14h</div>
+              <div class="calendar-event workshop">💬 Atelier conversation · 16h</div>
+            </div>
+            <div class="calendar-day"><div class="day-number">6</div></div>
+            <div class="calendar-day"><div class="day-number">7</div></div>
+            <div class="calendar-day"><div class="day-number">8</div></div>
+            <div class="calendar-day"><div class="day-number">9</div></div>
+            <div class="calendar-day"><div class="day-number">10</div>
+              <div class="calendar-event class">📘 TCF Québec · 14h</div>
+            </div>
+            <div class="calendar-day"><div class="day-number">11</div></div>
+            <div class="calendar-day"><div class="day-number">12</div>
+              <div class="calendar-event class">📘 TCF Québec · 14h</div>
+            </div>
+            <div class="calendar-day"><div class="day-number">13</div></div>
+            <div class="calendar-day"><div class="day-number">14</div></div>
+            <div class="calendar-day today"><div class="day-number">15</div>
+              <div class="calendar-event evaluation">📝 Simulation · 10h</div>
+            </div>
+            <div class="calendar-day"><div class="day-number">16</div></div>
+            <div class="calendar-day"><div class="day-number">17</div>
+              <div class="calendar-event class">📘 TCF Québec · 14h</div>
+            </div>
+            <div class="calendar-day"><div class="day-number">18</div></div>
+            <div class="calendar-day"><div class="day-number">19</div>
+              <div class="calendar-event class">📘 TCF Québec · 14h</div>
+              <div class="calendar-event workshop">💬 Atelier conversation · 16h</div>
+            </div>
+            <div class="calendar-day"><div class="day-number">20</div></div>
+            <div class="calendar-day"><div class="day-number">21</div></div>
+            <div class="calendar-day"><div class="day-number">22</div></div>
+            <div class="calendar-day"><div class="day-number">23</div></div>
+            <div class="calendar-day"><div class="day-number">24</div>
+              <div class="calendar-event class">📘 TCF Québec · 14h</div>
+            </div>
+            <div class="calendar-day"><div class="day-number">25</div></div>
+            <div class="calendar-day"><div class="day-number">26</div>
+              <div class="calendar-event class">📘 TCF Québec · 14h</div>
+            </div>
+            <div class="calendar-day"><div class="day-number">27</div></div>
+            <div class="calendar-day"><div class="day-number">28</div></div>
+            <div class="calendar-day"><div class="day-number">29</div></div>
+            <div class="calendar-day"><div class="day-number">30</div></div>
+            <div class="calendar-day other-month"><div class="day-number">1</div></div>
+            <div class="calendar-day other-month"><div class="day-number">2</div></div>
+            <div class="calendar-day other-month"><div class="day-number">3</div></div>
+            <div class="calendar-day other-month"><div class="day-number">4</div></div>
+            <div class="calendar-day other-month"><div class="day-number">5</div></div>
+          </div>
+        </div>
+
+        <div class="card mt-lg">
+          <h3 class="card-title mb-md" data-i18n="student.calendar.upcoming_sessions">Séances à venir</h3>
+          <div class="table-container">
+            <table class="table">
+              <thead><tr><th data-i18n="student.calendar.th_date">Date</th><th data-i18n="student.calendar.th_program">Programme</th><th data-i18n="student.calendar.th_time">Horaire</th><th data-i18n="student.calendar.th_teacher">Professeur</th><th data-i18n="student.calendar.th_location">Lieu</th></tr></thead>
+              <tbody>
+                <tr><td>15 Juin 2026</td><td>📝 Simulation TCF</td><td>10h - 12h</td><td>Sophie Martin</td><td>Salle B</td></tr>
+                <tr><td>17 Juin 2026</td><td>📘 TCF Québec</td><td>14h - 16h</td><td>Sophie Martin</td><td>Salle A</td></tr>
+                <tr><td>19 Juin 2026</td><td>📘 TCF Québec</td><td>14h - 16h</td><td>Sophie Martin</td><td>Salle A</td></tr>
+                <tr><td>19 Juin 2026</td><td>💬 Atelier Conversation</td><td>16h - 17h30</td><td>Thomas Dubois</td><td>Salle C</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>
