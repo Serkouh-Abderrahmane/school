@@ -56,89 +56,198 @@
     </div>
   </header>
 
-  <!-- ═══ PAGE HEADER ═══ -->
-  <section class="page-header">
-    <div class="page-header-bg"><img src="../img/cta-sign-up.png" alt="" loading="lazy"></div>
+  <!-- ═══ HERO ═══ -->
+  <section class="contact-hero">
+    <div class="contact-hero-bg">
+      <div class="contact-hero-blob"></div>
+      <div class="contact-hero-blob contact-hero-blob-2"></div>
+    </div>
     <div class="container">
-      <h1 data-i18n="contact.title">Contactez-nous</h1>
-      <p data-i18n="contact.subtitle">Une question ? Un projet ? Nous sommes là pour vous accompagner.</p>
+      <div class="contact-hero-inner">
+        <span class="contact-hero-badge">✦ Nous sommes là pour vous</span>
+        <h1>Parlons de <span class="text-gradient">votre projet</span></h1>
+        <p class="contact-hero-desc">Que vous cherchiez un programme adapté, des informations sur nos formations, ou simplement un conseil personnalisé, notre équipe est prête à vous guider.</p>
+        <div class="contact-hero-features">
+          <span><i class="ch-icon">✦</i> Réponse sous 24 h</span>
+          <span><i class="ch-icon">✦</i> Conseils personnalisés</span>
+          <span><i class="ch-icon">✦</i> Accompagnement gratuit</span>
+        </div>
+        <a href="#contact-form" class="btn btn-primary btn-lg">Envoyer un message <span style="font-size:0.8em;margin-left:4px">→</span></a>
+      </div>
     </div>
   </section>
 
-  <!-- ═══ CONTACT FORM ═══ -->
+  <!-- ═══ MAIN CONTACT AREA ═══ -->
+  <section class="contact-main section" id="contact-form">
+    <div class="container">
+      <div class="contact-layout">
+        <!-- LEFT: FORM -->
+        <div class="contact-form-col">
+          <div class="contact-form-card">
+            <div class="contact-form-header">
+              <h2>Parlez-nous de votre projet</h2>
+              <p>Nous vous répondons rapidement pour vous aider à choisir la meilleure solution.</p>
+            </div>
+            <form class="contact-form">
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Prénom <span class="required">*</span></label>
+                  <input type="text" class="form-input" required placeholder="Votre prénom">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Nom <span class="required">*</span></label>
+                  <input type="text" class="form-input" required placeholder="Votre nom">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email <span class="required">*</span></label>
+                <input type="email" class="form-input" required placeholder="votre@email.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Téléphone <span class="form-label-note">(optionnel)</span></label>
+                <input type="tel" class="form-input" placeholder="+33 6 12 34 56 78">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Sujet <span class="required">*</span></label>
+                <select class="form-select" required>
+                  <option value="">Sélectionnez un sujet</option>
+                  <option>Information sur les programmes</option>
+                  <option>Inscription</option>
+                  <option>Question TCF / Examens</option>
+                  <option>Test de niveau / Évaluation orale</option>
+                  <option>Ateliers</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Message <span class="required">*</span></label>
+                <textarea class="form-textarea" required rows="5" placeholder="Bonjour, je souhaiterais obtenir plus d'informations sur..."></textarea>
+              </div>
+              <div class="form-group form-group-consent">
+                <label class="form-checkbox">
+                  <input type="checkbox" checked>
+                  <span class="checkbox-mark"></span>
+                  <span class="checkbox-label">J'accepte d'être recontacté(e) dans le cadre de ma demande</span>
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg w-full contact-submit">
+                <span>Envoyer ma demande</span>
+                <span class="contact-submit-arrow">→</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- RIGHT: INFO PANELS -->
+        <div class="contact-info-col">
+          <!-- Nous joindre -->
+          <div class="contact-panel">
+            <div class="contact-panel-accent"></div>
+            <h3>Nous joindre</h3>
+            <div class="contact-panel-items">
+              <div class="contact-panel-item">
+                <div class="cpi-icon">✉</div>
+                <div>
+                  <div class="cpi-label">Email</div>
+                  <div class="cpi-value">contact@cultulangues.fr</div>
+                </div>
+              </div>
+              <div class="contact-panel-item">
+                <div class="cpi-icon">📞</div>
+                <div>
+                  <div class="cpi-label">Téléphone</div>
+                  <div class="cpi-value">+33 1 23 45 67 89</div>
+                </div>
+              </div>
+              <div class="contact-panel-item">
+                <div class="cpi-icon">📍</div>
+                <div>
+                  <div class="cpi-label">Adresse</div>
+                  <div class="cpi-value">123 Rue de la Langue Française<br>75001 Paris</div>
+                </div>
+              </div>
+              <div class="contact-panel-item">
+                <div class="cpi-icon">🕐</div>
+                <div>
+                  <div class="cpi-label">Horaires</div>
+                  <div class="cpi-value">Lun–Ven : 9 h – 19 h<br>Sam : 10 h – 16 h</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Besoin d'aide -->
+          <div class="contact-panel contact-panel-help">
+            <div class="contact-panel-accent"></div>
+            <h3>Besoin d'aide pour choisir ?</h3>
+            <p>Vous ne savez pas quel programme correspond le mieux à votre niveau, vos objectifs ou votre emploi du temps ? Nous vous aidons à y voir plus clair, sans engagement.</p>
+            <ul class="contact-help-list">
+              <li>✦ Évaluation de votre niveau</li>
+              <li>✦ Recommandation personnalisée</li>
+              <li>✦ Réponse à vos questions</li>
+              <li>✦ Aide à l'inscription</li>
+            </ul>
+          </div>
+
+          <!-- Prêt à commencer -->
+          <div class="contact-panel contact-panel-cta">
+            <div class="contact-panel-accent"></div>
+            <h3>Déjà prêt à commencer ?</h3>
+            <p>Passez directement à l'action :</p>
+            <div class="contact-cta-links">
+              <a href="../booking.html" class="btn btn-primary w-full"><i class="ch-icon">✦</i> Réserver une évaluation orale</a>
+              <a href="../student/level-tests.html" class="btn btn-outline w-full"><i class="ch-icon">✦</i> Passer un test de niveau</a>
+              <a href="programs.html" class="btn btn-ghost w-full"><i class="ch-icon">✦</i> Découvrir nos programmes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TRUST / REASSURANCE ═══ -->
+  <section class="section section-alt reveal">
+    <div class="container">
+      <div class="section-header">
+        <h2>Pourquoi nous <span class="text-gradient">contacter</span> ?</h2>
+        <p>Nous sommes là pour vous accompagner à chaque étape de votre projet linguistique.</p>
+      </div>
+      <div class="contact-trust-grid">
+        <div class="contact-trust-card">
+          <div class="ct-icon"><span>✦</span></div>
+          <h4>Choix du programme</h4>
+          <p>Vous hésitez entre un parcours en groupe ou un accompagnement solo ? On vous guide.</p>
+        </div>
+        <div class="contact-trust-card">
+          <div class="ct-icon"><span>✦</span></div>
+          <h4>Préparation TCF</h4>
+          <p>Des questions sur les examens officiels ? Nos équipes vous renseignent précisément.</p>
+        </div>
+        <div class="contact-trust-card">
+          <div class="ct-icon"><span>✦</span></div>
+          <h4>Inscription & suivi</h4>
+          <p>Un problème d'inscription ou besoin d'un suivi personnalisé ? Nous sommes à votre écoute.</p>
+        </div>
+        <div class="contact-trust-card">
+          <div class="ct-icon"><span>✦</span></div>
+          <h4>Réponse rapide</h4>
+          <p>Nous répondons à toutes les demandes sous 24 heures ouvrables, souvent bien plus tôt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA BANNER ═══ -->
   <section class="section reveal">
     <div class="container">
-      <div class="contact-grid">
-        <div>
-          <form class="needs-validation">
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" data-i18n="contact.form.firstname">Prénom <span class="required">*</span></label>
-                <input type="text" class="form-input" required placeholder="Votre prénom" data-i18n-placeholder="contact.form.firstname">
-              </div>
-              <div class="form-group">
-                <label class="form-label" data-i18n="contact.form.lastname">Nom <span class="required">*</span></label>
-                <input type="text" class="form-input" required placeholder="Votre nom" data-i18n-placeholder="contact.form.lastname">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label" data-i18n="contact.form.email">Email <span class="required">*</span></label>
-              <input type="email" class="form-input" required placeholder="votre@email.com" data-i18n-placeholder="contact.form.email">
-            </div>
-            <div class="form-group">
-              <label class="form-label" data-i18n="contact.form.subject">Sujet <span class="required">*</span></label>
-              <select class="form-select" required>
-                <option value="" data-i18n="contact.form.subject.placeholder">Sélectionnez un sujet</option>
-                <option>Information sur les programmes</option>
-                <option>Inscription</option>
-                <option>Question TCF / Examens</option>
-                <option>Ateliers</option>
-                <option>Autre</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" data-i18n="contact.form.message">Message <span class="required">*</span></label>
-              <textarea class="form-textarea" required placeholder="Votre message..." data-i18n-placeholder="contact.form.message"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary w-full" data-i18n="contact.form.submit">Envoyer le message</button>
-          </form>
+      <div class="cta-banner contact-cta-banner">
+        <h2>Encore une question ?</h2>
+        <p>Nous sommes à votre disposition pour discuter de votre projet. Chaque parcours est unique, et nous serons ravis de vous aider à construire le vôtre.</p>
+        <div class="contact-cta-banner-actions">
+          <a href="tel:+33123456789" class="btn btn-white btn-lg"><span>📞</span> +33 1 23 45 67 89</a>
+          <a href="mailto:contact@cultulangues.fr" class="btn btn-outline-white btn-lg"><span>✉</span> contact@cultulangues.fr</a>
         </div>
-        <div class="contact-info-card">
-          <h3 data-i18n="contact.info.title">Nos coordonnées</h3>
-          <div class="contact-info-item" style="transition-delay: 0.05s;">
-            <div class="contact-info-icon">📍</div>
-            <div>
-              <h4 data-i18n="contact.info.address.title">Adresse</h4>
-              <p data-i18n="contact.info.address.value">123 Rue de la Langue Française<br>75001 Paris, France</p>
-            </div>
-          </div>
-          <div class="contact-info-item">
-            <div class="contact-info-icon">📞</div>
-            <div>
-              <h4 data-i18n="contact.info.phone.title">Téléphone</h4>
-              <p data-i18n="contact.info.phone.value">+33 1 23 45 67 89</p>
-            </div>
-          </div>
-          <div class="contact-info-item">
-            <div class="contact-info-icon">✉️</div>
-            <div>
-              <h4 data-i18n="contact.info.email.title">Email</h4>
-              <p data-i18n="contact.info.email.value">contact@cultulangues.fr</p>
-            </div>
-          </div>
-          <div class="contact-info-item">
-            <div class="contact-info-icon">🕐</div>
-            <div>
-              <h4 data-i18n="contact.info.hours.title">Horaires</h4>
-              <p data-i18n="contact.info.hours.value">Lun - Ven : 9h00 - 19h00<br>Sam : 10h00 - 16h00</p>
-            </div>
-          </div>
-          <div style="margin-top: var(--space-lg);">
-            <div style="width: 100%; height: 160px; background: rgba(255,255,255,0.15); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); font-size: 0.875rem;">
-              🗺️ Carte interactive (placeholder)
-            </div>
-          </div>
-        </div>
+        <p class="contact-cta-banner-note">Ou appelez-nous directement — nous sommes joignables du lundi au vendredi, de 9 h à 19 h.</p>
       </div>
     </div>
   </section>

@@ -1187,3 +1187,100 @@ p{color:var(--color-text-secondary);line-height:1.7;margin-bottom:1rem}
 .compact-inclusion{text-align:center;padding:var(--space-lg) var(--space-sm);background:var(--color-white);border-radius:var(--radius-lg);border:1px solid var(--color-border-light);box-shadow:var(--shadow-sm)}
 .compact-inclusion .ci-icon{font-size:1.25rem;margin-bottom:4px;display:block}
 .compact-inclusion .ci-text{font-size:0.8125rem;color:var(--color-text-secondary);margin:0;line-height:1.4}
+
+/* ══════════════════════════════════════════════════════════════
+   CONTACT PAGE REDESIGN — Premium, warm, conversion-friendly
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Hero ── */
+.contact-hero{padding:calc(var(--header-height) + var(--space-4xl)) 0 var(--space-3xl);position:relative;overflow:hidden;background:linear-gradient(135deg,var(--color-bg) 0%,#FEF6F8 50%,var(--color-bg) 100%)}
+.contact-hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.contact-hero-blob{position:absolute;top:-25%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(237,45,97,0.06) 0%,rgba(237,45,97,0.02) 40%,transparent 70%);animation:contactBlobFloat 12s ease-in-out infinite}
+.contact-hero-blob-2{bottom:-20%;left:-8%;top:auto;right:auto;width:400px;height:400px;background:radial-gradient(circle,rgba(252,150,5,0.04) 0%,rgba(252,150,5,0.02) 40%,transparent 70%);animation:contactBlobFloat 15s ease-in-out 3s infinite}
+@keyframes contactBlobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(15px,-20px) scale(1.05)}66%{transform:translate(-10px,10px) scale(0.95)}}
+.contact-hero .container{position:relative;z-index:1}
+.contact-hero-inner{max-width:650px;margin:0 auto;text-align:center}
+.contact-hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;background:linear-gradient(135deg,rgba(237,45,97,0.07),rgba(237,45,97,0.03));border:1px solid rgba(237,45,97,0.12);border-radius:var(--radius-full);font-size:0.8125rem;font-weight:600;color:var(--color-pink);margin-bottom:var(--space-xl)}
+.contact-hero h1{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;letter-spacing:-0.035em;line-height:1.12;margin-bottom:var(--space-lg)}
+.contact-hero-desc{font-size:clamp(1rem,1.3vw,1.15rem);color:var(--color-text-secondary);line-height:1.8;margin-bottom:var(--space-lg);max-width:500px;margin-left:auto;margin-right:auto}
+.contact-hero-features{display:flex;gap:var(--space-lg);justify-content:center;flex-wrap:wrap;margin-bottom:var(--space-xl)}
+.contact-hero-features span{font-size:0.875rem;color:var(--color-text-secondary);display:flex;align-items:center;gap:6px}
+.contact-hero-features .ch-icon{color:var(--color-pink);font-size:0.75rem}
+
+/* ── Main Layout ── */
+.contact-layout{display:grid;grid-template-columns:1.1fr 0.9fr;gap:var(--space-2xl);align-items:start}
+@media(max-width:900px){.contact-layout{grid-template-columns:1fr}}
+
+/* ── Form Column ── */
+.contact-form-col{min-width:0}
+.contact-form-card{background:var(--color-white);border-radius:var(--radius-2xl);padding:var(--space-2xl);box-shadow:var(--shadow-sm);border:1px solid var(--color-border-light)}
+.contact-form-header{margin-bottom:var(--space-xl)}
+.contact-form-header h2{font-size:1.35rem;font-weight:700;margin-bottom:var(--space-sm)}
+.contact-form-header p{font-size:0.9375rem;color:var(--color-text-secondary);line-height:1.7;margin:0;max-width:460px}
+.contact-form .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md)}
+@media(max-width:480px){.contact-form .form-row-2{grid-template-columns:1fr}}
+.form-label-note{font-weight:400;color:var(--color-text-tertiary);font-size:0.75rem;margin-left:4px}
+.form-textarea{width:100%;padding:13px 18px;border:2px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-white);color:var(--color-text);transition:all var(--transition-base);font-size:0.9375rem;font-family:var(--font);resize:vertical;min-height:100px}
+.form-textarea:focus{outline:none;border-color:var(--color-pink);box-shadow:0 0 0 4px rgba(237,45,97,0.08)}
+.form-textarea::placeholder{color:var(--color-text-tertiary)}
+.form-group-consent{margin-top:var(--space-lg)}
+.form-checkbox{display:flex;align-items:flex-start;gap:10px;cursor:pointer;position:relative}
+.form-checkbox input{position:absolute;opacity:0;width:0;height:0}
+.checkbox-mark{width:20px;height:20px;min-width:20px;border:2px solid var(--color-border);border-radius:4px;display:flex;align-items:center;justify-content:center;transition:all var(--transition-fast);margin-top:1px}
+.form-checkbox input:checked + .checkbox-mark{background:var(--color-pink);border-color:var(--color-pink)}
+.form-checkbox input:checked + .checkbox-mark::after{content:'\2713';color:var(--color-white);font-size:0.625rem;font-weight:700}
+.checkbox-label{font-size:0.8125rem;color:var(--color-text-secondary);line-height:1.5}
+.contact-submit{display:flex;align-items:center;justify-content:center;gap:var(--space-sm);margin-top:var(--space-xl);padding:16px 32px;font-size:1rem;font-weight:700}
+.contact-submit-arrow{transition:transform var(--transition-fast)}
+.contact-submit:hover .contact-submit-arrow{transform:translateX(4px)}
+
+/* ── Info Column ── */
+.contact-info-col{display:flex;flex-direction:column;gap:var(--space-lg)}
+.contact-panel{background:var(--color-white);border-radius:var(--radius-xl);padding:var(--space-xl);box-shadow:var(--shadow-sm);border:1px solid var(--color-border-light);position:relative;overflow:hidden}
+.contact-panel-accent{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--color-pink),var(--color-yellow))}
+.contact-panel h3{font-size:1.0625rem;margin-bottom:var(--space-md)}
+.contact-panel p{font-size:0.875rem;color:var(--color-text-secondary);line-height:1.7;margin:0 0 var(--space-md)}
+.contact-panel-items{display:flex;flex-direction:column;gap:var(--space-md)}
+.contact-panel-item{display:flex;align-items:flex-start;gap:12px}
+.contact-panel-item .cpi-icon{width:36px;height:36px;min-width:36px;border-radius:var(--radius-md);background:rgba(237,45,97,0.06);display:flex;align-items:center;justify-content:center;font-size:0.8125rem;color:var(--color-pink)}
+.contact-panel-item .cpi-label{font-size:0.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:var(--color-text-tertiary);margin-bottom:1px}
+.contact-panel-item .cpi-value{font-size:0.875rem;font-weight:600;color:var(--color-text);line-height:1.4}
+
+/* Help panel */
+.contact-panel-help{background:linear-gradient(135deg,rgba(237,45,97,0.02),rgba(252,150,5,0.02));border-color:rgba(237,45,97,0.06)}
+.contact-help-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-sm)}
+.contact-help-list li{font-size:0.8125rem;color:var(--color-text-secondary);line-height:1.5;display:flex;align-items:center;gap:8px}
+.contact-help-list li:first-child{color:var(--color-pink);font-weight:600}
+
+/* CTA panel */
+.contact-panel-cta h3{margin-bottom:var(--space-sm)}
+.contact-panel-cta p{font-size:0.8125rem;margin-bottom:var(--space-md)}
+.contact-cta-links{display:flex;flex-direction:column;gap:var(--space-sm)}
+.contact-cta-links .btn{justify-content:flex-start;padding:12px 18px;font-size:0.8125rem}
+.contact-cta-links .btn .ch-icon{font-size:0.75rem;margin-right:4px}
+.contact-cta-links .btn-primary{background:linear-gradient(135deg,var(--color-pink),var(--color-red))}
+.contact-cta-links .btn-ghost{color:var(--color-text-secondary);justify-content:center}
+.contact-cta-links .btn-ghost:hover{color:var(--color-pink);background:rgba(237,45,97,0.04)}
+
+/* ── Trust Grid ── */
+.contact-trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-xl)}
+@media(max-width:900px){.contact-trust-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.contact-trust-grid{grid-template-columns:1fr}}
+.contact-trust-card{background:var(--color-white);border-radius:var(--radius-xl);padding:var(--space-xl);text-align:center;border:1px solid var(--color-border-light);box-shadow:var(--shadow-sm);transition:all var(--transition-base)}
+.contact-trust-card:hover{box-shadow:var(--shadow-card-hover);transform:translateY(-4px);border-color:var(--color-border)}
+.contact-trust-card .ct-icon{width:52px;height:52px;border-radius:var(--radius-full);background:linear-gradient(135deg,rgba(237,45,97,0.08),rgba(237,45,97,0.03));display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-md);font-size:1.25rem;color:var(--color-pink);transition:all var(--transition-spring)}
+.contact-trust-card:hover .ct-icon{transform:scale(1.12);background:linear-gradient(135deg,rgba(237,45,97,0.12),rgba(237,45,97,0.05))}
+.contact-trust-card h4{font-size:1rem;margin-bottom:var(--space-sm);transition:color var(--transition-fast)}
+.contact-trust-card:hover h4{color:var(--color-pink)}
+.contact-trust-card p{font-size:0.8125rem;color:var(--color-text-secondary);line-height:1.6;margin:0}
+
+/* ── CTA Banner (contact specific) ── */
+.contact-cta-banner h2{font-size:clamp(1.5rem,3vw,2rem)}
+.contact-cta-banner p{max-width:600px}
+.contact-cta-banner-actions{display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;margin-top:var(--space-lg)}
+.contact-cta-banner-actions .btn{min-width:220px;font-size:0.9375rem}
+.contact-cta-banner-actions .btn-white{color:var(--color-pink);background:var(--color-white);border:none;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+.contact-cta-banner-actions .btn-white:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,0.15)}
+.contact-cta-banner-actions .btn-outline-white{background:transparent;color:var(--color-white);border:2px solid rgba(255,255,255,0.35)}
+.contact-cta-banner-actions .btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.6);transform:translateY(-3px)}
+.contact-cta-banner-note{font-size:0.8125rem;color:rgba(255,255,255,0.65);margin-top:var(--space-md)}
