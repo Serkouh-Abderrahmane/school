@@ -65,6 +65,15 @@
           </div>
         </div>
         <div class="form-group">
+          <label class="form-label" data-i18n="auth.register.bubbles_label">Choisissez votre parcours</label>
+          <div class="register-bubbles">
+            <button type="button" class="reg-bubble bubble-orange selected" data-value="tcf_qc" data-i18n="auth.register.goal.tcf_qc">TCF Québec</button>
+            <button type="button" class="reg-bubble bubble-blue" data-value="tcf_ca" data-i18n="auth.register.goal.tcf_ca">TCF Canada</button>
+            <button type="button" class="reg-bubble bubble-green" data-value="oral_bc" data-i18n="auth.register.goal.oral_bc">Oral B ou C</button>
+            <button type="button" class="reg-bubble bubble-purple" data-value="general" data-i18n="auth.register.goal.general">Perfectionnement général</button>
+          </div>
+        </div>
+        <div class="form-group">
           <label class="form-checkbox">
             <input type="checkbox" required> <span data-i18n="auth.register.accept">J'accepte les</span> <a href="#" data-i18n="auth.register.tos" style="color: var(--color-emerald); font-weight: 600;">conditions d'utilisation</a>
           </label>
@@ -79,5 +88,18 @@
   </div>
 
   <script src="../js/main.js"></script>
+  <script>
+  (function(){
+    var bubbles = document.querySelectorAll('.reg-bubble');
+    var select = document.querySelector('select[name="goal"]');
+    bubbles.forEach(function(b){
+      b.addEventListener('click', function(){
+        bubbles.forEach(function(x){ x.classList.remove('selected'); });
+        b.classList.add('selected');
+        if(select) select.value = b.getAttribute('data-value');
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
