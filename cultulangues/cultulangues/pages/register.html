@@ -67,11 +67,11 @@
         </div>
         <div class="form-group">
           <label class="form-label" data-i18n="auth.register.bubbles_label">Choisissez votre parcours</label>
-          <div class="register-bubbles">
-            <button type="button" class="reg-bubble bubble-orange selected" data-value="tcf_qc" data-i18n="auth.register.goal.tcf_qc">TCF Québec</button>
-            <button type="button" class="reg-bubble bubble-blue" data-value="tcf_ca" data-i18n="auth.register.goal.tcf_ca">TCF Canada</button>
-            <button type="button" class="reg-bubble bubble-green" data-value="oral_bc" data-i18n="auth.register.goal.oral_bc">Oral B ou C</button>
-            <button type="button" class="reg-bubble bubble-purple" data-value="general" data-i18n="auth.register.goal.general">Perfectionnement général</button>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px">
+            <button type="button" class="reg-bubble selected" data-value="tcf_qc" data-i18n="auth.register.goal.tcf_qc" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:0.875rem;font-weight:600;border:2px solid rgba(250,78,48,0.15);background:linear-gradient(135deg,rgba(250,78,48,0.08),rgba(252,150,5,0.04));color:#C04520;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);font-family:var(--font);box-shadow:0 2px 8px rgba(0,0,0,0.03)">TCF Québec</button>
+            <button type="button" class="reg-bubble" data-value="tcf_ca" data-i18n="auth.register.goal.tcf_ca" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:0.875rem;font-weight:600;border:2px solid rgba(35,103,208,0.15);background:linear-gradient(135deg,rgba(35,103,208,0.08),rgba(66,189,250,0.04));color:#1A4D94;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);font-family:var(--font);box-shadow:0 2px 8px rgba(0,0,0,0.03)">TCF Canada</button>
+            <button type="button" class="reg-bubble" data-value="oral_bc" data-i18n="auth.register.goal.oral_bc" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:0.875rem;font-weight:600;border:2px solid rgba(115,206,101,0.15);background:linear-gradient(135deg,rgba(115,206,101,0.08),rgba(163,211,57,0.04));color:#2E7D24;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);font-family:var(--font);box-shadow:0 2px 8px rgba(0,0,0,0.03)">Oral B ou C</button>
+            <button type="button" class="reg-bubble" data-value="general" data-i18n="auth.register.goal.general" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:0.875rem;font-weight:600;border:2px solid rgba(155,89,182,0.15);background:linear-gradient(135deg,rgba(155,89,182,0.08),rgba(186,135,219,0.04));color:#6B3A8A;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);font-family:var(--font);box-shadow:0 2px 8px rgba(0,0,0,0.03)">Perfectionnement général</button>
           </div>
         </div>
         <div class="form-group">
@@ -91,14 +91,46 @@
   <script src="../js/main.js"></script>
   <script>
   (function(){
+    var colors = {
+      tcf_qc:  {bg:'#FA4E30',shadow:'0 4px 20px rgba(250,78,48,0.3)',border:'rgba(250,78,48,0.6)',text:'#fff'},
+      tcf_ca:  {bg:'#2367D0',shadow:'0 4px 20px rgba(35,103,208,0.3)',border:'rgba(35,103,208,0.6)',text:'#fff'},
+      oral_bc: {bg:'#73CE65',shadow:'0 4px 20px rgba(115,206,101,0.3)',border:'rgba(115,206,101,0.6)',text:'#fff'},
+      general: {bg:'#9B59B6',shadow:'0 4px 20px rgba(155,89,182,0.3)',border:'rgba(155,89,182,0.6)',text:'#fff'}
+    };
+    var defaults = {
+      tcf_qc:  {bg:'linear-gradient(135deg,rgba(250,78,48,0.08),rgba(252,150,5,0.04))',border:'rgba(250,78,48,0.15)',text:'#C04520',shadow:'0 2px 8px rgba(0,0,0,0.03)'},
+      tcf_ca:  {bg:'linear-gradient(135deg,rgba(35,103,208,0.08),rgba(66,189,250,0.04))',border:'rgba(35,103,208,0.15)',text:'#1A4D94',shadow:'0 2px 8px rgba(0,0,0,0.03)'},
+      oral_bc: {bg:'linear-gradient(135deg,rgba(115,206,101,0.08),rgba(163,211,57,0.04))',border:'rgba(115,206,101,0.15)',text:'#2E7D24',shadow:'0 2px 8px rgba(0,0,0,0.03)'},
+      general: {bg:'linear-gradient(135deg,rgba(155,89,182,0.08),rgba(186,135,219,0.04))',border:'rgba(155,89,182,0.15)',text:'#6B3A8A',shadow:'0 2px 8px rgba(0,0,0,0.03)'}
+    };
     var bubbles = document.querySelectorAll('.reg-bubble');
     var select = document.querySelector('select[name="goal"]');
+    function applyStyle(b, style) {
+      b.style.background = style.bg;
+      b.style.borderColor = style.border;
+      b.style.color = style.text;
+      b.style.boxShadow = style.shadow;
+      b.style.transform = 'translateY(-2px) scale(1.03)';
+    }
+    function resetStyle(b, val) {
+      var d = defaults[val] || defaults.tcf_qc;
+      b.style.background = d.bg;
+      b.style.borderColor = d.border;
+      b.style.color = d.text;
+      b.style.boxShadow = d.shadow;
+      b.style.transform = '';
+    }
     bubbles.forEach(function(b){
+      var val = b.getAttribute('data-value');
+      if(b.classList.contains('selected')) applyStyle(b, colors[val] || colors.tcf_qc);
       b.addEventListener('click', function(){
-        bubbles.forEach(function(x){ x.classList.remove('selected'); });
+        bubbles.forEach(function(x){ x.classList.remove('selected'); resetStyle(x, x.getAttribute('data-value')); });
         b.classList.add('selected');
-        if(select) select.value = b.getAttribute('data-value');
+        applyStyle(b, colors[val] || colors.tcf_qc);
+        if(select) select.value = val;
       });
+      b.addEventListener('mouseenter', function(){ if(!b.classList.contains('selected')) b.style.transform = 'translateY(-2px)'; });
+      b.addEventListener('mouseleave', function(){ if(!b.classList.contains('selected')) b.style.transform = ''; });
     });
   })();
   </script>

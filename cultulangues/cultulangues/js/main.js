@@ -3018,6 +3018,105 @@
     initParallaxDecos();
 
     /* ───────────────────────────────────────────────
+       HOMEPAGE — Scroll reveal (.ph-reveal)
+       ─────────────────────────────────────────────── */
+    function initPhReveal() {
+      var els = document.querySelectorAll('.ph-reveal');
+      if (!els.length) return;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el) { obs.observe(el); });
+    }
+    initPhReveal();
+
+    /* ───────────────────────────────────────────────
+       HOMEPAGE — Staggered grid reveals
+       ─────────────────────────────────────────────── */
+    function initPhStagger() {
+      var grids = document.querySelectorAll('.ph-why-grid, .ph-testimonials-grid');
+      grids.forEach(function (grid) {
+        var children = Array.from(grid.children);
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              children.forEach(function (child, i) {
+                child.style.opacity = '0';
+                child.style.transform = 'translateY(40px)';
+                child.style.transition = 'opacity 0.7s cubic-bezier(0.16,1,0.3,1) ' + (i * 0.12) + 's, transform 0.7s cubic-bezier(0.16,1,0.3,1) ' + (i * 0.12) + 's';
+                requestAnimationFrame(function () {
+                  child.style.opacity = '1';
+                  child.style.transform = 'translateY(0)';
+                });
+              });
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        obs.observe(grid);
+      });
+    }
+    initPhStagger();
+
+    /* ───────────────────────────────────────────────
+       HOMEPAGE — Nav glass effect on scroll
+       ─────────────────────────────────────────────── */
+    function initPhNav() {
+      var header = document.querySelector('.ph-nav');
+      if (!header) return;
+      function onScroll() {
+        header.classList.toggle('scrolled', window.scrollY > 60);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+    initPhNav();
+
+    /* ───────────────────────────────────────────────
+       HOMEPAGE — Hamburger toggle
+       ─────────────────────────────────────────────── */
+    function initPhHamburger() {
+      var hamburger = document.querySelector('.ph-hamburger');
+      var nav = document.querySelector('.ph-nav');
+      if (!hamburger || !nav) return;
+      hamburger.addEventListener('click', function () {
+        nav.classList.toggle('ph-open');
+      });
+      nav.querySelectorAll('.ph-nav-links a, .ph-nav-cta').forEach(function (link) {
+        link.addEventListener('click', function () { nav.classList.remove('ph-open'); });
+      });
+    }
+    initPhHamburger();
+
+    /* ───────────────────────────────────────────────
+       HOMEPAGE — Parallax hero decorative shapes
+       ─────────────────────────────────────────────── */
+    function initPhHeroParallax() {
+      var decos = document.querySelectorAll('.ph-hero-deco');
+      if (!decos.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(function () {
+            var sy = window.scrollY;
+            decos.forEach(function (d, i) {
+              var speed = 0.02 + (i * 0.008);
+              d.style.transform = 'translateY(' + (sy * speed) + 'px)';
+            });
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+    initPhHeroParallax();
+
+    /* ───────────────────────────────────────────────
        HEADER SCROLL
        ─────────────────────────────────────────────── */
     function initHeaderScroll() {
@@ -4293,7 +4392,7 @@
       var ctx = canvas.getContext('2d');
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      var colors = ['#ED2D61', '#FA4E30', '#FBBD26', '#73CE65', '#2367D0', '#F63B42', '#42BDFA', '#FC9705'];
+      var colors = ['#FA4E30', '#E04320', '#FBBD26', '#73CE65', '#2367D0', '#9B59B6', '#42BDFA', '#FC9705'];
       confettiParticles = [];
       for (var i = 0; i < 80; i++) {
         confettiParticles.push({

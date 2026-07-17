@@ -5,291 +5,375 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cultulangues — Formation linguistique & Préparation aux examens</title>
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/premium.css">
+  <link rel="stylesheet" href="css/premium-home.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
 </head>
-<body>
+<body class="home-page">
 
-  <header class="public-header" id="header">
-    <div class="container">
-      <a href="index.html" class="logo">
-        <img src="img/image-Photoroom.png" alt="Cultulangues" class="logo-img">
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION — Transparent, blur on scroll
+       ═══════════════════════════════════════════ -->
+  <header class="ph-nav" id="header">
+    <div class="ph-nav-inner">
+      <a href="index.html" class="ph-nav-logo">
+        <img src="img/image-Photoroom.png" alt="Cultulangues">
       </a>
-      <nav class="nav">
+      <nav class="ph-nav-links">
         <a href="index.html" class="active" data-i18n="nav.home">Accueil</a>
-        <div class="dropdown">
-          <button class="dropdown-trigger" data-i18n="nav.programs">Programmes</button>
-          <div class="dropdown-menu">
-            <a href="pages/parcours-linguistique.html" class="dropdown-item">
-              <span class="dropdown-item-title" data-i18n="nav.parcours">Parcours linguistique</span>
-              <span class="dropdown-item-desc" data-i18n="nav.parcours_desc">Apprendre et progresser en petit groupe</span>
+        <div class="ph-dropdown">
+          <button class="ph-dropdown-trigger" data-i18n="nav.programs">Programmes</button>
+          <div class="ph-dropdown-menu">
+            <a href="pages/parcours-linguistique.html" class="ph-dropdown-item">
+              <span class="ph-dd-title" data-i18n="nav.parcours">Parcours linguistique</span>
+              <span class="ph-dd-desc" data-i18n="nav.parcours_desc">Apprendre et progresser en petit groupe</span>
             </a>
-            <a href="pages/cap-sur-l-oral.html" class="dropdown-item">
-              <span class="dropdown-item-title" data-i18n="nav.oral">Cap sur l'oral</span>
-              <span class="dropdown-item-desc" data-i18n="nav.oral_desc">Développer une expression orale fluide et stratégique</span>
+            <a href="pages/cap-sur-l-oral.html" class="ph-dropdown-item">
+              <span class="ph-dd-title" data-i18n="nav.oral">Cap sur l'oral</span>
+              <span class="ph-dd-desc" data-i18n="nav.oral_desc">Développer une expression orale fluide et stratégique</span>
             </a>
-            <a href="pages/tcf-preparation.html" class="dropdown-item">
-              <span class="dropdown-item-title" data-i18n="nav.tcf">Préparation TCF Québec</span>
-              <span class="dropdown-item-desc" data-i18n="nav.tcf_desc">Se préparer sereinement au test officiel</span>
+            <a href="pages/tcf-preparation.html" class="ph-dropdown-item">
+              <span class="ph-dd-title" data-i18n="nav.tcf">Préparation TCF Québec</span>
+              <span class="ph-dd-desc" data-i18n="nav.tcf_desc">Se préparer sereinement au test officiel</span>
             </a>
-            <a href="pages/formation-en-solo.html" class="dropdown-item">
-              <span class="dropdown-item-title" data-i18n="nav.solo">Formation en solo</span>
-              <span class="dropdown-item-desc" data-i18n="nav.solo_desc">Un accompagnement 100 % personnalisé</span>
+            <a href="pages/formation-en-solo.html" class="ph-dropdown-item">
+              <span class="ph-dd-title" data-i18n="nav.solo">Formation en solo</span>
+              <span class="ph-dd-desc" data-i18n="nav.solo_desc">Un accompagnement 100 % personnalisé</span>
             </a>
           </div>
         </div>
         <a href="pages/about.html" data-i18n="nav.about">À propos</a>
         <a href="pages/contact.html" data-i18n="nav.contact">Contact</a>
-        <div class="nav-cta">
-          <a href="pages/login.html" class="nav-login" data-i18n="nav.login">Connexion</a>
-          <a href="pages/register.html" class="btn btn-primary btn-sm" data-i18n="nav.register">S'inscrire</a>
-          <div class="nav-lang">
-            <button class="lang-opt" data-lang="fr" onclick="window.switchLanguage('fr')">FR</button>
-            <span class="lang-sep">|</span>
-            <button class="lang-opt" data-lang="en" onclick="window.switchLanguage('en')">EN</button>
-          </div>
-        </div>
       </nav>
-      <div class="hamburger">
+      <div class="ph-nav-actions">
+        <a href="pages/login.html" class="ph-nav-login" data-i18n="nav.login">Connexion</a>
+        <a href="pages/register.html" class="ph-nav-cta" data-i18n="nav.register">S'inscrire</a>
+        <div class="ph-nav-lang">
+          <button class="ph-lang-opt" data-lang="fr" onclick="window.switchLanguage('fr')">FR</button>
+          <span class="ph-lang-sep">|</span>
+          <button class="ph-lang-opt" data-lang="en" onclick="window.switchLanguage('en')">EN</button>
+        </div>
+      </div>
+      <div class="ph-hamburger" id="hamburger">
         <span></span><span></span><span></span>
       </div>
     </div>
   </header>
 
-  <section class="hero" id="hero">
-    <div class="hero-bg" role="presentation" aria-hidden="true"></div>
-    <div class="hero-overlay" role="presentation" aria-hidden="true"></div>
-    <div class="hero-blob-bg" role="presentation" aria-hidden="true"></div>
+  <!-- ═══════════════════════════════════════════
+       HERO — Centered, cinematic
+       ═══════════════════════════════════════════ -->
+  <section class="ph-hero" id="hero">
+    <div class="ph-hero-bg" aria-hidden="true">
+      <div class="ph-hero-glow ph-hero-glow-1"></div>
+      <div class="ph-hero-glow ph-hero-glow-2"></div>
+      <div class="ph-hero-glow ph-hero-glow-3"></div>
+      <div class="ph-hero-grid"></div>
+    </div>
+    <div class="ph-hero-deco ph-hero-deco-circle-1" aria-hidden="true"></div>
+    <div class="ph-hero-deco ph-hero-deco-circle-2" aria-hidden="true"></div>
+    <div class="ph-hero-deco ph-hero-deco-line-1" aria-hidden="true"></div>
+    <div class="ph-hero-deco ph-hero-deco-dots" aria-hidden="true"></div>
+    <div class="ph-hero-deco ph-hero-deco-cross" aria-hidden="true"></div>
 
-    <!-- Floating decorative shapes -->
-    <div class="hero-deco hero-deco-ring" aria-hidden="true"></div>
-    <div class="hero-deco hero-deco-ring-2" aria-hidden="true"></div>
-    <div class="hero-deco hero-deco-dots" aria-hidden="true"></div>
-    <div class="hero-deco hero-deco-line" aria-hidden="true"></div>
-    <div class="hero-deco hero-deco-blob" aria-hidden="true"></div>
+    <div class="ph-hero-centered">
+      <div class="ph-hero-logo-wrap">
+        <img src="img/image-Photoroom.png" alt="Cultulangues" class="ph-hero-logo" loading="eager">
+      </div>
 
-    <div class="hero-float-card hero-float-card-1">
-      <div class="hfc-icon">👩‍🏫</div>
-      <div class="hfc-text">
-        <span class="hfc-value" data-i18n="hero.card1.text">Cours particuliers</span>
-        <span class="hfc-label" data-i18n="hero.card1.label">Accompagnement 1-to-1</span>
-      </div>
-    </div>
-    <div class="hero-float-card hero-float-card-2">
-      <div class="hfc-icon">🎯</div>
-      <div class="hfc-text">
-        <span class="hfc-value" data-i18n="hero.card2.text">Préparation TCF</span>
-        <span class="hfc-label" data-i18n="hero.card2.label">Québec &amp; Canada</span>
-      </div>
-    </div>
-    <div class="hero-float-card hero-float-card-3">
-      <div class="hfc-icon">⭐</div>
-      <div class="hfc-text">
-        <span class="hfc-value"><span>4.9</span>/5</span>
-        <span class="hfc-label" data-i18n="hero.stat2.label">Avis étudiants</span>
-      </div>
-    </div>
-    <div class="hero-lang-badges">
-      <span>FR</span>
-      <span>EN</span>
-      <span class="hero-lang-plus">+</span>
-    </div>
+      <h1 class="ph-hero-h1" data-i18n="hero.h1">
+        Chez CultuLangues, nous construisons votre réussite et donnons un nouvel élan à vos <span class="ph-text-gradient">projets</span>.
+      </h1>
 
-    <div class="container">
-      <div class="hero-content hero-content-centered">
-        <a href="index.html" class="hero-logo-centered">
-          <img src="img/image-Photoroom.png" alt="Cultulangues" class="hero-logo-img">
+      <p class="ph-hero-sub" data-i18n="hero.intro">Vous souhaitez apprendre l'une des langues officielles du Canada pour :</p>
+
+      <div class="ph-hero-checklist">
+        <div class="ph-check-item">
+          <div class="ph-check-icon ph-check-orange">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <span data-i18n="hero.list.1">Faire évoluer votre carrière</span>
+        </div>
+        <div class="ph-check-item">
+          <div class="ph-check-icon ph-check-green">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <span data-i18n="hero.list.2">Réussir votre projet d'immigration</span>
+        </div>
+        <div class="ph-check-item">
+          <div class="ph-check-icon ph-check-blue">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <span data-i18n="hero.list.3">Gagner confiance et autonomie dans la vie quotidienne</span>
+        </div>
+      </div>
+
+      <div class="ph-hero-actions">
+        <a href="pages/register.html" class="ph-btn ph-btn-primary ph-btn-xl" data-i18n="hero.btn.primary">
+          <span>Découvrez nos parcours d'apprentissage</span>
+          <svg class="ph-btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+        <a href="pages/private-lessons.html" class="ph-btn ph-btn-ghost ph-btn-xl" data-i18n="hero.btn.secondary">
+          <span>Choisissez le format qui vous ressemble</span>
+        </a>
+      </div>
 
-        <h1 data-i18n="hero.h1">
-          Chez CultuLangues, nous construisons<br>
-          votre réussite et donnons un nouvel<br>
-          élan à vos <span class="text-gradient">projets</span>.
-        </h1>
-
-        <p class="hero-intro" data-i18n="hero.intro">Vous souhaitez apprendre l'une des langues officielles du Canada pour :</p>
-
-        <ul class="hero-list">
-          <li data-i18n="hero.list.1">Faire évoluer votre carrière</li>
-          <li data-i18n="hero.list.2">Réussir votre projet d'immigration</li>
-          <li data-i18n="hero.list.3">Gagner confiance et autonomie dans la vie quotidienne</li>
-        </ul>
-
-        <div class="hero-buttons">
-          <a href="pages/register.html" class="btn btn-primary btn-lg" data-i18n="hero.btn.primary">Découvrez nos parcours d'apprentissage →</a>
-          <a href="pages/private-lessons.html" class="btn btn-outline btn-lg" data-i18n="hero.btn.secondary">Choisissez le format qui vous ressemble</a>
+      <div class="ph-hero-stats">
+        <div class="ph-hero-stat">
+          <span class="ph-hero-stat-value" data-i18n="hero.stat1.value">98%</span>
+          <span class="ph-hero-stat-label" data-i18n="hero.stat1.label">Taux de réussite</span>
         </div>
-
-        <div class="hero-trust">
-          <div class="hero-trust-item">
-            <span class="hero-trust-value" data-i18n="hero.stat1.value">98%</span>
-            <span class="hero-trust-label" data-i18n="hero.stat1.label">Taux de réussite</span>
-          </div>
-          <div class="hero-trust-divider"></div>
-          <div class="hero-trust-item">
-            <span class="hero-trust-value" data-i18n="hero.stat2.value">4.9/5</span>
-            <span class="hero-trust-label" data-i18n="hero.stat2.label">Avis étudiants</span>
-          </div>
-          <div class="hero-trust-divider"></div>
-          <div class="hero-trust-item">
-            <span class="hero-trust-value" data-i18n="hero.stat3.value">+950</span>
-            <span class="hero-trust-label" data-i18n="hero.stat3.label">Étudiants accompagnés</span>
-          </div>
+        <div class="ph-hero-stat-divider"></div>
+        <div class="ph-hero-stat">
+          <span class="ph-hero-stat-value" data-i18n="hero.stat2.value">4.9/5</span>
+          <span class="ph-hero-stat-label" data-i18n="hero.stat2.label">Avis étudiants</span>
         </div>
+        <div class="ph-hero-stat-divider"></div>
+        <div class="ph-hero-stat">
+          <span class="ph-hero-stat-value" data-i18n="hero.stat3.value">+950</span>
+          <span class="ph-hero-stat-label" data-i18n="hero.stat3.label">Étudiants accompagnés</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ph-hero-scroll" aria-hidden="true">
+      <div class="ph-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       STATS — Full-width dark metrics
+       ═══════════════════════════════════════════ -->
+  <section class="ph-stats">
+    <div class="ph-stats-deco ph-stats-deco-1" aria-hidden="true"></div>
+    <div class="ph-stats-deco ph-stats-deco-2" aria-hidden="true"></div>
+    <div class="ph-stats-container">
+      <div class="ph-stat-item">
+        <div class="ph-stat-number"><span class="counter" data-target="12" data-i18n="stat1.value">0</span></div>
+        <div class="ph-stat-label" data-i18n="stat1.label">Années d'expérience</div>
+      </div>
+      <div class="ph-stat-divider" aria-hidden="true"></div>
+      <div class="ph-stat-item">
+        <div class="ph-stat-number"><span class="counter" data-target="98" data-i18n="stat2.value">0</span><span class="ph-stat-suffix">%</span></div>
+        <div class="ph-stat-label" data-i18n="stat2.label">de réussite aux examens</div>
+      </div>
+      <div class="ph-stat-divider" aria-hidden="true"></div>
+      <div class="ph-stat-item">
+        <div class="ph-stat-number"><span class="ph-stat-plus">+</span><span class="counter" data-target="950" data-i18n="stat3.value">0</span></div>
+        <div class="ph-stat-label" data-i18n="stat3.label">Étudiants accompagnés</div>
+      </div>
+      <div class="ph-stat-divider" aria-hidden="true"></div>
+      <div class="ph-stat-item">
+        <div class="ph-stat-number" data-i18n="stat4.value">4.9★</div>
+        <div class="ph-stat-label" data-i18n="stat4.label">Avis Google</div>
       </div>
     </div>
   </section>
 
-  <section class="section section-alt reveal">
-    <div class="page-deco page-deco-ring" style="top:-60px;right:-80px" aria-hidden="true"></div>
-    <div class="page-deco page-deco-dots" style="bottom:20px;left:40px" aria-hidden="true"></div>
-    <div class="container">
-      <div class="stats-row">
-        <div class="stat-item">
-          <div class="stat-item-icon">📅</div>
-          <div class="stat-item-value counter" data-target="12" data-i18n="stat1.value">0</div>
-          <div class="stat-item-label" data-i18n="stat1.label">Années d'expérience</div>
+  <!-- ═══════════════════════════════════════════
+       PROGRAMS — Client's 6 flagship parcours
+       ═══════════════════════════════════════════ -->
+  <section class="ph-programs" id="services">
+    <div class="ph-section-deco ph-section-deco-ring" style="top:80px;left:-120px" aria-hidden="true"></div>
+    <div class="ph-section-deco ph-section-deco-blob" style="bottom:200px;right:-100px" aria-hidden="true"></div>
+
+    <div class="ph-programs-header ph-reveal">
+      <span class="ph-eyebrow">Nos programmes</span>
+      <h2 class="ph-section-title">Nos parcours <span class="ph-text-gradient">phares</span></h2>
+      <p class="ph-section-subtitle">Rejoignez un programme conçu pour vous faire progresser réellement, dans un environnement motivant et stimulant, spécialement pensé pour les adultes.</p>
+    </div>
+
+    <!-- Card 1: Parcours linguistique (Français) -->
+    <div class="ph-program-card ph-reveal">
+      <div class="ph-pcard-image">
+        <img src="img/home/banner-parcours-linguistiques.png" alt="Parcours linguistique" loading="lazy">
+        <div class="ph-pcard-image-overlay"></div>
+      </div>
+      <div class="ph-pcard-body">
+        <div class="ph-pcard-tags">
+          <span class="ph-tag ph-tag-orange">Français Express</span>
+          <span class="ph-tag ph-tag-green">Soirée Linguo</span>
+          <span class="ph-tag ph-tag-blue">Samedis en français</span>
+          <span class="ph-tag ph-tag-purple">Petits groupes</span>
         </div>
-        <div class="stat-item">
-          <div class="stat-item-icon">🎯</div>
-          <div class="stat-item-value counter" data-target="98" data-i18n="stat2.value">0</div>
-          <div class="stat-item-label" data-i18n="stat2.label">% de réussite aux examens</div>
+        <h3 class="ph-pcard-title">Parcours linguistique</h3>
+        <p class="ph-pcard-desc">Nos cours de groupe à effectif réduit (maximum 5 participants) vous offrent bien plus qu'une simple formation : vous bénéficiez d'un espace dynamique où vous pouvez pratiquer, poser vos questions et développer votre confiance à chaque séance. Grâce à une approche structurée et centrée sur vos objectifs, vous progressez plus rapidement et plus efficacement.</p>
+        <a href="pages/parcours-linguistique.html" class="ph-btn ph-btn-primary">
+          <span>Découvrir le parcours</span>
+          <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 2: Parcours English -->
+    <div class="ph-program-card ph-program-card-reverse ph-reveal">
+      <div class="ph-pcard-image">
+        <img src="img/home/banner-english-linguistic.png" alt="Parcours English" loading="lazy">
+        <div class="ph-pcard-image-overlay"></div>
+      </div>
+      <div class="ph-pcard-body">
+        <div class="ph-pcard-tags">
+          <span class="ph-tag ph-tag-orange">English Express</span>
+          <span class="ph-tag ph-tag-green">Evening Lingo</span>
+          <span class="ph-tag ph-tag-blue">Saturdays in English</span>
+          <span class="ph-tag ph-tag-purple">Small groups</span>
         </div>
-        <div class="stat-item">
-          <div class="stat-item-icon">👥</div>
-          <div class="stat-item-value counter" data-target="950" data-i18n="stat3.value">0</div>
-          <div class="stat-item-label" data-i18n="stat3.label">Étudiants accompagnés</div>
+        <h3 class="ph-pcard-title">Parcours English</h3>
+        <p class="ph-pcard-desc">Do you want to master English quickly for work, studies, or everyday life? Join our intensive programs and see real progress from the very first week. With small groups (max. 5), personalized support, and flexible schedules, our pathways are designed for adult learners who want fast, structured results.</p>
+        <a href="pages/english-express.html" class="ph-btn ph-btn-primary">
+          <span>Découvrir le parcours</span>
+          <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 3: Cap sur l'oral -->
+    <div class="ph-program-card ph-reveal">
+      <div class="ph-pcard-image">
+        <img src="img/home/banner-linguotest.png" alt="Cap sur l'oral" loading="lazy">
+        <div class="ph-pcard-image-overlay"></div>
+      </div>
+      <div class="ph-pcard-body">
+        <div class="ph-pcard-tags">
+          <span class="ph-tag ph-tag-orange">Oral B temps partiel</span>
+          <span class="ph-tag ph-tag-green">Oral B intensif</span>
+          <span class="ph-tag ph-tag-blue">Oral C temps partiel</span>
+          <span class="ph-tag ph-tag-purple">Oral C intensif</span>
         </div>
-        <div class="stat-item">
-          <div class="stat-item-icon">⭐</div>
-          <div class="stat-item-value" data-i18n="stat4.value">4.9★</div>
-          <div class="stat-item-label" data-i18n="stat4.label">Avis Google</div>
+        <h3 class="ph-pcard-title">Cap sur l'oral</h3>
+        <p class="ph-pcard-desc">Chez Cultulangues, nous croyons que l'oral est bien plus qu'une compétence : c'est un levier de confiance, de précision et de stratégie. Nous vous accompagnons avec deux formats flexibles, temps partiel ou intensif, pour s'adapter à votre rythme et à vos objectifs. Le parcours B vous aide à développer une communication professionnelle avancée. Le parcours C vous guide vers une expression nuancée, stratégique et conforme aux exigences du TCO.</p>
+        <a href="pages/cap-sur-l-oral.html" class="ph-btn ph-btn-primary">
+          <span>Découvrir le parcours</span>
+          <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 4: Préparation TCF -->
+    <div class="ph-program-card ph-program-card-reverse ph-reveal">
+      <div class="ph-pcard-image">
+        <img src="img/banner-tcf-preparation.png" alt="Préparation TCF" loading="lazy">
+        <div class="ph-pcard-image-overlay"></div>
+      </div>
+      <div class="ph-pcard-body">
+        <div class="ph-pcard-tags">
+          <span class="ph-tag ph-tag-orange">TCF Québec régulier</span>
+          <span class="ph-tag ph-tag-green">TCF Québec intensif</span>
+          <span class="ph-tag ph-tag-blue">TCF Canada régulier</span>
+          <span class="ph-tag ph-tag-purple">TCF Canada intensif</span>
         </div>
+        <h3 class="ph-pcard-title">Préparation TCF</h3>
+        <p class="ph-pcard-desc">Le TCF est un test officiel pour vos démarches d'immigration au Québec ou auprès d'IRCC. Avec une préparation adaptée, il devient beaucoup plus accessible. Chez Cultulangues, nous vous guidons étape par étape pour que vous sachiez exactement comment répondre, structurer vos idées et gérer votre temps le jour du test. Formats réguliers (14 semaines) et intensifs (7 semaines) disponibles.</p>
+        <a href="pages/tcf-preparation.html" class="ph-btn ph-btn-primary">
+          <span>Découvrir le parcours</span>
+          <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 5: Formation en solo -->
+    <div class="ph-program-card ph-reveal">
+      <div class="ph-pcard-image">
+        <img src="img/package-solo-a1.png" alt="Formation en solo" loading="lazy">
+        <div class="ph-pcard-image-overlay"></div>
+      </div>
+      <div class="ph-pcard-body">
+        <div class="ph-pcard-tags">
+          <span class="ph-tag ph-tag-orange">Forfait 5h — 225 $</span>
+          <span class="ph-tag ph-tag-green">Forfait 10h — 420 $</span>
+          <span class="ph-tag ph-tag-blue">Forfait 15h — 600 $</span>
+          <span class="ph-tag ph-tag-purple">Forfait 20h — 760 $</span>
+        </div>
+        <h3 class="ph-pcard-title">Formation en solo</h3>
+        <p class="ph-pcard-desc">Boostez votre français avec les cours solo Cultulangues, la formule la plus flexible et la plus efficace pour atteindre rapidement vos objectifs linguistiques. Choisissez exactement ce dont vous avez besoin : un parcours linguistique complet, une préparation TCF, un module de rafraîchissement, des simulations d'examen, et bien plus. S'inscrire, c'est simple, rapide et entièrement flexible.</p>
+        <a href="pages/formation-en-solo.html" class="ph-btn ph-btn-primary">
+          <span>Découvrir le parcours</span>
+          <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 6: Ateliers -->
+    <div class="ph-program-card ph-program-card-reverse ph-reveal">
+      <div class="ph-pcard-image">
+        <img src="img/home/ateliers-banner.png" alt="Ateliers" loading="lazy">
+        <div class="ph-pcard-image-overlay"></div>
+      </div>
+      <div class="ph-pcard-body">
+        <div class="ph-pcard-tags">
+          <span class="ph-tag ph-tag-orange">Conversation</span>
+          <span class="ph-tag ph-tag-green">Culture du Canada</span>
+          <span class="ph-tag ph-tag-blue">Maintien &amp; renforcement</span>
+          <span class="ph-tag ph-tag-purple">Petits groupes</span>
+        </div>
+        <h3 class="ph-pcard-title">Ateliers</h3>
+        <p class="ph-pcard-desc">Un espace chaleureux, dynamique et bienveillant pour pratiquer le français en toute simplicité. Pendant 1 h par semaine, vous échangez sur des thèmes variés, développez votre spontanéité et gagnez en fluidité, sans pression, sans jugement, juste du vrai plaisir à parler. Explorez la culture canadienne et maintenez votre niveau avec des ateliers interactifs.</p>
+        <a href="pages/workshops.html" class="ph-btn ph-btn-primary">
+          <span>Découvrir les ateliers</span>
+          <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="section reveal" id="services">
-    <div class="page-deco page-deco-blob" style="top:10%;right:-5%" aria-hidden="true"></div>
-    <div class="page-deco page-deco-line" style="bottom:15%;left:5%" aria-hidden="true"></div>
-    <div class="container">
-      <div class="section-header">
-        <h2 data-i18n="services.title">Nos parcours <span class="text-gradient">phares</span></h2>
-        <p data-i18n="services.subtitle">Des parcours pensés pour des objectifs concrets : progresser à l'oral, préparer un test officiel, renforcer son français au quotidien ou bénéficier d'un accompagnement 100 % personnalisé.</p>
+  <!-- ═══════════════════════════════════════════
+       FULL-WIDTH IMAGE BREAK
+       ═══════════════════════════════════════════ -->
+  <section class="ph-image-break">
+    <img src="img/hero-parcours-linguistiques.png" alt="" loading="lazy" class="ph-image-break-img">
+    <div class="ph-image-break-overlay" aria-hidden="true"></div>
+    <div class="ph-image-break-content">
+      <span class="ph-image-break-stat"><span class="counter" data-target="12">0</span>+ années</span>
+      <span class="ph-image-break-divider" aria-hidden="true"></span>
+      <span class="ph-image-break-stat"><span class="counter" data-target="98">0</span>% réussite</span>
+      <span class="ph-image-break-divider" aria-hidden="true"></span>
+      <span class="ph-image-break-stat"><span class="counter" data-target="950">0</span>+ étudiants</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       WHY CHOOSE US — Dynamic asymmetric cards
+       ═══════════════════════════════════════════ -->
+  <section class="ph-why">
+    <div class="ph-section-deco ph-section-deco-circle" style="top:-80px;right:-100px" aria-hidden="true"></div>
+    <div class="ph-section-deco ph-section-deco-dots" style="bottom:60px;left:-40px" aria-hidden="true"></div>
+
+    <div class="ph-why-header ph-reveal">
+      <span class="ph-eyebrow">Pourquoi nous</span>
+      <h2 class="ph-section-title">Pourquoi <span class="ph-text-gradient">Cultulangues</span> ?</h2>
+      <p class="ph-section-subtitle" data-i18n="why.subtitle">Nous croyons en une approche humaine et exigeante pour vous accompagner vers la réussite.</p>
+    </div>
+
+    <div class="ph-why-grid">
+      <div class="ph-why-card ph-why-card-large ph-reveal">
+        <div class="ph-why-icon-wrap"><span class="ph-why-icon">👩‍🏫</span></div>
+        <h3 data-i18n="why.card1.title">Enseignants certifiés</h3>
+        <p data-i18n="why.card1.desc">Tous nos enseignants sont diplômés FLE et spécialisés dans la préparation aux examens TCF.</p>
       </div>
-
-      <div class="flagship-grid stagger-children">
-
-        <div class="flagship-card">
-          <div class="flagship-card-image">
-            <img src="img/home/banner-parcours-linguistiques.png" alt="Parcours linguistique" loading="lazy">
-          </div>
-          <div class="flagship-card-body">
-            <h3 data-i18n="flagship.1.title">Parcours linguistique</h3>
-            <p class="flagship-desc" data-i18n="flagship.1.desc">Un programme structuré en petit groupe pour progresser en français avec confiance, dans un environnement motivant et stimulant.</p>
-            <div class="flagship-highlights">
-              <span class="bubble-orange" data-i18n="flagship.1.tag1">Groupes de 5 max</span>
-              <span class="bubble-green" data-i18n="flagship.1.tag2">Adultes</span>
-              <span class="bubble-blue" data-i18n="flagship.1.tag3">Confiance</span>
-              <span class="bubble-purple" data-i18n="flagship.1.tag4">Français</span>
-            </div>
-            <a href="pages/parcours-linguistique.html" class="btn btn-primary" data-i18n="flagship.1.cta">Découvrir le parcours →</a>
-          </div>
-        </div>
-
-        <div class="flagship-card">
-          <div class="flagship-card-image">
-            <img src="img/home/banner-linguotest.png" alt="Cap sur l'oral — Lingo Test" loading="lazy">
-          </div>
-          <div class="flagship-card-body">
-            <h3 data-i18n="flagship.2.title">Cap sur l'oral — Lingo Test</h3>
-            <p class="flagship-desc" data-i18n="flagship.2.desc">Deux parcours collaboratifs en petit groupe pour maîtriser l'oral avec confiance et précision, spécialement conçus pour le TCO.</p>
-            <div class="flagship-highlights">
-              <span class="bubble-orange" data-i18n="flagship.2.tag1">Parcours B &amp; C</span>
-              <span class="bubble-green" data-i18n="flagship.2.tag2">TCO</span>
-              <span class="bubble-blue" data-i18n="flagship.2.tag3">Temps partiel/intensif</span>
-              <span class="bubble-purple" data-i18n="flagship.2.tag4">Anglais</span>
-            </div>
-            <a href="pages/cap-sur-l-oral.html" class="btn btn-primary" data-i18n="flagship.2.cta">Découvrir le parcours →</a>
-          </div>
-        </div>
-
-        <div class="flagship-card">
-          <div class="flagship-card-image">
-            <img src="img/banner-tcf-preparation.png" alt="Préparation TCF Québec" loading="lazy">
-          </div>
-          <div class="flagship-card-body">
-            <h3 data-i18n="flagship.3.title">Préparation TCF Québec</h3>
-            <p class="flagship-desc" data-i18n="flagship.3.desc">Un accompagnement structuré et bienveillant pour réussir votre TCF Québec et avancer sereinement dans votre projet d'immigration.</p>
-            <div class="flagship-highlights">
-              <span class="bubble-orange" data-i18n="flagship.3.tag1">Immigration</span>
-              <span class="bubble-green" data-i18n="flagship.3.tag2">Niveau B2</span>
-              <span class="bubble-blue" data-i18n="flagship.3.tag3">Examens blancs</span>
-              <span class="bubble-purple" data-i18n="flagship.3.tag4">TCF</span>
-            </div>
-            <a href="pages/tcf-preparation.html" class="btn btn-primary" data-i18n="flagship.3.cta">Découvrir le parcours →</a>
-          </div>
-        </div>
-
-        <div class="flagship-card">
-          <div class="flagship-card-image">
-            <img src="img/package-solo-a1.png" alt="Formation en solo" loading="lazy">
-          </div>
-          <div class="flagship-card-body">
-            <h3 data-i18n="flagship.4.title">Formation en solo</h3>
-            <p class="flagship-desc" data-i18n="flagship.4.desc">Des cours particuliers 100 % personnalisés, flexibles et adaptés à vos objectifs spécifiques. Forfaits de 5 h à 20 h.</p>
-            <div class="flagship-highlights">
-              <span class="bubble-orange" data-i18n="flagship.4.tag1">1-to-1</span>
-              <span class="bubble-green" data-i18n="flagship.4.tag2">Flexible</span>
-              <span class="bubble-blue" data-i18n="flagship.4.tag3">Forfaits 5h–20h</span>
-              <span class="bubble-purple" data-i18n="flagship.4.tag4">Personnalisé</span>
-            </div>
-            <a href="pages/formation-en-solo.html" class="btn btn-primary" data-i18n="flagship.4.cta">Découvrir le parcours →</a>
-          </div>
-        </div>
-
+      <div class="ph-why-card ph-reveal">
+        <div class="ph-why-icon-wrap"><span class="ph-why-icon">📊</span></div>
+        <h3 data-i18n="why.card2.title">Suivi personnalisé</h3>
+        <p data-i18n="why.card2.desc">Un parcours adapté à votre niveau, vos objectifs et votre rythme d'apprentissage.</p>
+      </div>
+      <div class="ph-why-card ph-reveal">
+        <div class="ph-why-icon-wrap"><span class="ph-why-icon">🤝</span></div>
+        <h3 data-i18n="why.card3.title">Approche bienveillante</h3>
+        <p data-i18n="why.card3.desc">Nous plaçons l'humain au cœur de notre pédagogie pour vous aider à donner le meilleur.</p>
       </div>
     </div>
   </section>
 
-  <section class="section section-alt reveal">
-    <div class="page-deco page-deco-ring-2" style="top:-40px;left:-60px" aria-hidden="true"></div>
-    <div class="page-deco page-deco-dots" style="bottom:30px;right:50px" aria-hidden="true"></div>
-    <div class="container">
-      <div class="section-header">
-        <h2 data-i18n="why.title">Pourquoi <span class="text-gradient">Cultulangues</span> ?</h2>
-        <p data-i18n="why.subtitle">Nous croyons en une approche humaine et exigeante pour vous accompagner vers la réussite.</p>
+  <!-- ═══════════════════════════════════════════
+       COMPARISON — Premium table
+       ═══════════════════════════════════════════ -->
+  <section class="ph-comparison">
+    <div class="ph-comparison-inner">
+      <div class="ph-comparison-header ph-reveal">
+        <span class="ph-eyebrow">Comparez</span>
+        <h2 class="ph-section-title">Quel parcours vous <span class="ph-text-gradient">correspond</span> ?</h2>
+        <p class="ph-section-subtitle" data-i18n="compare.subtitle">Comparez nos 4 parcours phares pour trouver celui qui correspond à vos objectifs, votre rythme et vos besoins.</p>
       </div>
-      <div class="why-grid stagger-children">
-        <div class="card why-card">
-          <div class="why-icon">👩‍🏫</div>
-          <h3 data-i18n="why.card1.title">Enseignants certifiés</h3>
-          <p data-i18n="why.card1.desc">Tous nos enseignants sont diplômés FLE et spécialisés dans la préparation aux examens TCF.</p>
-        </div>
-        <div class="card why-card">
-          <div class="why-icon">📊</div>
-          <h3 data-i18n="why.card2.title">Suivi personnalisé</h3>
-          <p data-i18n="why.card2.desc">Un parcours adapté à votre niveau, vos objectifs et votre rythme d'apprentissage.</p>
-        </div>
-        <div class="card why-card">
-          <div class="why-icon">🤝</div>
-          <h3 data-i18n="why.card3.title">Approche bienveillante</h3>
-          <p data-i18n="why.card3.desc">Nous plaçons l'humain au cœur de notre pédagogie pour vous aider à donner le meilleur.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt reveal">
-    <div class="page-deco page-deco-ring" style="top:-50px;left:-70px" aria-hidden="true"></div>
-    <div class="page-deco page-deco-line" style="bottom:10%;right:8%" aria-hidden="true"></div>
-    <div class="container">
-      <div class="section-header">
-        <h2 data-i18n="compare.title">Quel parcours vous <span class="text-gradient">correspond</span> ?</h2>
-        <p data-i18n="compare.subtitle">Comparez nos 4 parcours phares pour trouver celui qui correspond à vos objectifs, votre rythme et vos besoins.</p>
-      </div>
-      <div class="comparison-wrap">
-        <table class="comparison-table">
+      <div class="ph-table-wrap ph-reveal">
+        <table class="ph-table">
           <thead>
             <tr>
               <th><span data-i18n="compare.th.critere">Critère</span></th>
@@ -300,162 +384,141 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td data-i18n="compare.row.objectif">Objectif</td>
-              <td data-i18n="compare.pl.objectif">Progrès général en français</td>
-              <td data-i18n="compare.oral.objectif">Maîtrise orale &amp; TCO</td>
-              <td data-i18n="compare.tcf.objectif">TCF Québec &amp; immigration</td>
-              <td data-i18n="compare.solo.objectif">Objectifs personnalisés</td>
-            </tr>
-            <tr>
-              <td data-i18n="compare.row.format">Format</td>
-              <td data-i18n="compare.pl.format">Groupe (max 5)</td>
-              <td data-i18n="compare.oral.format">Groupe (max 5), temps partiel ou intensif</td>
-              <td data-i18n="compare.tcf.format">Parcours guidé, simulations</td>
-              <td data-i18n="compare.solo.format">1-to-1, full flexible</td>
-            </tr>
-            <tr>
-              <td data-i18n="compare.row.accompagnement">Accompagnement</td>
-              <td data-i18n="compare.pl.accomp">Structuré, collectif</td>
-              <td data-i18n="compare.oral.accomp">Expert oral, collaboratif</td>
-              <td data-i18n="compare.tcf.accomp">Étape par étape, bienveillant</td>
-              <td data-i18n="compare.solo.accomp">100 % sur-mesure</td>
-            </tr>
-            <tr>
-              <td data-i18n="compare.row.ideal">Idéal pour</td>
-              <td data-i18n="compare.pl.ideal">Adultes tous niveaux</td>
-              <td data-i18n="compare.oral.ideal">Candidats TCO</td>
-              <td data-i18n="compare.tcf.ideal">Projets immigration Québec</td>
-              <td data-i18n="compare.solo.ideal">Profil flexible ou ciblé</td>
-            </tr>
-            <tr>
-              <td data-i18n="compare.row.flexibilite">Flexibilité</td>
-              <td data-i18n="compare.pl.flex">Calendrier fixe</td>
-              <td data-i18n="compare.oral.flex">Temps partiel ou intensif</td>
-              <td data-i18n="compare.tcf.flex">Parcours progressif</td>
-              <td data-i18n="compare.solo.flex">Totale (5h–20h)</td>
-            </tr>
+            <tr><td data-i18n="compare.row.objectif">Objectif</td><td data-i18n="compare.pl.objectif">Progrès général en français</td><td data-i18n="compare.oral.objectif">Maîtrise orale &amp; TCO</td><td data-i18n="compare.tcf.objectif">TCF Québec &amp; immigration</td><td data-i18n="compare.solo.objectif">Objectifs personnalisés</td></tr>
+            <tr><td data-i18n="compare.row.format">Format</td><td data-i18n="compare.pl.format">Groupe (max 5)</td><td data-i18n="compare.oral.format">Groupe (max 5), temps partiel ou intensif</td><td data-i18n="compare.tcf.format">Parcours guidé, simulations</td><td data-i18n="compare.solo.format">1-to-1, full flexible</td></tr>
+            <tr><td data-i18n="compare.row.accompagnement">Accompagnement</td><td data-i18n="compare.pl.accomp">Structuré, collectif</td><td data-i18n="compare.oral.accomp">Expert oral, collaboratif</td><td data-i18n="compare.tcf.accomp">Étape par étape, bienveillant</td><td data-i18n="compare.solo.accomp">100 % sur-mesure</td></tr>
+            <tr><td data-i18n="compare.row.ideal">Idéal pour</td><td data-i18n="compare.pl.ideal">Adultes tous niveaux</td><td data-i18n="compare.oral.ideal">Candidats TCO</td><td data-i18n="compare.tcf.ideal">Projets immigration Québec</td><td data-i18n="compare.solo.ideal">Profil flexible ou ciblé</td></tr>
+            <tr><td data-i18n="compare.row.flexibilite">Flexibilité</td><td data-i18n="compare.pl.flex">Calendrier fixe</td><td data-i18n="compare.oral.flex">Temps partiel ou intensif</td><td data-i18n="compare.tcf.flex">Parcours progressif</td><td data-i18n="compare.solo.flex">Totale (5h–20h)</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
-  <section class="section reveal">
-    <div class="page-deco page-deco-blob" style="top:5%;left:-3%" aria-hidden="true"></div>
-    <div class="page-deco page-deco-dots" style="bottom:15%;right:5%" aria-hidden="true"></div>
-    <div class="container">
-      <div class="section-header">
-        <h2 data-i18n="testimonials.title">Ils nous font <span class="text-gradient">confiance</span></h2>
-        <p data-i18n="testimonials.subtitle">Découvrez les témoignages de nos étudiants.</p>
+  <!-- ═══════════════════════════════════════════
+       TESTIMONIALS — Large quotes, layered
+       ═══════════════════════════════════════════ -->
+  <section class="ph-testimonials">
+    <div class="ph-section-deco ph-section-deco-circle" style="top:40px;left:-60px" aria-hidden="true"></div>
+    <div class="ph-testimonials-header ph-reveal">
+      <span class="ph-eyebrow">Témoignages</span>
+      <h2 class="ph-section-title">Ils nous font <span class="ph-text-gradient">confiance</span></h2>
+      <p class="ph-section-subtitle" data-i18n="testimonials.subtitle">Découvrez les témoignages de nos étudiants.</p>
+    </div>
+    <div class="ph-testimonials-grid">
+      <div class="ph-testimonial-card ph-reveal">
+        <div class="ph-testimonial-quote" aria-hidden="true">"</div>
+        <div class="ph-testimonial-stars">★★★★★</div>
+        <p class="ph-testimonial-text" data-i18n="testimonial1.text">Grâce à Cultulangues, j'ai obtenu mon TCF Québec avec mention B2. L'accompagnement personnalisé et les simulations d'examen m'ont vraiment préparée.</p>
+        <div class="ph-testimonial-author">
+          <div class="ph-testimonial-avatar">M</div>
+          <div>
+            <h4 data-i18n="testimonial1.name">Maria S.</h4>
+            <span data-i18n="testimonial1.info">TCF Québec — Niveau B2</span>
+          </div>
+        </div>
       </div>
-      <div class="testimonials-grid stagger-children">
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text" data-i18n="testimonial1.text">Grâce à Cultulangues, j'ai obtenu mon TCF Québec avec mention B2. L'accompagnement personnalisé et les simulations d'examen m'ont vraiment préparée.</p>
-          <div class="testimonial-author">
-            <div class="avatar">M</div>
-            <div class="testimonial-author-info">
-              <h4 data-i18n="testimonial1.name">Maria S.</h4>
-              <span data-i18n="testimonial1.info">TCF Québec — Niveau B2</span>
-            </div>
+      <div class="ph-testimonial-card ph-reveal">
+        <div class="ph-testimonial-quote" aria-hidden="true">"</div>
+        <div class="ph-testimonial-stars">★★★★★</div>
+        <p class="ph-testimonial-text" data-i18n="testimonial2.text">Une équipe formidable qui m'a aidé à reprendre confiance en mon français oral. Les ateliers de conversation ont été une vraie révélation.</p>
+        <div class="ph-testimonial-author">
+          <div class="ph-testimonial-avatar">A</div>
+          <div>
+            <h4 data-i18n="testimonial2.name">Ahmed K.</h4>
+            <span data-i18n="testimonial2.info">Préparation Orale — Niveau C1</span>
           </div>
         </div>
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text" data-i18n="testimonial2.text">Une équipe formidable qui m'a aidé à reprendre confiance en mon français oral. Les ateliers de conversation ont été une vraie révélation.</p>
-          <div class="testimonial-author">
-            <div class="avatar">A</div>
-            <div class="testimonial-author-info">
-              <h4 data-i18n="testimonial2.name">Ahmed K.</h4>
-              <span data-i18n="testimonial2.info">Préparation Orale — Niveau C1</span>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text" data-i18n="testimonial3.text">Je recommande sans hésiter. La plateforme est claire, les cours sont bien structurés et les professeurs sont à l'écoute. Exactement ce qu'il me fallait.</p>
-          <div class="testimonial-author">
-            <div class="avatar">L</div>
-            <div class="testimonial-author-info">
-              <h4 data-i18n="testimonial3.name">Laura P.</h4>
-              <span data-i18n="testimonial3.info">TCF Canada — Niveau C1</span>
-            </div>
+      </div>
+      <div class="ph-testimonial-card ph-reveal">
+        <div class="ph-testimonial-quote" aria-hidden="true">"</div>
+        <div class="ph-testimonial-stars">★★★★★</div>
+        <p class="ph-testimonial-text" data-i18n="testimonial3.text">Je recommande sans hésiter. La plateforme est claire, les cours sont bien structurés et les professeurs sont à l'écoute. Exactement ce qu'il me fallait.</p>
+        <div class="ph-testimonial-author">
+          <div class="ph-testimonial-avatar">L</div>
+          <div>
+            <h4 data-i18n="testimonial3.name">Laura P.</h4>
+            <span data-i18n="testimonial3.info">TCF Canada — Niveau C1</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section reveal">
-    <div class="container">
-      <div class="cta-banner" style="border-radius:var(--radius-2xl)">
-        <div class="page-deco page-deco-ring" style="top:-80px;right:-60px;opacity:0.5" aria-hidden="true"></div>
-        <h2 data-i18n="cta.home.title">Prêt à commencer votre parcours ?</h2>
-        <p data-i18n="cta.home.desc">Rejoignez plus de 950 étudiants qui nous font confiance pour leur préparation linguistique.</p>
-        <a href="pages/register.html" class="btn btn-white btn-lg" data-i18n="cta.home.btn">Créer mon compte gratuit →</a>
-      </div>
+  <!-- ═══════════════════════════════════════════
+       CTA — Premium banner
+       ═══════════════════════════════════════════ -->
+  <section class="ph-cta">
+    <div class="ph-cta-glow ph-cta-glow-1" aria-hidden="true"></div>
+    <div class="ph-cta-glow ph-cta-glow-2" aria-hidden="true"></div>
+    <div class="ph-cta-deco ph-cta-deco-circle" aria-hidden="true"></div>
+    <div class="ph-cta-deco ph-cta-deco-line" aria-hidden="true"></div>
+    <div class="ph-cta-inner ph-reveal">
+      <h2 data-i18n="cta.home.title">Prêt à commencer votre parcours ?</h2>
+      <p data-i18n="cta.home.desc">Rejoignez plus de 950 étudiants qui nous font confiance pour leur préparation linguistique.</p>
+      <a href="pages/register.html" class="ph-btn ph-btn-white ph-btn-xl" data-i18n="cta.home.btn">
+        <span>Créer mon compte gratuit</span>
+        <svg class="ph-btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </section>
 
-  <footer class="public-footer">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="logo">
-            <img src="img/image-Photoroom.png" alt="Cultulangues" class="logo-img">
+  <!-- ═══════════════════════════════════════════
+       FOOTER — Premium multi-column
+       ═══════════════════════════════════════════ -->
+  <footer class="ph-footer">
+    <div class="ph-footer-deco" aria-hidden="true"></div>
+    <div class="ph-footer-inner">
+      <div class="ph-footer-top">
+        <div class="ph-footer-brand">
+          <a href="index.html" class="ph-footer-logo">
+            <img src="img/image-Photoroom.png" alt="Cultulangues">
           </a>
-          <p class="brand-desc" data-i18n="footer.brand">Formation linguistique & Préparation aux examens.</p>
-        </div>
-        <div>
-          <h4 class="footer-heading" data-i18n="footer.courses">Cours</h4>
-          <div class="footer-links">
-            <a href="pages/parcours-linguistique.html" data-i18n="nav.parcours">Parcours linguistique</a>
-            <a href="pages/cap-sur-l-oral.html" data-i18n="nav.oral">Cap sur l'oral</a>
-            <a href="pages/tcf-preparation.html" data-i18n="nav.tcf">Préparation TCF Québec</a>
-            <a href="pages/formation-en-solo.html" data-i18n="nav.solo">Formation en solo</a>
-            <a href="pages/contact.html" data-i18n="nav.contact">Contact</a>
+          <p data-i18n="footer.brand">Formation linguistique & Préparation aux examens.</p>
+          <div class="ph-footer-social">
+            <a href="#" title="Facebook" class="ph-social-link">f</a>
+            <a href="#" title="Instagram" class="ph-social-link">◻</a>
+            <a href="#" title="LinkedIn" class="ph-social-link">in</a>
+            <a href="#" title="YouTube" class="ph-social-link">▶</a>
           </div>
         </div>
-        <div>
-          <h4 class="footer-heading" data-i18n="footer.info">Informations</h4>
-          <div class="footer-links">
-            <a href="pages/about.html" data-i18n="footer.info.about">À propos</a>
-            <a href="pages/contact.html" data-i18n="footer.info.contact">Contact</a>
-            <a href="#" data-i18n="footer.info.terms">Mentions légales</a>
-            <a href="#" data-i18n="footer.info.privacy">Politique de confidentialité</a>
-          </div>
+        <div class="ph-footer-col">
+          <h4 data-i18n="footer.courses">Cours</h4>
+          <a href="pages/parcours-linguistique.html" data-i18n="nav.parcours">Parcours linguistique</a>
+          <a href="pages/cap-sur-l-oral.html" data-i18n="nav.oral">Cap sur l'oral</a>
+          <a href="pages/tcf-preparation.html" data-i18n="nav.tcf">Préparation TCF Québec</a>
+          <a href="pages/formation-en-solo.html" data-i18n="nav.solo">Formation en solo</a>
+          <a href="pages/contact.html" data-i18n="nav.contact">Contact</a>
         </div>
-        <div>
-          <h4 class="footer-heading" data-i18n="footer.contact.title">Contact</h4>
-          <div class="footer-contact-item">
-            <span class="fci-icon">✉</span>
-            <span class="fci-text" data-i18n="footer.contact.email">contact@cultulangues.fr</span>
+        <div class="ph-footer-col">
+          <h4 data-i18n="footer.info">Informations</h4>
+          <a href="pages/about.html" data-i18n="footer.info.about">À propos</a>
+          <a href="pages/contact.html" data-i18n="footer.info.contact">Contact</a>
+          <a href="#" data-i18n="footer.info.terms">Mentions légales</a>
+          <a href="#" data-i18n="footer.info.privacy">Politique de confidentialité</a>
+        </div>
+        <div class="ph-footer-col">
+          <h4 data-i18n="footer.contact.title">Contact</h4>
+          <div class="ph-footer-contact">
+            <span>✉</span>
+            <span data-i18n="footer.contact.email">contact@cultulangues.fr</span>
           </div>
-          <div class="footer-contact-item">
-            <span class="fci-icon">📞</span>
-            <span class="fci-text" data-i18n="footer.contact.phone">+33 1 23 45 67 89</span>
+          <div class="ph-footer-contact">
+            <span>📞</span>
+            <span data-i18n="footer.contact.phone">+33 1 23 45 67 89</span>
           </div>
-          <div class="footer-contact-item">
-            <span class="fci-icon">📍</span>
-            <span class="fci-text" data-i18n="footer.contact.location">Paris, France</span>
-          </div>
-          <div class="footer-social-row">
-            <a href="#" title="Facebook">f</a>
-            <a href="#" title="Instagram">◻</a>
-            <a href="#" title="LinkedIn">in</a>
-            <a href="#" title="YouTube">▶</a>
+          <div class="ph-footer-contact">
+            <span>📍</span>
+            <span data-i18n="footer.contact.location">Paris, France</span>
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <div class="footer-bottom-left">
-          <span>© 2026 <span data-i18n="footer.copyright">Cultulangues. Tous droits réservés.</span></span>
-          <span data-i18n="footer.made">🌿 Fait avec bienveillance</span>
-        </div>
-        <div class="lang-switcher">
-          <button class="lang-opt" data-lang="fr" onclick="window.switchLanguage('fr')" data-i18n="lang.fr">FR</button>
-          <button class="lang-opt" data-lang="en" onclick="window.switchLanguage('en')" data-i18n="lang.en">EN</button>
+      <div class="ph-footer-bottom">
+        <span>© 2026 <span data-i18n="footer.copyright">Cultulangues. Tous droits réservés.</span></span>
+        <span data-i18n="footer.made">🌿 Fait avec bienveillance</span>
+        <div class="ph-footer-lang">
+          <button class="ph-lang-opt" data-lang="fr" onclick="window.switchLanguage('fr')" data-i18n="lang.fr">FR</button>
+          <button class="ph-lang-opt" data-lang="en" onclick="window.switchLanguage('en')" data-i18n="lang.en">EN</button>
         </div>
       </div>
     </div>
