@@ -2967,6 +2967,57 @@
     initStagger();
 
     /* ───────────────────────────────────────────────
+       STAGGERED CARD REVEAL — Premium
+       ─────────────────────────────────────────────── */
+    function initStaggeredCards() {
+      var grids = document.querySelectorAll('.flagship-grid, .why-grid, .testimonials-grid, .stats-row');
+      grids.forEach(function (grid) {
+        var children = grid.children;
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              Array.from(children).forEach(function (child, i) {
+                child.style.opacity = '0';
+                child.style.transform = 'translateY(40px)';
+                child.style.transition = 'opacity 0.7s cubic-bezier(0.16,1,0.3,1) ' + (i * 0.12) + 's, transform 0.7s cubic-bezier(0.16,1,0.3,1) ' + (i * 0.12) + 's';
+                requestAnimationFrame(function () {
+                  child.style.opacity = '1';
+                  child.style.transform = 'translateY(0)';
+                });
+              });
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        observer.observe(grid);
+      });
+    }
+    initStaggeredCards();
+
+    /* ───────────────────────────────────────────────
+       PARALLAX DECORATIVE ELEMENTS
+       ─────────────────────────────────────────────── */
+    function initParallaxDecos() {
+      var decos = document.querySelectorAll('.hero-deco, .page-deco');
+      if (!decos.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(function () {
+            var scrollY = window.scrollY;
+            decos.forEach(function (deco) {
+              var speed = 0.03;
+              deco.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
+            });
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+    initParallaxDecos();
+
+    /* ───────────────────────────────────────────────
        HEADER SCROLL
        ─────────────────────────────────────────────── */
     function initHeaderScroll() {
