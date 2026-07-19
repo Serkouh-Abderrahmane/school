@@ -68,10 +68,10 @@
         <div class="form-group">
           <label class="form-label" data-i18n="auth.register.bubbles_label">Choisissez votre parcours</label>
           <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px">
-            <button type="button" class="reg-bubble selected" data-value="tcf_qc" data-i18n="auth.register.goal.tcf_qc" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:0.875rem;font-weight:600;border:2px solid rgba(250,78,48,0.15);background:linear-gradient(135deg,rgba(250,78,48,0.08),rgba(252,150,5,0.04));color:#C04520;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);font-family:var(--font);box-shadow:0 2px 8px rgba(0,0,0,0.03)">TCF Québec</button>
-            <button type="button" class="reg-bubble" data-value="tcf_ca" data-i18n="auth.register.goal.tcf_ca" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:0.875rem;font-weight:600;border:2px solid rgba(35,103,208,0.15);background:linear-gradient(135deg,rgba(35,103,208,0.08),rgba(66,189,250,0.04));color:#1A4D94;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);font-family:var(--font);box-shadow:0 2px 8px rgba(0,0,0,0.03)">TCF Canada</button>
-            <button type="button" class="reg-bubble" data-value="oral_bc" data-i18n="auth.register.goal.oral_bc" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:0.875rem;font-weight:600;border:2px solid rgba(115,206,101,0.15);background:linear-gradient(135deg,rgba(115,206,101,0.08),rgba(163,211,57,0.04));color:#2E7D24;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);font-family:var(--font);box-shadow:0 2px 8px rgba(0,0,0,0.03)">Oral B ou C</button>
-            <button type="button" class="reg-bubble" data-value="general" data-i18n="auth.register.goal.general" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:0.875rem;font-weight:600;border:2px solid rgba(155,89,182,0.15);background:linear-gradient(135deg,rgba(155,89,182,0.08),rgba(186,135,219,0.04));color:#6B3A8A;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);font-family:var(--font);box-shadow:0 2px 8px rgba(0,0,0,0.03)">Perfectionnement général</button>
+            <button type="button" class="reg-bubble selected" data-value="tcf_qc" data-i18n="auth.register.goal.tcf_qc" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:0.875rem;font-weight:600;border:2px solid rgba(250,78,48,0.15);background:rgba(250,78,48,0.08);color:#C04520;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);font-family:var(--font);box-shadow:0 2px 8px rgba(0,0,0,0.03)">TCF Québec</button>
+            <button type="button" class="reg-bubble" data-value="tcf_ca" data-i18n="auth.register.goal.tcf_ca" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:0.875rem;font-weight:600;border:2px solid rgba(35,103,208,0.15);background:rgba(35,103,208,0.08);color:#1A4D94;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);font-family:var(--font);box-shadow:0 2px 8px rgba(0,0,0,0.03)">TCF Canada</button>
+            <button type="button" class="reg-bubble" data-value="oral_bc" data-i18n="auth.register.goal.oral_bc" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:0.875rem;font-weight:600;border:2px solid rgba(115,206,101,0.15);background:rgba(115,206,101,0.08);color:#2E7D24;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);font-family:var(--font);box-shadow:0 2px 8px rgba(0,0,0,0.03)">Oral B ou C</button>
+            <button type="button" class="reg-bubble" data-value="general" data-i18n="auth.register.goal.general" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:0.875rem;font-weight:600;border:2px solid rgba(155,89,182,0.15);background:rgba(155,89,182,0.08);color:#6B3A8A;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);font-family:var(--font);box-shadow:0 2px 8px rgba(0,0,0,0.03)">Perfectionnement général</button>
           </div>
         </div>
         <div class="form-group">
@@ -98,10 +98,10 @@
       general: {bg:'#9B59B6',shadow:'0 4px 20px rgba(155,89,182,0.3)',border:'rgba(155,89,182,0.6)',text:'#fff'}
     };
     var defaults = {
-      tcf_qc:  {bg:'linear-gradient(135deg,rgba(250,78,48,0.08),rgba(252,150,5,0.04))',border:'rgba(250,78,48,0.15)',text:'#C04520',shadow:'0 2px 8px rgba(0,0,0,0.03)'},
-      tcf_ca:  {bg:'linear-gradient(135deg,rgba(35,103,208,0.08),rgba(66,189,250,0.04))',border:'rgba(35,103,208,0.15)',text:'#1A4D94',shadow:'0 2px 8px rgba(0,0,0,0.03)'},
-      oral_bc: {bg:'linear-gradient(135deg,rgba(115,206,101,0.08),rgba(163,211,57,0.04))',border:'rgba(115,206,101,0.15)',text:'#2E7D24',shadow:'0 2px 8px rgba(0,0,0,0.03)'},
-      general: {bg:'linear-gradient(135deg,rgba(155,89,182,0.08),rgba(186,135,219,0.04))',border:'rgba(155,89,182,0.15)',text:'#6B3A8A',shadow:'0 2px 8px rgba(0,0,0,0.03)'}
+      tcf_qc:  {bg:'rgba(250,78,48,0.08)',border:'rgba(250,78,48,0.15)',text:'#C04520',shadow:'0 2px 8px rgba(0,0,0,0.03)'},
+      tcf_ca:  {bg:'rgba(35,103,208,0.08)',border:'rgba(35,103,208,0.15)',text:'#1A4D94',shadow:'0 2px 8px rgba(0,0,0,0.03)'},
+      oral_bc: {bg:'rgba(115,206,101,0.08)',border:'rgba(115,206,101,0.15)',text:'#2E7D24',shadow:'0 2px 8px rgba(0,0,0,0.03)'},
+      general: {bg:'rgba(155,89,182,0.08)',border:'rgba(155,89,182,0.15)',text:'#6B3A8A',shadow:'0 2px 8px rgba(0,0,0,0.03)'}
     };
     var bubbles = document.querySelectorAll('.reg-bubble');
     var select = document.querySelector('select[name="goal"]');
