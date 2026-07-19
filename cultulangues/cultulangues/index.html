@@ -11,7 +11,7 @@
 <body class="home-page">
 
   <!-- ═══════════════════════════════════════════
-       NAVIGATION — Transparent, blur on scroll
+       NAVIGATION — Clean, minimal, premium
        ═══════════════════════════════════════════ -->
   <header class="ph-nav" id="header">
     <div class="ph-nav-inner">
@@ -60,100 +60,99 @@
   </header>
 
   <!-- ═══════════════════════════════════════════
-       HERO — Centered, cinematic
+       HERO — Split layout, editorial
        ═══════════════════════════════════════════ -->
   <section class="ph-hero" id="hero">
     <div class="ph-hero-bg" aria-hidden="true">
       <div class="ph-hero-glow ph-hero-glow-1"></div>
       <div class="ph-hero-glow ph-hero-glow-2"></div>
-      <div class="ph-hero-glow ph-hero-glow-3"></div>
-      <div class="ph-hero-grid"></div>
     </div>
-    <div class="ph-hero-deco ph-hero-deco-circle-1" aria-hidden="true"></div>
-    <div class="ph-hero-deco ph-hero-deco-circle-2" aria-hidden="true"></div>
-    <div class="ph-hero-deco ph-hero-deco-line-1" aria-hidden="true"></div>
-    <div class="ph-hero-deco ph-hero-deco-dots" aria-hidden="true"></div>
-    <div class="ph-hero-deco ph-hero-deco-cross" aria-hidden="true"></div>
 
     <div class="ph-hero-centered">
-      <div class="ph-hero-logo-wrap">
-        <img src="img/image-Photoroom.png" alt="Cultulangues" class="ph-hero-logo" loading="eager">
+      <div class="ph-hero-left">
+        <div class="ph-hero-badge ph-reveal">
+          <div class="ph-hero-badge-dot"></div>
+          <span data-i18n="hero.badge">École certifiée — +950 étudiants</span>
+        </div>
+
+        <h1 class="ph-hero-h1" data-i18n="hero.h1">
+          Chez CultuLangues, nous construisons votre réussite et donnons un nouvel élan à vos <span class="ph-text-gradient">projets</span>.
+        </h1>
+
+        <p class="ph-hero-sub" data-i18n="hero.intro">Vous souhaitez apprendre l'une des langues officielles du Canada pour :</p>
+
+        <div class="ph-hero-checklist">
+          <div class="ph-check-item">
+            <div class="ph-check-icon ph-check-orange">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <span data-i18n="hero.list.1">Faire évoluer votre carrière</span>
+          </div>
+          <div class="ph-check-item">
+            <div class="ph-check-icon ph-check-green">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <span data-i18n="hero.list.2">Réussir votre projet d'immigration</span>
+          </div>
+          <div class="ph-check-item">
+            <div class="ph-check-icon ph-check-blue">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <span data-i18n="hero.list.3">Gagner confiance et autonomie dans la vie quotidienne</span>
+          </div>
+        </div>
+
+        <div class="ph-hero-actions">
+          <a href="pages/register.html" class="ph-btn ph-btn-primary ph-btn-xl" data-i18n="hero.btn.primary">
+            <span>Découvrez nos parcours d'apprentissage</span>
+            <svg class="ph-btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="pages/private-lessons.html" class="ph-btn ph-btn-ghost ph-btn-xl" data-i18n="hero.btn.secondary">
+            <span>Choisissez le format qui vous ressemble</span>
+          </a>
+        </div>
       </div>
 
-      <h1 class="ph-hero-h1" data-i18n="hero.h1">
-        Chez CultuLangues, nous construisons votre réussite et donnons un nouvel élan à vos <span class="ph-text-gradient">projets</span>.
-      </h1>
-
-      <p class="ph-hero-sub" data-i18n="hero.intro">Vous souhaitez apprendre l'une des langues officielles du Canada pour :</p>
-
-      <div class="ph-hero-checklist">
-        <div class="ph-check-item">
-          <div class="ph-check-icon ph-check-orange">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <div class="ph-hero-right">
+        <div class="ph-hero-image-wrap">
+          <img src="img/hero-maitrisez-langues.png" alt="Cultulangues — Apprendre une langue" class="ph-hero-image" loading="eager">
+          <div class="ph-hero-float ph-hero-float-1">
+            <div class="ph-hero-float-icon">👩‍🏫</div>
+            <div class="ph-hero-float-text">
+              <span class="ph-hero-float-value">+950 étudiants</span>
+              <span class="ph-hero-float-label">accompagnés avec succès</span>
+            </div>
           </div>
-          <span data-i18n="hero.list.1">Faire évoluer votre carrière</span>
-        </div>
-        <div class="ph-check-item">
-          <div class="ph-check-icon ph-check-green">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div class="ph-hero-float ph-hero-float-2">
+            <div class="ph-hero-float-icon">⭐</div>
+            <div class="ph-hero-float-text">
+              <span class="ph-hero-float-value">4.9 / 5</span>
+              <span class="ph-hero-float-label">note moyenne Google</span>
+            </div>
           </div>
-          <span data-i18n="hero.list.2">Réussir votre projet d'immigration</span>
-        </div>
-        <div class="ph-check-item">
-          <div class="ph-check-icon ph-check-blue">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          </div>
-          <span data-i18n="hero.list.3">Gagner confiance et autonomie dans la vie quotidienne</span>
         </div>
       </div>
-
-      <div class="ph-hero-actions">
-        <a href="pages/register.html" class="ph-btn ph-btn-primary ph-btn-xl" data-i18n="hero.btn.primary">
-          <span>Découvrez nos parcours d'apprentissage</span>
-          <svg class="ph-btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="pages/private-lessons.html" class="ph-btn ph-btn-ghost ph-btn-xl" data-i18n="hero.btn.secondary">
-          <span>Choisissez le format qui vous ressemble</span>
-        </a>
-      </div>
-
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════
-       STATS — Compact premium metrics
+       STATS — Clean horizontal bar
        ═══════════════════════════════════════════ -->
   <section class="ph-stats">
-    <div class="ph-stats-deco ph-stats-deco-ring-1" aria-hidden="true"></div>
-    <div class="ph-stats-deco ph-stats-deco-ring-2" aria-hidden="true"></div>
-    <div class="ph-stats-deco ph-stats-deco-dots" aria-hidden="true"></div>
-    <div class="ph-stats-deco ph-stats-deco-line" aria-hidden="true"></div>
     <div class="ph-stats-container">
       <div class="ph-stat-item">
-        <div class="ph-stat-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-        </div>
         <div class="ph-stat-number"><span class="counter" data-target="12" data-i18n="stat1.value">0</span></div>
         <div class="ph-stat-label" data-i18n="stat1.label">Années d'expérience</div>
       </div>
       <div class="ph-stat-item">
-        <div class="ph-stat-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
         <div class="ph-stat-number"><span class="counter" data-target="98" data-i18n="stat2.value">0</span><span class="ph-stat-suffix">%</span></div>
         <div class="ph-stat-label" data-i18n="stat2.label">de réussite aux examens</div>
       </div>
       <div class="ph-stat-item">
-        <div class="ph-stat-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
         <div class="ph-stat-number"><span class="ph-stat-plus">+</span><span class="counter" data-target="950" data-i18n="stat3.value">0</span></div>
         <div class="ph-stat-label" data-i18n="stat3.label">Étudiants accompagnés</div>
       </div>
       <div class="ph-stat-item">
-        <div class="ph-stat-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
         <div class="ph-stat-number" data-i18n="stat4.value">4.9<span class="ph-stat-suffix">★</span></div>
         <div class="ph-stat-label" data-i18n="stat4.label">Avis Google</div>
       </div>
@@ -161,11 +160,9 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       PROGRAMS — Complete showcase of all services
+       PROGRAMS — Editorial showcase
        ═══════════════════════════════════════════ -->
   <section class="ph-programs" id="services">
-    <div class="ph-section-deco ph-section-deco-ring" style="top:80px;left:-120px" aria-hidden="true"></div>
-    <div class="ph-section-deco ph-section-deco-blob" style="bottom:200px;right:-100px" aria-hidden="true"></div>
 
     <div class="ph-programs-header ph-reveal">
       <span class="ph-eyebrow">Nos programmes</span>
@@ -493,12 +490,9 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       WHY CHOOSE US — Dynamic asymmetric cards
+       WHY CHOOSE US — Asymmetric layout
        ═══════════════════════════════════════════ -->
   <section class="ph-why">
-    <div class="ph-section-deco ph-section-deco-circle" style="top:-80px;right:-100px" aria-hidden="true"></div>
-    <div class="ph-section-deco ph-section-deco-dots" style="bottom:60px;left:-40px" aria-hidden="true"></div>
-
     <div class="ph-why-header ph-reveal">
       <span class="ph-eyebrow">Pourquoi nous</span>
       <h2 class="ph-section-title">Pourquoi <span class="ph-text-gradient">Cultulangues</span> ?</h2>
@@ -525,10 +519,70 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       TESTIMONIALS — Large quotes, layered
+       COMPARISON TABLE
+       ═══════════════════════════════════════════ -->
+  <section class="ph-compare">
+    <div class="ph-compare-header ph-reveal">
+      <span class="ph-eyebrow">Comparaison</span>
+      <h2 class="ph-section-title">Quel parcours vous <span class="ph-text-gradient">correspond</span> ?</h2>
+      <p class="ph-section-subtitle">Comparez nos 4 parcours phares pour trouver celui qui correspond à vos objectifs, votre rythme et vos besoins.</p>
+    </div>
+    <div class="comparison-table ph-reveal">
+      <table>
+        <thead>
+          <tr>
+            <th data-i18n="compare.th.critere">Critère</th>
+            <th data-i18n="compare.th.pl">Parcours linguistique</th>
+            <th data-i18n="compare.th.oral">Cap sur l'oral</th>
+            <th data-i18n="compare.th.tcf">Préparation TCF</th>
+            <th data-i18n="compare.th.solo">Formation solo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-i18n="compare.row.objectif">Objectif</td>
+            <td data-i18n="compare.pl.objectif">Progrès général en français</td>
+            <td data-i18n="compare.oral.objectif">Maîtrise orale & TCO</td>
+            <td data-i18n="compare.tcf.objectif">TCF Québec & immigration</td>
+            <td data-i18n="compare.solo.objectif">Objectifs personnalisés</td>
+          </tr>
+          <tr>
+            <td data-i18n="compare.row.format">Format</td>
+            <td data-i18n="compare.pl.format">Groupe (max 5)</td>
+            <td data-i18n="compare.oral.format">Groupe (max 5), temps partiel ou intensif</td>
+            <td data-i18n="compare.tcf.format">Parcours guidé, simulations</td>
+            <td data-i18n="compare.solo.format">1-to-1, full flexible</td>
+          </tr>
+          <tr>
+            <td data-i18n="compare.row.accompagnement">Accompagnement</td>
+            <td data-i18n="compare.pl.accomp">Structuré, collectif</td>
+            <td data-i18n="compare.oral.accomp">Expert oral, collaboratif</td>
+            <td data-i18n="compare.tcf.accomp">Étape par étape, bienveillant</td>
+            <td data-i18n="compare.solo.accomp">100 % sur-mesure</td>
+          </tr>
+          <tr>
+            <td data-i18n="compare.row.ideal">Idéal pour</td>
+            <td data-i18n="compare.pl.ideal">Adultes tous niveaux</td>
+            <td data-i18n="compare.oral.ideal">Candidats TCO</td>
+            <td data-i18n="compare.tcf.ideal">Projets immigration Québec</td>
+            <td data-i18n="compare.solo.ideal">Profil flexible ou ciblé</td>
+          </tr>
+          <tr>
+            <td data-i18n="compare.row.flexibilite">Flexibilité</td>
+            <td data-i18n="compare.pl.flex">Calendrier fixe</td>
+            <td data-i18n="compare.oral.flex">Temps partiel ou intensif</td>
+            <td data-i18n="compare.tcf.flex">Parcours progressif</td>
+            <td data-i18n="compare.solo.flex">Totale (5h–20h)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TESTIMONIALS — Editorial layout
        ═══════════════════════════════════════════ -->
   <section class="ph-testimonials">
-    <div class="ph-section-deco ph-section-deco-circle" style="top:40px;left:-60px" aria-hidden="true"></div>
     <div class="ph-testimonials-header ph-reveal">
       <span class="ph-eyebrow">Témoignages</span>
       <h2 class="ph-section-title">Ils nous font <span class="ph-text-gradient">confiance</span></h2>
@@ -536,7 +590,6 @@
     </div>
     <div class="ph-testimonials-grid">
       <div class="ph-testimonial-card ph-reveal">
-        <div class="ph-testimonial-quote" aria-hidden="true">"</div>
         <div class="ph-testimonial-stars">★★★★★</div>
         <p class="ph-testimonial-text" data-i18n="testimonial1.text">Grâce à Cultulangues, j'ai obtenu mon TCF Québec avec mention B2. L'accompagnement personnalisé et les simulations d'examen m'ont vraiment préparée.</p>
         <div class="ph-testimonial-author">
@@ -548,7 +601,6 @@
         </div>
       </div>
       <div class="ph-testimonial-card ph-reveal">
-        <div class="ph-testimonial-quote" aria-hidden="true">"</div>
         <div class="ph-testimonial-stars">★★★★★</div>
         <p class="ph-testimonial-text" data-i18n="testimonial2.text">Une équipe formidable qui m'a aidé à reprendre confiance en mon français oral. Les ateliers de conversation ont été une vraie révélation.</p>
         <div class="ph-testimonial-author">
@@ -560,7 +612,6 @@
         </div>
       </div>
       <div class="ph-testimonial-card ph-reveal">
-        <div class="ph-testimonial-quote" aria-hidden="true">"</div>
         <div class="ph-testimonial-stars">★★★★★</div>
         <p class="ph-testimonial-text" data-i18n="testimonial3.text">Je recommande sans hésiter. La plateforme est claire, les cours sont bien structurés et les professeurs sont à l'écoute. Exactement ce qu'il me fallait.</p>
         <div class="ph-testimonial-author">
@@ -575,18 +626,9 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       CTA — Premium banner
+       CTA — Clean minimal conclusion
        ═══════════════════════════════════════════ -->
   <section class="ph-cta">
-    <div class="ph-cta-deco ph-cta-deco-ring-1" aria-hidden="true"></div>
-    <div class="ph-cta-deco ph-cta-deco-ring-2" aria-hidden="true"></div>
-    <div class="ph-cta-deco ph-cta-deco-dots" aria-hidden="true"></div>
-    <div class="ph-cta-deco ph-cta-deco-line-1" aria-hidden="true"></div>
-    <div class="ph-cta-deco ph-cta-deco-line-2" aria-hidden="true"></div>
-    <div class="ph-cta-float ph-cta-float-1" aria-hidden="true">📘</div>
-    <div class="ph-cta-float ph-cta-float-2" aria-hidden="true">🇨🇦</div>
-    <div class="ph-cta-float ph-cta-float-3" aria-hidden="true">🌍</div>
-    <div class="ph-cta-float ph-cta-float-4" aria-hidden="true">💬</div>
     <div class="ph-cta-inner ph-reveal">
       <h2 data-i18n="cta.home.title">Prêt à commencer votre parcours ?</h2>
       <p data-i18n="cta.home.desc">Rejoignez plus de 950 étudiants qui nous font confiance pour leur préparation linguistique.</p>
@@ -612,10 +654,9 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       FOOTER — Premium multi-column
+       FOOTER — Clean, well-organized
        ═══════════════════════════════════════════ -->
   <footer class="ph-footer">
-    <div class="ph-footer-deco" aria-hidden="true"></div>
     <div class="ph-footer-inner">
       <div class="ph-footer-top">
         <div class="ph-footer-brand">
