@@ -690,3 +690,15 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.45rem); letter-spacing: -0.025em; font-wei
   .trust-badge { font-size: 0.625rem; padding: 3px 8px; }
   .trust-strip { flex-direction: column; gap: 8px; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   PDF CONTENT LISTS
+   ══════════════════════════════════════════════════════════════ */
+.pdf-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.pdf-list li { padding: 14px 20px; background: var(--color-white); border-radius: 14px; border: 1px solid rgba(0,0,0,0.06); font-size: 0.95rem; line-height: 1.5; position: relative; padding-left: 44px; }
+.pdf-list li::before { content: '♦'; position: absolute; left: 16px; color: var(--color-orange); font-weight: 700; font-size: 1rem; }
+.section-title-group .section-badge { margin-bottom: 8px; }
+.tarif-text { font-size: 1.1rem; font-weight: 600; color: var(--color-text); padding: 20px 24px; background: var(--color-white); border-radius: 14px; border: 1px solid rgba(0,0,0,0.06); line-height: 1.6; }
+.description-text { font-size: 1rem; line-height: 1.75; color: var(--color-text); margin-bottom: 0; }
+.audience-text { font-size: 0.95rem; line-height: 1.7; color: var(--color-text); opacity: 0.85; padding: 16px 20px; background: rgba(250,78,48,0.04); border-radius: 14px; border-left: 3px solid var(--color-orange); }
+.intensif-text { font-size: 0.95rem; line-height: 1.7; color: var(--color-text); opacity: 0.85; }
