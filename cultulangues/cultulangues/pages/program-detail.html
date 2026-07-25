@@ -37,6 +37,10 @@
               <span class="dropdown-item-title" data-i18n="nav.solo">Formation en solo</span>
               <span class="dropdown-item-desc" data-i18n="nav.solo_desc">Un accompagnement 100 % personnalisé</span>
             </a>
+            <a href="workshops.html" class="dropdown-item">
+              <span class="dropdown-item-title" data-i18n="nav.ateliers">Ateliers</span>
+              <span class="dropdown-item-desc" data-i18n="nav.ateliers_desc">Pratiquer, échanger et perfectionner votre français</span>
+            </a>
           </div>
         </div>
         <a href="about.html" data-i18n="nav.about">À propos</a>
@@ -74,8 +78,8 @@
   <!-- ═══ DETAIL CONTENT ═══ -->
   <section class="section reveal">
     <div class="container">
-      <div class="program-detail-grid" data-course-card data-course-page="program-detail" data-course-id="tcf-quebec-intensif">
-        <div class="program-detail-main">
+      <div class="detail-layout">
+        <div class="detail-main">
 
           <h2 data-i18n="detail.description">Description du programme</h2>
            <p data-course-field="desc1">Notre préparation intensive au TCF Québec est conçue pour vous permettre d'atteindre le niveau requis pour vos objectifs linguistiques. Encadré par des enseignants certifiés FLE, vous bénéficierez d'une formation complète couvrant les 4 compétences évaluées : compréhension orale, compréhension écrite, expression orale et expression écrite.</p>
@@ -189,25 +193,28 @@
 
         </div>
 
-        <div class="program-detail-sidebar">
-          <div class="price-card">
-            <div class="price"><span data-course-field="price">450€</span> <small data-i18n="common.month">/ mois</small></div>
-            <p class="text-sm mt-sm" data-course-field="priceTotal">Soit 1 350€ pour l'ensemble du programme (12 semaines)</p>
-            <hr style="border: none; border-top: 1px solid var(--color-border-light); margin: var(--space-md) 0;">
-            <div class="flex flex-col gap-sm">
-              <div class="flex justify-between text-sm"><span class="text-muted" data-i18n="detail.duration">Durée</span><span data-course-field="durationSidebar">12 semaines</span></div>
-              <div class="flex justify-between text-sm"><span class="text-muted" data-i18n="detail.rhythm">Rythme</span><span data-course-field="rhythmSidebar">3x / semaine</span></div>
-              <div class="flex justify-between text-sm"><span class="text-muted" data-i18n="detail.participants">Participants</span><span data-course-field="studentsSidebar">8 max</span></div>
-              <div class="flex justify-between text-sm"><span class="text-muted" data-i18n="detail.nextSession">Prochaine session</span><span data-course-field="nextSession">5 Sept 2026</span></div>
-              <div class="flex justify-between text-sm"><span class="text-muted" data-i18n="detail.level">Niveau requis</span><span data-course-field="level">A2 minimum</span></div>
+        <div class="detail-sidebar">
+          <div class="booking-card">
+            <div class="booking-card-header">
+              <h3>Programme</h3>
+              <div class="bch-price">Sur devis</div>
             </div>
-            <hr style="border: none; border-top: 1px solid var(--color-border-light); margin: var(--space-md) 0;">
-            <a href="../booking.html?course=tcf-quebec&amp;program=intensif" class="btn btn-primary w-full" data-i18n="common.book">Réserver & payer</a>
-            <a href="register.html" class="btn btn-outline w-full mt-sm" data-i18n="detail.levelTest">Passer le test de niveau</a>
-            <button class="btn btn-ghost w-full mt-sm" data-i18n="detail.requestEval">Demander une évaluation</button>
+            <div class="booking-card-body">
+              <div class="booking-facts">
+                <div class="booking-fact"><span class="bf-icon">⏱</span><span class="bf-value">12 semaines</span><span class="bf-label">Durée</span></div>
+                <div class="booking-fact"><span class="bf-icon">📅</span><span class="bf-value">3x / semaine</span><span class="bf-label">Rythme</span></div>
+                <div class="booking-fact"><span class="bf-icon">👥</span><span class="bf-value">8 max</span><span class="bf-label">Groupe</span></div>
+                <div class="booking-fact"><span class="bf-icon">🕐</span><span class="bf-value">2h / séance</span><span class="bf-label">Format</span></div>
+              </div>
+              <div class="booking-cta">
+                <a href="../booking.html?course=tcf-quebec&amp;program=intensif" class="btn btn-primary">Réserver maintenant →</a>
+                <a href="contact.html" class="btn btn-outline">Nous contacter</a>
+              </div>
+              <p class="booking-note">Prochaine session : 5 Sept 2026<br>Paiement : virement, carte ou PayPal</p>
+            </div>
           </div>
         </div>
-      </div>
+      </div><!-- .detail-layout -->
     </div>
   </section>
 
@@ -341,6 +348,7 @@
             <a href="cap-sur-l-oral.html" data-i18n="nav.oral">Cap sur l'oral</a>
             <a href="tcf-preparation.html" data-i18n="nav.tcf">Préparation TCF Québec</a>
             <a href="formation-en-solo.html" data-i18n="nav.solo">Formation en solo</a>
+            <a href="workshops.html" data-i18n="nav.ateliers">Ateliers</a>
             <a href="contact.html" data-i18n="nav.contact">Contact</a>
           </div>
         </div>
@@ -390,6 +398,7 @@
 
   <div class="mobile-nav-overlay"></div>
 
+  <script src="../js/content-loader.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>

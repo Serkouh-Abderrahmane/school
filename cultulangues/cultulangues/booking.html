@@ -339,7 +339,7 @@
 
     <!-- Course summary card -->
     <div class="bk-summary" id="courseSummary">
-      <img class="bk-summary-thumb" id="bkSummaryThumb" src="img/hero-maitrisez-langues.png" alt="">
+      <img class="bk-summary-thumb" id="bkSummaryThumb" src="assets/services/homepage-hero.webp" alt="">
       <div class="bk-summary-info">
         <h3 class="bk-summary-name" id="csName">—</h3>
         <div class="bk-summary-desc" id="csDesc">—</div>
@@ -776,27 +776,27 @@
   };
 
   var bannerMap = {
-    'private': 'img/hero-maitrisez-langues.png',
-    'solo': 'img/hero-maitrisez-langues.png',
-    'tcf-quebec': 'img/hero-tcf-quebec.png',
-    'tcf-canada': 'img/hero-tcf-canada.png',
-    'tcf': 'img/banner-tcf-preparation.png',
-    'oral-bc': 'img/banner-oral-partiel.png',
-    'oral': 'img/home/banner-linguotest.png',
-    'oral-b': 'img/banner-oral-b-partiel.png',
-    'oral-c': 'img/hero-oral-c.png',
-    'intensif': 'img/home/banner-parcours-linguistiques.png',
-    'groupe': 'img/home/banner-parcours-linguistiques.png',
-    'samedi': 'img/banner-samedi-francais.png',
-    'workshop-conversation': 'img/atelier-conversation.png',
-    'workshop-culture': 'img/atelier-culture-canada.png',
-    'workshop-maintenance': 'img/atelier-maintien.png',
-    'francais-express': 'img/home/banner-parcours-linguistiques.png',
-    'english-express': 'img/banner-english-express.png',
-    'soiree-linguo': 'img/banner-soiree-linguo.png',
-    'evening-lingo': 'img/banner-evening-lingo.png',
-    'samedis-francais': 'img/banner-samedi-francais.png',
-    'saturdays-english': 'img/banner-samedi-anglais.png'
+    'private': 'assets/booking/formation-solo-booking.webp',
+    'solo': 'assets/booking/formation-solo-booking.webp',
+    'tcf-quebec': 'assets/booking/preparation-tcf-booking.webp',
+    'tcf-canada': 'assets/booking/preparation-tcf-booking.webp',
+    'tcf': 'assets/booking/preparation-tcf-booking.webp',
+    'oral-bc': 'assets/booking/cap-sur-loral-booking.webp',
+    'oral': 'assets/booking/cap-sur-loral-booking.webp',
+    'oral-b': 'assets/booking/cap-sur-loral-booking.webp',
+    'oral-c': 'assets/booking/cap-sur-loral-booking.webp',
+    'intensif': 'assets/booking/parcours-linguistique-booking.webp',
+    'groupe': 'assets/booking/parcours-linguistique-booking.webp',
+    'samedi': 'assets/booking/parcours-linguistique-booking.webp',
+    'workshop-conversation': 'assets/booking/ateliers-booking.webp',
+    'workshop-culture': 'assets/booking/ateliers-booking.webp',
+    'workshop-maintenance': 'assets/booking/ateliers-booking.webp',
+    'francais-express': 'assets/booking/parcours-linguistique-booking.webp',
+    'english-express': 'assets/booking/english-booking.webp',
+    'soiree-linguo': 'assets/booking/parcours-linguistique-booking.webp',
+    'evening-lingo': 'assets/booking/english-booking.webp',
+    'samedis-francais': 'assets/booking/parcours-linguistique-booking.webp',
+    'saturdays-english': 'assets/booking/english-booking.webp'
   };
 
   var programData = {
@@ -1062,7 +1062,7 @@
     document.getElementById('csName').textContent = name;
     document.getElementById('csDesc').textContent = desc;
     document.getElementById('csPrice').textContent = price;
-    var thumbImg = bannerMap[state.courseId] || 'img/hero-maitrisez-langues.png';
+    var thumbImg = bannerMap[state.courseId] || 'assets/services/homepage-hero.webp';
     document.getElementById('bkSummaryThumb').src = thumbImg;
   }
 

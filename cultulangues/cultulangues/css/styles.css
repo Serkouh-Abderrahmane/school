@@ -346,7 +346,7 @@ p{color:var(--color-text-secondary);line-height:1.8;margin-bottom:1rem;font-size
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:#FFFFFF;animation:fadeInBlur 0.8s ease-out}
 
 /* ── Background Image Layer ── */
-.hero-bg{position:absolute;top:0;right:0;bottom:0;left:35%;background-image:url('../img/hero-maitrisez-langues.png');background-size:cover;background-position:40% center;background-repeat:no-repeat;z-index:0;animation:heroFadeIn 1.2s ease-out forwards}
+.hero-bg{position:absolute;top:0;right:0;bottom:0;left:35%;background-image:url('../assets/services/homepage-hero.webp');background-size:cover;background-position:40% center;background-repeat:no-repeat;z-index:0;animation:heroFadeIn 1.2s ease-out forwards}
 @media(min-width:1200px){.hero-bg{left:30%}}
 
 /* ── Gradient Overlay ── */

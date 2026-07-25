@@ -3064,6 +3064,49 @@
     initPhStagger();
 
     /* ───────────────────────────────────────────────
+       HOMEPAGE — Explore cards smooth scroll + stagger
+       ─────────────────────────────────────────────── */
+    function initPhExplore() {
+      /* Smooth scroll for anchor links */
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          var target = document.querySelector(targetId);
+          if (!target) return;
+          e.preventDefault();
+          var offset = 90;
+          var y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        });
+      });
+
+      /* Staggered reveal for journey cards */
+      var journey = document.querySelector('.ph-journey');
+      if (!journey) return;
+      var cards = journey.querySelectorAll('.ph-journey-card');
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            cards.forEach(function (card) {
+              var delay = parseInt(card.getAttribute('data-delay') || '0', 10) * 100;
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(40px)';
+              card.style.transition = 'opacity 0.7s cubic-bezier(0.16,1,0.3,1) ' + delay + 'ms, transform 0.7s cubic-bezier(0.16,1,0.3,1) ' + delay + 'ms';
+              requestAnimationFrame(function () {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              });
+            });
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      obs.observe(journey);
+    }
+    initPhExplore();
+
+    /* ───────────────────────────────────────────────
        HOMEPAGE — Nav glass effect on scroll
        ─────────────────────────────────────────────── */
     function initPhNav() {
@@ -3115,6 +3158,48 @@
       }, { passive: true });
     }
     initPhHeroParallax();
+
+    /* ───────────────────────────────────────────────
+       HOMEPAGE — Hero image mouse parallax
+       ─────────────────────────────────────────────── */
+    function initPhHeroMouseParallax() {
+      var frame = document.querySelector('.ph-hero-image-frame');
+      var hero = document.querySelector('.ph-hero');
+      if (!frame || !hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (window.matchMedia('(max-width: 1024px)').matches) return;
+      var ticking = false;
+      hero.addEventListener('mousemove', function (e) {
+        if (!ticking) {
+          requestAnimationFrame(function () {
+            var rect = hero.getBoundingClientRect();
+            var x = (e.clientX - rect.left) / rect.width - 0.5;
+            var y = (e.clientY - rect.top) / rect.height - 0.5;
+            frame.style.transform = 'perspective(1200px) rotateY(' + (x * 3) + 'deg) rotateX(' + (-y * 2) + 'deg) translateX(' + (x * 6) + 'px) translateY(' + (y * 4) + 'px)';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+      hero.addEventListener('mouseleave', function () {
+        frame.style.transition = 'transform 600ms cubic-bezier(0.16,1,0.3,1)';
+        frame.style.transform = 'perspective(1200px) rotateY(0deg) rotateX(0deg) translateX(0) translateY(0)';
+        setTimeout(function () { frame.style.transition = ''; }, 600);
+      });
+    }
+    initPhHeroMouseParallax();
+
+    /* ───────────────────────────────────────────────
+       HOMEPAGE — Hero search bar scrolls to programs
+       ─────────────────────────────────────────────── */
+    function initPhHeroSearch() {
+      var search = document.querySelector('.ph-hero-search');
+      if (!search) return;
+      search.addEventListener('click', function () {
+        var programs = document.querySelector('.ph-programs');
+        if (programs) programs.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+    initPhHeroSearch();
 
     /* ───────────────────────────────────────────────
        HEADER SCROLL

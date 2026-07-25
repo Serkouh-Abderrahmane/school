@@ -11,7 +11,7 @@
 <body class="home-page">
 
   <!-- ═══════════════════════════════════════════
-       NAVIGATION — Clean, minimal, premium
+       NAVIGATION
        ═══════════════════════════════════════════ -->
   <header class="ph-nav" id="header">
     <div class="ph-nav-inner">
@@ -39,6 +39,10 @@
               <span class="ph-dd-title" data-i18n="nav.solo">Formation en solo</span>
               <span class="ph-dd-desc" data-i18n="nav.solo_desc">Un accompagnement 100 % personnalisé</span>
             </a>
+            <a href="pages/workshops.html" class="ph-dropdown-item">
+              <span class="ph-dd-title" data-i18n="nav.ateliers">Ateliers</span>
+              <span class="ph-dd-desc" data-i18n="nav.ateliers_desc">Pratiquer, échanger et perfectionner votre français</span>
+            </a>
           </div>
         </div>
         <a href="pages/about.html" data-i18n="nav.about">À propos</a>
@@ -60,16 +64,19 @@
   </header>
 
   <!-- ═══════════════════════════════════════════
-       HERO — Split layout, editorial
+       HERO — Premium Editorial Rebuild v3
+       Compact above-the-fold, checklist+CTAs side-by-side
        ═══════════════════════════════════════════ -->
   <section class="ph-hero" id="hero">
     <div class="ph-hero-bg" aria-hidden="true">
       <div class="ph-hero-glow ph-hero-glow-1"></div>
       <div class="ph-hero-glow ph-hero-glow-2"></div>
+      <div class="ph-hero-glow ph-hero-glow-3"></div>
+      <div class="ph-hero-grid-pattern"></div>
     </div>
 
-    <div class="ph-hero-centered">
-      <div class="ph-hero-left">
+    <div class="ph-hero-container">
+      <div class="ph-hero-content">
         <div class="ph-hero-badge ph-reveal">
           <div class="ph-hero-badge-dot"></div>
           <span data-i18n="hero.badge">École certifiée — +950 étudiants</span>
@@ -81,62 +88,183 @@
 
         <p class="ph-hero-sub" data-i18n="hero.intro">Vous souhaitez apprendre l'une des langues officielles du Canada pour :</p>
 
-        <div class="ph-hero-checklist">
-          <div class="ph-check-item">
-            <div class="ph-check-icon ph-check-orange">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <div class="ph-hero-actions-row">
+          <div class="ph-hero-checklist">
+            <div class="ph-check-item">
+              <div class="ph-check-icon ph-check-orange">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <span data-i18n="hero.list.1">Faire évoluer votre carrière</span>
             </div>
-            <span data-i18n="hero.list.1">Faire évoluer votre carrière</span>
-          </div>
-          <div class="ph-check-item">
-            <div class="ph-check-icon ph-check-green">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <div class="ph-check-item">
+              <div class="ph-check-icon ph-check-green">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <span data-i18n="hero.list.2">Réussir votre projet d'immigration</span>
             </div>
-            <span data-i18n="hero.list.2">Réussir votre projet d'immigration</span>
-          </div>
-          <div class="ph-check-item">
-            <div class="ph-check-icon ph-check-blue">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <div class="ph-check-item">
+              <div class="ph-check-icon ph-check-blue">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <span data-i18n="hero.list.3">Gagner confiance et autonomie dans la vie quotidienne</span>
             </div>
-            <span data-i18n="hero.list.3">Gagner confiance et autonomie dans la vie quotidienne</span>
           </div>
-        </div>
-
-        <div class="ph-hero-actions">
-          <a href="pages/register.html" class="ph-btn ph-btn-primary ph-btn-xl" data-i18n="hero.btn.primary">
-            <span>Découvrez nos parcours d'apprentissage</span>
-            <svg class="ph-btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="pages/private-lessons.html" class="ph-btn ph-btn-ghost ph-btn-xl" data-i18n="hero.btn.secondary">
-            <span>Choisissez le format qui vous ressemble</span>
-          </a>
+          <div class="ph-hero-ctas">
+            <a href="pages/register.html" class="ph-btn ph-btn-primary ph-btn-hero" data-i18n="hero.btn.primary">
+              <span>Découvrez nos parcours d'apprentissage</span>
+              <svg class="ph-btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="pages/private-lessons.html" class="ph-btn ph-btn-ghost ph-btn-hero" data-i18n="hero.btn.secondary">
+              <span>Choisissez le format qui vous ressemble</span>
+            </a>
+          </div>
         </div>
       </div>
 
-      <div class="ph-hero-right">
-        <div class="ph-hero-image-wrap">
+      <div class="ph-hero-visual">
+        <div class="ph-hero-image-glow" aria-hidden="true"></div>
+        <div class="ph-hero-image-shape">
           <img src="img/hero-maitrisez-langues.png" alt="Cultulangues — Apprendre une langue" class="ph-hero-image" loading="eager">
-          <div class="ph-hero-float ph-hero-float-1">
-            <div class="ph-hero-float-icon">👩‍🏫</div>
-            <div class="ph-hero-float-text">
-              <span class="ph-hero-float-value">+950 étudiants</span>
-              <span class="ph-hero-float-label">accompagnés avec succès</span>
-            </div>
+        </div>
+
+        <div class="ph-hero-float ph-hero-float-1">
+          <div class="ph-hero-float-icon">👩‍🏫</div>
+          <div class="ph-hero-float-text">
+            <span class="ph-hero-float-value">+950 étudiants</span>
+            <span class="ph-hero-float-label">accompagnés avec succès</span>
           </div>
-          <div class="ph-hero-float ph-hero-float-2">
-            <div class="ph-hero-float-icon">⭐</div>
-            <div class="ph-hero-float-text">
-              <span class="ph-hero-float-value">4.9 / 5</span>
-              <span class="ph-hero-float-label">note moyenne Google</span>
-            </div>
+        </div>
+
+        <div class="ph-hero-float ph-hero-float-2">
+          <div class="ph-hero-float-icon">⭐</div>
+          <div class="ph-hero-float-text">
+            <span class="ph-hero-float-value">4.9 / 5</span>
+            <span class="ph-hero-float-label">note moyenne Google</span>
           </div>
+        </div>
+
+        <div class="ph-hero-float ph-hero-float-3">
+          <div class="ph-hero-float-icon">🎓</div>
+          <div class="ph-hero-float-text">
+            <span class="ph-hero-float-value">12 ans</span>
+            <span class="ph-hero-float-label">d'expérience</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ph-hero-search-wrap">
+      <div class="ph-hero-search">
+        <svg class="ph-hero-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span class="ph-hero-search-text">Que souhaitez-vous apprendre ?</span>
+        <span class="ph-hero-search-btn">Explorer</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CHOOSE YOUR LEARNING JOURNEY — Premium showcase
+       ═══════════════════════════════════════════ -->
+  <section class="ph-explore">
+    <div class="ph-explore-container">
+      <div class="ph-explore-header ph-reveal">
+        <span class="ph-eyebrow">Nos programmes</span>
+        <h2 class="ph-explore-title">Choisissez votre <span class="ph-text-gradient">parcours</span></h2>
+        <p class="ph-explore-subtitle">Cinq voies d'apprentissage pensées pour vos objectifs. Explorez celle qui vous ressemble.</p>
+      </div>
+
+      <div class="ph-journey">
+        <!-- Row 1: 3 feature cards -->
+        <div class="ph-journey-row">
+          <a href="#parcours-linguistique" class="ph-journey-card ph-journey-card--1 ph-reveal" data-delay="0">
+            <div class="ph-journey-card-bg">
+              <img src="img/hero-parcours-linguistiques.png" alt="" loading="lazy">
+              <div class="ph-journey-card-overlay"></div>
+            </div>
+            <div class="ph-journey-card-content">
+              <span class="ph-journey-card-count">6 parcours disponibles</span>
+              <h3 class="ph-journey-card-title">Parcours linguistique</h3>
+              <p class="ph-journey-card-desc">Cours de groupe en petit groupe pour progresser avec confiance</p>
+              <span class="ph-journey-card-btn">
+                <span>Découvrir</span>
+                <svg class="ph-journey-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="#cap-sur-l-oral" class="ph-journey-card ph-journey-card--2 ph-reveal" data-delay="1">
+            <div class="ph-journey-card-bg">
+              <img src="img/hero-cap-sur-loral.png" alt="" loading="lazy">
+              <div class="ph-journey-card-overlay"></div>
+            </div>
+            <div class="ph-journey-card-content">
+              <span class="ph-journey-card-count">4 parcours disponibles</span>
+              <h3 class="ph-journey-card-title">Cap sur l'oral</h3>
+              <p class="ph-journey-card-desc">Maîtrisez l'expression orale avec des parcours collaboratifs</p>
+              <span class="ph-journey-card-btn">
+                <span>Découvrir</span>
+                <svg class="ph-journey-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="#preparation-tcf" class="ph-journey-card ph-journey-card--3 ph-reveal" data-delay="2">
+            <div class="ph-journey-card-bg">
+              <img src="img/hero-tcf.png" alt="" loading="lazy">
+              <div class="ph-journey-card-overlay"></div>
+            </div>
+            <div class="ph-journey-card-content">
+              <span class="ph-journey-card-count">4 parcours disponibles</span>
+              <h3 class="ph-journey-card-title">Préparation TCF</h3>
+              <p class="ph-journey-card-desc">Préparez-vous sereinement au test officiel TCF Québec & Canada</p>
+              <span class="ph-journey-card-btn">
+                <span>Découvrir</span>
+                <svg class="ph-journey-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Row 2: 2 feature cards, centered -->
+        <div class="ph-journey-row ph-journey-row--center">
+          <a href="#formation-solo" class="ph-journey-card ph-journey-card--4 ph-reveal" data-delay="3">
+            <div class="ph-journey-card-bg">
+              <img src="img/hero-cours-solo.png" alt="" loading="lazy">
+              <div class="ph-journey-card-overlay"></div>
+            </div>
+            <div class="ph-journey-card-content">
+              <span class="ph-journey-card-count">4 parcours disponibles</span>
+              <h3 class="ph-journey-card-title">Formation en solo</h3>
+              <p class="ph-journey-card-desc">Accompagnement 1-to-1 flexible et 100 % personnalisé</p>
+              <span class="ph-journey-card-btn">
+                <span>Découvrir</span>
+                <svg class="ph-journey-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="#ateliers" class="ph-journey-card ph-journey-card--5 ph-reveal" data-delay="4">
+            <div class="ph-journey-card-bg">
+              <img src="img/hero-ateliers.png" alt="" loading="lazy">
+              <div class="ph-journey-card-overlay"></div>
+            </div>
+            <div class="ph-journey-card-content">
+              <span class="ph-journey-card-count">3 parcours disponibles</span>
+              <h3 class="ph-journey-card-title">Ateliers</h3>
+              <p class="ph-journey-card-desc">Ateliers thématiques pour pratiquer et échanger en groupe</p>
+              <span class="ph-journey-card-btn">
+                <span>Découvrir</span>
+                <svg class="ph-journey-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════
-       STATS — Clean horizontal bar
+       STATS — Dark horizontal band
        ═══════════════════════════════════════════ -->
   <section class="ph-stats">
     <div class="ph-stats-container">
@@ -160,7 +288,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       PROGRAMS — Editorial showcase
+       PROGRAMS — Each block gets a unique layout
        ═══════════════════════════════════════════ -->
   <section class="ph-programs" id="services">
 
@@ -170,21 +298,29 @@
       <p class="ph-section-subtitle">Un programme complet décliné en plusieurs parcours adaptés à vos objectifs, votre emploi du temps et votre rythme d'apprentissage.</p>
     </div>
 
-    <!-- ═══ Parcours linguistique (Français + English) ═══ -->
-    <div class="ph-service-block ph-reveal">
-      <a href="pages/parcours-linguistique.html" class="ph-service-banner">
-        <img src="img/hero-parcours-linguistiques.png" alt="Parcours linguistique" loading="lazy">
-        <div class="ph-service-banner-overlay">
-          <h3 class="ph-service-title">Parcours linguistique</h3>
-          <p class="ph-service-desc">Nos cours de groupe à effectif réduit (maximum 5 participants) vous offrent bien plus qu'une simple formation : vous bénéficiez d'un espace dynamique où vous pouvez pratiquer, poser vos questions et développer votre confiance à chaque séance.</p>
-          <span class="ph-service-cta">Découvrir le parcours <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    <!-- ═══ BLOCK 1: Parcours linguistique — Split layout ═══ -->
+    <div class="ph-service-block ph-reveal" id="parcours-linguistique">
+      <div class="ph-split-layout">
+        <div class="ph-split-image">
+          <a href="pages/parcours-linguistique.html">
+            <img src="img/hero-parcours-linguistiques.png" alt="Parcours linguistique" loading="lazy">
+          </a>
         </div>
-      </a>
+        <div class="ph-split-content">
+          <span class="ph-eyebrow">Parcours linguistique</span>
+          <h3 class="ph-split-title">Parcours linguistique</h3>
+          <p class="ph-split-desc">Nos cours de groupe à effectif réduit (maximum 5 participants) vous offrent bien plus qu'une simple formation : vous bénéficiez d'un espace dynamique où vous pouvez pratiquer, poser vos questions et développer votre confiance à chaque séance.</p>
+          <a href="pages/parcours-linguistique.html" class="ph-btn ph-btn-primary">
+            <span>Découvrir le parcours</span>
+            <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
       <div class="pathway-group">
         <h4 class="pathway-group-title">Français</h4>
         <div class="pathway-overview-grid">
           <a href="pages/francais-express.html" class="pathway-overview-card">
-            <div class="poc-image"><img src="img/banner-english-express.png" alt="Français Express" loading="lazy"></div>
+            <div class="poc-image"><img src="img/banner-francais-express.png" alt="Français Express" loading="lazy"></div>
             <div class="poc-badge">Français</div>
             <div class="poc-body">
               <h4 class="poc-title">Français Express</h4>
@@ -219,7 +355,7 @@
         <h4 class="pathway-group-title">English</h4>
         <div class="pathway-overview-grid">
           <a href="pages/english-express-pathway.html" class="pathway-overview-card">
-            <div class="poc-image"><img src="img/banner-english-express-2.png" alt="English Express Pathway" loading="lazy"></div>
+            <div class="poc-image"><img src="img/banner-english-express.png" alt="English Express Pathway" loading="lazy"></div>
             <div class="poc-badge">English</div>
             <div class="poc-body">
               <h4 class="poc-title">English Express Pathway</h4>
@@ -252,16 +388,24 @@
       </div>
     </div>
 
-    <!-- ═══ Cap sur l'oral ═══ -->
-    <div class="ph-service-block ph-reveal">
-      <a href="pages/cap-sur-l-oral.html" class="ph-service-banner">
-        <img src="img/home/banner-linguotest.png" alt="Cap sur l'oral" loading="lazy">
-        <div class="ph-service-banner-overlay">
-          <h3 class="ph-service-title">Cap sur l'oral</h3>
-          <p class="ph-service-desc">Deux parcours collaboratifs en petit groupe pour maîtriser l'oral avec confiance et précision. Deux formats flexibles, temps partiel ou intensif, pour s'adapter à votre rythme et à vos objectifs.</p>
-          <span class="ph-service-cta">Découvrir le parcours <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    <!-- ═══ BLOCK 2: Cap sur l'oral — Split layout ═══ -->
+    <div class="ph-service-block ph-reveal" id="cap-sur-l-oral">
+      <div class="ph-split-layout">
+        <div class="ph-split-image">
+          <a href="pages/cap-sur-l-oral.html">
+            <img src="img/hero-cap-sur-loral.png" alt="Cap sur l'oral" loading="lazy">
+          </a>
         </div>
-      </a>
+        <div class="ph-split-content">
+          <span class="ph-eyebrow">Parcours oral</span>
+          <h3 class="ph-split-title">Cap sur l'oral</h3>
+          <p class="ph-split-desc">Deux parcours collaboratifs en petit groupe pour maîtriser l'oral avec confiance et précision. Deux formats flexibles, temps partiel ou intensif, pour s'adapter à votre rythme et à vos objectifs.</p>
+          <a href="pages/cap-sur-l-oral.html" class="ph-btn ph-btn-primary">
+            <span>Découvrir le parcours</span>
+            <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
       <div class="pathway-overview-grid">
         <a href="pages/oral-b-partiel.html" class="pathway-overview-card">
           <div class="poc-image"><img src="img/banner-oral-b-partiel.png" alt="Oral B Partiel" loading="lazy"></div>
@@ -284,7 +428,7 @@
           </div>
         </a>
         <a href="pages/oral-c-partiel.html" class="pathway-overview-card">
-          <div class="poc-image"><img src="img/hero-oral-c.png" alt="Oral C Partiel" loading="lazy"></div>
+          <div class="poc-image"><img src="img/banner-oral-c-partiel.png" alt="Oral C Partiel" loading="lazy"></div>
           <div class="poc-badge">Niveau C</div>
           <div class="poc-body">
             <h4 class="poc-title">Oral C – Temps partiel</h4>
@@ -294,7 +438,7 @@
           </div>
         </a>
         <a href="pages/oral-c-intensif.html" class="pathway-overview-card">
-          <div class="poc-image"><img src="img/hero-oral-c.png" alt="Oral C Intensif" loading="lazy"></div>
+          <div class="poc-image"><img src="img/banner-oral-c-intensif.png" alt="Oral C Intensif" loading="lazy"></div>
           <div class="poc-badge">Niveau C</div>
           <div class="poc-body">
             <h4 class="poc-title">Oral C – Intensif</h4>
@@ -306,16 +450,24 @@
       </div>
     </div>
 
-    <!-- ═══ Préparation TCF ═══ -->
-    <div class="ph-service-block ph-reveal">
-      <a href="pages/tcf-preparation.html" class="ph-service-banner">
-        <img src="img/banner-tcf-preparation.png" alt="Préparation TCF" loading="lazy">
-        <div class="ph-service-banner-overlay">
-          <h3 class="ph-service-title">Préparation TCF</h3>
-          <p class="ph-service-desc">Le TCF est un test officiel pour vos démarches d'immigration au Québec ou auprès d'IRCC. Nous vous guidons étape par étape pour que vous sachiez exactement comment répondre, structurer vos idées et gérer votre temps le jour du test.</p>
-          <span class="ph-service-cta">Découvrir le parcours <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    <!-- ═══ BLOCK 3: Préparation TCF — Split layout ═══ -->
+    <div class="ph-service-block ph-reveal" id="preparation-tcf">
+      <div class="ph-split-layout">
+        <div class="ph-split-image">
+          <a href="pages/tcf-preparation.html">
+            <img src="img/hero-tcf.png" alt="Préparation TCF" loading="lazy">
+          </a>
         </div>
-      </a>
+        <div class="ph-split-content">
+          <span class="ph-eyebrow">Préparation TCF</span>
+          <h3 class="ph-split-title">Préparation TCF</h3>
+          <p class="ph-split-desc">Le TCF est un test officiel pour vos démarches d'immigration au Québec ou auprès d'IRCC. Nous vous guidons étape par étape pour que vous sachiez exactement comment répondre, structurer vos idées et gérer votre temps le jour du test.</p>
+          <a href="pages/tcf-preparation.html" class="ph-btn ph-btn-primary">
+            <span>Découvrir le parcours</span>
+            <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
       <div class="pathway-group">
         <h4 class="pathway-group-title">TCF Québec</h4>
         <div class="pathway-overview-grid">
@@ -368,79 +520,101 @@
       </div>
     </div>
 
-    <!-- ═══ Formation en solo ═══ -->
-    <div class="ph-service-block ph-reveal">
-      <a href="pages/formation-en-solo.html" class="ph-service-banner">
-        <img src="img/hero-maitrisez-langues.png" alt="Formation en solo" loading="lazy">
-        <div class="ph-service-banner-overlay">
-          <h3 class="ph-service-title">Formation en solo</h3>
-          <p class="ph-service-desc">La formule la plus flexible et la plus efficace pour atteindre rapidement vos objectifs linguistiques. Choisissez exactement ce dont vous avez besoin : parcours linguistique, préparation TCF, rafraîchissement, simulations d'examen, et bien plus.</p>
-          <span class="ph-service-cta">Découvrir le parcours <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    <!-- ═══ BLOCK 4: Formation en solo — Split layout ═══ -->
+    <div class="ph-service-block ph-reveal" id="formation-solo">
+      <div class="ph-split-layout">
+        <div class="ph-split-image">
+          <a href="pages/formation-en-solo.html">
+            <img src="img/hero-cours-solo.png" alt="Formation en solo" loading="lazy">
+          </a>
         </div>
-      </a>
-      <div class="subservices-grid">
-        <div class="subservice-card">
-          <div class="subservice-card-image"><img src="img/package-solo-5h.png" alt="Forfait 5h" loading="lazy"></div>
-          <div class="subservice-card-body" style="text-align:center">
-            <h3>Forfait Découverte</h3>
-            <p>Idéal pour découvrir la méthode ou pour un besoin ponctuel.</p>
-            <div class="subservice-card-meta" style="justify-content:center"><span>⏱ 5 séances</span><span>💰 45 $/h</span></div>
-            <div class="subservice-card-footer" style="justify-content:center;flex-direction:column">
-              <div class="subservice-card-price">225 $</div>
-              <a href="booking.html?course=solo&program=5h" class="btn btn-primary btn-sm mt-sm w-full">Choisir</a>
+        <div class="ph-split-content">
+          <span class="ph-eyebrow">Formation en solo</span>
+          <h3 class="ph-split-title">Formation en solo</h3>
+          <p class="ph-split-desc">La formule la plus flexible et la plus efficace pour atteindre rapidement vos objectifs linguistiques. Choisissez exactement ce dont vous avez besoin : parcours linguistique, préparation TCF, rafraîchissement, simulations d'examen, et bien plus.</p>
+          <a href="pages/formation-en-solo.html" class="ph-btn ph-btn-primary">
+            <span>Découvrir le parcours</span>
+            <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="solo-pricing">
+        <div class="solo-pricing-header">
+          <h4>Choisissez votre forfait</h4>
+          <p>Tarifs dégressifs — plus vous investissez, plus le coût horaire diminue.</p>
+        </div>
+        <div class="solo-pricing-table">
+          <div class="solo-pricing-row">
+            <div class="spr-info">
+              <span class="spr-name">Découverte</span>
+              <span class="spr-desc">Idéal pour découvrir la méthode ou pour un besoin ponctuel</span>
             </div>
+            <div class="spr-details">
+              <span class="spr-hours">5 h</span>
+              <span class="spr-rate">45 $/h</span>
+            </div>
+            <div class="spr-total">225 $</div>
+            <a href="booking.html?course=solo&program=5h" class="spr-cta">Choisir</a>
           </div>
-        </div>
-        <div class="subservice-card">
-          <div class="subservice-card-image"><img src="img/package-solo-10h.png" alt="Forfait 10h" loading="lazy"></div>
-          <div class="subservice-card-body" style="text-align:center">
-            <h3>Forfait Standard</h3>
-            <p>Parfait pour un suivi régulier sur plusieurs semaines.</p>
-            <div class="subservice-card-meta" style="justify-content:center"><span>⏱ 10 séances</span><span>💰 42 $/h</span></div>
-            <div class="subservice-card-footer" style="justify-content:center;flex-direction:column">
-              <div class="subservice-card-price">420 $</div>
-              <a href="booking.html?course=solo&program=10h" class="btn btn-primary btn-sm mt-sm w-full">Choisir</a>
+          <div class="solo-pricing-row">
+            <div class="spr-info">
+              <span class="spr-name">Essentiel</span>
+              <span class="spr-desc">Un accompagnement régulier pour progresser en profondeur</span>
             </div>
+            <div class="spr-details">
+              <span class="spr-hours">10 h</span>
+              <span class="spr-rate">42 $/h</span>
+            </div>
+            <div class="spr-total">420 $</div>
+            <a href="booking.html?course=solo&program=10h" class="spr-cta">Choisir</a>
           </div>
-        </div>
-        <div class="subservice-card" style="position:relative">
-          <span class="popular-badge">Populaire</span>
-          <div class="subservice-card-image"><img src="img/package-solo-15h.png" alt="Forfait 15h" loading="lazy"></div>
-          <div class="subservice-card-body" style="text-align:center">
-            <h3>Forfait Avancé</h3>
-            <p>Le meilleur rapport qualité-prix pour une progression significative.</p>
-            <div class="subservice-card-meta" style="justify-content:center"><span>⏱ 15 séances</span><span>💰 40 $/h</span></div>
-            <div class="subservice-card-footer" style="justify-content:center;flex-direction:column">
-              <div class="subservice-card-price">600 $</div>
-              <a href="booking.html?course=solo&program=15h" class="btn btn-primary btn-sm mt-sm w-full">Choisir</a>
+          <div class="solo-pricing-row solo-pricing-featured">
+            <span class="spr-popular">Populaire</span>
+            <div class="spr-info">
+              <span class="spr-name">Accélération</span>
+              <span class="spr-desc">Un programme complet pour atteindre vos objectifs rapidement</span>
             </div>
+            <div class="spr-details">
+              <span class="spr-hours">15 h</span>
+              <span class="spr-rate">40 $/h</span>
+            </div>
+            <div class="spr-total">600 $</div>
+            <a href="booking.html?course=solo&program=15h" class="spr-cta spr-cta-primary">Choisir</a>
           </div>
-        </div>
-        <div class="subservice-card">
-          <div class="subservice-card-image"><img src="img/package-solo-20h.png" alt="Forfait 20h" loading="lazy"></div>
-          <div class="subservice-card-body" style="text-align:center">
-            <h3>Forfait Intensif</h3>
-            <p>Pour un accompagnement complet et une immersion linguistique totale.</p>
-            <div class="subservice-card-meta" style="justify-content:center"><span>⏱ 20 séances</span><span>💰 38 $/h</span></div>
-            <div class="subservice-card-footer" style="justify-content:center;flex-direction:column">
-              <div class="subservice-card-price">760 $</div>
-              <a href="booking.html?course=solo&program=20h" class="btn btn-primary btn-sm mt-sm w-full">Choisir</a>
+          <div class="solo-pricing-row">
+            <div class="spr-info">
+              <span class="spr-name">Excellence</span>
+              <span class="spr-desc">L'accompagnement le plus complet pour des résultats durables</span>
             </div>
+            <div class="spr-details">
+              <span class="spr-hours">20 h</span>
+              <span class="spr-rate">38 $/h</span>
+            </div>
+            <div class="spr-total">760 $</div>
+            <a href="booking.html?course=solo&program=20h" class="spr-cta">Choisir</a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ═══ Ateliers ═══ -->
-    <div class="ph-service-block ph-reveal">
-      <a href="pages/workshops.html" class="ph-service-banner">
-        <img src="img/home/ateliers-banner.png" alt="Ateliers" loading="lazy">
-        <div class="ph-service-banner-overlay">
-          <h3 class="ph-service-title">Ateliers</h3>
-          <p class="ph-service-desc">Des ateliers thématiques pour pratiquer, échanger et perfectionner votre français dans une ambiance conviviale. Conversation, culture canadienne, maintien et renforcement.</p>
-          <span class="ph-service-cta">Découvrir les ateliers <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    <!-- ═══ BLOCK 5: Ateliers — Split layout ═══ -->
+    <div class="ph-service-block ph-reveal" id="ateliers">
+      <div class="ph-split-layout">
+        <div class="ph-split-image">
+          <a href="pages/workshops.html">
+            <img src="img/hero-ateliers.png" alt="Ateliers" loading="lazy">
+          </a>
         </div>
-      </a>
+        <div class="ph-split-content">
+          <span class="ph-eyebrow">Ateliers</span>
+          <h3 class="ph-split-title">Ateliers</h3>
+          <p class="ph-split-desc">Des ateliers thématiques pour pratiquer, échanger et perfectionner votre français dans une ambiance conviviale. Conversation, culture canadienne, maintien et renforcement.</p>
+          <a href="pages/workshops.html" class="ph-btn ph-btn-primary">
+            <span>Découvrir les ateliers</span>
+            <svg class="ph-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
       <div class="subservices-grid">
         <div class="subservice-card">
           <div class="subservice-card-image">
@@ -490,7 +664,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       WHY CHOOSE US — Asymmetric layout
+       WHY CHOOSE US — Asymmetric masonry
        ═══════════════════════════════════════════ -->
   <section class="ph-why">
     <div class="ph-why-header ph-reveal">
@@ -519,7 +693,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       COMPARISON TABLE
+       COMPARISON TABLE — Premium dark wrapper
        ═══════════════════════════════════════════ -->
   <section class="ph-compare">
     <div class="ph-compare-header ph-reveal">
@@ -580,7 +754,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       TESTIMONIALS — Editorial layout
+       TESTIMONIALS — Featured + stacked layout
        ═══════════════════════════════════════════ -->
   <section class="ph-testimonials">
     <div class="ph-testimonials-header ph-reveal">
@@ -588,8 +762,8 @@
       <h2 class="ph-section-title">Ils nous font <span class="ph-text-gradient">confiance</span></h2>
       <p class="ph-section-subtitle" data-i18n="testimonials.subtitle">Découvrez les témoignages de nos étudiants.</p>
     </div>
-    <div class="ph-testimonials-grid">
-      <div class="ph-testimonial-card ph-reveal">
+    <div class="ph-testimonials-layout">
+      <div class="ph-testimonial-featured ph-reveal">
         <div class="ph-testimonial-stars">★★★★★</div>
         <p class="ph-testimonial-text" data-i18n="testimonial1.text">Grâce à Cultulangues, j'ai obtenu mon TCF Québec avec mention B2. L'accompagnement personnalisé et les simulations d'examen m'ont vraiment préparée.</p>
         <div class="ph-testimonial-author">
@@ -600,25 +774,27 @@
           </div>
         </div>
       </div>
-      <div class="ph-testimonial-card ph-reveal">
-        <div class="ph-testimonial-stars">★★★★★</div>
-        <p class="ph-testimonial-text" data-i18n="testimonial2.text">Une équipe formidable qui m'a aidé à reprendre confiance en mon français oral. Les ateliers de conversation ont été une vraie révélation.</p>
-        <div class="ph-testimonial-author">
-          <div class="ph-testimonial-avatar">A</div>
-          <div>
-            <h4 data-i18n="testimonial2.name">Ahmed K.</h4>
-            <span data-i18n="testimonial2.info">Préparation Orale — Niveau C1</span>
+      <div class="ph-testimonial-stack">
+        <div class="ph-testimonial-card ph-reveal">
+          <div class="ph-testimonial-stars">★★★★★</div>
+          <p class="ph-testimonial-text" data-i18n="testimonial2.text">Une équipe formidable qui m'a aidé à reprendre confiance en mon français oral. Les ateliers de conversation ont été une vraie révélation.</p>
+          <div class="ph-testimonial-author">
+            <div class="ph-testimonial-avatar">A</div>
+            <div>
+              <h4 data-i18n="testimonial2.name">Ahmed K.</h4>
+              <span data-i18n="testimonial2.info">Préparation Orale — Niveau C1</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="ph-testimonial-card ph-reveal">
-        <div class="ph-testimonial-stars">★★★★★</div>
-        <p class="ph-testimonial-text" data-i18n="testimonial3.text">Je recommande sans hésiter. La plateforme est claire, les cours sont bien structurés et les professeurs sont à l'écoute. Exactement ce qu'il me fallait.</p>
-        <div class="ph-testimonial-author">
-          <div class="ph-testimonial-avatar">L</div>
-          <div>
-            <h4 data-i18n="testimonial3.name">Laura P.</h4>
-            <span data-i18n="testimonial3.info">TCF Canada — Niveau C1</span>
+        <div class="ph-testimonial-card ph-reveal">
+          <div class="ph-testimonial-stars">★★★★★</div>
+          <p class="ph-testimonial-text" data-i18n="testimonial3.text">Je recommande sans hésiter. La plateforme est claire, les cours sont bien structurés et les professeurs sont à l'écoute. Exactement ce qu'il me fallait.</p>
+          <div class="ph-testimonial-author">
+            <div class="ph-testimonial-avatar">L</div>
+            <div>
+              <h4 data-i18n="testimonial3.name">Laura P.</h4>
+              <span data-i18n="testimonial3.info">TCF Canada — Niveau C1</span>
+            </div>
           </div>
         </div>
       </div>
@@ -626,9 +802,10 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       CTA — Clean minimal conclusion
+       CTA — Immersive full-width dark section
        ═══════════════════════════════════════════ -->
   <section class="ph-cta">
+    <div class="ph-cta-deco" aria-hidden="true"></div>
     <div class="ph-cta-inner ph-reveal">
       <h2 data-i18n="cta.home.title">Prêt à commencer votre parcours ?</h2>
       <p data-i18n="cta.home.desc">Rejoignez plus de 950 étudiants qui nous font confiance pour leur préparation linguistique.</p>
@@ -654,7 +831,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       FOOTER — Clean, well-organized
+       FOOTER
        ═══════════════════════════════════════════ -->
   <footer class="ph-footer">
     <div class="ph-footer-inner">
@@ -677,6 +854,7 @@
           <a href="pages/cap-sur-l-oral.html" data-i18n="nav.oral">Cap sur l'oral</a>
           <a href="pages/tcf-preparation.html" data-i18n="nav.tcf">Préparation TCF Québec</a>
           <a href="pages/formation-en-solo.html" data-i18n="nav.solo">Formation en solo</a>
+          <a href="pages/workshops.html" data-i18n="nav.ateliers">Ateliers</a>
           <a href="pages/contact.html" data-i18n="nav.contact">Contact</a>
         </div>
         <div class="ph-footer-col">
@@ -715,6 +893,7 @@
 
   <div class="mobile-nav-overlay"></div>
 
+  <script src="js/content-loader.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
