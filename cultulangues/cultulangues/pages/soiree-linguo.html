@@ -7,6 +7,7 @@
   <meta name="description" content="Un programme conçu pour les professionnels qui veulent progresser en français à un rythme régulier et flexible, tout en conciliant travail, vie personnelle et apprentissage.">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/premium.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F33F;</text></svg>">
 </head>
 <body>
@@ -18,18 +19,44 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO — Split layout -->
   <section class="page-header">
     <div class="page-header-bg"><img src="../img/banner-soiree-linguo.png" alt="" loading="lazy"></div>
     <div class="page-deco page-deco-circle"></div>
     <div class="page-deco page-deco-circle-2"></div>
     <div class="container">
-      <div class="breadcrumb"><a href="../index.html">Accueil</a> / <a href="parcours-linguistique.html">Parcours linguistique</a> / <span>Parcours Soirée Linguo</span></div>
-      <h1>Parcours Soirée Linguo <span class="text-gradient">– Apprenez le français sans bouleverser votre horaire</span></h1>
-      <p class="hero-subtitle">Un programme conçu pour les professionnels qui veulent progresser en français à un rythme régulier et flexible, tout en conciliant travail, vie personnelle et apprentissage.</p>
-      <div class="hero-ctas">
-        <a href="../booking.html?course=soiree-linguo" class="btn btn-primary btn-lg">Réserver maintenant &rarr;</a>
-        <a href="contact.html" class="btn btn-outline btn-lg">Nous contacter</a>
+      <div class="hero-content">
+        <div class="breadcrumb"><a href="../index.html">Accueil</a> / <a href="parcours-linguistique.html">Parcours linguistique</a> / <span>Parcours Soirée Linguo</span></div>
+        <h1>Parcours Soirée Linguo <span class="text-gradient">– Apprenez le français sans bouleverser votre horaire</span></h1>
+        <p class="hero-subtitle">Un programme conçu pour les professionnels qui veulent progresser en français à un rythme régulier et flexible, tout en conciliant travail, vie personnelle et apprentissage.</p>
+        <div class="hero-chips">
+          <span class="hero-chip"><i class="fas fa-clock"></i> 10 semaines</span>
+          <span class="hero-chip"><i class="fas fa-book-open"></i> 60 heures</span>
+          <span class="hero-chip"><i class="fas fa-users"></i> 5 max</span>
+          <span class="hero-chip"><i class="fas fa-calendar"></i> Mer 17h–20h</span>
+        </div>
+        <div class="hero-ctas">
+          <a href="../booking.html?course=soiree-linguo" class="btn btn-primary btn-lg">Réserver maintenant &rarr;</a>
+          <a href="contact.html" class="btn btn-outline btn-lg">Nous contacter</a>
+        </div>
+      </div>
+      <div class="hero-booking-card">
+        <div class="hero-booking-header">
+          <h3>Parcours Soirée Linguo</h3>
+          <div class="hbh-price">300 $ <small>Tout compris</small></div>
+        </div>
+        <div class="hero-booking-body">
+            <div class="hero-booking-facts">
+            <div class="hero-bf"><i class="fas fa-clock"></i><span class="bfv">10 semaines</span><span class="bfl">Durée</span></div>
+            <div class="hero-bf"><i class="fas fa-book-open"></i><span class="bfv">60 h</span><span class="bfl">Volume</span></div>
+            <div class="hero-bf"><i class="fas fa-users"></i><span class="bfv">5 max</span><span class="bfl">Groupe</span></div>
+            <div class="hero-bf"><i class="fas fa-clock"></i><span class="bfv">17h–20h</span><span class="bfl">Mer</span></div>
+          </div>
+          <div class="hero-booking-cta">
+            <a href="../booking.html?course=soiree-linguo" class="btn btn-primary">Réserver maintenant &rarr;</a>
+            <a href="contact.html" class="btn btn-outline">Nous contacter</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -40,19 +67,45 @@
       <div class="detail-layout">
         <div class="detail-main">
 
+          <!-- Summary pills -->
+          <div class="summary-pills reveal">
+            <span class="summary-pill"><i class="fas fa-clock"></i> 10 semaines</span>
+            <span class="summary-pill"><i class="fas fa-book-open"></i> 60 heures</span>
+            <span class="summary-pill"><i class="fas fa-users"></i> 5 max par groupe</span>
+            <span class="summary-pill"><i class="fas fa-calendar"></i> Mer 17h–20h</span>
+          </div>
+
           <!-- Ce que vous obtenez -->
           <div class="section-block reveal">
             <div class="section-title-group">
               <span class="section-badge section-badge--blue">Ce que vous obtenez</span>
             </div>
-            <ul class="pdf-list">
-              <li>1 cours de 3 h par semaine, de 17 h à 20 h</li>
-              <li>Durée : 10 semaines</li>
-              <li>30 h de cours + 30 h de travail personnel</li>
-              <li>Engagement global : 60 h</li>
-              <li>Certificat de fin de session</li>
-              <li>Rapport personnalisé de progression</li>
-            </ul>
+            <div class="feature-cards">
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-clock"></i></div>
+                <div class="feature-card-text"><p>1 cours de 3 h par semaine, de 17 h à 20 h</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-hourglass-half"></i></div>
+                <div class="feature-card-text"><p>Durée : 10 semaines</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-book-open"></i></div>
+                <div class="feature-card-text"><p>30 h de cours + 30 h de travail personnel</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-calendar"></i></div>
+                <div class="feature-card-text"><p>Engagement global : 60 h</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-award"></i></div>
+                <div class="feature-card-text"><p>Certificat de fin de session</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-file-alt"></i></div>
+                <div class="feature-card-text"><p>Rapport personnalisé de progression</p></div>
+              </div>
+            </div>
           </div>
 
           <!-- Pourquoi c'est idéal pour les professionnels -->
@@ -60,12 +113,24 @@
             <div class="section-title-group">
               <span class="section-badge section-badge--orange">Pourquoi c'est idéal pour les professionnels</span>
             </div>
-            <ul class="pdf-list">
-              <li>Flexibilité totale : un seul soir par semaine, facile à intégrer dans un horaire chargé.</li>
-              <li>Petits groupes (max. 5) pour un accompagnement personnalisé et des interactions de qualité.</li>
-              <li>Rythme hebdomadaire efficace pour consolider vos acquis sans pression.</li>
-              <li>Suivi individualisé pour soutenir votre progression.</li>
-            </ul>
+            <div class="feature-cards">
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-bolt"></i></div>
+                <div class="feature-card-text"><p>Flexibilité totale : un seul soir par semaine, facile à intégrer dans un horaire chargé.</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-users"></i></div>
+                <div class="feature-card-text"><p>Petits groupes (max. 5) pour un accompagnement personnalisé et des interactions de qualité.</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-sync-alt"></i></div>
+                <div class="feature-card-text"><p>Rythme hebdomadaire efficace pour consolider vos acquis sans pression.</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-heart"></i></div>
+                <div class="feature-card-text"><p>Suivi individualisé pour soutenir votre progression.</p></div>
+              </div>
+            </div>
           </div>
 
           <!-- Tarif -->
@@ -121,13 +186,17 @@
             </div>
             <div class="booking-card-body">
               <div class="booking-facts">
-                <div class="booking-fact"><span class="bf-icon">⏱</span><span class="bf-value">10 semaines</span><span class="bf-label">Durée</span></div>
-                <div class="booking-fact"><span class="bf-icon">📚</span><span class="bf-value">60 h</span><span class="bf-label">Volume</span></div>
-                <div class="booking-fact"><span class="bf-icon">👥</span><span class="bf-value">5 max</span><span class="bf-label">Groupe</span></div>
-                <div class="booking-fact"><span class="bf-icon">🕐</span><span class="bf-value">17h–20h</span><span class="bf-label">Horaire</span></div>
+                <div class="booking-fact"><span class="bf-icon"><i class="fas fa-clock"></i></span><span class="bf-value">10 semaines</span><span class="bf-label">Durée</span></div>
+                <div class="booking-fact"><span class="bf-icon"><i class="fas fa-book-open"></i></span><span class="bf-value">60 h</span><span class="bf-label">Volume</span></div>
+                <div class="booking-fact"><span class="bf-icon"><i class="fas fa-users"></i></span><span class="bf-value">5 max</span><span class="bf-label">Groupe</span></div>
+                <div class="booking-fact"><span class="bf-icon"><i class="fas fa-clock"></i></span><span class="bf-value">Mer 17h–20h</span><span class="bf-label">Horaire</span></div>
+              </div>
+              <div class="trust-badges">
+                <span class="trust-badge"><i class="fas fa-shield-alt"></i> Paiement sécurisé</span>
+                <span class="trust-badge"><i class="fas fa-award"></i> Certificat inclus</span>
               </div>
               <div class="booking-cta">
-                <a href="../booking.html?course=soiree-linguo" class="btn btn-primary">Réserver maintenant →</a>
+                <a href="../booking.html?course=soiree-linguo" class="btn btn-primary">Réserver maintenant &rarr;</a>
                 <a href="contact.html" class="btn btn-outline">Nous contacter</a>
               </div>
             </div>

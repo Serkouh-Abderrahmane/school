@@ -7,6 +7,7 @@
   <meta name="description" content="Une immersion hebdomadaire conçue pour vous faire progresser rapidement et durablement. Chaque samedi, vous plongez dans un apprentissage intensif qui combine pratique, consolidation et mise en situation réelle.">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/premium.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F33F;</text></svg>">
 </head>
 <body>
@@ -18,18 +19,44 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO — Split layout -->
   <section class="page-header">
     <div class="page-header-bg"><img src="../img/banner-samedi-francais.png" alt="" loading="lazy"></div>
     <div class="page-deco page-deco-circle"></div>
     <div class="page-deco page-deco-circle-2"></div>
     <div class="container">
-      <div class="breadcrumb"><a href="../index.html">Accueil</a> / <a href="parcours-linguistique.html">Parcours linguistique</a> / <span>Parcours Samedis en français</span></div>
-      <h1>Parcours Samedis en français <span class="text-gradient">– Une immersion efficace chaque semaine</span></h1>
-      <p class="hero-subtitle">Une immersion hebdomadaire conçue pour vous faire progresser rapidement et durablement. Chaque samedi, vous plongez dans un apprentissage intensif qui combine pratique, consolidation et mise en situation réelle.</p>
-      <div class="hero-ctas">
-        <a href="../booking.html?course=samedis-en-francais" class="btn btn-primary btn-lg">Réserver maintenant &rarr;</a>
-        <a href="contact.html" class="btn btn-outline btn-lg">Nous contacter</a>
+      <div class="hero-content">
+        <div class="breadcrumb"><a href="../index.html">Accueil</a> / <a href="parcours-linguistique.html">Parcours linguistique</a> / <span>Parcours Samedis en français</span></div>
+        <h1>Parcours Samedis en français <span class="text-gradient">– Une immersion efficace chaque semaine</span></h1>
+        <p class="hero-subtitle">Une immersion hebdomadaire conçue pour vous faire progresser rapidement et durablement. Chaque samedi, vous plongez dans un apprentissage intensif qui combine pratique, consolidation et mise en situation réelle.</p>
+        <div class="hero-chips">
+          <span class="hero-chip"><i class="fas fa-clock"></i> 5 semaines</span>
+          <span class="hero-chip"><i class="fas fa-book-open"></i> 60 heures</span>
+          <span class="hero-chip"><i class="fas fa-users"></i> 10 max</span>
+          <span class="hero-chip"><i class="fas fa-calendar"></i> Sam 9h–16h</span>
+        </div>
+        <div class="hero-ctas">
+          <a href="../booking.html?course=samedis-en-francais" class="btn btn-primary btn-lg">Réserver maintenant &rarr;</a>
+          <a href="contact.html" class="btn btn-outline btn-lg">Nous contacter</a>
+        </div>
+      </div>
+      <div class="hero-booking-card">
+        <div class="hero-booking-header">
+          <h3>Parcours Samedis en français</h3>
+          <div class="hbh-price">300 $ <small>Tout compris</small></div>
+        </div>
+        <div class="hero-booking-body">
+            <div class="hero-booking-facts">
+            <div class="hero-bf"><i class="fas fa-clock"></i><span class="bfv">5 semaines</span><span class="bfl">Durée</span></div>
+            <div class="hero-bf"><i class="fas fa-book-open"></i><span class="bfv">60 h</span><span class="bfl">Volume</span></div>
+            <div class="hero-bf"><i class="fas fa-users"></i><span class="bfv">10 max</span><span class="bfl">Groupe</span></div>
+            <div class="hero-bf"><i class="fas fa-clock"></i><span class="bfv">9h–16h</span><span class="bfl">Sam</span></div>
+          </div>
+          <div class="hero-booking-cta">
+            <a href="../booking.html?course=samedis-en-francais" class="btn btn-primary">Réserver maintenant &rarr;</a>
+            <a href="contact.html" class="btn btn-outline">Nous contacter</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -40,20 +67,45 @@
       <div class="detail-layout">
         <div class="detail-main">
 
+          <!-- Summary pills -->
+          <div class="summary-pills reveal">
+            <span class="summary-pill"><i class="fas fa-clock"></i> 5 semaines</span>
+            <span class="summary-pill"><i class="fas fa-book-open"></i> 60 heures</span>
+            <span class="summary-pill"><i class="fas fa-users"></i> 10 max par groupe</span>
+            <span class="summary-pill"><i class="fas fa-calendar"></i> Sam 9h–12h / 13h–16h</span>
+          </div>
+
           <!-- Ce que vous obtenez -->
           <div class="section-block reveal">
             <div class="section-title-group">
               <span class="section-badge section-badge--blue">Ce que vous obtenez</span>
             </div>
-            <ul class="pdf-list">
-              <li>6 h de formation chaque samedi (9 h–12 h et 13 h–16 h)</li>
-              <li>6 h de travail personnel par semaine</li>
-              <li>Durée : 5 semaines</li>
-              <li>30 h de cours + 30 h de travail personnel</li>
-              <li>Engagement global : 60 h</li>
-              <li>Certificat de fin de session</li>
-              <li>Rapport personnalisé de progression</li>
-            </ul>
+            <div class="feature-cards">
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-clock"></i></div>
+                <div class="feature-card-text"><p>6 h de formation chaque samedi (9 h–12 h et 13 h–16 h)</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-book-open"></i></div>
+                <div class="feature-card-text"><p>6 h de travail personnel par semaine</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-hourglass-half"></i></div>
+                <div class="feature-card-text"><p>Durée : 5 semaines</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-calendar"></i></div>
+                <div class="feature-card-text"><p>30 h de cours + 30 h de travail personnel</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-award"></i></div>
+                <div class="feature-card-text"><p>Certificat de fin de session</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-file-alt"></i></div>
+                <div class="feature-card-text"><p>Rapport personnalisé de progression</p></div>
+              </div>
+            </div>
           </div>
 
           <!-- Pourquoi ce format fonctionne -->
@@ -61,12 +113,24 @@
             <div class="section-title-group">
               <span class="section-badge section-badge--orange">Pourquoi ce format fonctionne</span>
             </div>
-            <ul class="pdf-list">
-              <li>Immersion intensive pour accélérer votre progression.</li>
-              <li>Exercices pratiques et mises en situation pour un apprentissage concret.</li>
-              <li>Petits groupes (max. 10) pour favoriser les échanges et un accompagnement de qualité.</li>
-              <li>Travail personnel guidé pour renforcer vos acquis entre chaque séance.</li>
-            </ul>
+            <div class="feature-cards">
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-bolt"></i></div>
+                <div class="feature-card-text"><p>Immersion intensive pour accélérer votre progression.</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-crosshairs"></i></div>
+                <div class="feature-card-text"><p>Exercices pratiques et mises en situation pour un apprentissage concret.</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-users"></i></div>
+                <div class="feature-card-text"><p>Petits groupes (max. 10) pour favoriser les échanges et un accompagnement de qualité.</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-heart"></i></div>
+                <div class="feature-card-text"><p>Travail personnel guidé pour renforcer vos acquis entre chaque séance.</p></div>
+              </div>
+            </div>
           </div>
 
           <!-- Tarif -->
@@ -154,13 +218,17 @@
             </div>
             <div class="booking-card-body">
               <div class="booking-facts">
-                <div class="booking-fact"><span class="bf-icon">⏱</span><span class="bf-value">5 semaines</span><span class="bf-label">Durée</span></div>
-                <div class="booking-fact"><span class="bf-icon">📚</span><span class="bf-value">60 h</span><span class="bf-label">Volume</span></div>
-                <div class="booking-fact"><span class="bf-icon">👥</span><span class="bf-value">10 max</span><span class="bf-label">Groupe</span></div>
-                <div class="booking-fact"><span class="bf-icon">🕐</span><span class="bf-value">Sam 9h–12h / 13h–16h</span><span class="bf-label">Horaire</span></div>
+                <div class="booking-fact"><span class="bf-icon"><i class="fas fa-clock"></i></span><span class="bf-value">5 semaines</span><span class="bf-label">Durée</span></div>
+                <div class="booking-fact"><span class="bf-icon"><i class="fas fa-book-open"></i></span><span class="bf-value">60 h</span><span class="bf-label">Volume</span></div>
+                <div class="booking-fact"><span class="bf-icon"><i class="fas fa-users"></i></span><span class="bf-value">10 max</span><span class="bf-label">Groupe</span></div>
+                <div class="booking-fact"><span class="bf-icon"><i class="fas fa-clock"></i></span><span class="bf-value">Sam 9h–12h / 13h–16h</span><span class="bf-label">Horaire</span></div>
+              </div>
+              <div class="trust-badges">
+                <span class="trust-badge"><i class="fas fa-shield-alt"></i> Paiement sécurisé</span>
+                <span class="trust-badge"><i class="fas fa-award"></i> Certificat inclus</span>
               </div>
               <div class="booking-cta">
-                <a href="../booking.html?course=samedis-en-francais" class="btn btn-primary">Réserver maintenant →</a>
+                <a href="../booking.html?course=samedis-en-francais" class="btn btn-primary">Réserver maintenant &rarr;</a>
                 <a href="contact.html" class="btn btn-outline">Nous contacter</a>
               </div>
             </div>

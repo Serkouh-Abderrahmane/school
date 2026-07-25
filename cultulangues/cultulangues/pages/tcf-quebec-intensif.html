@@ -7,6 +7,7 @@
   <meta name="description" content="Atteignez rapidement un niveau B2 ou C1 grâce à un entraînement ciblé et accompagné. Format intensif en 7 semaines.">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/premium.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F33F;</text></svg>">
 </head>
 <body>
@@ -18,18 +19,44 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO — Split layout -->
   <section class="page-header">
     <div class="page-header-bg"><img src="../img/banner-tcf-quebec-intensif.png" alt="" loading="lazy"></div>
     <div class="page-deco page-deco-circle"></div>
     <div class="page-deco page-deco-circle-2"></div>
     <div class="container">
-      <div class="breadcrumb"><a href="/index.html">Accueil</a> / <a href="/pages/tcf-preparation.html">Préparation TCF</a> / <span>TCF Québec Intensif</span></div>
-      <h1>TCF Québec Intensif <span class="text-gradient">– Atteignez un niveau B2 ou C1</span></h1>
-      <p class="hero-subtitle">Atteignez rapidement un niveau B2 ou C1 grâce à un entraînement ciblé, soutenu et accompagné.</p>
-      <div class="hero-ctas">
-        <a href="../booking.html?course=tcf-quebec-intensif" class="btn btn-primary btn-lg">Réserver maintenant &rarr;</a>
-        <a href="contact.html" class="btn btn-outline btn-lg">Nous contacter</a>
+      <div class="hero-content">
+        <div class="breadcrumb"><a href="/index.html">Accueil</a> / <a href="/pages/tcf-preparation.html">Préparation TCF</a> / <span>TCF Québec Intensif</span></div>
+        <h1>TCF Québec Intensif <span class="text-gradient">– Atteignez un niveau B2 ou C1</span></h1>
+        <p class="hero-subtitle">Atteignez rapidement un niveau B2 ou C1 grâce à un entraînement ciblé, soutenu et accompagné.</p>
+        <div class="hero-chips">
+          <span class="hero-chip"><i class="fas fa-clock"></i> 7 semaines</span>
+          <span class="hero-chip"><i class="fas fa-book-open"></i> 42 heures</span>
+          <span class="hero-chip"><i class="fas fa-users"></i> 5 max</span>
+          <span class="hero-chip"><i class="fas fa-calendar"></i> 4× 1h30/sem.</span>
+        </div>
+        <div class="hero-ctas">
+          <a href="../booking.html?course=tcf-quebec-intensif" class="btn btn-primary btn-lg">Réserver maintenant &rarr;</a>
+          <a href="contact.html" class="btn btn-outline btn-lg">Nous contacter</a>
+        </div>
+      </div>
+      <div class="hero-booking-card">
+        <div class="hero-booking-header">
+          <h3>TCF Québec Intensif</h3>
+          <div class="hbh-price">À venir <small>Tout compris</small></div>
+        </div>
+        <div class="hero-booking-body">
+            <div class="hero-booking-facts">
+            <div class="hero-bf"><i class="fas fa-book-open"></i><span class="bfv">42 h</span><span class="bfl">Volume</span></div>
+            <div class="hero-bf"><i class="fas fa-clock"></i><span class="bfv">7 semaines</span><span class="bfl">Durée</span></div>
+            <div class="hero-bf"><i class="fas fa-users"></i><span class="bfv">5 max</span><span class="bfl">Groupe</span></div>
+            <div class="hero-bf"><i class="fas fa-clock"></i><span class="bfv">4× 1h30/sem.</span><span class="bfl">Rythme</span></div>
+          </div>
+          <div class="hero-booking-cta">
+            <a href="../booking.html?course=tcf-quebec-intensif" class="btn btn-primary">Réserver maintenant &rarr;</a>
+            <a href="contact.html" class="btn btn-outline">Nous contacter</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -39,6 +66,14 @@
     <div class="container">
       <div class="detail-layout">
         <div class="detail-main">
+
+          <!-- Summary pills -->
+          <div class="summary-pills reveal">
+            <span class="summary-pill"><i class="fas fa-clock"></i> 7 semaines</span>
+            <span class="summary-pill"><i class="fas fa-book-open"></i> 42 heures</span>
+            <span class="summary-pill"><i class="fas fa-users"></i> 5 max par groupe</span>
+            <span class="summary-pill"><i class="fas fa-calendar"></i> 4× 1h30/sem.</span>
+          </div>
 
           <!-- Public cible -->
           <div class="section-block reveal">
@@ -53,13 +88,28 @@
             <div class="section-title-group">
               <span class="section-badge section-badge--orange">Structure du parcours</span>
             </div>
-            <ul class="pdf-list">
-              <li>Durée : 7 semaines</li>
-              <li>Rythme : 4 séances par semaine</li>
-              <li>Format : séances de 1 h 30 en petit groupe (max. 5 participants)</li>
-              <li>Volume total : 42 heures de formation</li>
-              <li>Un rythme immersif, efficace et sans surcharge</li>
-            </ul>
+            <div class="feature-cards">
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-clock"></i></div>
+                <div class="feature-card-text"><p>Durée : 7 semaines</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-sync-alt"></i></div>
+                <div class="feature-card-text"><p>Rythme : 4 séances par semaine</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-users"></i></div>
+                <div class="feature-card-text"><p>Format : séances de 1 h 30 en petit groupe (max. 5 participants)</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-book-open"></i></div>
+                <div class="feature-card-text"><p>Volume total : 42 heures de formation</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-bolt"></i></div>
+                <div class="feature-card-text"><p>Un rythme immersif, efficace et sans surcharge</p></div>
+              </div>
+            </div>
           </div>
 
           <!-- Les 4 compétences -->
@@ -67,12 +117,24 @@
             <div class="section-title-group">
               <span class="section-badge section-badge--blue">Les 4 compétences</span>
             </div>
-            <ul class="pdf-list">
-              <li>Compréhension orale</li>
-              <li>Compréhension écrite</li>
-              <li>Expression orale</li>
-              <li>Expression écrite</li>
-            </ul>
+            <div class="feature-cards">
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-headphones"></i></div>
+                <div class="feature-card-text"><p>Compréhension orale</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-book-open"></i></div>
+                <div class="feature-card-text"><p>Compréhension écrite</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-microphone"></i></div>
+                <div class="feature-card-text"><p>Expression orale</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-pen"></i></div>
+                <div class="feature-card-text"><p>Expression écrite</p></div>
+              </div>
+            </div>
           </div>
 
           <!-- Ce que vous allez développer -->
@@ -80,12 +142,24 @@
             <div class="section-title-group">
               <span class="section-badge section-badge--orange">Ce que vous allez développer</span>
             </div>
-            <ul class="pdf-list">
-              <li>Comprendre des audios rapides et variés</li>
-              <li>Lire plus efficacement et repérer l'essentiel</li>
-              <li>Rédiger des textes structurés, clairs et pertinents</li>
-              <li>Parler avec confiance grâce à des stratégies avancées et des simulations intensives</li>
-            </ul>
+            <div class="feature-cards">
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-headphones"></i></div>
+                <div class="feature-card-text"><p>Comprendre des audios rapides et variés</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-book-open"></i></div>
+                <div class="feature-card-text"><p>Lire plus efficacement et repérer l'essentiel</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-pen"></i></div>
+                <div class="feature-card-text"><p>Rédiger des textes structurés, clairs et pertinents</p></div>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-icon"><i class="fas fa-comments"></i></div>
+                <div class="feature-card-text"><p>Parler avec confiance grâce à des stratégies avancées et des simulations intensives</p></div>
+              </div>
+            </div>
           </div>
 
           <!-- Closing -->
@@ -107,13 +181,17 @@
             </div>
             <div class="booking-card-body">
               <div class="booking-facts">
-                <div class="booking-fact"><span class="bf-icon">📚</span><span class="bf-value">42 h</span><span class="bf-label">Volume</span></div>
-                <div class="booking-fact"><span class="bf-icon">⏱</span><span class="bf-value">7 semaines</span><span class="bf-label">Durée</span></div>
-                <div class="booking-fact"><span class="bf-icon">👥</span><span class="bf-value">5 max</span><span class="bf-label">Groupe</span></div>
-                <div class="booking-fact"><span class="bf-icon">🕐</span><span class="bf-value">4× 1h30/sem.</span><span class="bf-label">Rythme</span></div>
+                <div class="booking-fact"><span class="bf-icon"><i class="fas fa-book-open"></i></span><span class="bf-value">42 h</span><span class="bf-label">Volume</span></div>
+                <div class="booking-fact"><span class="bf-icon"><i class="fas fa-clock"></i></span><span class="bf-value">7 semaines</span><span class="bf-label">Durée</span></div>
+                <div class="booking-fact"><span class="bf-icon"><i class="fas fa-users"></i></span><span class="bf-value">5 max</span><span class="bf-label">Groupe</span></div>
+                <div class="booking-fact"><span class="bf-icon"><i class="fas fa-clock"></i></span><span class="bf-value">4× 1h30/sem.</span><span class="bf-label">Rythme</span></div>
+              </div>
+              <div class="trust-badges">
+                <span class="trust-badge"><i class="fas fa-shield-alt"></i> Paiement sécurisé</span>
+                <span class="trust-badge"><i class="fas fa-award"></i> Certificat inclus</span>
               </div>
               <div class="booking-cta">
-                <a href="../booking.html?course=tcf-quebec-intensif" class="btn btn-primary">Réserver maintenant →</a>
+                <a href="../booking.html?course=tcf-quebec-intensif" class="btn btn-primary">Réserver maintenant &rarr;</a>
                 <a href="contact.html" class="btn btn-outline">Nous contacter</a>
               </div>
             </div>
