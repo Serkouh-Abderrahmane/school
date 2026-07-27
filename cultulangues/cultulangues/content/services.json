@@ -4,7 +4,7 @@
     "extractedAt": "2026-07-22T23:47:55.958979",
     "version": "2.0",
     "totalServices": 21,
-    "totalCategories": 6
+    "totalCategories": 7
   },
   "contact": {
     "name": "Academie Internationale Cultulangues",
@@ -103,15 +103,32 @@
         "Gatineau",
         "petit groupe"
       ],
-      "description": "",
-      "price": "",
-      "duration": "",
-      "schedule": "",
+      "description": "Vous souhaitez améliorer votre français rapidement pour le travail, les études ou votre vie quotidienne ? Français Express est un programme intensif conçu pour vous faire avancer en seulement 4 semaines. Grâce à un encadrement expert et à un rythme soutenu mais accessible, vous verrez vos compétences évoluer dès les premiers jours.",
+      "price": "600 $",
+      "duration": "4 semaines",
+      "schedule": "Lun–Ven 17h–20h",
       "level": "",
-      "groupSize": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
+      "groupSize": "5",
+      "objectives": [
+        "Un format intensif qui maximise la pratique réelle",
+        "Un suivi individuel pour cibler vos besoins",
+        "Une ambiance motivante et bienveillante qui favorise la prise de parole",
+        "Une nouvelle session chaque début de mois pour s'adapter à votre emploi du temps"
+      ],
+      "included": [
+        "60 heures d'apprentissage structuré",
+        "3 h de cours par jour, du lundi au vendredi (17 h – 20 h)",
+        "Durée : 4 semaines",
+        "Petits groupes (max. 5) pour un accompagnement réellement personnalisé",
+        "Certificat de fin de session",
+        "Rapport de progression détaillé"
+      ],
+      "benefits": [
+        "Un format intensif qui maximise la pratique réelle",
+        "Un suivi individuel pour cibler vos besoins",
+        "Une ambiance motivante et bienveillante qui favorise la prise de parole",
+        "Une nouvelle session chaque début de mois pour s'adapter à votre emploi du temps"
+      ],
       "audience": [],
       "sessions": [],
       "images": [
@@ -169,6 +186,36 @@
       "hours": "17 h–20 h",
       "sessions": [
         {
+          "label": "Automne 2026",
+          "dates": [
+            "14 septembre 2026",
+            "21 septembre 2026",
+            "28 septembre 2026",
+            "5 octobre 2026",
+            "12 octobre 2026",
+            "19 octobre 2026",
+            "26 octobre 2026",
+            "2 novembre 2026",
+            "9 novembre 2026",
+            "16 novembre 2026"
+          ]
+        },
+        {
+          "label": "Hiver 2027",
+          "dates": [
+            "8 janvier 2027",
+            "15 janvier 2027",
+            "22 janvier 2027",
+            "29 janvier 2027",
+            "5 février 2027",
+            "12 février 2027",
+            "19 février 2027",
+            "26 février 2027",
+            "5 mars 2027",
+            "11 mars 2027"
+          ]
+        },
+        {
           "label": "Printemps 2027",
           "dates": [
             "18 mars 2027",
@@ -184,15 +231,32 @@
           ]
         }
       ],
-      "description": "",
-      "price": "",
-      "duration": "",
-      "schedule": "",
+      "description": "Un programme conçu pour les professionnels qui veulent progresser en français à un rythme régulier et flexible, tout en conciliant travail, vie personnelle et apprentissage.",
+      "price": "300 $",
+      "duration": "10 semaines",
+      "schedule": "1 cours de 3 h par semaine, 17h–20h",
       "level": "",
-      "groupSize": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
+      "groupSize": "5",
+      "objectives": [
+        "Flexibilité totale : un seul soir par semaine, facile à intégrer dans un horaire chargé",
+        "Petits groupes (max. 5) pour un accompagnement personnalisé et des interactions de qualité",
+        "Rythme hebdomadaire efficace pour consolider vos acquis sans pression",
+        "Suivi individualisé pour soutenir votre progression"
+      ],
+      "included": [
+        "1 cours de 3 h par semaine, de 17 h à 20 h",
+        "Durée : 10 semaines",
+        "30 h de cours + 30 h de travail personnel",
+        "Engagement global : 60 h",
+        "Certificat de fin de session",
+        "Rapport personnalisé de progression"
+      ],
+      "benefits": [
+        "Flexibilité totale : un seul soir par semaine, facile à intégrer dans un horaire chargé",
+        "Petits groupes (max. 5) pour un accompagnement personnalisé et des interactions de qualité",
+        "Rythme hebdomadaire efficace pour consolider vos acquis sans pression",
+        "Suivi individualisé pour soutenir votre progression"
+      ],
       "audience": [],
       "images": [
         {
@@ -248,16 +312,34 @@
         "Gatineau",
         "francais"
       ],
-      "description": "1 29 mai 2027 9 h–12 h / 13 h–16 h 2 5 juin 2027 9 h–12 h / 13 h–16 h 3 12 juin 2027 9 h–12 h / 13 h–16 h 4 19 juin 2027 9 h–12 h / 13 h–16 h",
-      "hours": "9 h–12 h",
-      "price": "",
-      "duration": "",
-      "schedule": "",
+      "description": "Une immersion hebdomadaire conçue pour vous faire progresser rapidement et durablement. Chaque samedi, vous plongez dans un apprentissage intensif qui combine pratique, consolidation et mise en situation réelle.",
+      "hours": "9 h–12 h / 13 h–16 h",
+      "price": "300 $",
+      "duration": "5 semaines",
+      "schedule": "Samedis 9h–12h / 13h–16h",
       "level": "",
-      "groupSize": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
+      "groupSize": "10",
+      "objectives": [
+        "Immersion intensive pour accélérer votre progression",
+        "Exercices pratiques et mises en situation pour un apprentissage concret",
+        "Petits groupes (max. 10) pour favoriser les échanges et un accompagnement de qualité",
+        "Travail personnel guidé pour renforcer vos acquis entre chaque séance"
+      ],
+      "included": [
+        "6 h de formation chaque samedi (9 h–12 h et 13 h–16 h)",
+        "6 h de travail personnel par semaine",
+        "Durée : 5 semaines",
+        "30 h de cours + 30 h de travail personnel",
+        "Engagement global : 60 h",
+        "Certificat de fin de session",
+        "Rapport personnalisé de progression"
+      ],
+      "benefits": [
+        "Immersion intensive pour accélérer votre progression",
+        "Exercices pratiques et mises en situation pour un apprentissage concret",
+        "Petits groupes (max. 10) pour favoriser les échanges et un accompagnement de qualité",
+        "Travail personnel guidé pour renforcer vos acquis entre chaque séance"
+      ],
       "audience": [],
       "sessions": [],
       "images": [
@@ -546,15 +628,33 @@
         "Gatineau",
         "partiel"
       ],
-      "description": "",
-      "price": "",
-      "duration": "",
-      "schedule": "",
-      "groupSize": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
-      "audience": [],
+      "description": "Un programme structuré pour vous aider à développer une communication claire, naturelle et professionnelle, tout en maîtrisant les attentes du TCO – niveau B. Idéal pour progresser semaine après semaine, sans surcharge.",
+      "price": "320 $",
+      "duration": "10 semaines",
+      "schedule": "Mardis et jeudis, 18h–20h",
+      "groupSize": "5",
+      "objectives": [
+        "Développer une communication fluide, spontanée et confiante",
+        "Maîtriser les exigences de l'ÉLO – niveau B",
+        "Structurer des réponses efficaces, pertinentes et bien organisées",
+        "Gagner en aisance dans des situations variées et authentiques"
+      ],
+      "included": [
+        "Durée : 10 semaines",
+        "Rythme : 2 cours par semaine",
+        "Horaire : mardis et jeudis, de 18 h à 20 h",
+        "Volume total : 40 heures de formation",
+        "Travail personnel recommandé : 2 à 3 h par semaine",
+        "40 heures de formation animées par un enseignant expérimenté",
+        "Une évaluation de placement pour cibler vos besoins réels",
+        "Une simulation d'examen encadrée par l'un de nos évaluateurs"
+      ],
+      "benefits": [
+        "Développer une communication fluide, spontanée et confiante",
+        "Maîtriser les exigences de l'ÉLO – niveau B",
+        "Structurer des réponses efficaces, pertinentes et bien organisées",
+        "Gagner en aisance dans des situations variées et authentiques"
+      ],
       "sessions": [],
       "images": [
         {
@@ -614,15 +714,33 @@
         "Gatineau",
         "resultats"
       ],
-      "description": "",
-      "price": "",
-      "duration": "",
-      "schedule": "",
-      "groupSize": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
-      "audience": [],
+      "description": "Un programme intensif conçu pour vous aider à progresser rapidement et efficacement vers le niveau B. Idéal pour les apprenants qui veulent des résultats en peu de temps, avec un accompagnement structuré et professionnel.",
+      "price": "320 $",
+      "duration": "4 semaines",
+      "schedule": "Lun–Ven 18h–20h",
+      "groupSize": "5",
+      "objectives": [
+        "Progresser rapidement vers le niveau B",
+        "Développer fluidité, précision et confiance",
+        "Maîtriser les stratégies clés du TCO",
+        "Répondre efficacement dans des situations professionnelles réelles"
+      ],
+      "included": [
+        "Durée : 4 semaines",
+        "Rythme : du lundi au vendredi",
+        "Horaire : 18 h à 20 h",
+        "Volume total : 40 heures de formation intensive",
+        "Travail personnel recommandé : 2 à 3 h par semaine",
+        "40 heures de formation guidée par un professeur hautement qualifié",
+        "Une analyse de niveau personnalisée",
+        "Une simulation d'examen authentique avec un évaluateur de notre équipe"
+      ],
+      "benefits": [
+        "Progresser rapidement vers le niveau B",
+        "Développer fluidité, précision et confiance",
+        "Maîtriser les stratégies clés du TCO",
+        "Répondre efficacement dans des situations professionnelles réelles"
+      ],
       "sessions": [],
       "images": [
         {
@@ -680,15 +798,35 @@
         "Gatineau",
         "partiel"
       ],
-      "description": "",
-      "price": "",
-      "duration": "",
-      "schedule": "",
-      "groupSize": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
-      "audience": [],
+      "description": "Un programme structuré pour développer une communication précise, nuancée et professionnelle, tout en progressant régulièrement vers le niveau C. Idéal pour les apprenants qui veulent évoluer en profondeur, sans pression, avec un accompagnement expert.",
+      "price": "320 $",
+      "duration": "10 semaines",
+      "schedule": "Lundis et jeudis, 18h–20h",
+      "groupSize": "5",
+      "objectives": [
+        "Progresser vers une communication de niveau C",
+        "Développer précision, nuance et maîtrise des registres professionnels",
+        "Synthétiser des informations complexes et les présenter clairement",
+        "Réagir efficacement à des demandes délicates ou ambiguës",
+        "Renforcer cohérence, fluidité et crédibilité à l'oral"
+      ],
+      "included": [
+        "Durée : 10 semaines",
+        "Rythme : 2 cours par semaine",
+        "Horaire : lundis et jeudis, 18 h à 20 h",
+        "Volume total : 40 heures de formation",
+        "Travail personnel recommandé : 2 à 3 h par semaine",
+        "40 h de formation guidée par un professeur hautement qualifié",
+        "Une analyse de niveau personnalisée pour cibler vos priorités",
+        "Une simulation d'examen authentique avec un évaluateur de notre équipe"
+      ],
+      "benefits": [
+        "Progresser vers une communication de niveau C",
+        "Développer précision, nuance et maîtrise des registres professionnels",
+        "Synthétiser des informations complexes et les présenter clairement",
+        "Réagir efficacement à des demandes délicates ou ambiguës",
+        "Renforcer cohérence, fluidité et crédibilité à l'oral"
+      ],
       "sessions": [],
       "images": [
         {
@@ -748,15 +886,36 @@
         "Gatineau",
         "performant"
       ],
-      "description": "",
-      "price": "",
-      "duration": "",
-      "schedule": "",
-      "groupSize": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
-      "audience": [],
+      "description": "Un programme intensif conçu pour vous faire progresser vite, efficacement et en profondeur vers une communication de niveau C. Idéal pour développer une maîtrise professionnelle, nuancée et crédible en un temps court.",
+      "price": "320 $",
+      "duration": "4 semaines",
+      "schedule": "Lun–Ven 18h–20h",
+      "groupSize": "5",
+      "objectives": [
+        "Atteindre une communication avancée (niveau C)",
+        "Développer précision, nuance et maîtrise des registres professionnels",
+        "Synthétiser des informations complexes et les présenter clairement",
+        "Réagir efficacement à des demandes délicates ou ambiguës",
+        "Renforcer cohérence, fluidité et crédibilité à l'oral"
+      ],
+      "included": [
+        "Durée : 4 semaines",
+        "Rythme : du lundi au vendredi",
+        "Horaire : 18 h à 20 h",
+        "Volume total : 40 heures de formation intensive",
+        "Travail personnel recommandé : 2 à 3 h par semaine",
+        "40 h d'apprentissage guidé par un professeur expert",
+        "Un portrait de niveau sur mesure pour orienter votre progression",
+        "Une simulation d'examen réaliste menée par un évaluateur de Cultulangues",
+        "Un accompagnement complet pour progresser avec confiance et atteindre vos objectifs"
+      ],
+      "benefits": [
+        "Atteindre une communication avancée (niveau C)",
+        "Développer précision, nuance et maîtrise des registres professionnels",
+        "Synthétiser des informations complexes et les présenter clairement",
+        "Réagir efficacement à des demandes délicates ou ambiguës",
+        "Renforcer cohérence, fluidité et crédibilité à l'oral"
+      ],
       "sessions": [],
       "images": [
         {
@@ -815,27 +974,42 @@
         "partiel"
       ],
       "structure": [
-        "♦ Durée : 7 semaines",
-        "♦ Rythme : 4 séances par semaine",
-        "♦ Format : séances de 1 h 30 en petit groupe (max. 5 participants)",
-        "♦ Volume total : 42 heures de formation",
-        "♦ Un rythme immersif, efficace et sans surcharge",
-        "Les 4 compétences travaillées chaque semaine",
-        "♦ Compréhension orale",
-        "♦ Compréhension écrite",
-        "♦ Expression écrite",
-        "♦ Expression orale"
+        "Durée : 14 semaines",
+        "Rythme : 2 séances par semaine",
+        "Format : séances de 1 h 30 en petit groupe (max. 5 participants)",
+        "Volume total : 42 heures de formation",
+        "Niveau minimum requis : B1"
       ],
-      "description": "Parcours TCF Québec – Progressez vers le niveau B2 en douceur Un accompagnement complet pensé pour les adultes qui souhaitent atteindre un niveau B2 ou plus, tout en respectant un rythme léger, régulier et compatible avec un horaire chargé.",
+      "description": "Un accompagnement complet pensé pour les adultes qui souhaitent atteindre un niveau B2 ou plus, tout en respectant un rythme léger, régulier et compatible avec un horaire chargé.",
       "duration": "14 semaines",
       "volume": "42 h",
-      "schedule": "2 séances par semaine",
+      "schedule": "2 séances par semaine, 1 h 30",
       "groupSize": "5",
       "level": "B2",
-      "price": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
+      "price": "À venir",
+      "objectives": [
+        "Comprendre des audios variés et gagner en précision d'écoute",
+        "Lire plus efficacement et repérer l'essentiel rapidement",
+        "Rédiger des textes clairs, structurés et pertinents",
+        "Parler avec confiance grâce à des stratégies ciblées et des simulations réalistes"
+      ],
+      "included": [
+        "Compréhension orale",
+        "Compréhension écrite",
+        "Expression écrite",
+        "Expression orale",
+        "Durée : 14 semaines",
+        "Rythme : 2 séances par semaine",
+        "Format : séances de 1 h 30 en petit groupe (max. 5 participants)",
+        "Volume total : 42 heures de formation",
+        "Niveau minimum requis : B1"
+      ],
+      "benefits": [
+        "Un accompagnement humain et rassurant avec bienveillance, clarté et expertise",
+        "Découverte des formats d'épreuves, stratégies gagnantes et réflexes essentiels",
+        "Environnement sécurisant où vous pouvez progresser sans pression",
+        "Jamais seul, toujours accompagné – la promesse Cultulangues"
+      ],
       "audience": [],
       "sessions": [],
       "images": [
@@ -897,16 +1071,35 @@
         "C1",
         "Gatineau"
       ],
-      "description": "",
-      "price": "",
-      "duration": "",
-      "schedule": "",
-      "level": "",
-      "groupSize": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
-      "audience": [],
+      "description": "Atteignez rapidement un niveau B2 ou C1 grâce à un entraînement ciblé, soutenu et accompagné. Ce format intensif est idéal pour les personnes en démarche d'immigration urgente, celles qui souhaitent maximiser leurs points MIFI, ou les adultes disponibles plusieurs fois par semaine et prêts à s'investir pleinement.",
+      "duration": "7 semaines",
+      "schedule": "4 séances par semaine, 1 h 30",
+      "groupSize": "5",
+      "level": "B2",
+      "price": "À venir",
+      "objectives": [
+        "Comprendre des audios rapides et variés",
+        "Lire plus efficacement et repérer l'essentiel",
+        "Rédiger des textes structurés, clairs et pertinents",
+        "Parler avec confiance grâce à des stratégies avancées et des simulations intensives"
+      ],
+      "included": [
+        "Compréhension orale",
+        "Compréhension écrite",
+        "Expression écrite",
+        "Expression orale",
+        "Durée : 7 semaines",
+        "Rythme : 4 séances par semaine",
+        "Format : séances de 1 h 30 en petit groupe (max. 5 participants)",
+        "Volume total : 42 heures de formation",
+        "Un rythme immersif, efficace et sans surcharge"
+      ],
+      "benefits": [
+        "Un accompagnement humain et expert avec bienveillance, clarté et expertise",
+        "Découverte des formats d'épreuves, stratégies gagnantes et réflexes essentiels",
+        "Environnement sécurisant où vous pouvez progresser sans pression",
+        "Un parcours clair, un soutien réel, une progression maîtrisée"
+      ],
       "sessions": [],
       "images": [
         {
@@ -963,16 +1156,34 @@
         "Gatineau",
         "partiel"
       ],
-      "description": "",
-      "price": "",
-      "duration": "",
-      "schedule": "",
-      "level": "",
-      "groupSize": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
-      "audience": [],
+      "description": "Progressez vers un niveau B2 ou plus grâce à un rythme léger, régulier et parfaitement adapté aux emplois du temps chargés.",
+      "duration": "14 semaines",
+      "schedule": "2 séances par semaine, 1 h 30",
+      "groupSize": "5",
+      "level": "B2",
+      "price": "À venir",
+      "objectives": [
+        "Comprendre des audios variés et gagner en précision d'écoute",
+        "Lire plus efficacement et repérer l'essentiel rapidement",
+        "Rédiger des textes clairs, structurés et pertinents",
+        "Parler avec confiance grâce à des stratégies ciblées et des simulations réalistes"
+      ],
+      "included": [
+        "Compréhension orale",
+        "Compréhension écrite",
+        "Expression écrite",
+        "Expression orale",
+        "Durée : 14 semaines",
+        "Rythme : 2 séances par semaine",
+        "Format : séances de 1 h 30 en petit groupe (max. 5 participants)",
+        "Volume total : 42 heures de formation"
+      ],
+      "benefits": [
+        "Un environnement d'apprentissage rassurant et motivant",
+        "Des stratégies ciblées, des simulations réalistes, un accompagnement personnalisé",
+        "Vous découvrez les formats d'épreuves, les stratégies gagnantes et les réflexes essentiels",
+        "Vous avancez dans un cadre bienveillant, clair et sans pression"
+      ],
       "sessions": [],
       "images": [
         {
@@ -1031,16 +1242,34 @@
         "C1",
         "Gatineau"
       ],
-      "description": "",
-      "price": "",
-      "duration": "",
-      "schedule": "",
-      "level": "",
-      "groupSize": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
-      "audience": [],
+      "description": "Atteignez rapidement un niveau B2 ou C1 grâce à un entraînement ciblé, soutenu et accompagné. Ce format est idéal pour les personnes en démarche d'immigration urgente ou celles qui souhaitent maximiser leurs points IRCC. Le rythme intensif crée une immersion efficace, sans surcharge.",
+      "duration": "7 semaines",
+      "schedule": "4 séances par semaine, 1 h 30",
+      "groupSize": "5",
+      "level": "B2",
+      "price": "À venir",
+      "objectives": [
+        "Comprendre des audios rapides et variés",
+        "Lire plus efficacement et repérer les informations essentielles",
+        "Rédiger des textes structurés, clairs et pertinents",
+        "Parler avec assurance grâce à des stratégies avancées et des simulations réalistes"
+      ],
+      "included": [
+        "Compréhension orale",
+        "Compréhension écrite",
+        "Expression écrite",
+        "Expression orale",
+        "Durée : 7 semaines",
+        "Rythme : 4 séances par semaine",
+        "Format : séances de 1 h 30 en petit groupe (max. 5 participants)",
+        "Volume total : 42 heures de formation"
+      ],
+      "benefits": [
+        "Un accompagnement expert et bienveillant",
+        "Environnement clair, sécurisant et sans pression",
+        "Vous découvrez les formats d'épreuves, les stratégies gagnantes et les réflexes essentiels",
+        "Obtenir le meilleur score possible pour votre projet d'immigration"
+      ],
       "sessions": [],
       "images": [
         {
@@ -1086,7 +1315,7 @@
       "category": "formation-en-solo",
       "language": "fr",
       "format": "solo",
-      "pageUrl": "pages/formation-en-solo.html",
+      "pageUrl": "pages/solo-5h.html",
       "bookingUrl": "booking.html?course=solo&program=5h",
       "image": "img/package-solo-5h.png",
       "metaDescription": "Formation solo 5h a Gatineau. Decouvrez la methode Cultulangues en accompagnement individuel.",
@@ -1096,16 +1325,28 @@
         "individuel",
         "Gatineau"
       ],
-      "description": "",
-      "price": "",
-      "duration": "",
-      "schedule": "",
+      "description": "Boostez votre français avec les cours solo Cultulangues, la formule la plus flexible et la plus efficace pour atteindre rapidement vos objectifs linguistiques. Choisissez exactement ce dont vous avez besoin grâce à nos cours à la carte. Forfait de 5 heures, idéal pour découvrir la méthode ou pour un besoin ponctuel.",
+      "price": "Sur demande",
+      "duration": "5 heures",
+      "schedule": "Flexible – à planifier",
       "level": "",
-      "groupSize": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
-      "audience": [],
+      "groupSize": "1",
+      "objectives": [
+        "Découvrir la méthode Cultulangues en accompagnement individuel",
+        "Répondre à un besoin ponctuel de formation",
+        "Avancer à votre rythme avec un accompagnement sur mesure"
+      ],
+      "included": [
+        "5 heures d'accompagnement individuel personnalisé",
+        "Évaluation de vos besoins et objectifs",
+        "Parcours adapté à votre niveau et vos objectifs"
+      ],
+      "benefits": [
+        "Formule la plus flexible et efficace",
+        "Choisissez exactement ce dont vous avez besoin",
+        "Accompagnement 100% personnalisé",
+        "Résultats concrets rapidement"
+      ],
       "sessions": [],
       "images": [
         {
@@ -1148,7 +1389,7 @@
       "category": "formation-en-solo",
       "language": "fr",
       "format": "solo",
-      "pageUrl": "pages/formation-en-solo.html",
+      "pageUrl": "pages/solo-10h.html",
       "bookingUrl": "booking.html?course=solo&program=10h",
       "image": "img/package-solo-10h.png",
       "metaDescription": "Formation solo 10h a Gatineau. Accompagnement regulier pour progresser en profondeur.",
@@ -1158,16 +1399,29 @@
         "regulier",
         "Gatineau"
       ],
-      "description": "",
-      "price": "",
-      "duration": "",
-      "schedule": "",
+      "description": "Un accompagnement régulier pour progresser en profondeur. Forfait de 10 heures pour avancer à votre rythme avec un suivi personnalisé et des résultats concrets.",
+      "price": "Sur demande",
+      "duration": "10 heures",
+      "schedule": "Flexible – à planifier",
       "level": "",
-      "groupSize": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
-      "audience": [],
+      "groupSize": "1",
+      "objectives": [
+        "Progresser en profondeur avec un accompagnement régulier",
+        "Renforcer vos compétences linguistiques de manière durable",
+        "Bénéficier d'un suivi personnalisé et de feedback ciblé"
+      ],
+      "included": [
+        "10 heures d'accompagnement individuel personnalisé",
+        "Évaluation de vos besoins et objectifs",
+        "Parcours adapté à votre niveau et à vos objectifs",
+        "Suivi de progression personnalisé"
+      ],
+      "benefits": [
+        "Formule la plus flexible et efficace",
+        "Choisissez exactement ce dont vous avez besoin",
+        "Accompagnement 100% personnalisé",
+        "Résultats concrets rapidement"
+      ],
       "sessions": [],
       "images": [
         {
@@ -1210,7 +1464,7 @@
       "category": "formation-en-solo",
       "language": "fr",
       "format": "solo",
-      "pageUrl": "pages/formation-en-solo.html",
+      "pageUrl": "pages/solo-15h.html",
       "bookingUrl": "booking.html?course=solo&program=15h",
       "image": "img/package-solo-15h.png",
       "metaDescription": "Formation solo 15h a Gatineau. Programme complet pour atteindre vos objectifs.",
@@ -1220,16 +1474,29 @@
         "acceleration",
         "Gatineau"
       ],
-      "description": "",
-      "price": "",
-      "duration": "",
-      "schedule": "",
+      "description": "Un programme complet pour atteindre vos objectifs rapidement. Forfait de 15 heures pour une progression accélérée avec un accompagnement intensif et personnalisé.",
+      "price": "Sur demande",
+      "duration": "15 heures",
+      "schedule": "Flexible – à planifier",
       "level": "",
-      "groupSize": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
-      "audience": [],
+      "groupSize": "1",
+      "objectives": [
+        "Atteindre vos objectifs linguistiques rapidement",
+        "Progresser de manière accélérée avec un accompagnement intensif",
+        "Développer vos compétences de manière complète et structurée"
+      ],
+      "included": [
+        "15 heures d'accompagnement individuel personnalisé",
+        "Évaluation de vos besoins et objectifs",
+        "Parcours adapté à votre niveau et à vos objectifs",
+        "Suivi de progression personnalisé"
+      ],
+      "benefits": [
+        "Formule la plus flexible et efficace",
+        "Choisissez exactement ce dont vous avez besoin",
+        "Accompagnement 100% personnalisé",
+        "Résultats concrets rapidement"
+      ],
       "sessions": [],
       "images": [
         {
@@ -1272,7 +1539,7 @@
       "category": "formation-en-solo",
       "language": "fr",
       "format": "solo",
-      "pageUrl": "pages/formation-en-solo.html",
+      "pageUrl": "pages/solo-20h.html",
       "bookingUrl": "booking.html?course=solo&program=20h",
       "image": "img/package-solo-20h.png",
       "metaDescription": "Formation solo 20h a Gatineau. L'accompagnement le plus complet pour des resultats durables.",
@@ -1282,16 +1549,29 @@
         "excellence",
         "Gatineau"
       ],
-      "description": "",
-      "price": "",
-      "duration": "",
-      "schedule": "",
+      "description": "L'accompagnement le plus complet pour des résultats durables. Forfait de 20 heures pour une formation intensive et personnalisée avec des résultats durables.",
+      "price": "Sur demande",
+      "duration": "20 heures",
+      "schedule": "Flexible – à planifier",
       "level": "",
-      "groupSize": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
-      "audience": [],
+      "groupSize": "1",
+      "objectives": [
+        "Obtenir des résultats durables grâce à un accompagnement complet",
+        "Atteindre l'excellence dans vos compétences linguistiques",
+        "Bénéficier d'un programme de formation intensif et personnalisé"
+      ],
+      "included": [
+        "20 heures d'accompagnement individuel personnalisé",
+        "Évaluation de vos besoins et objectifs",
+        "Parcours adapté à votre niveau et à vos objectifs",
+        "Suivi de progression personnalisé"
+      ],
+      "benefits": [
+        "Formule la plus flexible et efficace",
+        "Choisissez exactement ce dont vous avez besoin",
+        "Accompagnement 100% personnalisé",
+        "Résultats concrets et durables"
+      ],
       "sessions": [],
       "images": [
         {
@@ -1334,7 +1614,7 @@
       "category": "ateliers",
       "language": "fr",
       "format": "atelier",
-      "pageUrl": "pages/workshops.html",
+      "pageUrl": "pages/atelier-conversation.html",
       "bookingUrl": "booking.html?course=workshop-conversation",
       "image": "img/atelier-conversation.png",
       "metaDescription": "Atelier de conversation francais a Gatineau. Pratiquez chaque semaine en groupe.",
@@ -1345,30 +1625,32 @@
         "pratique"
       ],
       "audience": [
-        "Pour les adultes qui souhaitent :",
-        "♦ Parler plus naturellement au quotidien",
-        "♦ Enrichir leur vocabulaire",
-        "♦ Améliorer leur prononciation",
-        "♦ Progresser à leur rythme dans un petit groupe convivial",
-        "Fonctionnement",
-        "♦ Forfait de 5 ateliers : 100 $",
-        "♦ Groupes de 5 participants maximum",
-        "♦ Séances vivantes, interactives et adaptées au niveau du groupe",
-        "L’expérience Cultulangues",
-        "Un cadre humain, rassurant et motivant où chacun trouve sa place,",
-        "progresse avec confiance et ose parler davantage.",
-        "Un espace humain, rassurant et motivant.",
-        "C’est l’expérience Cultulangues."
+        "Pour les adultes qui souhaitent parler plus naturellement au quotidien",
+        "Enrichir leur vocabulaire et améliorer leur prononciation",
+        "Progresser à leur rythme dans un petit groupe convivial"
       ],
-      "description": "Atelier de conversation – Pratiquez votre français chaque semaine Un espace chaleureux, dynamique et bienveillant pour pratiquer le français Pendant 1 h par semaine, à l’heure du dîner ou en soirée, vous échangez sur des thèmes variés, développez votre spontanéité et gagnez en fluidité, sans",
+      "description": "Un espace chaleureux, dynamique et bienveillant pour pratiquer le français en toute simplicité. Pendant 1 h par semaine, à l'heure du dîner ou en soirée, vous échangez sur des thèmes variés, développez votre spontanéité et gagnez en fluidité, sans pression, sans jugement, juste du vrai plaisir à parler.",
       "price": "100 $",
       "groupSize": "5",
-      "duration": "",
-      "schedule": "",
+      "duration": "Forfait de 5 ateliers",
+      "schedule": "1 h par semaine",
       "level": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
+      "objectives": [
+        "Parler plus naturellement au quotidien",
+        "Enrichir leur vocabulaire",
+        "Améliorer leur prononciation",
+        "Progresser à leur rythme dans un petit groupe convivial"
+      ],
+      "included": [
+        "Forfait de 5 ateliers : 100 $",
+        "Groupes de 5 participants maximum",
+        "Séances vivantes, interactives et adaptées au niveau du groupe"
+      ],
+      "benefits": [
+        "Un espace humain, rassurant et motivant où chacun trouve sa place",
+        "Progresse avec confiance et ose parler davantage",
+        "Pratique du français sans pression et sans jugement"
+      ],
       "sessions": [],
       "images": [
         {
@@ -1410,7 +1692,7 @@
       "category": "ateliers",
       "language": "fr",
       "format": "atelier",
-      "pageUrl": "pages/workshops.html",
+      "pageUrl": "pages/atelier-culture.html",
       "bookingUrl": "booking.html?course=workshop-culture",
       "image": "img/atelier-culture-canada.png",
       "metaDescription": "Atelier culture canadienne a Gatineau. Comprendre et decouvrir pour mieux s'integrer.",
@@ -1421,34 +1703,37 @@
         "integration"
       ],
       "included": [
-        "♦ Une exploration progressive des repères culturels canadiens",
-        "♦ Des échanges vivants en petit groupe (max. 5 participants)",
-        "♦ Un environnement bienveillant où chacun progresse à son rythme",
-        "♦ Une meilleure aisance dans vos interactions quotidiennes",
-        "♦ Une compréhension plus fine des nuances culturelles qui facilitent",
-        "l’intégration",
-        "Fonctionnement",
-        "♦ Forfait 10 ateliers : 200 $",
-        "♦ Groupes de 5 participants maximum",
-        "♦ Séances interactives, discussions guidées et activités culturelles",
-        "adaptées aux adultes",
-        "L’expérience Cultulangues",
-        "Chaque séance vous aide à vous sentir plus confiant(e), plus préparé(e) et",
-        "plus serein(e) dans votre future vie au Canada.",
-        "Vous échangez, vous comprenez, vous vous appropriez les codes, toujours",
-        "dans un cadre humain, rassurant et motivant.",
-        "Un espace pour comprendre, échanger et s’intégrer sereinement.",
-        "C’est l’expérience Cultulangues."
+        "Une exploration progressive des repères culturels canadiens",
+        "Des échanges vivants en petit groupe (max. 5 participants)",
+        "Un environnement bienveillant où chacun progresse à son rythme",
+        "Une meilleure aisance dans vos interactions quotidiennes",
+        "Une compréhension plus fine des nuances culturelles qui facilitent l'intégration",
+        "Forfait 10 ateliers : 200 $",
+        "Groupes de 5 participants maximum",
+        "Séances interactives, discussions guidées et activités culturelles adaptées aux adultes"
       ],
-      "description": "Atelier Culture du Canada – Comprendre, découvrir et s’intégrer Un espace chaleureux pour explorer la culture canadienne et mieux comprendre le pays dans lequel vous souhaitez vous installer. Pendant 1 h par semaine, durant 10 semaines, à l’heure du dîner ou en",
+      "description": "Un espace chaleureux pour explorer la culture canadienne et mieux comprendre le pays dans lequel vous souhaitez vous installer. Pendant 1 h par semaine, durant 10 semaines, à l'heure du dîner ou en soirée, vous découvrez des thèmes essentiels : vie quotidienne, codes culturels, diversité, traditions, expressions locales et réalités propres aux provinces.",
       "price": "200 $",
       "duration": "10 semaines",
       "groupSize": "5",
-      "schedule": "",
+      "schedule": "1 h par semaine",
       "level": "",
-      "objectives": [],
-      "benefits": [],
-      "audience": [],
+      "objectives": [
+        "Une exploration progressive des repères culturels canadiens",
+        "Des échanges vivants en petit groupe",
+        "Une meilleure aisance dans vos interactions quotidiennes",
+        "Une compréhension plus fine des nuances culturelles qui facilitent l'intégration"
+      ],
+      "benefits": [
+        "Un espace pour comprendre, échanger et s'intégrer sereinement",
+        "Vous échangez, vous comprenez, vous vous appropriez les codes",
+        "Un cadre humain, rassurant et motivant"
+      ],
+      "audience": [
+        "Pour les adultes qui souhaitent comprendre la culture canadienne",
+        "Mieux s'intégrer dans le pays",
+        "Découvrir les codes culturels, traditions et réalités propres aux provinces"
+      ],
       "sessions": [],
       "images": [
         {
@@ -1493,7 +1778,7 @@
       "category": "ateliers",
       "language": "fr",
       "format": "atelier",
-      "pageUrl": "pages/workshops.html",
+      "pageUrl": "pages/atelier-maintien.html",
       "bookingUrl": "booking.html?course=workshop-maintenance",
       "image": "img/atelier-maintien.png",
       "metaDescription": "Atelier maintien francais a Gatineau. Gardez votre francais vivant chaque semaine.",
@@ -1504,34 +1789,34 @@
         "renforcement"
       ],
       "audience": [
-        "Pour les adultes qui souhaitent :",
-        "♦ Entretenir leur français sans pression",
-        "♦ Rester motivés grâce à une pratique régulière",
-        "♦ Améliorer leur fluidité et leur spontanéité",
-        "♦ Renforcer leurs bases tout en continuant à progresser",
-        "Fonctionnement",
-        "♦ Forfait 5 ateliers : 100 $",
-        "♦ Groupes de 5 participants maximum",
-        "♦ Séances légères, structurées et bienveillantes",
-        "♦ Activités variées pour stimuler l’oral et l’écrit",
-        "L’expérience Cultulangues",
-        "Un rythme doux, un soutien constant et un espace où l’on progresse avec",
-        "confiance, sans jugement et toujours accompagné(e).",
-        "Un rythme doux, un soutien constant.",
-        "C’est l’expérience Cultulangues.",
-        "Académie Internationale Cultulangues",
-        "Courriel : Admin cultulangues.ca",
-        "Téléphone : à venir"
+        "Pour les adultes qui souhaitent entretenir leur français sans pression",
+        "Rester motivés grâce à une pratique régulière",
+        "Améliorer leur fluidité et leur spontanéité",
+        "Renforcer leurs bases tout en continuant à progresser"
       ],
-      "description": "Atelier maintien & renforcement – Gardez votre français vivant, Un atelier conçu pour consolider vos acquis tout en continuant à progresser Pendant 1 h par semaine, en petit groupe de 5 participants maximum, vous pratiquez régulièrement pour maintenir votre niveau actif, renforcer vos",
+      "description": "Un atelier conçu pour consolider vos acquis tout en continuant à progresser en douceur. Pendant 1 h par semaine, en petit groupe de 5 participants maximum, vous pratiquez régulièrement pour maintenir votre niveau actif, renforcer vos réflexes linguistiques et gagner en aisance à l'oral comme à l'écrit.",
       "price": "100 $",
       "groupSize": "5",
-      "level": "A",
-      "duration": "",
-      "schedule": "",
-      "objectives": [],
-      "included": [],
-      "benefits": [],
+      "level": "",
+      "duration": "Forfait de 5 ateliers",
+      "schedule": "1 h par semaine",
+      "objectives": [
+        "Entretenir leur français sans pression",
+        "Rester motivés grâce à une pratique régulière",
+        "Améliorer leur fluidité et leur spontanéité",
+        "Renforcer leurs bases tout en continuant à progresser"
+      ],
+      "included": [
+        "Forfait 5 ateliers : 100 $",
+        "Groupes de 5 participants maximum",
+        "Séances légères, structurées et bienveillantes",
+        "Activités variées pour stimuler l'oral et l'écrit"
+      ],
+      "benefits": [
+        "Un rythme doux, un soutien constant",
+        "Un espace où l'on progresse avec confiance, sans jugement",
+        "Toujours accompagné(e) dans votre apprentissage"
+      ],
       "sessions": [],
       "images": [
         {
