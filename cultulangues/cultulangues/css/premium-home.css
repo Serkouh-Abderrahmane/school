@@ -1137,6 +1137,22 @@
   color: var(--color-text-secondary);
 }
 
+.subservice-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+.subservice-card-link:hover { text-decoration: none; color: inherit; }
+.subservice-card-cta {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ph-orange);
+  transition: color var(--transition-fast);
+}
+.subservice-card-link:hover .subservice-card-cta { color: var(--ph-pink); }
+
 
 /* ══════════════════════════════════════════════════════════════
    SOLO PRICING TABLE — Clean horizontal rows, no bubbles
