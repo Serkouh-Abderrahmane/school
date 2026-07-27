@@ -1,0 +1,17 @@
+{
+  "name": "cultulangues-website",
+  "version": "2.0.0",
+  "description": "Cultulangues - Ecole de langues a Gatineau, QC",
+  "scripts": {
+    "extract-images": "python extract-images.py",
+    "dev": "python -m http.server 8000",
+    "preview": "python -m http.server 8000 --bind 0.0.0.0"
+  },
+  "dependencies": {
+    "pdfplumber": ">=0.10.0",
+    "Pillow": ">=10.0.0"
+  },
+  "engines": {
+    "python": ">=3.10"
+  }
+}

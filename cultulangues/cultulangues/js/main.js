@@ -3078,6 +3078,7 @@
           var offset = 90;
           var y = target.getBoundingClientRect().top + window.pageYOffset - offset;
           window.scrollTo({ top: y, behavior: 'smooth' });
+          history.replaceState(null, '', targetId);
         });
       });
 

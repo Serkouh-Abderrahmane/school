@@ -1,0 +1,40 @@
+{
+  "home": {
+    "hero": {
+      "badge": "Ecole certifiee - +950 etudiants",
+      "title": "Chez CultuLangues, nous construisons votre reussite et donnons un nouvel elan a vos projets.",
+      "subtitle": "Vous souhaitez apprendre l'une des langues officielles du Canada pour :",
+      "checklist": [
+        "Faire evoluer votre carriere",
+        "Reussir votre projet d'immigration",
+        "Gagner confiance et autonomie dans la vie quotidienne"
+      ],
+      "ctaPrimary": "Decouvrez nos parcours d'apprentissage",
+      "ctaSecondary": "Choisissez le format qui vous ressemble"
+    },
+    "stats": [
+      {
+        "value": "12",
+        "label": "Annees d'experience"
+      },
+      {
+        "value": "98%",
+        "label": "de reussite aux examens"
+      },
+      {
+        "value": "+950",
+        "label": "Etudiants accompagnes"
+      },
+      {
+        "value": "4.9*",
+        "label": "Avis Google"
+      }
+    ]
+  },
+  "contact": {
+    "name": "Academie Internationale Cultulangues",
+    "email": "Admin@cultulangues.ca",
+    "phone": "a venir",
+    "address": "468 rue Plouffe suite 3, Gatineau J8P 4B7 (QC)"
+  }
+}

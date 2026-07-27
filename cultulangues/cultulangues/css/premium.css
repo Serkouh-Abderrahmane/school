@@ -267,9 +267,9 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.45rem); letter-spacing: -0.025em; font-wei
 .summary-pill i { color: var(--color-orange); font-size: 0.9rem; }
 
 /* ══════════════════════════════════════════════════════════════
-   4. PREMIUM CALENDAR — Event booking cards
+   4. PREMIUM CALENDAR — Session cards v2
    ══════════════════════════════════════════════════════════════ */
-.session-timeline { display: flex; flex-direction: column; gap: 12px; }
+.session-timeline { display: flex; flex-direction: column; gap: 14px; }
 
 .session-card-premium {
   background: var(--color-white);
@@ -277,9 +277,6 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.45rem); letter-spacing: -0.025em; font-wei
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
   transition: all 350ms cubic-bezier(0.16, 1, 0.3, 1);
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
   overflow: hidden;
   position: relative;
 }
@@ -299,39 +296,189 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.45rem); letter-spacing: -0.025em; font-wei
   border-color: rgba(250, 78, 48, 0.1);
 }
 .session-card-premium:hover::before { transform: scaleX(1); }
+
+/* Featured */
 .session-card-premium.featured {
   border-color: rgba(250, 78, 48, 0.15);
   box-shadow: 0 8px 32px rgba(250, 78, 48, 0.08);
   background: linear-gradient(135deg, rgba(250, 78, 48, 0.02), rgba(250, 78, 48, 0.01));
 }
 .session-card-premium.featured::before { transform: scaleX(1); }
-.session-card-premium.pause { opacity: 0.45; background: var(--color-bg-alt); }
-.session-card-premium.pause::before { display: none; }
 
-.scp-season { padding: 20px 24px; min-width: 180px; border-right: 1px solid rgba(0, 0, 0, 0.04); }
+/* Pause / Break */
+.session-card-premium.pause {
+  background: linear-gradient(135deg, rgba(35, 103, 208, 0.03), rgba(35, 103, 208, 0.01));
+  border-color: rgba(35, 103, 208, 0.12);
+  box-shadow: 0 2px 12px rgba(35, 103, 208, 0.04);
+}
+.session-card-premium.pause::before {
+  display: block;
+  background: linear-gradient(90deg, var(--color-blue), rgba(35, 103, 208, 0.6));
+  transform: scaleX(1);
+}
+.session-card-premium.pause:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(35, 103, 208, 0.08);
+  border-color: rgba(35, 103, 208, 0.18);
+}
+
+/* Coming Soon */
+.session-card-premium.coming-soon {
+  background: var(--color-bg-alt);
+  border: 1px dashed rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+}
+.session-card-premium.coming-soon::before { display: none; }
+.session-card-premium.coming-soon:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* ── Card header row ── */
+.scp-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px 0;
+}
+
+.scp-season-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(250, 78, 48, 0.1), rgba(250, 78, 48, 0.03));
+  transition: all 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.scp-season-icon i { color: var(--color-orange); font-size: 1.1rem; }
+.session-card-premium:hover .scp-season-icon {
+  transform: scale(1.08) rotate(-3deg);
+  background: linear-gradient(135deg, rgba(250, 78, 48, 0.18), rgba(250, 78, 48, 0.08));
+}
+
+.scp-season { flex: 1; min-width: 0; }
 .scp-season-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--color-text-tertiary); margin-bottom: 2px; }
 .scp-season-title { font-size: 1.05rem; font-weight: 800; color: var(--color-text); letter-spacing: -0.02em; }
 .scp-season-date { font-size: 0.8rem; color: var(--color-text-secondary); margin-top: 2px; }
 
-.scp-details { padding: 20px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-.scp-chip { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 10px; font-size: 0.75rem; font-weight: 500; background: var(--color-bg-alt); color: var(--color-text-secondary); border: 1px solid rgba(0, 0, 0, 0.03); }
-.scp-chip i { font-size: 0.8rem; }
-.scp-status { display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 10px; font-size: 0.7rem; font-weight: 600; }
-.scp-status--open { background: rgba(115, 206, 101, 0.08); color: var(--color-green); }
-.scp-status--limited { background: rgba(252, 151, 5, 0.08); color: var(--color-amber); }
-.scp-status--full { background: rgba(250, 78, 48, 0.08); color: var(--color-pink); }
-.scp-status--pause { background: rgba(0, 0, 0, 0.04); color: var(--color-text-tertiary); }
+.scp-status {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 12px; border-radius: 10px;
+  font-size: 0.7rem; font-weight: 600;
+  flex-shrink: 0;
+}
+.scp-status--open { background: rgba(115, 206, 101, 0.1); color: var(--color-green); }
+.scp-status--limited { background: rgba(252, 151, 5, 0.1); color: var(--color-amber); }
+.scp-status--full { background: rgba(250, 78, 48, 0.1); color: var(--color-pink); }
+.scp-status--pause { background: rgba(35, 103, 208, 0.08); color: var(--color-blue); }
+.scp-status--tbd { background: rgba(0, 0, 0, 0.04); color: var(--color-text-tertiary); }
 
-.scp-actions { padding: 16px 20px; display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+/* ── Detail chips row ── */
+.scp-details {
+  padding: 14px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  margin-top: 14px;
+}
+.scp-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 12px; border-radius: 10px;
+  font-size: 0.75rem; font-weight: 500;
+  background: var(--color-bg-alt); color: var(--color-text-secondary);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+.scp-chip i { font-size: 0.8rem; color: var(--color-orange); }
+
+/* ── Actions row ── */
+.scp-actions {
+  padding: 0 24px 20px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+}
 .scp-actions .btn { padding: 8px 20px; font-size: 0.75rem; white-space: nowrap; border-radius: 10px; }
 
+/* ── Pause card content ── */
+.scp-pause-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+}
+.scp-pause-icon {
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(35, 103, 208, 0.08);
+  flex-shrink: 0;
+}
+.scp-pause-icon i { color: var(--color-blue); font-size: 1rem; }
+.scp-pause-text { font-size: 0.85rem; color: var(--color-text-secondary); font-weight: 500; }
+
+/* ── Coming Soon content ── */
+.scp-coming-soon-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+}
+.scp-coming-soon-icon {
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
+}
+.scp-coming-soon-icon i { color: var(--color-text-tertiary); font-size: 1rem; }
+.scp-coming-soon-text { font-size: 0.85rem; color: var(--color-text-secondary); font-weight: 500; }
+
+/* ── Featured badge ── */
 .scp-featured-badge {
   position: absolute; top: 12px; right: 12px;
   padding: 4px 12px; border-radius: 8px;
   font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
   background: var(--color-orange); color: var(--color-white);
   box-shadow: 0 2px 8px rgba(250, 78, 48, 0.3);
+  z-index: 2;
 }
+
+/* ── Session list (individual dates within a session) ── */
+.scp-session-list {
+  padding: 0 24px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.scp-session-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-alt);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+.scp-session-num {
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(250, 78, 48, 0.08);
+  color: var(--color-orange);
+  font-size: 0.65rem; font-weight: 700;
+  flex-shrink: 0;
+}
+.scp-session-date { font-weight: 600; color: var(--color-text); }
+.scp-session-time { color: var(--color-text-tertiary); margin-left: auto; font-size: 0.72rem; }
 
 /* ══════════════════════════════════════════════════════════════
    5. BOOKING SIDEBAR — Premium pricing card
@@ -539,11 +686,17 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.45rem); letter-spacing: -0.025em; font-wei
   .hero-chips { gap: 8px; }
   .hero-chip { padding: 6px 12px; font-size: 0.75rem; }
   .feature-cards { grid-template-columns: 1fr; }
-  .session-card-premium { grid-template-columns: 1fr; }
-  .scp-season { border-right: none; border-bottom: 1px solid rgba(0, 0, 0, 0.04); min-width: auto; padding: 16px 20px; }
+  .session-card-premium { }
+  .scp-header { padding: 16px 20px 0; gap: 12px; }
+  .scp-season-icon { width: 36px; height: 36px; border-radius: 10px; }
+  .scp-season-icon i { font-size: 0.95rem; }
+  .scp-season-title { font-size: 0.95rem; }
   .scp-details { padding: 12px 20px; }
-  .scp-actions { padding: 12px 20px; align-items: stretch; }
+  .scp-session-list { padding: 0 20px 12px; }
+  .scp-actions { padding: 0 20px 16px; justify-content: stretch; }
   .scp-actions .btn { width: 100%; text-align: center; }
+  .scp-pause-body { padding: 16px 20px; }
+  .scp-coming-soon-body { padding: 16px 20px; }
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; text-align: center; }
   .nsb-grid { grid-template-columns: 1fr; gap: 20px; }

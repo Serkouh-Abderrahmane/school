@@ -1,0 +1,62 @@
+{
+  "francais-express": [
+    "francais-express.webp"
+  ],
+  "soiree-linguo": [
+    "soiree-linguo.webp"
+  ],
+  "samedis-en-francais": [
+    "samedis-francais.webp"
+  ],
+  "english-express": [
+    "english-express.webp"
+  ],
+  "evening-lingo": [
+    "evening-lingo.webp"
+  ],
+  "saturdays-english": [
+    "saturdays-english.webp"
+  ],
+  "cap-sur-l-oral": [
+    "cap-sur-loral-hero.webp",
+    "cap-sur-loral-intro.webp"
+  ],
+  "oral-b-partiel": [
+    "oral-b-partiel.webp"
+  ],
+  "oral-b-intensif": [
+    "oral-b-intensif.webp"
+  ],
+  "oral-c-partiel": [
+    "oral-c-partiel.webp"
+  ],
+  "oral-c-intensif": [
+    "oral-c-intensif.webp"
+  ],
+  "tcf-quebec": [
+    "tcf-quebec-intro.webp",
+    "tcf-quebec-partiel.webp"
+  ],
+  "tcf-quebec-intensif": [
+    "tcf-quebec-intensif.webp"
+  ],
+  "tcf-canada": [
+    "tcf-canada-intro.webp",
+    "tcf-canada-partiel.webp"
+  ],
+  "tcf-canada-intensif": [
+    "tcf-canada-intensif.webp"
+  ],
+  "formation-solo": [
+    "formation-solo-hero.webp",
+    "solo-5h.webp",
+    "solo-10h.webp",
+    "solo-15h.webp",
+    "solo-20h.webp"
+  ],
+  "ateliers": [
+    "ateliers-hero.webp",
+    "atelier-culture-canada.webp",
+    "atelier-maintien.webp"
+  ]
+}
