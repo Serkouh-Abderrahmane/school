@@ -668,6 +668,157 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.45rem); letter-spacing: -0.025em; font-wei
 }
 
 /* ══════════════════════════════════════════════════════════════
+   SOLO PRICING CARDS — Premium SaaS-style
+   ══════════════════════════════════════════════════════════════ */
+.solo-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.solo-price-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: 32px 24px 28px;
+  border: 1.5px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.solo-price-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px);
+  border-color: rgba(250, 78, 48, 0.12);
+}
+.solo-price-card--featured {
+  border-color: var(--color-orange);
+  box-shadow: 0 8px 40px rgba(250, 78, 48, 0.12);
+  transform: scale(1.03);
+  z-index: 2;
+}
+.solo-price-card--featured:hover {
+  box-shadow: 0 16px 60px rgba(250, 78, 48, 0.18);
+  transform: scale(1.03) translateY(-4px);
+}
+.solo-price-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--color-orange), var(--color-orange-bright));
+  color: var(--color-white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 5px 16px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px rgba(250, 78, 48, 0.25);
+  white-space: nowrap;
+}
+.solo-price-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 1.4rem;
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.solo-price-card:hover .solo-price-icon { transform: scale(1.1) rotate(-3deg); }
+.solo-price-icon--orange { background: rgba(250, 78, 48, 0.08); color: var(--color-orange); }
+.solo-price-icon--blue { background: rgba(35, 103, 208, 0.08); color: var(--color-blue); }
+.solo-price-icon--green { background: rgba(115, 206, 101, 0.08); color: var(--color-green); }
+.solo-price-icon--amber { background: rgba(252, 151, 5, 0.08); color: var(--color-amber); }
+.solo-price-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+.solo-price-hours {
+  font-size: 0.78rem;
+  color: var(--color-text-tertiary);
+  margin-bottom: 16px;
+}
+.solo-price-amount {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.solo-price-card--featured .solo-price-amount { color: var(--color-orange); }
+.solo-price-rate {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-tertiary);
+  margin-bottom: 16px;
+  padding: 4px 12px;
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-full);
+}
+.solo-price-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex: 1;
+}
+.solo-price-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  width: 100%;
+  text-align: left;
+}
+.solo-price-features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  padding: 5px 0;
+}
+.solo-price-features li i {
+  color: var(--color-green);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  width: 16px;
+  text-align: center;
+}
+.solo-price-cta {
+  width: 100%;
+}
+.solo-price-cta .btn {
+  width: 100%;
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 0.875rem;
+}
+.solo-price-card--featured .solo-price-cta .btn-primary {
+  background: linear-gradient(135deg, var(--color-orange), var(--color-orange-bright));
+  box-shadow: 0 6px 24px rgba(250, 78, 48, 0.3);
+}
+
+.solo-comparison-note {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 0.85rem;
+  color: var(--color-text-tertiary);
+}
+.solo-comparison-note i { color: var(--color-orange); margin-right: 4px; }
+
+/* ══════════════════════════════════════════════════════════════
    RESPONSIVE
    ══════════════════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
@@ -697,6 +848,9 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.45rem); letter-spacing: -0.025em; font-wei
   .scp-actions .btn { width: 100%; text-align: center; }
   .scp-pause-body { padding: 16px 20px; }
   .scp-coming-soon-body { padding: 16px 20px; }
+  .solo-pricing-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .solo-price-card--featured { transform: none; }
+  .solo-price-card--featured:hover { transform: translateY(-4px); }
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; text-align: center; }
   .nsb-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -712,6 +866,7 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.45rem); letter-spacing: -0.025em; font-wei
   .feature-card-icon { width: 36px; height: 36px; border-radius: 10px; }
   .feature-card-icon i { font-size: 0.9rem; }
   .booking-facts { grid-template-columns: repeat(2, 1fr); }
+  .solo-pricing-grid { grid-template-columns: 1fr; gap: 16px; max-width: 380px; margin: 0 auto; }
   .trust-badges { gap: 4px; }
   .trust-badge { font-size: 0.6rem; padding: 3px 8px; }
   .hero-chips { justify-content: center; }

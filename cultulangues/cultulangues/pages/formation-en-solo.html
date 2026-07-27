@@ -6,6 +6,7 @@
   <title>Formation en Solo — Cultulangues</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/premium.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
 </head>
 <body>
@@ -120,76 +121,83 @@
             <h2 data-i18n="solo.packages.title">Formules et <span class="text-gradient">forfaits</span></h2>
             <p data-i18n="solo.packages.subtitle">Choisissez le nombre d'heures qui vous convient. Tarifs dégressifs selon le forfait.</p>
           </div>
-          <div class="grid-4 stagger-children">
-            <div class="subservice-card" data-course-card data-course-page="solo" data-course-id="1">
-              <div class="subservice-card-image">
-                <img src="../assets/services/solo-5h.webp" alt="Forfait 5h" loading="lazy">
-              </div>
-              <div class="subservice-card-body" style="text-align:center">
-                <h3 data-i18n="solo.pkg1.title" data-course-field="title">Forfait Découverte</h3>
-                <p data-i18n="solo.pkg1.desc" data-course-field="desc">Idéal pour découvrir la méthode ou pour un besoin ponctuel.</p>
-                <div class="subservice-card-meta" style="justify-content:center">
-                  <span data-course-field="sessions">⏱ 5 séances</span>
-                  <span data-course-field="rate">💰 45 $/h</span>
-                </div>
-                <div class="subservice-card-footer" style="justify-content:center;flex-direction:column">
-                  <div class="subservice-card-price" data-course-field="price">225 $</div>
-                  <a href="../booking.html?course=solo&program=5h" class="btn btn-primary btn-sm mt-sm w-full" data-i18n="common.choose">Choisir</a>
-                </div>
-              </div>
-            </div>
-            <div class="subservice-card" data-course-card data-course-page="solo" data-course-id="2">
-              <div class="subservice-card-image">
-                <img src="../assets/services/solo-10h.webp" alt="Forfait 10h" loading="lazy">
-              </div>
-              <div class="subservice-card-body" style="text-align:center">
-                <h3 data-i18n="solo.pkg2.title" data-course-field="title">Forfait Standard</h3>
-                <p data-i18n="solo.pkg2.desc" data-course-field="desc">Parfait pour un suivi régulier sur plusieurs semaines.</p>
-                <div class="subservice-card-meta" style="justify-content:center">
-                  <span data-course-field="sessions">⏱ 10 séances</span>
-                  <span data-course-field="rate">💰 42 $/h</span>
-                </div>
-                <div class="subservice-card-footer" style="justify-content:center;flex-direction:column">
-                  <div class="subservice-card-price" data-course-field="price">420 $</div>
-                  <a href="../booking.html?course=solo&program=10h" class="btn btn-primary btn-sm mt-sm w-full" data-i18n="common.choose">Choisir</a>
-                </div>
+          <div class="solo-pricing-grid">
+
+            <div class="solo-price-card" data-course-card data-course-page="solo" data-course-id="1">
+              <div class="solo-price-icon solo-price-icon--blue"><i class="fas fa-seedling"></i></div>
+              <div class="solo-price-name" data-course-field="title">Forfait Découverte</div>
+              <div class="solo-price-hours">5 séances de 1h</div>
+              <div class="solo-price-amount" data-course-field="price">225 $</div>
+              <div class="solo-price-rate" data-course-field="rate">45 $/h</div>
+              <div class="solo-price-desc">Idéal pour découvrir la méthode ou pour un besoin ponctuel.</div>
+              <ul class="solo-price-features">
+                <li><i class="fas fa-check-circle"></i> Évaluation initiale offerte</li>
+                <li><i class="fas fa-check-circle"></i> Programme personnalisé</li>
+                <li><i class="fas fa-check-circle"></i> Flexibilité d'horaire</li>
+              </ul>
+              <div class="solo-price-cta">
+                <a href="../booking.html?course=solo&program=5h" class="btn btn-outline btn-sm" data-i18n="common.choose">Choisir ce forfait</a>
               </div>
             </div>
-            <div class="subservice-card" style="position:relative" data-course-card data-course-page="solo" data-course-id="3">
-              <span class="popular-badge" data-i18n="common.popular">Populaire</span>
-              <div class="subservice-card-image">
-                <img src="../assets/services/solo-15h.webp" alt="Forfait 15h" loading="lazy">
-              </div>
-              <div class="subservice-card-body" style="text-align:center">
-                <h3 data-i18n="solo.pkg3.title" data-course-field="title">Forfait Avancé</h3>
-                <p data-i18n="solo.pkg3.desc" data-course-field="desc">Le meilleur rapport qualité-prix pour une progression significative.</p>
-                <div class="subservice-card-meta" style="justify-content:center">
-                  <span data-course-field="sessions">⏱ 15 séances</span>
-                  <span data-course-field="rate">💰 40 $/h</span>
-                </div>
-                <div class="subservice-card-footer" style="justify-content:center;flex-direction:column">
-                  <div class="subservice-card-price" data-course-field="price">600 $</div>
-                  <a href="../booking.html?course=solo&program=15h" class="btn btn-primary btn-sm mt-sm w-full" data-i18n="common.choose">Choisir</a>
-                </div>
-              </div>
-            </div>
-            <div class="subservice-card" data-course-card data-course-page="solo" data-course-id="4">
-              <div class="subservice-card-image">
-                <img src="../assets/services/solo-20h.webp" alt="Forfait 20h" loading="lazy">
-              </div>
-              <div class="subservice-card-body" style="text-align:center">
-                <h3 data-i18n="solo.pkg4.title" data-course-field="title">Forfait Intensif</h3>
-                <p data-i18n="solo.pkg4.desc" data-course-field="desc">Pour un accompagnement complet et une immersion linguistique totale.</p>
-                <div class="subservice-card-meta" style="justify-content:center">
-                  <span data-course-field="sessions">⏱ 20 séances</span>
-                  <span data-course-field="rate">💰 38 $/h</span>
-                </div>
-                <div class="subservice-card-footer" style="justify-content:center;flex-direction:column">
-                  <div class="subservice-card-price" data-course-field="price">760 $</div>
-                  <a href="../booking.html?course=solo&program=20h" class="btn btn-primary btn-sm mt-sm w-full" data-i18n="common.choose">Choisir</a>
-                </div>
+
+            <div class="solo-price-card" data-course-card data-course-page="solo" data-course-id="2">
+              <div class="solo-price-icon solo-price-icon--green"><i class="fas fa-bolt"></i></div>
+              <div class="solo-price-name" data-course-field="title">Forfait Standard</div>
+              <div class="solo-price-hours">10 séances de 1h</div>
+              <div class="solo-price-amount" data-course-field="price">420 $</div>
+              <div class="solo-price-rate" data-course-field="rate">42 $/h</div>
+              <div class="solo-price-desc">Parfait pour un suivi régulier sur plusieurs semaines.</div>
+              <ul class="solo-price-features">
+                <li><i class="fas fa-check-circle"></i> Tout le forfait Découverte</li>
+                <li><i class="fas fa-check-circle"></i> Suivi de progression</li>
+                <li><i class="fas fa-check-circle"></i> Ressources personnalisées</li>
+              </ul>
+              <div class="solo-price-cta">
+                <a href="../booking.html?course=solo&program=10h" class="btn btn-outline btn-sm" data-i18n="common.choose">Choisir ce forfait</a>
               </div>
             </div>
+
+            <div class="solo-price-card solo-price-card--featured" data-course-card data-course-page="solo" data-course-id="3">
+              <span class="solo-price-badge" data-i18n="common.popular">Populaire</span>
+              <div class="solo-price-icon solo-price-icon--orange"><i class="fas fa-fire"></i></div>
+              <div class="solo-price-name" data-course-field="title">Forfait Avancé</div>
+              <div class="solo-price-hours">15 séances de 1h</div>
+              <div class="solo-price-amount" data-course-field="price">600 $</div>
+              <div class="solo-price-rate" data-course-field="rate">40 $/h</div>
+              <div class="solo-price-desc">Le meilleur rapport qualité-prix pour une progression significative.</div>
+              <ul class="solo-price-features">
+                <li><i class="fas fa-check-circle"></i> Tout le forfait Standard</li>
+                <li><i class="fas fa-check-circle"></i> objectifs ciblés</li>
+                <li><i class="fas fa-check-circle"></i> Feedbacks détaillés</li>
+                <li><i class="fas fa-check-circle"></i> Support entre les séances</li>
+              </ul>
+              <div class="solo-price-cta">
+                <a href="../booking.html?course=solo&program=15h" class="btn btn-primary btn-sm" data-i18n="common.choose">Choisir ce forfait</a>
+              </div>
+            </div>
+
+            <div class="solo-price-card" data-course-card data-course-page="solo" data-course-id="4">
+              <div class="solo-price-icon solo-price-icon--amber"><i class="fas fa-crown"></i></div>
+              <div class="solo-price-name" data-course-field="title">Forfait Intensif</div>
+              <div class="solo-price-hours">20 séances de 1h</div>
+              <div class="solo-price-amount" data-course-field="price">760 $</div>
+              <div class="solo-price-rate" data-course-field="rate">38 $/h</div>
+              <div class="solo-price-desc">Pour un accompagnement complet et une immersion linguistique totale.</div>
+              <ul class="solo-price-features">
+                <li><i class="fas fa-check-circle"></i> Tout le forfait Avancé</li>
+                <li><i class="fas fa-check-circle"></i> Coaching intensif</li>
+                <li><i class="fas fa-check-circle"></i> Priorité absolue</li>
+                <li><i class="fas fa-check-circle"></i> Suivi hebdomadaire</li>
+              </ul>
+              <div class="solo-price-cta">
+                <a href="../booking.html?course=solo&program=20h" class="btn btn-outline btn-sm" data-i18n="common.choose">Choisir ce forfait</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="solo-comparison-note">
+            <i class="fas fa-info-circle"></i>
+            Tous les forfaits incluent une évaluation initiale et un programme sur mesure.
           </div>
         </div>
       </section>
@@ -317,20 +325,25 @@
       <div class="booking-card">
         <div class="booking-card-header">
           <h3>Formation en solo</h3>
-          <div class="bch-price">À partir de 225 $ <small>Tout compris</small></div>
+          <div class="bch-price">225 $ – 760 $ <small>Tarif dégressif</small></div>
         </div>
         <div class="booking-card-body">
           <div class="booking-facts">
-            <div class="booking-fact"><span class="bf-icon">⏱</span><span class="bf-value">5–20 h</span><span class="bf-label">Durée</span></div>
-            <div class="booking-fact"><span class="bf-icon">💰</span><span class="bf-value">38–45 $/h</span><span class="bf-label">Tarif</span></div>
-            <div class="booking-fact"><span class="bf-icon">👤</span><span class="bf-value">1 Pers.</span><span class="bf-label">Format</span></div>
-            <div class="booking-fact"><span class="bf-icon">📅</span><span class="bf-value">Flexible</span><span class="bf-label">Horaire</span></div>
+            <div class="booking-fact"><span class="bf-icon"><i class="fas fa-clock"></i></span><span class="bf-value">5–20 h</span><span class="bf-label">Durée</span></div>
+            <div class="booking-fact"><span class="bf-icon"><i class="fas fa-tag"></i></span><span class="bf-value">38–45 $/h</span><span class="bf-label">Tarif horaire</span></div>
+            <div class="booking-fact"><span class="bf-icon"><i class="fas fa-user"></i></span><span class="bf-value">1 Pers.</span><span class="bf-label">Format</span></div>
+            <div class="booking-fact"><span class="bf-icon"><i class="fas fa-calendar"></i></span><span class="bf-value">Flexible</span><span class="bf-label">Horaire</span></div>
           </div>
           <div class="booking-cta">
             <a href="../booking.html?course=solo" class="btn btn-primary">Réserver maintenant →</a>
             <a href="contact.html" class="btn btn-outline">Nous contacter</a>
           </div>
-          <p class="booking-note">Choisissez votre forfait<br>Paiement : virement, carte ou PayPal</p>
+          <div class="trust-badges">
+            <span class="trust-badge"><i class="fas fa-check-circle"></i> Évaluation offerte</span>
+            <span class="trust-badge"><i class="fas fa-check-circle"></i> Sans engagement</span>
+            <span class="trust-badge"><i class="fas fa-check-circle"></i> Annulation flexible</span>
+          </div>
+          <p class="booking-note">Choisissez votre forfait ci-dessus<br>Paiement : virement, carte ou PayPal</p>
         </div>
       </div>
     </div>
